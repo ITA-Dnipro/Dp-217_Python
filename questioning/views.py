@@ -11,6 +11,7 @@ def questioning_view(request):
     return render(request, "questioning.html")
 
 
+@csrf_exempt
 def remove_result(request, url):
     return delete_result(request, TestResult.objects.get(url=url))
 
@@ -29,18 +30,19 @@ def questioning_results(request, link=''):
         save_questions_results(request, results)
         resulted_text = create_answer(results)
         return render(request, 'questioning_results.html', resulted_text)
-    if link == '':
-        title = get_all_answers(request)
+    elif link == '':
+        resulted_text = get_all_answers(request)
     else:
         query = TestResult.objects.filter(url=link)
         if query:
             results = query.first().results
             results = [int(i) for i in results[1:-1].replace(' ', '').split(',')]
             resulted_text = create_answer(results)
-            return render(request, 'questioning_results_current.html', resulted_text)
+            resulted_text['var1'] = True
+            return render(request, 'questioning_results.html', resulted_text)
         else:
-            title = {'title': 'Результат опитування не знайдено', }
-    return render(request, 'questioning_results_full.html', title)
+            resulted_text = {'title': 'Результат опитування не знайдено', }
+    return render(request, 'questioning_results_full.html', resulted_text)
 
 
 @csrf_exempt
