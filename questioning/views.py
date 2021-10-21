@@ -38,7 +38,6 @@ def questioning_results(request, link=''):
             results = query.first().results
             results = [int(i) for i in results[1:-1].replace(' ', '').split(',')]
             resulted_text = create_answer(results)
-            resulted_text['var1'] = True
             return render(request, 'questioning_results.html', resulted_text)
         else:
             resulted_text = {'title': 'Результат опитування не знайдено', }
