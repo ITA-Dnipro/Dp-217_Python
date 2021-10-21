@@ -16,8 +16,7 @@ This is a multi-repo project, written (almost) entirely in python.
 Set of used technologies and dependencies is different for every module. This readme aims at describing the main module of the application - Django Module. You can find specifications for other modules in their repos.
 Other modules:
 - [Parsing University Service](https://github.com/ITA-Dnipro/Dp-217_Python-parsing_university_service);
-- [WIP](#);
-- [WIP](#).
+- [Parsing Relocation Service](https://github.com/ITA-Dnipro/Dp-217_Python-parsing_relocation_service).
 
 ### Structure & used technologies
 The Django Module consists of Django back-end&front-end, PostgreSQL database and Nginx webserver.
@@ -49,6 +48,11 @@ The app contents can be found in the Dp-217_Python/relocation directory.
 ### Dependencies
 These are python libraries listed in requirements.txt:
 - Django==3.2.7
+- django-crontab==0.7.1
+- Jinja2==3.0.2
+- jinja2-time==0.2.0
+- MarkupSafe==2.0.1
+- psycopg2==2.9.1
 
 ### Language
 The interface of the application is multilingual (ua/ru/en). The source code contains comments, written in english.

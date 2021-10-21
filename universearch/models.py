@@ -2,11 +2,11 @@ from django.db import models
 
 
 class StudyField(models.Model):
-    name = models.CharField(max_length=50)
+    name = models.CharField(max_length=200)
 
 
 class Speciality(models.Model):
-    name = models.CharField(max_length=50)
+    name = models.CharField(max_length=200)
     study_field = models.ForeignKey(StudyField, on_delete=models.CASCADE, related_name='specialities')
 
     def __str__(self):
@@ -14,14 +14,14 @@ class Speciality(models.Model):
 
 
 class Region(models.Model):
-    name = models.CharField(max_length=50)
+    name = models.CharField(max_length=200)
 
     def __str__(self):
         return f"{self.name}"
 
 
 class City(models.Model):
-    name = models.CharField(max_length=50)
+    name = models.CharField(max_length=200)
     region = models.ForeignKey(Region, on_delete=models.CASCADE, related_name='cities')
 
     def __str__(self):
@@ -29,7 +29,7 @@ class City(models.Model):
 
 
 class University(models.Model):
-    name = models.CharField(max_length=255)
+    name = models.CharField(max_length=250)
     city = models.ForeignKey(City, on_delete=models.CASCADE, related_name='universities')
     specialities = models.ManyToManyField(Speciality, related_name='universities')
 

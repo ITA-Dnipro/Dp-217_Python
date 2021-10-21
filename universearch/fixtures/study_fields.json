@@ -1,0 +1,205 @@
+[
+  {
+    "model": "universearch.studyfield",
+    "pk": 1,
+    "fields": {
+      "name": "01 Освіта"
+    }
+  },
+  {
+    "model": "universearch.studyfield",
+    "pk": 2,
+    "fields": {
+      "name": "02 Культура та мистецтво"
+    }
+  },
+  {
+    "model": "universearch.studyfield",
+    "pk": 3,
+    "fields": {
+      "name": "03 Гуманітарні науки"
+    }
+  },
+  {
+    "model": "universearch.studyfield",
+    "pk": 4,
+    "fields": {
+      "name": "04 Богослов’я"
+    }
+  },
+  {
+    "model": "universearch.studyfield",
+    "pk": 5,
+    "fields": {
+      "name": "05 Соціальні та поведінкові науки"
+    }
+  },
+  {
+    "model": "universearch.studyfield",
+    "pk": 6,
+    "fields": {
+      "name": "06 Журналістика"
+    }
+  },
+  {
+    "model": "universearch.studyfield",
+    "pk": 7,
+    "fields": {
+      "name": "07 Управління та адміністрування"
+    }
+  },
+  {
+    "model": "universearch.studyfield",
+    "pk": 8,
+    "fields": {
+      "name": "08 Право"
+    }
+  },
+  {
+    "model": "universearch.studyfield",
+    "pk": 9,
+    "fields": {
+      "name": "09 Біологія"
+    }
+  },
+  {
+    "model": "universearch.studyfield",
+    "pk": 10,
+    "fields": {
+      "name": "10 Природничі науки"
+    }
+  },
+  {
+    "model": "universearch.studyfield",
+    "pk": 11,
+    "fields": {
+      "name": "11 Математика та статистика"
+    }
+  },
+  {
+    "model": "universearch.studyfield",
+    "pk": 12,
+    "fields": {
+      "name": "12 Інформаційні технології"
+    }
+  },
+  {
+    "model": "universearch.studyfield",
+    "pk": 13,
+    "fields": {
+      "name": "13 Механічна інженерія"
+    }
+  },
+  {
+    "model": "universearch.studyfield",
+    "pk": 14,
+    "fields": {
+      "name": "14 Електрична інженерія"
+    }
+  },
+  {
+    "model": "universearch.studyfield",
+    "pk": 15,
+    "fields": {
+      "name": "15 Автоматизація та приладобудування"
+    }
+  },
+  {
+    "model": "universearch.studyfield",
+    "pk": 16,
+    "fields": {
+      "name": "16 Хімічна та біоінженерія"
+    }
+  },
+  {
+    "model": "universearch.studyfield",
+    "pk": 17,
+    "fields": {
+      "name": "17 Електроніка та телекомунікації"
+    }
+  },
+  {
+    "model": "universearch.studyfield",
+    "pk": 18,
+    "fields": {
+      "name": "18 Виробництво та технології"
+    }
+  },
+  {
+    "model": "universearch.studyfield",
+    "pk": 19,
+    "fields": {
+      "name": "19 Архітектура та будівництво"
+    }
+  },
+  {
+    "model": "universearch.studyfield",
+    "pk": 20,
+    "fields": {
+      "name": "20 Аграрні науки та продовольство"
+    }
+  },
+  {
+    "model": "universearch.studyfield",
+    "pk": 21,
+    "fields": {
+      "name": "21 Ветеринарна медицина"
+    }
+  },
+  {
+    "model": "universearch.studyfield",
+    "pk": 22,
+    "fields": {
+      "name": "22 Охорона здоров’я"
+    }
+  },
+  {
+    "model": "universearch.studyfield",
+    "pk": 23,
+    "fields": {
+      "name": "23 Соціальна робота"
+    }
+  },
+  {
+    "model": "universearch.studyfield",
+    "pk": 24,
+    "fields": {
+      "name": "24 Сфера обслуговування"
+    }
+  },
+  {
+    "model": "universearch.studyfield",
+    "pk": 25,
+    "fields": {
+      "name": "25 Воєнні науки, національна безпека, безпека державного кордону"
+    }
+  },
+  {
+    "model": "universearch.studyfield",
+    "pk": 26,
+    "fields": {
+      "name": "26 Цивільна безпека"
+    }
+  },
+  {
+    "model": "universearch.studyfield",
+    "pk": 27,
+    "fields": {
+      "name": "27 Транспорт"
+    }
+  },
+  {
+    "model": "universearch.studyfield",
+    "pk": 28,
+    "fields": {
+      "name": "28 Публічне управління і адміністрування"
+    }
+  },
+  {
+    "model": "universearch.studyfield",
+    "pk": 29,
+    "fields": {
+      "name": "29 Міжнародні відносини"
+    }
+  }
+]

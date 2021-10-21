@@ -1,0 +1,394 @@
+[
+  {
+    "model": "universearch.city",
+    "pk": 1,
+    "fields": {
+      "name": "Івано-Франківськ",
+      "region": 1
+    }
+  },
+  {
+    "model": "universearch.city",
+    "pk": 2,
+    "fields": {
+      "name": "Косів",
+      "region": 1
+    }
+  },
+  {
+    "model": "universearch.city",
+    "pk": 3,
+    "fields": {
+      "name": "Вінниця",
+      "region": 2
+    }
+  },
+  {
+    "model": "universearch.city",
+    "pk": 4,
+    "fields": {
+      "name": "Луцьк",
+      "region": 3
+    }
+  },
+  {
+    "model": "universearch.city",
+    "pk": 5,
+    "fields": {
+      "name": "Дніпро",
+      "region": 4
+    }
+  },
+  {
+    "model": "universearch.city",
+    "pk": 6,
+    "fields": {
+      "name": "Кам'янське",
+      "region": 4
+    }
+  },
+  {
+    "model": "universearch.city",
+    "pk": 7,
+    "fields": {
+      "name": "Кривий Ріг",
+      "region": 4
+    }
+  },
+  {
+    "model": "universearch.city",
+    "pk": 8,
+    "fields": {
+      "name": "Нікополь",
+      "region": 4
+    }
+  },
+  {
+    "model": "universearch.city",
+    "pk": 9,
+    "fields": {
+      "name": "Краматорськ",
+      "region": 5
+    }
+  },
+  {
+    "model": "universearch.city",
+    "pk": 10,
+    "fields": {
+      "name": "Маріуполь",
+      "region": 5
+    }
+  },
+  {
+    "model": "universearch.city",
+    "pk": 11,
+    "fields": {
+      "name": "Покровськ",
+      "region": 5
+    }
+  },
+  {
+    "model": "universearch.city",
+    "pk": 12,
+    "fields": {
+      "name": "Слов'янськ",
+      "region": 5
+    }
+  },
+  {
+    "model": "universearch.city",
+    "pk": 13,
+    "fields": {
+      "name": "Житомир",
+      "region": 6
+    }
+  },
+  {
+    "model": "universearch.city",
+    "pk": 14,
+    "fields": {
+      "name": "Ужгород",
+      "region": 7
+    }
+  },
+  {
+    "model": "universearch.city",
+    "pk": 15,
+    "fields": {
+      "name": "Бердянськ",
+      "region": 8
+    }
+  },
+  {
+    "model": "universearch.city",
+    "pk": 16,
+    "fields": {
+      "name": "Запоріжжя",
+      "region": 8
+    }
+  },
+  {
+    "model": "universearch.city",
+    "pk": 17,
+    "fields": {
+      "name": "Мелітополь",
+      "region": 8
+    }
+  },
+  {
+    "model": "universearch.city",
+    "pk": 18,
+    "fields": {
+      "name": "Кропивницький",
+      "region": 9
+    }
+  },
+  {
+    "model": "universearch.city",
+    "pk": 19,
+    "fields": {
+      "name": "Ірпінь",
+      "region": 10
+    }
+  },
+  {
+    "model": "universearch.city",
+    "pk": 20,
+    "fields": {
+      "name": "Біла Церква",
+      "region": 10
+    }
+  },
+  {
+    "model": "universearch.city",
+    "pk": 21,
+    "fields": {
+      "name": "Київ",
+      "region": 10
+    }
+  },
+  {
+    "model": "universearch.city",
+    "pk": 22,
+    "fields": {
+      "name": "Переяслав-Хмельницький",
+      "region": 10
+    }
+  },
+  {
+    "model": "universearch.city",
+    "pk": 23,
+    "fields": {
+      "name": "Рубіжне",
+      "region": 11
+    }
+  },
+  {
+    "model": "universearch.city",
+    "pk": 24,
+    "fields": {
+      "name": "Сєвєродонецьк",
+      "region": 11
+    }
+  },
+  {
+    "model": "universearch.city",
+    "pk": 25,
+    "fields": {
+      "name": "Старобільск",
+      "region": 11
+    }
+  },
+  {
+    "model": "universearch.city",
+    "pk": 26,
+    "fields": {
+      "name": "Дрогобич",
+      "region": 12
+    }
+  },
+  {
+    "model": "universearch.city",
+    "pk": 27,
+    "fields": {
+      "name": "Дубляни",
+      "region": 12
+    }
+  },
+  {
+    "model": "universearch.city",
+    "pk": 28,
+    "fields": {
+      "name": "Львів",
+      "region": 12
+    }
+  },
+  {
+    "model": "universearch.city",
+    "pk": 29,
+    "fields": {
+      "name": "Миколаїв",
+      "region": 13
+    }
+  },
+  {
+    "model": "universearch.city",
+    "pk": 30,
+    "fields": {
+      "name": "Первомайськ",
+      "region": 13
+    }
+  },
+  {
+    "model": "universearch.city",
+    "pk": 31,
+    "fields": {
+      "name": "Ізмаїл",
+      "region": 14
+    }
+  },
+  {
+    "model": "universearch.city",
+    "pk": 32,
+    "fields": {
+      "name": "Одеса",
+      "region": 14
+    }
+  },
+  {
+    "model": "universearch.city",
+    "pk": 33,
+    "fields": {
+      "name": "Кременчук",
+      "region": 15
+    }
+  },
+  {
+    "model": "universearch.city",
+    "pk": 34,
+    "fields": {
+      "name": "Рівне",
+      "region": 16
+    }
+  },
+  {
+    "model": "universearch.city",
+    "pk": 35,
+    "fields": {
+      "name": "Глухів",
+      "region": 17
+    }
+  },
+  {
+    "model": "universearch.city",
+    "pk": 36,
+    "fields": {
+      "name": "Суми",
+      "region": 17
+    }
+  },
+  {
+    "model": "universearch.city",
+    "pk": 37,
+    "fields": {
+      "name": "Бережани",
+      "region": 18
+    }
+  },
+  {
+    "model": "universearch.city",
+    "pk": 38,
+    "fields": {
+      "name": "Кременець",
+      "region": 18
+    }
+  },
+  {
+    "model": "universearch.city",
+    "pk": 39,
+    "fields": {
+      "name": "Тернопіль",
+      "region": 18
+    }
+  },
+  {
+    "model": "universearch.city",
+    "pk": 40,
+    "fields": {
+      "name": "Мала Данилівка",
+      "region": 19
+    }
+  },
+  {
+    "model": "universearch.city",
+    "pk": 41,
+    "fields": {
+      "name": "Харків",
+      "region": 19
+    }
+  },
+  {
+    "model": "universearch.city",
+    "pk": 42,
+    "fields": {
+      "name": "Нова Каховка",
+      "region": 20
+    }
+  },
+  {
+    "model": "universearch.city",
+    "pk": 43,
+    "fields": {
+      "name": "Херсон",
+      "region": 20
+    }
+  },
+  {
+    "model": "universearch.city",
+    "pk": 44,
+    "fields": {
+      "name": "Кам'янець-Подільський",
+      "region": 21
+    }
+  },
+  {
+    "model": "universearch.city",
+    "pk": 45,
+    "fields": {
+      "name": "Хмельницький",
+      "region": 21
+    }
+  },
+  {
+    "model": "universearch.city",
+    "pk": 46,
+    "fields": {
+      "name": "Черкаси",
+      "region": 22
+    }
+  },
+  {
+    "model": "universearch.city",
+    "pk": 47,
+    "fields": {
+      "name": "Чернівці",
+      "region": 23
+    }
+  },
+  {
+    "model": "universearch.city",
+    "pk": 48,
+    "fields": {
+      "name": "Ніжин",
+      "region": 24
+    }
+  },
+  {
+    "model": "universearch.city",
+    "pk": 49,
+    "fields": {
+      "name": "Чернігів",
+      "region": 24
+    }
+  }
+]

@@ -1,0 +1,930 @@
+[
+  {
+    "model": "universearch.speciality",
+    "pk": 1,
+    "fields": {
+      "name": "011 Науки про освіту",
+      "study_field": 1
+    }
+  },
+  {
+    "model": "universearch.speciality",
+    "pk": 2,
+    "fields": {
+      "name": "012 Дошкільна освіта",
+      "study_field": 1
+    }
+  },
+  {
+    "model": "universearch.speciality",
+    "pk": 3,
+    "fields": {
+      "name": "013 Початкова освіта",
+      "study_field": 1
+    }
+  },
+  {
+    "model": "universearch.speciality",
+    "pk": 4,
+    "fields": {
+      "name": "014 Середня освіта (за предметними спеціалізаціями)",
+      "study_field": 1
+    }
+  },
+  {
+    "model": "universearch.speciality",
+    "pk": 5,
+    "fields": {
+      "name": "015 Професійна освіта (за спеціалізаціями)",
+      "study_field": 1
+    }
+  },
+  {
+    "model": "universearch.speciality",
+    "pk": 6,
+    "fields": {
+      "name": "016 Спеціальна освіта",
+      "study_field": 1
+    }
+  },
+  {
+    "model": "universearch.speciality",
+    "pk": 7,
+    "fields": {
+      "name": "017 Фізична культура і спорт",
+      "study_field": 1
+    }
+  },
+  {
+    "model": "universearch.speciality",
+    "pk": 8,
+    "fields": {
+      "name": "021 Аудіовізуальне мистецтво та виробництво",
+      "study_field": 2
+    }
+  },
+  {
+    "model": "universearch.speciality",
+    "pk": 9,
+    "fields": {
+      "name": "022 Дизайн",
+      "study_field": 2
+    }
+  },
+  {
+    "model": "universearch.speciality",
+    "pk": 10,
+    "fields": {
+      "name": "023 Образотворче мистецтво, декоративне мистецтво, реставрація",
+      "study_field": 2
+    }
+  },
+  {
+    "model": "universearch.speciality",
+    "pk": 11,
+    "fields": {
+      "name": "024 Хореографія",
+      "study_field": 2
+    }
+  },
+  {
+    "model": "universearch.speciality",
+    "pk": 12,
+    "fields": {
+      "name": "025 Музичне мистецтво",
+      "study_field": 2
+    }
+  },
+  {
+    "model": "universearch.speciality",
+    "pk": 13,
+    "fields": {
+      "name": "026 Сценічне мистецтво",
+      "study_field": 2
+    }
+  },
+  {
+    "model": "universearch.speciality",
+    "pk": 14,
+    "fields": {
+      "name": "027 Музеєзнавство, пам’яткознавство",
+      "study_field": 2
+    }
+  },
+  {
+    "model": "universearch.speciality",
+    "pk": 15,
+    "fields": {
+      "name": "028 Менеджмент соціокультурної діяльності",
+      "study_field": 2
+    }
+  },
+  {
+    "model": "universearch.speciality",
+    "pk": 16,
+    "fields": {
+      "name": "029 Інформаційна, бібліотечна та архівна справа",
+      "study_field": 2
+    }
+  },
+  {
+    "model": "universearch.speciality",
+    "pk": 17,
+    "fields": {
+      "name": "031 Релігієзнавство",
+      "study_field": 3
+    }
+  },
+  {
+    "model": "universearch.speciality",
+    "pk": 18,
+    "fields": {
+      "name": "032 Історія та археологія",
+      "study_field": 3
+    }
+  },
+  {
+    "model": "universearch.speciality",
+    "pk": 19,
+    "fields": {
+      "name": "033 Філософія",
+      "study_field": 3
+    }
+  },
+  {
+    "model": "universearch.speciality",
+    "pk": 20,
+    "fields": {
+      "name": "034 Культурологія",
+      "study_field": 3
+    }
+  },
+  {
+    "model": "universearch.speciality",
+    "pk": 21,
+    "fields": {
+      "name": "035 Філологія",
+      "study_field": 3
+    }
+  },
+  {
+    "model": "universearch.speciality",
+    "pk": 22,
+    "fields": {
+      "name": "041 Богослов’я",
+      "study_field": 4
+    }
+  },
+  {
+    "model": "universearch.speciality",
+    "pk": 23,
+    "fields": {
+      "name": "051 Економіка",
+      "study_field": 5
+    }
+  },
+  {
+    "model": "universearch.speciality",
+    "pk": 24,
+    "fields": {
+      "name": "052 Політологія",
+      "study_field": 5
+    }
+  },
+  {
+    "model": "universearch.speciality",
+    "pk": 25,
+    "fields": {
+      "name": "053 Психологія",
+      "study_field": 5
+    }
+  },
+  {
+    "model": "universearch.speciality",
+    "pk": 26,
+    "fields": {
+      "name": "054 Соціологія",
+      "study_field": 5
+    }
+  },
+  {
+    "model": "universearch.speciality",
+    "pk": 27,
+    "fields": {
+      "name": "061 Журналістика",
+      "study_field": 6
+    }
+  },
+  {
+    "model": "universearch.speciality",
+    "pk": 28,
+    "fields": {
+      "name": "071 Облік і оподаткування",
+      "study_field": 7
+    }
+  },
+  {
+    "model": "universearch.speciality",
+    "pk": 29,
+    "fields": {
+      "name": "072 Фінанси, банківська справа та страхування",
+      "study_field": 8
+    }
+  },
+  {
+    "model": "universearch.speciality",
+    "pk": 30,
+    "fields": {
+      "name": "073 Менеджмент",
+      "study_field": 7
+    }
+  },
+  {
+    "model": "universearch.speciality",
+    "pk": 31,
+    "fields": {
+      "name": "075 Маркетинг",
+      "study_field": 7
+    }
+  },
+  {
+    "model": "universearch.speciality",
+    "pk": 32,
+    "fields": {
+      "name": "076 Підприємництво, торгівля та біржова діяльність",
+      "study_field": 7
+    }
+  },
+  {
+    "model": "universearch.speciality",
+    "pk": 33,
+    "fields": {
+      "name": "081 Право",
+      "study_field": 8
+    }
+  },
+  {
+    "model": "universearch.speciality",
+    "pk": 34,
+    "fields": {
+      "name": "091 Біологія",
+      "study_field": 9
+    }
+  },
+  {
+    "model": "universearch.speciality",
+    "pk": 35,
+    "fields": {
+      "name": "101 Екологія",
+      "study_field": 10
+    }
+  },
+  {
+    "model": "universearch.speciality",
+    "pk": 36,
+    "fields": {
+      "name": "102 Хімія",
+      "study_field": 10
+    }
+  },
+  {
+    "model": "universearch.speciality",
+    "pk": 37,
+    "fields": {
+      "name": "103 Науки про Землю",
+      "study_field": 10
+    }
+  },
+  {
+    "model": "universearch.speciality",
+    "pk": 38,
+    "fields": {
+      "name": "104 Фізика і астрономія",
+      "study_field": 10
+    }
+  },
+  {
+    "model": "universearch.speciality",
+    "pk": 39,
+    "fields": {
+      "name": "105 Прикладна фізика та наноматеріали",
+      "study_field": 10
+    }
+  },
+  {
+    "model": "universearch.speciality",
+    "pk": 40,
+    "fields": {
+      "name": "106 Географія",
+      "study_field": 10
+    }
+  },
+  {
+    "model": "universearch.speciality",
+    "pk": 41,
+    "fields": {
+      "name": "111 Математика",
+      "study_field": 11
+    }
+  },
+  {
+    "model": "universearch.speciality",
+    "pk": 42,
+    "fields": {
+      "name": "112 Статистика",
+      "study_field": 11
+    }
+  },
+  {
+    "model": "universearch.speciality",
+    "pk": 43,
+    "fields": {
+      "name": "113 Прикладна математика",
+      "study_field": 11
+    }
+  },
+  {
+    "model": "universearch.speciality",
+    "pk": 44,
+    "fields": {
+      "name": "121 Інженерія програмного забезпечення",
+      "study_field": 12
+    }
+  },
+  {
+    "model": "universearch.speciality",
+    "pk": 45,
+    "fields": {
+      "name": "122 Комп’ютерні науки",
+      "study_field": 13
+    }
+  },
+  {
+    "model": "universearch.speciality",
+    "pk": 46,
+    "fields": {
+      "name": "123 Комп’ютерна інженерія",
+      "study_field": 12
+    }
+  },
+  {
+    "model": "universearch.speciality",
+    "pk": 47,
+    "fields": {
+      "name": "124 Системний аналіз",
+      "study_field": 12
+    }
+  },
+  {
+    "model": "universearch.speciality",
+    "pk": 48,
+    "fields": {
+      "name": "125 Кібербезпека",
+      "study_field": 12
+    }
+  },
+  {
+    "model": "universearch.speciality",
+    "pk": 49,
+    "fields": {
+      "name": "126 Інформаційні системи і технології",
+      "study_field": 12
+    }
+  },
+  {
+    "model": "universearch.speciality",
+    "pk": 50,
+    "fields": {
+      "name": "131 Прикладна механіка",
+      "study_field": 13
+    }
+  },
+  {
+    "model": "universearch.speciality",
+    "pk": 51,
+    "fields": {
+      "name": "132 Матеріалознавство",
+      "study_field": 13
+    }
+  },
+  {
+    "model": "universearch.speciality",
+    "pk": 52,
+    "fields": {
+      "name": "133 Галузеве машинобудування",
+      "study_field": 13
+    }
+  },
+  {
+    "model": "universearch.speciality",
+    "pk": 53,
+    "fields": {
+      "name": "134 Авіаційна та ракетно-космічна техніка",
+      "study_field": 13
+    }
+  },
+  {
+    "model": "universearch.speciality",
+    "pk": 54,
+    "fields": {
+      "name": "141 Електроенергетика, електротехніка та електромеханіка",
+      "study_field": 14
+    }
+  },
+  {
+    "model": "universearch.speciality",
+    "pk": 55,
+    "fields": {
+      "name": "142 Енергетичне машинобудування",
+      "study_field": 14
+    }
+  },
+  {
+    "model": "universearch.speciality",
+    "pk": 56,
+    "fields": {
+      "name": "143 Атомна енергетика",
+      "study_field": 14
+    }
+  },
+  {
+    "model": "universearch.speciality",
+    "pk": 57,
+    "fields": {
+      "name": "144 Теплоенергетика",
+      "study_field": 14
+    }
+  },
+  {
+    "model": "universearch.speciality",
+    "pk": 58,
+    "fields": {
+      "name": "145 Гідроенергетика",
+      "study_field": 14
+    }
+  },
+  {
+    "model": "universearch.speciality",
+    "pk": 59,
+    "fields": {
+      "name": "151 Автоматизація та комп’ютерно-інтегровані технології",
+      "study_field": 15
+    }
+  },
+  {
+    "model": "universearch.speciality",
+    "pk": 60,
+    "fields": {
+      "name": "152 Метрологія та інформаційно-вимірювальна техніка",
+      "study_field": 15
+    }
+  },
+  {
+    "model": "universearch.speciality",
+    "pk": 61,
+    "fields": {
+      "name": "153 Мікро- та наносистемна техніка",
+      "study_field": 15
+    }
+  },
+  {
+    "model": "universearch.speciality",
+    "pk": 62,
+    "fields": {
+      "name": "161 Хімічні технології та інженерія",
+      "study_field": 16
+    }
+  },
+  {
+    "model": "universearch.speciality",
+    "pk": 63,
+    "fields": {
+      "name": "162 Біотехнології та біоінженерія",
+      "study_field": 16
+    }
+  },
+  {
+    "model": "universearch.speciality",
+    "pk": 64,
+    "fields": {
+      "name": "163 Біомедична інженерія",
+      "study_field": 16
+    }
+  },
+  {
+    "model": "universearch.speciality",
+    "pk": 65,
+    "fields": {
+      "name": "171 Електроніка",
+      "study_field": 17
+    }
+  },
+  {
+    "model": "universearch.speciality",
+    "pk": 66,
+    "fields": {
+      "name": "172 Телекомунікації та радіотехніка",
+      "study_field": 17
+    }
+  },
+  {
+    "model": "universearch.speciality",
+    "pk": 67,
+    "fields": {
+      "name": "173 Авіоніка",
+      "study_field": 17
+    }
+  },
+  {
+    "model": "universearch.speciality",
+    "pk": 68,
+    "fields": {
+      "name": "181 Харчові технології",
+      "study_field": 17
+    }
+  },
+  {
+    "model": "universearch.speciality",
+    "pk": 69,
+    "fields": {
+      "name": "182 Технології легкої промисловості",
+      "study_field": 18
+    }
+  },
+  {
+    "model": "universearch.speciality",
+    "pk": 70,
+    "fields": {
+      "name": "183 Технології захисту навколишнього середовища",
+      "study_field": 18
+    }
+  },
+  {
+    "model": "universearch.speciality",
+    "pk": 71,
+    "fields": {
+      "name": "184 Гірництво",
+      "study_field": 18
+    }
+  },
+  {
+    "model": "universearch.speciality",
+    "pk": 72,
+    "fields": {
+      "name": "185 Нафтогазова інженерія та технології",
+      "study_field": 18
+    }
+  },
+  {
+    "model": "universearch.speciality",
+    "pk": 73,
+    "fields": {
+      "name": "186 Видавництво та поліграфія",
+      "study_field": 18
+    }
+  },
+  {
+    "model": "universearch.speciality",
+    "pk": 74,
+    "fields": {
+      "name": "191 Архітектура та містобудування",
+      "study_field": 19
+    }
+  },
+  {
+    "model": "universearch.speciality",
+    "pk": 75,
+    "fields": {
+      "name": "192 Будівництво та цивільна інженерія",
+      "study_field": 19
+    }
+  },
+  {
+    "model": "universearch.speciality",
+    "pk": 76,
+    "fields": {
+      "name": "193 Геодезія та землеустрій",
+      "study_field": 19
+    }
+  },
+  {
+    "model": "universearch.speciality",
+    "pk": 77,
+    "fields": {
+      "name": "194 Гідротехнічне будівництво, водна інженерія та водні технології",
+      "study_field": 19
+    }
+  },
+  {
+    "model": "universearch.speciality",
+    "pk": 78,
+    "fields": {
+      "name": "201 Агрономія",
+      "study_field": 20
+    }
+  },
+  {
+    "model": "universearch.speciality",
+    "pk": 79,
+    "fields": {
+      "name": "202 Захист і карантин рослин",
+      "study_field": 20
+    }
+  },
+  {
+    "model": "universearch.speciality",
+    "pk": 80,
+    "fields": {
+      "name": "203 Садівництво та виноградарство",
+      "study_field": 20
+    }
+  },
+  {
+    "model": "universearch.speciality",
+    "pk": 81,
+    "fields": {
+      "name": "204 Технологія виробництва і переробки продукції тваринництва",
+      "study_field": 20
+    }
+  },
+  {
+    "model": "universearch.speciality",
+    "pk": 82,
+    "fields": {
+      "name": "205 Лісове господарство",
+      "study_field": 20
+    }
+  },
+  {
+    "model": "universearch.speciality",
+    "pk": 83,
+    "fields": {
+      "name": "206 Садово-паркове господарство",
+      "study_field": 20
+    }
+  },
+  {
+    "model": "universearch.speciality",
+    "pk": 84,
+    "fields": {
+      "name": "207 Водні біоресурси та аквакультура",
+      "study_field": 20
+    }
+  },
+  {
+    "model": "universearch.speciality",
+    "pk": 85,
+    "fields": {
+      "name": "208 Агроінженерія",
+      "study_field": 20
+    }
+  },
+  {
+    "model": "universearch.speciality",
+    "pk": 86,
+    "fields": {
+      "name": "211 Ветеринарна медицина",
+      "study_field": 21
+    }
+  },
+  {
+    "model": "universearch.speciality",
+    "pk": 87,
+    "fields": {
+      "name": "212 Ветеринарна гігієна, санітарія і експертиза",
+      "study_field": 21
+    }
+  },
+  {
+    "model": "universearch.speciality",
+    "pk": 88,
+    "fields": {
+      "name": "226 Фармація, промислова фармація",
+      "study_field": 22
+    }
+  },
+  {
+    "model": "universearch.speciality",
+    "pk": 89,
+    "fields": {
+      "name": "221 Стоматологія",
+      "study_field": 22
+    }
+  },
+  {
+    "model": "universearch.speciality",
+    "pk": 90,
+    "fields": {
+      "name": "222 Медицина",
+      "study_field": 22
+    }
+  },
+  {
+    "model": "universearch.speciality",
+    "pk": 91,
+    "fields": {
+      "name": "223 Медсестринство",
+      "study_field": 22
+    }
+  },
+  {
+    "model": "universearch.speciality",
+    "pk": 92,
+    "fields": {
+      "name": "224 Технології медичної діагностики та лікування",
+      "study_field": 22
+    }
+  },
+  {
+    "model": "universearch.speciality",
+    "pk": 93,
+    "fields": {
+      "name": "225 Медична психологія",
+      "study_field": 22
+    }
+  },
+  {
+    "model": "universearch.speciality",
+    "pk": 94,
+    "fields": {
+      "name": "227 Фізична терапія, Ерготерапія",
+      "study_field": 22
+    }
+  },
+  {
+    "model": "universearch.speciality",
+    "pk": 95,
+    "fields": {
+      "name": "228 Педіатрія",
+      "study_field": 22
+    }
+  },
+  {
+    "model": "universearch.speciality",
+    "pk": 96,
+    "fields": {
+      "name": "231 Соціальна робота",
+      "study_field": 23
+    }
+  },
+  {
+    "model": "universearch.speciality",
+    "pk": 97,
+    "fields": {
+      "name": "232 Соціальне забезпечення",
+      "study_field": 23
+    }
+  },
+  {
+    "model": "universearch.speciality",
+    "pk": 98,
+    "fields": {
+      "name": "241 Готельно-ресторанна справа",
+      "study_field": 24
+    }
+  },
+  {
+    "model": "universearch.speciality",
+    "pk": 99,
+    "fields": {
+      "name": "242 Туризм",
+      "study_field": 24
+    }
+  },
+  {
+    "model": "universearch.speciality",
+    "pk": 100,
+    "fields": {
+      "name": "251 Державна безпека",
+      "study_field": 25
+    }
+  },
+  {
+    "model": "universearch.speciality",
+    "pk": 101,
+    "fields": {
+      "name": "252 Безпека державного кордону",
+      "study_field": 25
+    }
+  },
+  {
+    "model": "universearch.speciality",
+    "pk": 102,
+    "fields": {
+      "name": "253 Військове управління (за видами збройних сил)",
+      "study_field": 25
+    }
+  },
+  {
+    "model": "universearch.speciality",
+    "pk": 103,
+    "fields": {
+      "name": "254 Забезпечення військ (сил)",
+      "study_field": 25
+    }
+  },
+  {
+    "model": "universearch.speciality",
+    "pk": 104,
+    "fields": {
+      "name": "255 Озброєння та військова техніка",
+      "study_field": 25
+    }
+  },
+  {
+    "model": "universearch.speciality",
+    "pk": 105,
+    "fields": {
+      "name": "261 Пожежна безпека",
+      "study_field": 26
+    }
+  },
+  {
+    "model": "universearch.speciality",
+    "pk": 106,
+    "fields": {
+      "name": "262 Правоохоронна діяльність",
+      "study_field": 26
+    }
+  },
+  {
+    "model": "universearch.speciality",
+    "pk": 107,
+    "fields": {
+      "name": "263 Цивільна безпека",
+      "study_field": 26
+    }
+  },
+  {
+    "model": "universearch.speciality",
+    "pk": 108,
+    "fields": {
+      "name": "271 Річковий та морський транспорт",
+      "study_field": 26
+    }
+  },
+  {
+    "model": "universearch.speciality",
+    "pk": 109,
+    "fields": {
+      "name": "272 Авіаційний транспорт",
+      "study_field": 27
+    }
+  },
+  {
+    "model": "universearch.speciality",
+    "pk": 110,
+    "fields": {
+      "name": "273 Залізничний транспорт",
+      "study_field": 27
+    }
+  },
+  {
+    "model": "universearch.speciality",
+    "pk": 111,
+    "fields": {
+      "name": "274 Автомобільний транспорт",
+      "study_field": 27
+    }
+  },
+  {
+    "model": "universearch.speciality",
+    "pk": 112,
+    "fields": {
+      "name": "275 Транспортні технології (за видами)",
+      "study_field": 27
+    }
+  },
+  {
+    "model": "universearch.speciality",
+    "pk": 113,
+    "fields": {
+      "name": "281 Публічне управління та адміністрування",
+      "study_field": 28
+    }
+  },
+  {
+    "model": "universearch.speciality",
+    "pk": 114,
+    "fields": {
+      "name": "291 Міжнародні відносини, суспільні комунікації та регіональні студії",
+      "study_field": 29
+    }
+  },
+  {
+    "model": "universearch.speciality",
+    "pk": 115,
+    "fields": {
+      "name": "292 Міжнародні економічні відносини",
+      "study_field": 29
+    }
+  },
+  {
+    "model": "universearch.speciality",
+    "pk": 116,
+    "fields": {
+      "name": "293 Міжнародне право",
+      "study_field": 29
+    }
+  }
+]

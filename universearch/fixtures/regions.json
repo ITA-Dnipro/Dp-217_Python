@@ -1,0 +1,170 @@
+[
+  {
+    "model": "universearch.region",
+    "pk": 1,
+    "fields": {
+      "name": "Івано-Франківська область"
+    }
+  },
+  {
+    "model": "universearch.region",
+    "pk": 2,
+    "fields": {
+      "name": "Вінницька область"
+    }
+  },
+  {
+    "model": "universearch.region",
+    "pk": 3,
+    "fields": {
+      "name": "Волинська область"
+    }
+  },
+  {
+    "model": "universearch.region",
+    "pk": 4,
+    "fields": {
+      "name": "Дніпропетровська область"
+    }
+  },
+  {
+    "model": "universearch.region",
+    "pk": 5,
+    "fields": {
+      "name": "Донецька область"
+    }
+  },
+  {
+    "model": "universearch.region",
+    "pk": 6,
+    "fields": {
+      "name": "Житомирська область"
+    }
+  },
+  {
+    "model": "universearch.region",
+    "pk": 7,
+    "fields": {
+      "name": "Закарпатська область"
+    }
+  },
+  {
+    "model": "universearch.region",
+    "pk": 8,
+    "fields": {
+      "name": "Запорізька область"
+    }
+  },
+  {
+    "model": "universearch.region",
+    "pk": 9,
+    "fields": {
+      "name": "Кіровоградська область"
+    }
+  },
+  {
+    "model": "universearch.region",
+    "pk": 10,
+    "fields": {
+      "name": "Київська область"
+    }
+  },
+  {
+    "model": "universearch.region",
+    "pk": 11,
+    "fields": {
+      "name": "Луганська область"
+    }
+  },
+  {
+    "model": "universearch.region",
+    "pk": 12,
+    "fields": {
+      "name": "Львівська область"
+    }
+  },
+  {
+    "model": "universearch.region",
+    "pk": 13,
+    "fields": {
+      "name": "Миколаївська область"
+    }
+  },
+  {
+    "model": "universearch.region",
+    "pk": 14,
+    "fields": {
+      "name": "Одеська область"
+    }
+  },
+  {
+    "model": "universearch.region",
+    "pk": 15,
+    "fields": {
+      "name": "Полтавська область"
+    }
+  },
+  {
+    "model": "universearch.region",
+    "pk": 16,
+    "fields": {
+      "name": "Рівненська область"
+    }
+  },
+  {
+    "model": "universearch.region",
+    "pk": 17,
+    "fields": {
+      "name": "Сумська область"
+    }
+  },
+  {
+    "model": "universearch.region",
+    "pk": 18,
+    "fields": {
+      "name": "Тернопільська область"
+    }
+  },
+  {
+    "model": "universearch.region",
+    "pk": 19,
+    "fields": {
+      "name": "Харківська область"
+    }
+  },
+  {
+    "model": "universearch.region",
+    "pk": 20,
+    "fields": {
+      "name": "Херсонська область"
+    }
+  },
+  {
+    "model": "universearch.region",
+    "pk": 21,
+    "fields": {
+      "name": "Хмельницька область"
+    }
+  },
+  {
+    "model": "universearch.region",
+    "pk": 22,
+    "fields": {
+      "name": "Черкаська область"
+    }
+  },
+  {
+    "model": "universearch.region",
+    "pk": 23,
+    "fields": {
+      "name": "Чернівецька область"
+    }
+  },
+  {
+    "model": "universearch.region",
+    "pk": 24,
+    "fields": {
+      "name": "Чернігівська область"
+    }
+  }
+]
