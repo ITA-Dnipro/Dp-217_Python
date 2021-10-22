@@ -29,7 +29,7 @@ def questioning_results(request, link=''):
         results = json.loads(request.read())
         save_questions_results(request, results)
         resulted_text = create_answer(results)
-        return render(request, 'questioning_results.html', resulted_text)
+        return render(request, 'questioning_result.html', resulted_text)
     elif link == '':
         resulted_text = get_all_answers(request)
     else:
@@ -38,10 +38,10 @@ def questioning_results(request, link=''):
             results = query.first().results
             results = [int(i) for i in results[1:-1].replace(' ', '').split(',')]
             resulted_text = create_answer(results)
-            return render(request, 'questioning_results.html', resulted_text)
+            return render(request, 'questioning_result.html', resulted_text)
         else:
             resulted_text = {'title': 'Результат опитування не знайдено', }
-    return render(request, 'questioning_results_full.html', resulted_text)
+    return render(request, 'questioning_results.html', resulted_text)
 
 
 @csrf_exempt
