@@ -13,7 +13,7 @@ def questioning_view(request):
 
 @csrf_exempt
 def remove_result(request, url):
-    return delete_result(request, TestResult.objects.get(url=url))
+    return delete_result(request, TestResult.objects.get(url=url).id)
 
 
 @csrf_exempt
@@ -35,9 +35,7 @@ def questioning_results(request, link=''):
     else:
         query = TestResult.objects.filter(url=link)
         if query:
-            results = query.first().results
-            results = [int(i) for i in results[1:-1].replace(' ', '').split(',')]
-            resulted_text = create_answer(results)
+            resulted_text = create_answer([int(i) for i in query.first().results[1:-1].replace(' ', '').split(',')])
             return render(request, 'questioning_result.html', resulted_text)
         else:
             resulted_text = {'title': 'Результат опитування не знайдено', }
@@ -51,6 +49,7 @@ def delete_result(request, id):
     if request.user != result.user_id:
         return HttpResponse(status=403)
 
+    get_object_or_404(TestResult, id=id).delete()
     result.delete()
     return HttpResponse(status=200)
 

@@ -82,7 +82,7 @@ def create_answer(results):
         result = categorised_results[item]
         expression_id = result // 3
         result_desc.append(
-            f"{part_res_desc}{category}» - {expression[expression_id]} ({result} з 7 балів).")
+            f"{part_res_desc}{category}» - {expression[expression_id]} ({result} з 8 балів).")
     resulted_text = {
         'title': title,
         'first_desc': desc[0],
@@ -106,7 +106,7 @@ def gen_result(results, dates, urls):
         result = [int(i) for i in result[1:-1].replace(' ', '').split(',')]
         categorised_results = {i: result.count(i) for i in set(result)}
         top_categories = get_top_categories(categorised_results)
-        items.append([date.strftime("%m/%d/%Y"),
+        items.append([date.strftime("%d/%m/%Y"),
                       categories_desc[top_categories[0]]['name'],
                       categories_desc[top_categories[1]]['name'],
                       categories_desc[top_categories[2]]['name'],
