@@ -1,5 +1,6 @@
 import hashlib
 import datetime
+from django.utils import timezone
 from django.db import models
 from django.core.validators import int_list_validator
 from users.models import CustomUser
@@ -12,7 +13,7 @@ class TestResult(models.Model):
     """
     Class defining a model, for representing test result with.
     """
-    created_date = models.DateTimeField(auto_now_add=True)
+    created_date = models.DateTimeField(default=timezone.now)
     results = models.CharField(validators=[int_list_validator], max_length=80)
     type = 1
     url = models.CharField(max_length=32, editable=False)

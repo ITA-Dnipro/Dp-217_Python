@@ -104,8 +104,7 @@ def gen_result(results, dates, urls):
     for index in range(len(urls)):
         result, date, url = results[index], dates[index], urls[index]
         result = [int(i) for i in result[1:-1].replace(' ', '').split(',')]
-        categorised_results = {i: result.count(i) for i in set(result)}
-        top_categories = get_top_categories(categorised_results)
+        top_categories = get_top_categories({i: result.count(i) for i in set(result)})
         items.append([date.strftime("%d/%m/%Y"),
                       categories_desc[top_categories[0]]['name'],
                       categories_desc[top_categories[1]]['name'],
