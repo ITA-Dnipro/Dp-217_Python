@@ -1,6 +1,5 @@
 import json
-from django.db.models import Prefetch
-from questioning.models import TestResult, UserTestResult, KlimovCategory
+from questioning.models import TestResult, KlimovCategory
 from users.models import CustomUser
 
 PROF_CATEGORIES = {
@@ -56,14 +55,12 @@ PROF_CATEGORIES = {
 }
 
 
-def save_questions_results(request, results):
-    if request.user.is_authenticated:
-        test_result = TestResult.objects.create(results=results)
-        user_id = CustomUser.objects.get(id=request.user.id, )
-        UserTestResult.objects.create(user_id=user_id, result_id=test_result)
+def save_questions_results(user_id, results):
+    user_id = CustomUser.objects.get(id=user_id)
+    TestResult.objects.create(results=results, user_id=user_id)
 
 
-def create_answer(results):
+def gen_result(results):
     categorised_results = {i: results.count(i) for i in set(results)}
     top_categories = get_top_categories(categorised_results)
     categories_desc = KlimovCategory.objects.all().values()
@@ -83,11 +80,10 @@ def create_answer(results):
         expression_id = result // 3
         result_desc.append(
             f"{part_res_desc}{category}» - {expression[expression_id]} ({result} з 8 балів).")
+
     resulted_text = {
         'title': title,
-        'first_desc': desc[0],
-        'second_desc': desc[1],
-        'third_desc': desc[2],
+        'first_desc': desc[0], 'second_desc': desc[1], 'third_desc': desc[2],
         'first_professions': f"{professions_options}{new_line}{professions[0]}",
         'second_professions': f"{professions_options}{new_line}{professions[1]}",
         'third_professions': f"{professions_options}{new_line}{professions[2]}",
@@ -98,12 +94,11 @@ def create_answer(results):
     return resulted_text
 
 
-def gen_result(results, dates, urls):
+def gen_results(results, dates, urls):
     items = []
     categories_desc = KlimovCategory.objects.all().values()
     for index in range(len(urls)):
-        result, date, url = results[index], dates[index], urls[index]
-        result = [int(i) for i in result[1:-1].replace(' ', '').split(',')]
+        result, date, url = eval(results[index]), dates[index], urls[index]
         top_categories = get_top_categories({i: result.count(i) for i in set(result)})
         items.append([date.strftime("%d/%m/%Y"),
                       categories_desc[top_categories[0]]['name'],
@@ -116,35 +111,22 @@ def gen_result(results, dates, urls):
     return items
 
 
-def get_all_answers(request):
-    results = get_user_results(request)
-    if results == "NotAuthorised":
-        return {'title': "Ви не авторизовані", }
-    elif len(results) == 0:
+def get_all_answers(user_id):
+    results = TestResult.objects.filter(user_id=user_id)
+    if len(results) == 0:
         return {'title': 'Ви не пройшли опитування', }
-    else:
-        urls = []
-        for item in results:
-            urls.append(str(item))
-        urls.reverse()
-        all_objects = TestResult.objects.all()
-        dates = [record.created_date for record in all_objects if record.url in urls]
-        items = [record.results for record in all_objects if record.url in urls]
-        items = reversed(gen_result(items, dates, urls))
-        context = [{'date': 'Дата', 'categories': 'Категорії результату', 'professions': 'Рекомендовані професії', }]
-        for item in items:
-            context.append({'date': item[0], 'categories': item[1:4], 'professions': item[4:-1],
-                            'url': item[-1], })
-    title = {'title': 'Ваші результати', 'data': json.dumps(context)}
-    return title
-
-
-def get_user_results(request):
-    if request.user.is_authenticated:
-        return UserTestResult.objects.filter(user_id=request.user.id).prefetch_related(
-            Prefetch('result_id', queryset=TestResult.objects.all()))
-    else:
-        return "NotAuthorised"
+    urls = []
+    for item in results:
+        urls.append(str(item))
+    all_objects = TestResult.objects.all()
+    dates = [record.created_date for record in all_objects if record.url in urls]
+    items = [record.results for record in all_objects if record.url in urls]
+    items = reversed(gen_results(items, dates, urls))
+    context = [{'date': 'Дата', 'categories': 'Категорії результату', 'professions': 'Рекомендовані професії', }]
+    for item in items:
+        context.append({'date': item[0], 'categories': item[1:4], 'professions': item[4:-1],
+                        'url': item[-1], })
+    return {'title': 'Ваші результати', 'data': json.dumps(context)}
 
 
 def get_top_categories(resulted_categories):
@@ -177,12 +159,12 @@ def decode_result(result):
 
 
 def get_decoded_user_results(user):
-    raw_results = [user_result.result_id for user_result in user.usertestresult_set.all()]
+    raw_results = [user_result for user_result in TestResult.objects.all() if user_result.user_id == user]
     decoded_results = [decode_result(result) for result in raw_results]
     return decoded_results
 
 
-def make_top_n_results(results, n):
+def make_top_n_results(results, n=3):
     for result in results:
         categories = result['categories']
         categories.sort(key=lambda x: x['points'], reverse=True)

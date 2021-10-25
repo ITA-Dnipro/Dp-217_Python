@@ -9,7 +9,7 @@ from questioning.services import get_decoded_user_results, make_top_n_results
 def profile_view(request):
     user = CustomUser.objects.get(id=request.user.id)
     results = get_decoded_user_results(user)
-    make_top_n_results(results, 3)
+    make_top_n_results(results)
     return render(request, 'users/profile.html', {'user': user, 'results': results})
 
 
