@@ -4,7 +4,7 @@ from django.http import HttpResponse, JsonResponse
 from django.template import loader
 from django.views.decorators.csrf import csrf_exempt
 from questioning.models import TestResult, QuestionsBase
-from .services import save_questions_results, gen_result, get_all_answers
+from .services import save_questions_results, gen_result, get_results
 
 
 def questioning_view(request):
@@ -33,7 +33,7 @@ def questioning_results(request, link=''):
     elif link == '':
         resulted_text = {'title': "Ви не авторизовані", }
         if request.user.is_authenticated:
-            resulted_text = get_all_answers(request.user.id)
+            resulted_text = get_results(request.user.id)
         return render(request, 'questioning_results.html', resulted_text)
     else:
         query = TestResult.objects.filter(url=link)

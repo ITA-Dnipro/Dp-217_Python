@@ -1,8 +1,10 @@
+import json
 from django.test import TestCase
 from django.utils import timezone
 from questioning.cron import remove_obsolete_records
-from questioning.models import TestResult
-from questioning.services import save_questions_results, gen_result
+from questioning.models import TestResult, KlimovCategory
+from questioning.services import save_questions_results, gen_result, gen_results, get_results, get_top_categories, \
+    decode_result
 from users.models import CustomUser
 
 RESULTS = "[1, 2, 3, 4, 0, 1, 2, 3, 4, 0, 1, 2, 3, 4, 0, 1, 2, 3, 4, 0]"
@@ -76,15 +78,86 @@ class GenResultTestCase(TestCase):
                           "знання професійної сфери і розвинені комунікативні навички.",
             'first_professions': "Ви можете почати освоювати одну з відповідних вам професій:\n"
                                  "Ландшафтний дизайнер, Фотограф, Кінолог, Ветеринар, Агроном, Еколог, Технолог "
-                                 "харчової промисловості...",
+                                 "харчової промисловості.",
             'second_professions': "Ви можете почати освоювати одну з відповідних вам професій:\n"
-                                  "Автомеханік, Інженер, Електрик, Пілот...",
+                                  "Автомеханік, Інженер, Електрик, Пілот.",
             'third_professions': "Ви можете почати освоювати одну з відповідних вам професій:\n"
                                  "Психолог, SMM-менеджер, Інтернет-маркетолог, Project-менеджер, Маркетинг, Управління"
-                                 "...",
+                                 ".",
             'first_result': 'Професії типу «Людина - природа» - середньо виражена схильність (4 з 8 балів).',
             'second_result': 'Професії типу «Людина - техніка» - середньо виражена схильність (4 з 8 балів).',
             'third_result': 'Професії типу «Людина - людина» - середньо виражена схильність (4 з 8 балів).',
         }
         answer = gen_result(eval(RESULTS))
         self.assertEqual(answer, test_answer)
+
+
+class GenResultsTestCase(TestCase):
+    fixtures = ['klimovcategory.json', ]
+
+    def test_gen_results(self):
+        url = '72f126da7df6798cd22c5bb5d6aab5d7'
+        test_answer = [
+            [timezone.now().strftime("%d/%m/%Y"),
+             'природа',
+             'техніка',
+             'людина',
+             'Ландшафтний дизайнер, Фотограф, Кінолог, Ветеринар, Агроном, Еколог, '
+             'Технолог харчової промисловості.',
+             'Автомеханік, Інженер, Електрик, Пілот.',
+             'Психолог, SMM-менеджер, Інтернет-маркетолог, Project-менеджер, Маркетинг, '
+             'Управління.',
+             url]
+        ]
+        answer = gen_results([RESULTS], [timezone.now()], [url])
+        self.assertEqual(answer, test_answer)
+
+
+class GetResultsTestCase(TestCase):
+    fixtures = ['klimovcategory.json', ]
+
+    def test_gen_results1(self):
+        test_answer = {'title': 'Ви не пройшли опитування', }
+        answer = get_results(0)
+        self.assertEqual(answer, test_answer)
+
+    def test_gen_results2(self):
+        user_id = CustomUser.objects.create(email='admin')
+        url = TestResult.objects.create(results=RESULTS, user_id=user_id).url
+        items = gen_results([RESULTS], [timezone.now()], [url])
+        context = [{'date': 'Дата', 'categories': 'Категорії результату',
+                    'professions': 'Рекомендовані професії', }, ]
+        for item in items:
+            context.append({'date': item[0], 'categories': item[1:4], 'professions': item[4:-1], 'url': item[-1], })
+        test_answer = {'title': 'Ваші результати', 'data': json.dumps(context)}
+        answer = get_results(user_id.id)
+        self.assertEqual(answer, test_answer)
+
+
+class GetTopCategoriesTestCase(TestCase):
+    def test_gen_results1(self):
+        test_answer = [0, 1, 2]
+        result = eval(RESULTS)
+        answer = get_top_categories({i: result.count(i) for i in set(result)})
+        self.assertEqual(answer, test_answer)
+
+
+class DecodeResultTestCase(TestCase):
+    fixtures = ['klimovcategory.json', ]
+
+    def test_decode_result(self):
+        CustomUser.objects.create(email='admin')
+        user_id = CustomUser.objects.all().last()
+        created_date = timezone.now()
+        result_id = TestResult.objects.create(results=RESULTS, user_id=user_id, created_date=created_date).id
+        test_answer = [decode_result(result) for result in TestResult.objects.all()]
+        answers_list = eval(RESULTS)
+        answer = {'categories': [], 'date': created_date, 'id': result_id}
+        klimov_category_list = list(KlimovCategory.objects.all().values('name', 'professions', 'desc'))
+        for data in klimov_category_list:
+            index = klimov_category_list.index(data)
+            data['name'] = f"Людина - {data['name']}"
+            data['examples'] = data.pop('professions')
+            data['description'] = data.pop('desc')
+            answer['categories'].append({'info': data, 'points': answers_list.count(index), })
+        self.assertEqual([answer], test_answer)
