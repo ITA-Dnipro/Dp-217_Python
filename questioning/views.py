@@ -51,7 +51,6 @@ def delete_result(request, id):
     if request.user != result.user_id:
         return HttpResponse(status=403)
 
-    get_object_or_404(TestResult, id=id).delete()
     result.delete()
     return HttpResponse(status=200)
 
