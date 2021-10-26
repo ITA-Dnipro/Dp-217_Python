@@ -1,0 +1,100 @@
+<div class="my-4 pb-2 bg-light border rounded result-block result-card"
+    data-resultid="{{ result.id }}">
+    <div class="d-flex justify-content-between my-1 mx-2">
+        <a href="/questioning/results/{{result.url}}">
+        <div class="small p-1 ">
+            {{ result.date|date:"d.m.Y" }}
+        </div></a>
+
+        <div>
+            <button type="button" class="result-delete-button btn btn-outline-light p-0"
+                    data-resultid="{{ result.id }}">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                         fill="currentColor" class="bi bi-x-lg" viewBox="0 0 16 16">
+                        <path fill-rule="evenodd" clip-rule="evenodd" d="M13.854 2.146a.5.5 0 0 1 0 .708l-11 11a.5.5 0 0 1-.708-.708l11-11a.5.5 0 0 1 .708 0Z" fill="#000"/>
+                        <path fill-rule="evenodd" clip-rule="evenodd" d="M2.146 2.146a.5.5 0 0 0 0 .708l11 11a.5.5 0 0 0 .708-.708l-11-11a.5.5 0 0 0-.708 0Z" fill="#000"/>
+                    </svg>
+            </button>
+        </div>
+    </div>
+
+    <div class="border-bottom"></div>
+
+    {% for category in result.categories %}
+
+        {% widthratio category.points 8 100 as percent %}
+
+        <div class="row">
+            <div class="col-4">
+                <div class="progress mx-4 mt-3">
+
+                    {% if percent == "100" %}
+
+                        <div class="progress-bar progress-bar-striped bg-success text-white" role="progressbar"
+                                 style="width: {{ percent }}%;"
+                                 aria-valuenow="{{ percent }}"
+                                 aria-valuemin="0" aria-valuemax="100">
+                                {{ percent }}%
+                        </div>
+
+
+                    {% elif percent > "70" %}
+
+                        <div class="progress-bar progress-bar-striped bg-success text-white" role="progressbar"
+                                 style="width: {{ percent }}%;"
+                                 aria-valuenow="{{ percent }}"
+                                 aria-valuemin="0" aria-valuemax="100">
+                                {{ percent }}%
+                        </div>
+
+                    {% elif  percent >= "50" %}
+
+                        <div class="progress-bar progress-bar-striped text-white" role="progressbar"
+                                 style="width: {{ percent }}%;"
+                                 aria-valuenow="{{ percent }}"
+                                 aria-valuemin="0" aria-valuemax="100">
+                                {{ percent }}%
+                        </div>
+
+                    {% else %}
+
+                        <div class="progress-bar progress-bar-striped bg-warning text-white" role="progressbar"
+                                 style="width: {{ percent }}%;"
+                                 aria-valuenow="{{ percent }}"
+                                 aria-valuemin="0" aria-valuemax="100">
+                                {{ percent }}%
+                        </div>
+
+                    {% endif %}
+
+                </div>
+            </div>
+
+            <div class="col-7">
+                <div class="pt-1">
+                    <button class="btn btn-light text-dark shadow-none" type="button"
+                            data-bs-toggle="collapse" aria-expanded="false"
+                            data-bs-target="#category-details-{{ forloop.parentloop.counter }}-{{ forloop.counter }}"
+                            aria-controls="category-details-{{ forloop.parentloop.counter }}-{{ forloop.counter }}">
+                        {{ category.info.name }}
+                    </button>
+                </div>
+
+                <div id="category-details-{{ forloop.parentloop.counter }}-{{ forloop.counter }}"
+                     class="collapse px-4 my-2">
+                    <div>
+                        <div>Опис:</div>
+                        <div>{{ category.info.description }}</div>
+                    </div>
+
+                    <div>
+                        <div>Приклади:</div>
+                        <div>{{ category.info.examples }}</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    {% endfor %}
+
+</div>

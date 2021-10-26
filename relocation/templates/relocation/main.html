@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="container-fluid">
+  <form method="post">{% csrf_token %}
+    <div class="row">
+      <div class="col-md-4">
+        <p class="h3 mt-3 mb-3">{{ form.region.label }}</p>{{ form.region_filter }}{{ form.region }}
+      </div>
+      <div class="col-md-4">
+        <p class="h3 mt-3 mb-3">{{ form.city.label }}</p>{{ form.city_filter }}{{ form.city }}
+      </div>
+      <div class="col-md-4">
+        <p class="h3 mt-3 mb-3">{{ form.uni.label }}</p>{{ form.uni_filter }}{{ form.uni }}
+      </div>
+    </div>
+    <button type="submit" class="btn btn-primary" formaction="/relocation/">Фільтрувати</button>  Для результату оберіть університет.
+  </form>
+</div>
+<div class="container-fluid">
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th scope="col">Назва</th>
+        <th scope="col">Тип</th>
+        <th scope="col">Адреса</th>
+        <th scope="col">Телефон</th>
+        <th scope="col">Належить ВУЗу?</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for house in houses %}
+        <tr>
+          <th scope="row">{{ house.name }}</th>
+          <td>{{ house.get_type_display }}</td>
+          <td>{{ house.address }}</td>
+          <td>{{ house.phone }}</td>
+          <td>{% if house.belongs_to_uni %}&#10004;{% else %}&times;{% endif %}</td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+{% endblock %}

@@ -35,6 +35,7 @@ INSTALLED_APPS = [
     'questioning',
     'users',
     'universearch',
+    'relocation',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',

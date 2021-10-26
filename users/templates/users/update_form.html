@@ -1,0 +1,38 @@
+<form method="POST" action="/profile/update" id="profile-update-form"
+      class="col-10 col-lg-6 d-flex flex-column m-2 p-2 bg-light border rounded">
+
+    {% csrf_token %}
+
+    {{ update_form.non_field_errors }}
+
+    {% for hidden_field in update_form.hidden_fields %}
+        {{ hidden_field }}
+        {{ hidden_field.errors }}
+    {% endfor %}
+
+    {% for field in update_form.visible_fields %}
+
+        <div class="m-2 d-flex justify-content-start update-form-field">
+            <label class="col-4 d-inline-flex justify-content-end me-2">
+                {{ field.label_tag }}
+            </label>
+
+            {{ field }}
+            {{ field.errors }}
+        </div>
+
+    {% endfor %}
+
+    <div class="m-2 d-flex justify-content-start">
+            <label class="col-4 d-inline-flex justify-content-end me-2">
+                Пароль:
+            </label>
+
+            <a href="{% url 'password_reset' %}">Змінити</a>
+    </div>
+
+
+    <button type="submit" id="profile-update-submit-btn" class="btn px-5 mt-4 mb-2 disabled btn-secondary" >
+        ЗБЕРЕГТИ
+    </button>
+</form>

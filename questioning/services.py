@@ -101,7 +101,8 @@ def decode_result(result):
     decoded_result = {
         'categories': [],
         'date': result.created_date,
-        'id': result.id
+        'id': result.id,
+        'url': result.url
     }
 
     answers_list = json.loads(result.results)

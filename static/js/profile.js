@@ -24,6 +24,9 @@ $(document).ready(function() {
             success: function (response) {
                 console.log("Result deleted!");
                 $(".result-block[data-resultid=" + resultID + "]").remove();
+                if (!$(".result-card").length) {
+                    $("#empty-history-message").removeClass("d-none");
+                }
             },
             error: function (response) {
                 console.log(response.statusText);
@@ -31,4 +34,11 @@ $(document).ready(function() {
         });
         return false;
     });
+
+    $("#profile-update-form").change(function () {
+        $("#profile-update-submit-btn")
+            .removeClass("disabled")
+            .removeClass("btn-secondary")
+            .addClass("btn-primary");
+    })
 });

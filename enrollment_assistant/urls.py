@@ -23,4 +23,5 @@ urlpatterns = [
     path('questioning/', include('questioning.urls')),
     path('profile/', include('users.urls')),
     path('search/', include('universearch.urls')),
+    path('relocation/', include('relocation.urls')),
 ]
