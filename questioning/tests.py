@@ -142,9 +142,9 @@ class GetTopCategoriesTestCase(TestCase):
         self.assertEqual(answer, test_answer)
 
 
-def get_answer(result_id, created_date):
+def get_answer(result_id, created_date, url):
     answers_list = eval(RESULTS)
-    answer = {'categories': [], 'date': created_date, 'id': result_id}
+    answer = {'categories': [], 'date': created_date, 'id': result_id, 'url': url}
     klimov_category_list = list(KlimovCategory.objects.all().values('name', 'professions', 'desc'))
     for data in klimov_category_list:
         index = klimov_category_list.index(data)
@@ -160,16 +160,16 @@ def create_test_result():
     user_id = CustomUser.objects.all().last()
     created_date = timezone.now()
     result_id = TestResult.objects.create(results=RESULTS, user_id=user_id, created_date=created_date).id
-    return result_id, created_date, user_id
+    return result_id, created_date, user_id, str(TestResult.objects.get(id=result_id))
 
 
 class DecodeResultTestCase(TestCase):
     fixtures = ['klimovcategory.json', ]
 
     def test_decode_result(self):
-        result_id, created_date, user_id = create_test_result()
+        result_id, created_date, user_id, url = create_test_result()
         test_answer = [decode_result(result) for result in TestResult.objects.all()]
-        answer = get_answer(result_id, created_date)
+        answer = get_answer(result_id, created_date, url)
         self.assertEqual(answer, test_answer)
 
 
@@ -177,9 +177,9 @@ class GetDecodedUserResultsTestCase(TestCase):
     fixtures = ['klimovcategory.json', ]
 
     def test_get_decoded_user_results(self):
-        result_id, created_date, user_id = create_test_result()
+        result_id, created_date, user_id, url = create_test_result()
         test_answer = get_decoded_user_results(user_id)
-        answer = get_answer(result_id, created_date)
+        answer = get_answer(result_id, created_date, url)
         self.assertEqual(answer, test_answer)
 
 
@@ -187,7 +187,7 @@ class MakeTopNResultsTestCase(TestCase):
     fixtures = ['klimovcategory.json', ]
 
     def test_decode_result(self):
-        result_id, created_date, user_id = create_test_result()
+        result_id, created_date, user_id, url = create_test_result()
         test_answer = get_decoded_user_results(user_id)
         make_top_n_results(test_answer)
         answer = [
@@ -222,7 +222,7 @@ class MakeTopNResultsTestCase(TestCase):
                                        "професіях є не тільки бажання, але й вміння активної взаємодії з людьми і "
                                        "продуктивного спілкування. Важливою специфікою при підготовці є добрі знання "
                                        "професійної сфери і розвинені комунікативні навички."},
-                   'points': 4}], 'date': created_date, 'id': result_id}]
+                   'points': 4}], 'date': created_date, 'id': result_id, 'url': url}]
 
         self.assertEqual(answer, test_answer)
 

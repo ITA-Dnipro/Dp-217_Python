@@ -117,7 +117,7 @@ def decode_result(result):
 
 
 def get_decoded_user_results(user):
-    raw_results = [user_result for user_result in TestResult.objects.all() if user_result.user_id == user]
+    raw_results = [user_result for user_result in user.testresult_set.all()]
     decoded_results = [decode_result(result) for result in raw_results]
     return decoded_results
 
