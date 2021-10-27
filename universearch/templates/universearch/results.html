@@ -1,1 +1,57 @@
 {% extends 'base.html' %}
+
+{% block content %}
+
+    <div class="container mt-5">
+        <h3>Результати пошуку</h3>
+    </div>
+
+    {% for university in universities %}
+
+        <div class="container mt-5">
+            <div class="card">
+                <div class="card-header">
+                    <div class="container">
+                        <strong>{{ university.name }}</strong>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col align-self-start">
+                                Форма власностi: {{ university.financing_type }}<br>
+                                Email: {{ university.mail }}<br>
+                                Сайт: {{ university.site }}<br>
+                            </div>
+                            <div class="col align-self-end">
+                                <address>
+                                    <strong>Адреса</strong><br>
+                                    {{ university.address }}<br>
+                                    Iндекс: {{ university.index }}<br>
+                                    Тел.: {{ university.phone }}<br>
+                                </address>
+                            </div>
+                        </div>
+                    </div>
+                    <hr/>
+                    <p class="card-text">
+                        {% for speciality in university.specialities %}
+                            <div class="container mb-3">
+                                <div class="row">
+                                    <div class="col align-self-start">
+                                        Спецiальнiсть: {{ speciality.name }}<br>
+                                        Рiвень: {{ speciality.qualification }}<br>
+                                    </div>
+                                    <div class="col align-self-end">
+                                        Кiлькiсть бюджетних мiсць: {{ speciality.places }}
+                                    </div>
+                                </div>
+                            </div>
+                        {% endfor %}
+                </div>
+            </div>
+        </div>
+
+    {% endfor %}
+
+{% endblock %}

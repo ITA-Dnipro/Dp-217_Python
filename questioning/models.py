@@ -14,7 +14,7 @@ class TestResult(models.Model):
     results = models.CharField(validators=[int_list_validator], max_length=80)
     type = 1
     url = models.CharField(max_length=32, editable=False)
-    user_id = models.ForeignKey(CustomUser, on_delete=models.CASCADE)
+    user_id = models.ForeignKey(CustomUser, on_delete=models.CASCADE, null=True)
 
     def save(self, *args, **kwargs):
         resulted = f"{datetime.datetime.now()}{self.results}{self.type}{self.user_id}".encode('utf-8')

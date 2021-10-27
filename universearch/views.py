@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from django.http import JsonResponse
 from .models import Region, City, StudyField, Speciality
+from .services import get_universities_api
 
 
 def get_json_regions_data(request):
@@ -30,5 +31,23 @@ def uni_search(request):
 
 
 def get_universities(request):
-    return render(request, 'universearch/results.html')
+    region = request.GET.get('region')
+    city = request.GET.get('city')
+    field = request.GET.get('field')
+    speciality = request.GET.get('speciality')
 
+    universities = get_universities_api(region, city, field, speciality)
+
+    if not universities:
+        context = {"error": "Жодного ВНЗ не знайдено"}
+    elif universities[0].get("error") == 'connection error':
+        context = {"error": "Помилка з'єднання. Спробуйте пізніше."}
+    elif isinstance(universities[0].get("error"), int):
+        context = {"error": f'Помилка номер {universities[0]["error"]}.'}
+    else:
+        context = {"universities": universities}
+
+    if "error" in context.keys():
+        return render(request, 'universearch/error_handler.html', context=context)
+    
+    return render(request, 'universearch/results.html', context=context)

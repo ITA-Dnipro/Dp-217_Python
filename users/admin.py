@@ -15,6 +15,7 @@ class CustomUserAdmin(UserAdmin):
         ('Authentication', {'fields': ('email', 'username', 'password')}),
         ('Personal info', {'fields': ('first_name', 'last_name', 'phone', 'city')}),
         ('Permissions', {'fields': ('is_staff', 'is_active')}),
+        ('Others', {'fields': ('deletion_request_date',)}),
     )
     add_fieldsets = (
         (

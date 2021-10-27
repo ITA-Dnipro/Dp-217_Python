@@ -14,3 +14,4 @@ class CustomUser(AbstractUser):
     city = models.ForeignKey(City, on_delete=models.SET_NULL, null=True, related_name='users', blank=True)
     phone = models.CharField(blank=True, default='', max_length=12)
     email = models.EmailField(unique=True)
+    deletion_request_date = models.DateTimeField(null=True)
