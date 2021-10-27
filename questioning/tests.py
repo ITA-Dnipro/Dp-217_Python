@@ -127,22 +127,23 @@ class GenResultsTestCase(TestCase):
              'Управління.',
              url]
         ]
-        answer = gen_results([RESULTS], [timezone.now()], [url])
+        answer = gen_results([{'results': RESULTS, 'created_date': timezone.now(), 'url': url}])
         self.assertEqual(answer, test_answer)
 
 
 class GetResultsTestCase(TestCase):
     fixtures = ['klimovcategory.json', ]
 
-    def test_gen_results1(self):
+    def test_get_results1(self):
+        user_id = CustomUser.objects.create(email='admin').id
         test_answer = {'title': 'Ви не пройшли опитування', }
-        answer = get_results(0)
+        answer = get_results(user_id)
         self.assertEqual(answer, test_answer)
 
     def test_gen_results2(self):
         user_id = CustomUser.objects.create(email='admin')
         url = TestResult.objects.create(results=RESULTS, user_id=user_id).url
-        items = gen_results([RESULTS], [timezone.now()], [url])
+        items = gen_results([{'results': RESULTS, 'created_date': timezone.now(), 'url': url}])
         context = [{'date': 'Дата', 'categories': 'Категорії результату',
                     'professions': 'Рекомендовані професії', }, ]
         for item in items:

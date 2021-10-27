@@ -42,11 +42,11 @@ def gen_result(results):
     return resulted_text
 
 
-def gen_results(results, dates, urls):
+def gen_results(answers):
     items = []
     categories_desc = KlimovCategory.objects.all().values()
-    for index in range(len(urls)):
-        result, date, url = eval(results[index]), dates[index], urls[index]
+    for answer in answers:
+        result, date, url = eval(answer['results']), answer['created_date'], answer['url']
         top_categories = get_top_categories({i: result.count(i) for i in set(result)})
         items.append([date.strftime("%d/%m/%Y"),
                       categories_desc[top_categories[0]]['name'],
@@ -56,20 +56,16 @@ def gen_results(results, dates, urls):
                       categories_desc[top_categories[1]]['professions'],
                       categories_desc[top_categories[2]]['professions'],
                       url])
+    items.sort(reverse=True)
     return items
 
 
 def get_results(user_id):
-    results = TestResult.objects.filter(user_id=user_id)
-    if len(results) == 0:
+    user = CustomUser.objects.get(id=user_id)
+    items = [user_result for user_result in user.testresult_set.all().values('created_date', 'results', 'url')]
+    if len(items) == 0:
         return {'title': 'Ви не пройшли опитування', }
-    urls = []
-    for item in results:
-        urls.append(str(item))
-    all_objects = TestResult.objects.all()
-    dates = [record.created_date for record in all_objects if record.url in urls]
-    items = [record.results for record in all_objects if record.url in urls]
-    items = reversed(gen_results(items, dates, urls))
+    items = gen_results(items)
     context = [{'date': 'Дата', 'categories': 'Категорії результату', 'professions': 'Рекомендовані професії', }]
     for item in items:
         context.append({'date': item[0], 'categories': item[1:4], 'professions': item[4:-1],
