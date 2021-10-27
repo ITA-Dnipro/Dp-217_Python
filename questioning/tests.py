@@ -1,5 +1,6 @@
 import json
-from django.test import TestCase
+from django.template.loader import render_to_string
+from django.test import TestCase, Client
 from django.utils import timezone
 from questioning.cron import remove_obsolete_records
 from questioning.models import TestResult, KlimovCategory
@@ -8,6 +9,23 @@ from questioning.services import save_questions_results, gen_result, gen_results
 from users.models import CustomUser
 
 RESULTS = "[1, 2, 3, 4, 0, 1, 2, 3, 4, 0, 1, 2, 3, 4, 0, 1, 2, 3, 4, 0]"
+
+
+class QuestioningTest(TestCase):
+    def setUp(self):
+        self.client = Client()
+
+    def test_questioning(self):
+        response = self.client.get('/questioning/')
+        self.assertEqual(response.status_code, 200)
+        with self.assertTemplateUsed('questioning.html'):
+            render_to_string('questioning.html')
+
+    def test_questioning_ajax(self):
+        response = self.client.get('/questioning/')
+        self.assertEqual(response.status_code, 200)
+        with self.assertTemplateUsed('questioning_ajax.html'):
+            render_to_string('questioning_ajax.html')
 
 
 class CronTestCase(TestCase):
