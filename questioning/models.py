@@ -4,6 +4,7 @@ from django.utils import timezone
 from django.db import models
 from django.core.validators import int_list_validator
 from users.models import CustomUser
+from universearch.models import StudyField
 
 
 class TestResult(models.Model):
@@ -46,3 +47,8 @@ class KlimovCategory(models.Model):
     class Meta:
         verbose_name = "Категорія професії"
         verbose_name_plural = "Категорії професій"
+
+
+class ConnectionKlimovCatStudyField(models.Model):
+    category_id = models.ForeignKey(KlimovCategory, on_delete=models.CASCADE)
+    field_id = models.ForeignKey(StudyField, on_delete=models.CASCADE)
