@@ -26,8 +26,10 @@ def get_json_specs_data(request, *args, **kwargs):
     return JsonResponse({'data': specs_values})
 
 
-def uni_search(request):
-    return render(request, 'universearch/search_form.html')
+def uni_search(request, spec=""):
+    if len(spec) > 2:
+        spec = spec.replace('_', ' ')
+    return render(request, 'universearch/search_form.html', {'spec': spec})
 
 
 def get_universities(request):
@@ -49,5 +51,5 @@ def get_universities(request):
 
     if "error" in context.keys():
         return render(request, 'universearch/error_handler.html', context=context)
-    
+
     return render(request, 'universearch/results.html', context=context)

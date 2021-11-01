@@ -12,10 +12,10 @@ const specialityText = document.getElementById('speciality-text')
 $.ajax({
     type: 'GET',
     url: '/search/region-data/',
-    success: function(response){
+    success: function (response) {
         const regionsData = response.data
         console.log(regionsData)
-        regionsData.map(item=>{
+        regionsData.map(item => {
             const option = document.createElement('div')
             option.textContent = item.name
             option.setAttribute('class', 'item')
@@ -23,13 +23,13 @@ $.ajax({
             regionsDataBox.appendChild(option)
         })
     },
-    error: function(error){
+    error: function (error) {
         console.log(error)
     }
 })
 
 
-regionsInput.addEventListener('change', e=>{
+regionsInput.addEventListener('change', e => {
     console.log(e.target.value)
     const selectedRegion = e.target.value
 
@@ -41,9 +41,9 @@ regionsInput.addEventListener('change', e=>{
     $.ajax({
         type: 'GET',
         url: `cities-data/${selectedRegion}/`,
-        success: function(response){
+        success: function (response) {
             const citiesData = response.data
-            citiesData.map(item=>{
+            citiesData.map(item => {
                 const option = document.createElement('div')
                 option.textContent = item.name
                 option.setAttribute('class', 'item')
@@ -51,7 +51,7 @@ regionsInput.addEventListener('change', e=>{
                 citiesDataBox.appendChild(option)
             })
         },
-        error: function(error){
+        error: function (error) {
             console.log(error)
         }
     })
@@ -61,38 +61,69 @@ regionsInput.addEventListener('change', e=>{
 $.ajax({
     type: 'GET',
     url: '/search/fields-data/',
-    success: function(response){
+    success: function (response) {
         const fieldsData = response.data
         console.log(fieldsData)
-        fieldsData.map(item=>{
-            const option = document.createElement('div')
-            option.textContent = item.name
-            option.setAttribute('class', 'item')
-            option.setAttribute('data-value', item.name)
-            fieldsDataBox.appendChild(option)
-        })
+        fieldsData.map(item => {
+                const option = document.createElement('div')
+                option.textContent = item.name
+                option.setAttribute('class', 'item')
+                option.setAttribute('data-value', item.name)
+                fieldsDataBox.appendChild(option)
+            }
+        )
+        let val = document.querySelector("#data_questioning").getAttribute('data');
+        if (val !== '') {
+            document.querySelector("#data_questioning").setAttribute('data', '');
+            let event = new Event('change');
+            $('#fields .default').html(val);
+            document.getElementById('fields').dispatchEvent(event);
+            specialitiesDataBox.innerHTML = "";
+            specialityText.textContent = "Спецiальностi";
+            specialityText.classList.add("default");
+
+
+            $.ajax({
+                type: 'GET',
+                url: `specialities-data/${val}/`,
+                success: function (response) {
+                    console.log(response.data);
+                    const specialitiesData = response.data
+                    specialitiesData.map(item => {
+                        const option = document.createElement('div')
+                        option.textContent = item.name
+                        option.setAttribute('class', 'item')
+                        option.setAttribute('data-value', item.name)
+                        specialitiesDataBox.appendChild(option)
+                    })
+                },
+                error: function (error) {
+                    console.log(error)
+                }
+            })
+        }
     },
-    error: function(error){
+    error: function (error) {
         console.log(error)
     }
 })
 
-fieldsInput.addEventListener('change', e=>{
-    console.log(e.target.value)
-    const selectedField = e.target.value
+fieldsInput.addEventListener('change', e => {
+    console.log(e.target.value);
+    const selectedField = e.target.value;
 
-    specialitiesDataBox.innerHTML = ""
-    specialityText.textContent = "Спецiальностi"
-    specialityText.classList.add("default")
+    specialitiesDataBox.innerHTML = "";
+    specialityText.textContent = "Спецiальностi";
+    specialityText.classList.add("default");
 
 
     $.ajax({
         type: 'GET',
         url: `specialities-data/${selectedField}/`,
-        success: function(response){
-            console.log(response.data)
+        success: function (response) {
+            console.log(response.data);
             const specialitiesData = response.data
-            specialitiesData.map(item=>{
+            specialitiesData.map(item => {
                 const option = document.createElement('div')
                 option.textContent = item.name
                 option.setAttribute('class', 'item')
@@ -100,7 +131,7 @@ fieldsInput.addEventListener('change', e=>{
                 specialitiesDataBox.appendChild(option)
             })
         },
-        error: function(error){
+        error: function (error) {
             console.log(error)
         }
     })

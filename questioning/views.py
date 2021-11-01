@@ -34,6 +34,7 @@ def questioning_results(request, link=''):
         resulted_text = {'title': "Ви не авторизовані", }
         if request.user.is_authenticated:
             resulted_text = get_results(request.user.id)
+        print(resulted_text)
         return render(request, 'questioning_results.html', resulted_text)
     else:
         query = TestResult.objects.filter(url=link)

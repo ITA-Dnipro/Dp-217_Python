@@ -1,5 +1,5 @@
 import json
-from questioning.models import TestResult, KlimovCategory
+from questioning.models import TestResult, KlimovCategory, ConnectionKlimovCatStudyField
 from users.models import CustomUser
 
 
@@ -12,18 +12,22 @@ def gen_result(results):
     categorised_results = {i: results.count(i) for i in set(results)}
     top_categories = get_top_categories(categorised_results)
     categories_desc = KlimovCategory.objects.all().values()
+    study_fields = ConnectionKlimovCatStudyField.objects.select_related('field_id').all()
     desc = []
     professions = []
     result_desc = []
+    fields = []
     part_res_desc = "Професії типу «Людина - "
     expression = ["схильність не виражена", "середньо виражена схильність", "вкрай виражену схильність"]
     title = "Ваші результати:"
-    professions_options = "Ви можете почати освоювати одну з відповідних вам професій:"
-    new_line = '\n'
+    professions_options = f"Ви можете почати освоювати одну з відповідних вам професій:"
     for item in top_categories:
-        category = categories_desc[item]['name']
-        desc.append(categories_desc[item]['desc'])
-        professions.append(categories_desc[item]['professions'])
+        category = categories_desc[item - 1]['name']
+        fields.append([["Посилання на пошук:", '']])
+        for study_field in study_fields.filter(category_id=item):
+            fields[-1].append([study_field.field_id.name, study_field.field_id.name.replace(' ', '_')])
+        desc.append(categories_desc[item - 1]['desc'])
+        professions.append([professions_options, categories_desc[item - 1]['professions']])
         result = categorised_results[item]
         expression_id = result // 3
         result_desc.append(
@@ -32,12 +36,15 @@ def gen_result(results):
     resulted_text = {
         'title': title,
         'first_desc': desc[0], 'second_desc': desc[1], 'third_desc': desc[2],
-        'first_professions': f"{professions_options}{new_line}{professions[0]}",
-        'second_professions': f"{professions_options}{new_line}{professions[1]}",
-        'third_professions': f"{professions_options}{new_line}{professions[2]}",
+        'first_professions': professions[0],
+        'second_professions': professions[1],
+        'third_professions': professions[2],
         'first_result': result_desc[0],
         'second_result': result_desc[1],
         'third_result': result_desc[2],
+        'field_0': fields[0],
+        'field_1': fields[1],
+        'field_2': fields[2],
     }
     return resulted_text
 
@@ -49,12 +56,12 @@ def gen_results(answers):
         result, date, url = eval(answer['results']), answer['created_date'], answer['url']
         top_categories = get_top_categories({i: result.count(i) for i in set(result)})
         items.append([date.strftime("%d/%m/%Y"),
-                      categories_desc[top_categories[0]]['name'],
-                      categories_desc[top_categories[1]]['name'],
-                      categories_desc[top_categories[2]]['name'],
-                      categories_desc[top_categories[0]]['professions'],
-                      categories_desc[top_categories[1]]['professions'],
-                      categories_desc[top_categories[2]]['professions'],
+                      categories_desc[top_categories[0] - 1]['name'],
+                      categories_desc[top_categories[1] - 1]['name'],
+                      categories_desc[top_categories[2] - 1]['name'],
+                      categories_desc[top_categories[0] - 1]['professions'],
+                      categories_desc[top_categories[1] - 1]['professions'],
+                      categories_desc[top_categories[2] - 1]['professions'],
                       url])
     items.sort(reverse=True)
     return items

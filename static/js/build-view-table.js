@@ -1,14 +1,14 @@
 function ajaxRemove(url) {
     $.ajax({
-            type: "POST",
-            url: '/questioning/results/remove/'+url,
-            success: function (res) {
-                $("#" + url).remove();
-            },
-            error: function (res, error) {
-                console.log(error);
-            }
-        });
+        type: "POST",
+        url: '/questioning/results/remove/' + url,
+        success: function (res) {
+            $("#" + url).remove();
+        },
+        error: function (res, error) {
+            console.log(error);
+        }
+    });
 }
 
 $(document).ready(function () {
@@ -29,7 +29,14 @@ $(document).ready(function () {
                 if (j === 'date') {
                     table += '<td><a href="' + data[i]['url'] + '">' + data[i][j] + '</a></td>';
                 } else if (j !== 'url') {
-                    table += "<td>" + data[i][j] + "</td>";
+                    let cell = '';
+                    for (let some_data in data[i][j]) {
+                        cell += data[i][j][some_data];
+                        if (some_data<data[i][j].length-1){
+                            cell +=' , '
+                        }
+                    }
+                    table += "<td>" + cell + "</td>";
                 } else {
                     table += "<td>" + button + "</td>";
                 }

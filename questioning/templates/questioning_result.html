@@ -5,13 +5,28 @@
     <div class="q__h3">
         <p>{{ first_result }}</p>
         <p>{{ first_desc }}</p>
-        <p>{{ first_professions }}</p>
+        {% for result in  first_professions %}
+        <p>{{ result }}</p>
+        {% endfor %}
+        {% for result in  field_0 %}
+        <p><a href="/search/{{result.1}}">{{ result.0 }}</a></p>
+        {% endfor %}
         <p>{{ second_result }}</p>
         <p>{{ second_desc }}</p>
-        <p>{{ second_professions }}</p>
+        {% for result in second_professions %}
+        <p>{{ result }}</p>
+        {% endfor %}
+        {% for result in  field_1 %}
+        <p><a href="/search/{{result.1}}">{{ result.0 }}</a></p>
+        {% endfor %}
         <p>{{ third_result }}</p>
         <p>{{ third_desc }}</p>
-        <p>{{ third_professions }}</p>
+        {% for result in third_professions %}
+        <p>{{ result }}</p>
+        {% endfor %}
+        {% for result in  field_2 %}
+        <p><a href="/search/{{result.1}}">{{ result.0 }}</a></p>
+        {% endfor %}
     </div>
 </div>
 {% endblock %}
