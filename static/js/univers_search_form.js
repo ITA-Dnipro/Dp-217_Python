@@ -14,7 +14,6 @@ $.ajax({
     url: '/search/region-data/',
     success: function (response) {
         const regionsData = response.data
-        console.log(regionsData)
         regionsData.map(item => {
             const option = document.createElement('div')
             option.textContent = item.name
@@ -30,7 +29,6 @@ $.ajax({
 
 
 regionsInput.addEventListener('change', e => {
-    console.log(e.target.value)
     const selectedRegion = e.target.value
 
     citiesDataBox.innerHTML = ""
@@ -63,7 +61,6 @@ $.ajax({
     url: '/search/fields-data/',
     success: function (response) {
         const fieldsData = response.data
-        console.log(fieldsData)
         fieldsData.map(item => {
                 const option = document.createElement('div')
                 option.textContent = item.name
@@ -87,7 +84,6 @@ $.ajax({
                 type: 'GET',
                 url: `specialities-data/${val}/`,
                 success: function (response) {
-                    console.log(response.data);
                     const specialitiesData = response.data
                     specialitiesData.map(item => {
                         const option = document.createElement('div')
@@ -109,7 +105,6 @@ $.ajax({
 })
 
 fieldsInput.addEventListener('change', e => {
-    console.log(e.target.value);
     const selectedField = e.target.value;
 
     specialitiesDataBox.innerHTML = "";
@@ -121,7 +116,6 @@ fieldsInput.addEventListener('change', e => {
         type: 'GET',
         url: `specialities-data/${selectedField}/`,
         success: function (response) {
-            console.log(response.data);
             const specialitiesData = response.data
             specialitiesData.map(item => {
                 const option = document.createElement('div')
