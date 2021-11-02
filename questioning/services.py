@@ -20,7 +20,7 @@ def gen_result(results):
     part_res_desc = "Професії типу «Людина - "
     expression = ["схильність не виражена", "середньо виражена схильність", "вкрай виражену схильність"]
     title = "Ваші результати:"
-    professions_options = f"Ви можете почати освоювати одну з відповідних вам професій:"
+    professions_options = "Ви можете почати освоювати одну з відповідних вам професій:"
     for item in top_categories:
         category = categories_desc[item - 1]['name']
         fields.append([["Посилання на пошук:", '']])
