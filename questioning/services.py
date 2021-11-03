@@ -35,16 +35,9 @@ def gen_result(results):
 
     resulted_text = {
         'title': title,
-        'first_desc': desc[0], 'second_desc': desc[1], 'third_desc': desc[2],
-        'first_professions': professions[0],
-        'second_professions': professions[1],
-        'third_professions': professions[2],
-        'first_result': result_desc[0],
-        'second_result': result_desc[1],
-        'third_result': result_desc[2],
-        'field_0': fields[0],
-        'field_1': fields[1],
-        'field_2': fields[2],
+        'data': [{'categories': [
+            {'name': result_desc[index], 'desc': desc[index], 'prof': professions[index],
+             'study_fields': fields[index], 'id': f"cat_{index}"} for index in range(3)], }]
     }
     return resulted_text
 
@@ -52,9 +45,15 @@ def gen_result(results):
 def gen_results(answers):
     items = []
     categories_desc = KlimovCategory.objects.all().values()
+    study_fields = ConnectionKlimovCatStudyField.objects.select_related('field_id').all()
     for answer in answers:
-        result, date, url = eval(answer['results']), answer['created_date'], answer['url']
+        result, date, url, result_id = eval(answer['results']), answer['created_date'], answer['url'], answer['id']
         top_categories = get_top_categories({i: result.count(i) for i in set(result)})
+        fields = []
+        for item in top_categories:
+            fields.append([])
+            for study_field in study_fields.filter(category_id=item):
+                fields[-1].append([study_field.field_id.name, study_field.field_id.name.replace(' ', '_')])
         items.append([date.strftime("%d/%m/%Y"),
                       categories_desc[top_categories[0] - 1]['name'],
                       categories_desc[top_categories[1] - 1]['name'],
@@ -62,22 +61,25 @@ def gen_results(answers):
                       categories_desc[top_categories[0] - 1]['professions'],
                       categories_desc[top_categories[1] - 1]['professions'],
                       categories_desc[top_categories[2] - 1]['professions'],
-                      url])
-    items.sort(reverse=True)
+                      fields[0], fields[1], fields[2], result_id, url])
+        items.sort(reverse=True)
     return items
 
 
 def get_results(user_id):
     user = CustomUser.objects.get(id=user_id)
-    items = [user_result for user_result in user.testresult_set.all().values('created_date', 'results', 'url')]
+    items = [user_result for user_result in user.testresult_set.all().values('created_date', 'results', 'url', 'id')]
     if len(items) == 0:
         return {'title': 'Ви не пройшли опитування', }
     items = gen_results(items)
-    context = [{'date': 'Дата', 'categories': 'Категорії результату', 'professions': 'Рекомендовані професії', }]
+    context = []
     for item in items:
-        context.append({'date': item[0], 'categories': item[1:4], 'professions': item[4:-1],
+        context.append({'date': item[0], 'categories': [
+            {'name': f"Людина - {item[index]}", 'prof': item[index + 3].replace('.', '').split(','),
+             'study_fields': item[index + 6], 'id': f"cat_{index}_{len(context)}"} for index in range(1, 4)],
+                        'id': item[-2],
                         'url': item[-1], })
-    return {'title': 'Ваші результати', 'data': json.dumps(context)}
+    return {'title': 'Ваші результати', 'data': context}
 
 
 def get_top_categories(resulted_categories):
@@ -107,7 +109,6 @@ def decode_result(result):
         'id': result.id,
         'url': result.url
     }
-
     answers_list = json.loads(result.results)
     for index, data in gen_prof_categories().items():
         decoded_result['categories'].append(

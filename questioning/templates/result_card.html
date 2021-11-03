@@ -1,0 +1,61 @@
+{% if result.date%}
+<div class="my-4 pb-2 bg-light border rounded result-block result-card"
+     data-resultid="{{ result.id }}">
+    <div class="d-flex justify-content-between my-1 mx-2">
+        <a href="/questioning/results/{{result.url}}">
+            <div class="small p-1 ">
+                {{ result.date }}
+            </div>
+        </a>
+
+        <div>
+            <button type="button" class="result-delete-button btn btn-outline-light p-0"
+                    data-resultid="{{ result.id }}">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                     fill="currentColor" class="bi bi-x-lg" viewBox="0 0 16 16">
+                    <path fill-rule="evenodd" clip-rule="evenodd"
+                          d="M13.854 2.146a.5.5 0 0 1 0 .708l-11 11a.5.5 0 0 1-.708-.708l11-11a.5.5 0 0 1 .708 0Z"
+                          fill="#000"/>
+                    <path fill-rule="evenodd" clip-rule="evenodd"
+                          d="M2.146 2.146a.5.5 0 0 0 0 .708l11 11a.5.5 0 0 0 .708-.708l-11-11a.5.5 0 0 0-.708 0Z"
+                          fill="#000"/>
+                </svg>
+            </button>
+        </div>
+    </div>
+    {%endif%}
+
+    <div class="border-bottom"></div>
+    {% for category in result.categories %}
+
+    <div class="accordion">
+        <div class="accordion-item">
+            <h2 class="accordion-header">
+                <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#{{category.id}}"
+                        aria-expanded="true" aria-controls="collapseOne">
+                    {{ category.name }}
+                </button>
+            </h2>
+            <div id="{{category.id}}" class="accordion-collapse collapse show" aria-labelledby="headingOne"
+                 data-bs-parent="#accordionExample">
+                <div class="accordion-body">
+                    {% if category.desc %}
+                    <div>{{category.desc}}</div>
+                    {%endif%}
+                    <strong>Професії:</strong>
+                    {%for prof in category.prof%}
+                    <div>{{prof}}</div>
+                    {% endfor %}
+                    <div class="fw-bold mt-2">Галузі знань:</div>
+                    {%for study_field in category.study_fields%}
+                    <div><a href="/search/{{study_field.1}}">{{ study_field.0 }}</a></div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+
+</div>
+

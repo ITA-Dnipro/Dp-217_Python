@@ -45,7 +45,7 @@ async function ajaxRequest(values, answer_id) {
             data: JSON.stringify(values[0]['results']),
             dataType: 'text',
             success: function (res) {
-                let start_index = res.indexOf('<div id="index-content">', 0);
+                let start_index = res.indexOf('<div id="results">', 0);
                 let end_index = res.length;
                 let resp = '';
                 for (let i = start_index; i < end_index; i++) {

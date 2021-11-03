@@ -12,11 +12,6 @@ def questioning_view(request):
 
 
 @csrf_exempt
-def remove_result(request, url):
-    return delete_result(request, TestResult.objects.get(url=url).id)
-
-
-@csrf_exempt
 def questioning_ajax(request):
     tmp = json.loads(request.read())
     t = loader.get_template('questioning_ajax.html')
@@ -41,7 +36,7 @@ def questioning_results(request, link=''):
             resulted_text = gen_result(eval(query.first().results))
         else:
             resulted_text = {'title': 'Результат опитування не знайдено', }
-    return render(request, 'questioning_result.html', resulted_text)
+    return render(request, 'questioning_results.html', resulted_text)
 
 
 @csrf_exempt

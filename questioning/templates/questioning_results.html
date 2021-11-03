@@ -1,11 +1,12 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block content %}
-<script type="text/javascript" src="{% static 'js/questioning.js' %}"></script>
-<h1 class="q__h2">{{ title }}</h1>
-<div style="display: none" id="jsonData" data-json="{{ data }}"></div>
-<table id="table" class=" table table-hover">
-    <!-- here goes our data! -->
-</table>
-<script src="{% static 'js/build-view-table.js' %}"></script>
+<div id="results">
+    <h1 class="q__h2">{{ title }}</h1>
+    <div>
+        {% for result in data %}
+        {% include "result_card.html" with result=result %}
+        {% endfor %}
+    </div>
+</div>
 {% endblock %}

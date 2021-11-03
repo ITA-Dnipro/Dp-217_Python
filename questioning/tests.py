@@ -269,7 +269,6 @@ class MakeTopNResultsTestCase(TestCase):
                                        "недостатньо просто бути любителем відпочинку на природі, важливо ще захищати "
                                        "природу, прагнути позитивно взаємодіяти з нею."}, 'points': 4}
                   ], 'date': created_date, 'id': result_id, 'url': url}]
-        print(test_answer)
         self.assertEqual(answer, test_answer)
 
 
