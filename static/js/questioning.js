@@ -1,5 +1,5 @@
-async function getQuestions() {
-    let url = '/questioning/get_questions/1';
+async function getQuestions(val) {
+    let url = '/questioning/get_questions/' + val;
     try {
         let res = await fetch(url);
         return await res.json();
@@ -10,20 +10,17 @@ async function getQuestions() {
 
 async function ajaxRequest(values, answer_id) {
     //let csrf = $('input[name=csrfmiddlewaretoken]')[0].value;
-    if (typeof values == "undefined") {
-        let questions = await getQuestions();
+    if ((typeof values == "undefined") || (typeof values == "number")) {
+        let questions = await getQuestions(values);
         values = JSON.parse(questions);
     } else {
-        values[0]['results'].push(answer_id);
+        values['results'].push(answer_id);
     }
-    if (values[0]['results'].length < 20) {
-        let val = values[0]['questions'].pop();
+    if (values['results'].length < values['size']) {
+        let val = values['questions'].pop();
         let SendInfo = {
             question: val['question'],
-            answer_id_1: val['answer_1'],
-            answer_id_2: val['answer_2'],
-            result_1: val['result_id_1'],
-            result_2: val['result_id_2'],
+            answers: val['answers'],
             values: values
         };
         $.ajax({
@@ -42,7 +39,7 @@ async function ajaxRequest(values, answer_id) {
         $.ajax({
             type: "POST",
             url: '/questioning/results/',
-            data: JSON.stringify(values[0]['results']),
+            data: JSON.stringify([values['type'],values['results']]),
             dataType: 'text',
             success: function (res) {
                 let start_index = res.indexOf('<div id="results">', 0);

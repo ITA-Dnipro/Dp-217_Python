@@ -13,7 +13,7 @@ class TestResult(models.Model):
     """
     created_date = models.DateTimeField(default=timezone.now)
     results = models.CharField(validators=[int_list_validator], max_length=80)
-    type = 1
+    type = models.PositiveSmallIntegerField(default=1)
     url = models.CharField(max_length=32, editable=False)
     user_id = models.ForeignKey(CustomUser, on_delete=models.CASCADE, null=True)
 
@@ -32,6 +32,17 @@ class QuestionsBase(models.Model):
     answer_2 = models.TextField("Відповідь 2", blank=True)
     result_id_1 = models.PositiveSmallIntegerField("Індекс відповіді 1", null=True)
     result_id_2 = models.PositiveSmallIntegerField("Індекс відповіді 2", null=True)
+    type = models.PositiveSmallIntegerField(default=1)
+
+    class Meta:
+        verbose_name = "Запитання"
+        verbose_name_plural = "Запитання"
+
+
+class QuestionsBaseNew(models.Model):
+    question = models.TextField("Запитання", blank=True)
+    answer = models.TextField("Відповіді", blank=True)
+    result = models.TextField("Результат відповідей", null=True)
     type = models.PositiveSmallIntegerField(default=1)
 
     class Meta:

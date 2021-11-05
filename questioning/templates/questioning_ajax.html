@@ -1,13 +1,10 @@
 <div id="main_container">
     <div class="q__h1">{{ question }}</div>
+    {% for answer in answers %}
     <div class="q__btn-bar">
-        <button type="button" onClick="ajaxRequest({{ values }},{{ result_1 }})"
-                class="btn btn-secondary">{{ answer_id_1 }}
+        <button type="button" onClick="ajaxRequest({{ values }},{{ answer.result }})"
+                class="btn btn-secondary">{{ answer.text }}
         </button>
     </div>
-    <div class="q__btn-bar">
-        <button type="button" onClick="ajaxRequest({{ values }},{{ result_2 }})"
-                class="btn btn-secondary">{{ answer_id_2 }}
-        </button>
-    </div>
+    {% endfor %}
 </div>

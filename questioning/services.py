@@ -3,14 +3,13 @@ from questioning.models import TestResult, KlimovCategory, ConnectionKlimovCatSt
 from users.models import CustomUser
 
 
-def save_questions_results(user_id, results):
+def save_questions_results(user_id, results, test_type):
     user_id = CustomUser.objects.get(id=user_id)
-    TestResult.objects.create(results=results, user_id=user_id)
+    TestResult.objects.create(results=results, user_id=user_id, type=test_type)
 
 
 def gen_result(results):
-    categorised_results = {i: results.count(i) for i in set(results)}
-    top_categories = get_top_categories(categorised_results)
+    top_categories = get_top_categories(results)
     categories_desc = KlimovCategory.objects.all().values()
     study_fields = ConnectionKlimovCatStudyField.objects.select_related('field_id').all()
     desc = []
@@ -28,7 +27,7 @@ def gen_result(results):
             fields[-1].append([study_field.field_id.name, study_field.field_id.name.replace(' ', '_')])
         desc.append(categories_desc[item - 1]['desc'])
         professions.append([professions_options, categories_desc[item - 1]['professions']])
-        result = categorised_results[item]
+        result = results[item]
         expression_id = result // 3
         result_desc.append(
             f"{part_res_desc}{category}» - {expression[expression_id]} ({result} з 8 балів).")
@@ -48,7 +47,7 @@ def gen_results(answers):
     study_fields = ConnectionKlimovCatStudyField.objects.select_related('field_id').all()
     for answer in answers:
         result, date, url, result_id = eval(answer['results']), answer['created_date'], answer['url'], answer['id']
-        top_categories = get_top_categories({i: result.count(i) for i in set(result)})
+        top_categories = get_top_categories(result)
         fields = []
         for item in top_categories:
             fields.append([])
@@ -109,12 +108,12 @@ def decode_result(result):
         'id': result.id,
         'url': result.url
     }
-    answers_list = json.loads(result.results)
+    answers_list = eval(result.results)
     for index, data in gen_prof_categories().items():
         decoded_result['categories'].append(
             {
                 'info': data,
-                'points': answers_list.count(index),
+                'points': answers_list[index+1],
             }
         )
     return decoded_result
@@ -132,3 +131,8 @@ def make_top_n_results(results, n=3):
         categories.sort(key=lambda x: x['points'], reverse=True)
         del categories[-(len(categories) - n):]
     return
+
+
+def sort_result(result, question_type):
+    if question_type == 1:
+        return {i: result.count(i) for i in set(result)}
