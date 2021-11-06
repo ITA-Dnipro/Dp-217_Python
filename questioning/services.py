@@ -113,7 +113,7 @@ def decode_result(result):
         decoded_result['categories'].append(
             {
                 'info': data,
-                'points': answers_list[index+1],
+                'points': answers_list[index + 1],
             }
         )
     return decoded_result
@@ -136,3 +136,13 @@ def make_top_n_results(results, n=3):
 def sort_result(result, question_type):
     if question_type == 1:
         return {i: result.count(i) for i in set(result)}
+    if question_type == 2:
+        answer = {}
+        for item in result:
+            if item != 0:
+                item = str(item)
+                if answer.get(item[0]):
+                    answer[int(item[0])] += int(item[1]) if item[2] == '0' else -int(item[1])
+                else:
+                    answer[int(item[0])] = int(item[1]) if item[2] == '0' else -int(item[1])
+        return answer

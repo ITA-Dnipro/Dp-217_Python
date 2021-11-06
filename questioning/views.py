@@ -52,7 +52,6 @@ def delete_result(request, id):
 
 
 def get_questions(request, questions_type):
-    # qs = [{'questions': list(QuestionsBase.objects.filter(type=questions_type).values()), 'results': [], }]
     question_base = []
     questions = list(QuestionsBaseNew.objects.filter(type=questions_type).values())
     for item in questions:
