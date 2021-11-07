@@ -1,5 +1,4 @@
-import json
-from questioning.models import TestResult, KlimovCategory, ConnectionKlimovCatStudyField
+from questioning.models import TestResult, KlimovCategory, ConnectionKlimovCatStudyField, InterestCategory
 from users.models import CustomUser
 
 
@@ -44,25 +43,38 @@ def gen_result(results):
 def gen_results(answers):
     items = []
     categories_desc = KlimovCategory.objects.all().values()
+    interests_desc = InterestCategory.objects.all().values()
     study_fields = ConnectionKlimovCatStudyField.objects.select_related('field_id').all()
     for answer in answers:
         result, date, url, result_id, question_type = eval(answer['results']), answer['created_date'], answer['url'], \
                                                       answer['id'], answer['type']
-        top_categories = get_top_categories(result)
-        fields = []
-        for item in top_categories:
-            fields.append([])
-            for study_field in study_fields.filter(category_id=item):
-                fields[-1].append([study_field.field_id.name, study_field.field_id.name.replace(' ', '_')])
-        items.append([date.strftime("%d/%m/%Y"),
-                      categories_desc[top_categories[0] - 1]['name'],
-                      categories_desc[top_categories[1] - 1]['name'],
-                      categories_desc[top_categories[2] - 1]['name'],
-                      categories_desc[top_categories[0] - 1]['professions'],
-                      categories_desc[top_categories[1] - 1]['professions'],
-                      categories_desc[top_categories[2] - 1]['professions'],
-                      fields[0], fields[1], fields[2], question_type, result_id, url])
-        items.sort(reverse=True)
+        if question_type != 3:
+            top_categories = get_top_categories(result)
+            fields = []
+            for item in top_categories:
+                fields.append([])
+                for study_field in study_fields.filter(category_id=item):
+                    fields[-1].append([study_field.field_id.name, study_field.field_id.name.replace(' ', '_')])
+            items.append([date.strftime("%d/%m/%Y"),
+                          categories_desc[top_categories[0] - 1]['name'],
+                          categories_desc[top_categories[1] - 1]['name'],
+                          categories_desc[top_categories[2] - 1]['name'],
+                          categories_desc[top_categories[0] - 1]['professions'],
+                          categories_desc[top_categories[1] - 1]['professions'],
+                          categories_desc[top_categories[2] - 1]['professions'],
+                          fields[0], fields[1], fields[2], question_type, result_id, url])
+        else:
+            top_categories = []
+            for key in result:
+                if result[key] > 0:
+                    top_categories.append(key)
+            items.append([date.strftime("%d/%m/%Y"),
+                          interests_desc[top_categories[0]]['name'],
+                          interests_desc[top_categories[1]]['name'],
+                          interests_desc[top_categories[2]]['name'],
+                          '', '', '',
+                          '', '', '', question_type, result_id, url])
+    items.sort(reverse=True)
     return items
 
 
@@ -75,16 +87,22 @@ def get_results(user_id):
     items = gen_results(items)
     context = []
     for item in items:
-        context.append({'date': item[0], 'categories': [
-            {'name': f"Людина - {item[index]}", 'prof': item[index + 3].replace('.', '').split(','),
-             'study_fields': item[index + 6], 'id': f"cat_{index}_{len(context)}"} for index in range(1, 4)],
-                        'id': item[-2], 'url': item[-1], 'type': get_question_type_name(item[-3])})
+        if item[-3] != 3:
+            context.append({'date': item[0], 'categories': [
+                {'name': f"Людина - {item[index]}", 'prof': item[index + 3].replace('.', '').split(','),
+                 'study_fields': item[index + 6], 'id': f"cat_{index}_{len(context)}"} for index in range(1, 4)],
+                            'id': item[-2], 'url': item[-1], 'type': get_question_type_name(item[-3])})
+        else:
+            context.append({'date': item[0], 'categories': [
+                {'name': item[index], 'id': f"cat_{index}_{len(context)}"} for index in range(1, 4)],
+                            'id': item[-2], 'url': item[-1], 'type': get_question_type_name(item[-3])})
     return {'title': 'Ваші результати', 'data': context}
 
 
 def get_question_type_name(question_type_index):
-    desc_question_types = ["Тест на визначення профорієнтації", "Тест на визначення типу майбутньої професії"]
-    return desc_question_types[question_type_index-1]
+    desc_question_types = ["Тест на визначення профорієнтації", "Тест на визначення типу майбутньої професії",
+                           "Тест на визначення типу майбутньої професії"]
+    return desc_question_types[question_type_index - 1]
 
 
 def get_top_categories(resulted_categories):
@@ -151,4 +169,18 @@ def sort_result(result, question_type):
                     answer[int(item[0])] += int(item[1]) if item[2] == '0' else -int(item[1])
                 else:
                     answer[int(item[0])] = int(item[1]) if item[2] == '0' else -int(item[1])
+        return answer
+    if question_type == 3:
+        answer = {}
+        for item in result:
+            if item != 0:
+                index_val = item % 10
+                index = item // 10
+                val = 2 if index_val == 2 or index_val == 3 else 1
+                val = val if index_val == 0 or index_val == 1 else -val
+                if answer.get(index):
+                    answer[index] += val
+                else:
+                    answer[index] = val
+        print(answer)
         return answer

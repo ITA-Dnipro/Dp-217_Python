@@ -3,7 +3,7 @@ from django.shortcuts import render, get_object_or_404
 from django.http import HttpResponse, JsonResponse
 from django.template import loader
 from django.views.decorators.csrf import csrf_exempt
-from questioning.models import TestResult, QuestionsBaseNew
+from questioning.models import TestResult, QuestionsBase
 from .services import save_questions_results, gen_result, get_results, sort_result
 
 
