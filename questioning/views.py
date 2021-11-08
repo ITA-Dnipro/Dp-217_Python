@@ -34,7 +34,7 @@ def questioning_results(request, link=''):
     else:
         query = TestResult.objects.filter(url=link)
         if query:
-            resulted_text = gen_result(eval(query.first().results))
+            resulted_text = gen_result(eval(query.first().results), query.first().type)
         else:
             resulted_text = {'title': 'Результат опитування не знайдено', }
     return render(request, 'questioning_results.html', resulted_text)
