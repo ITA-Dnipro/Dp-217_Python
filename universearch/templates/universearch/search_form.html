@@ -12,7 +12,7 @@
 {% block content %}
 <div class="ui container mt-5">
     <form class="mt-5" id="search-form" action="/search/universities/" method="get">
-        <h1 id="data_questioning" data="{{spec}}">Пошук по регiонах</h1>
+        <h1>Пошук по регiонах</h1>
         <div class="ui fluid selection dropdown mt-3" id="regions">
             <input type="hidden" name="region">
             <i class="dropdown2 icon"></i>
@@ -27,7 +27,7 @@
             <div class="menu" id="cities-box">
             </div>
         </div>
-        <h1>Пошук за галузями знань</h1>
+        <h1 id="field_questioning" data="{{field}}">Пошук за галузями знань</h1>
         <div class="ui fluid selection dropdown mt-3" data-toggle="modal" id="fields">
             <input type="hidden" name="field">
             <i class="dropdown2 icon"></i>
@@ -35,7 +35,7 @@
             <div class="menu" id="field-box">
             </div>
         </div>
-        <div class="ui fluid selection dropdown mt-3" id="specialities">
+        <div class="ui fluid selection dropdown mt-3" id="specialities" data="{{spec}}">
             <input type="hidden" name="speciality">
             <i class="dropdown2 icon"></i>
             <div class="default text" id="speciality-text">Усі спецiальностi</div>

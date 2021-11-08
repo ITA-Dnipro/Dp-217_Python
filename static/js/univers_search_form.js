@@ -69,9 +69,9 @@ $.ajax({
                 fieldsDataBox.appendChild(option)
             }
         )
-        let val = document.querySelector("#data_questioning").getAttribute('data');
+        let val = document.querySelector("#field_questioning").getAttribute('data');
         if (val !== '') {
-            document.querySelector("#data_questioning").setAttribute('data', '');
+            document.querySelector("#field_questioning").setAttribute('data', '');
             let event = new Event('change');
             $('#fields .default').html(val);
             document.getElementById('fields').dispatchEvent(event);
@@ -92,6 +92,11 @@ $.ajax({
                         option.setAttribute('data-value', item.name)
                         specialitiesDataBox.appendChild(option)
                     })
+                    let val = document.querySelector("#specialities").getAttribute('data');
+                    if (val !== '') {
+                        document.querySelector("#specialities").setAttribute('data', '');
+                        $('#specialities .default').html(val);
+                    }
                 },
                 error: function (error) {
                     console.log(error)

@@ -27,9 +27,16 @@ def get_json_specs_data(request, *args, **kwargs):
 
 
 def uni_search(request, spec=""):
+    field = ''
     if len(spec) > 2:
-        spec = spec.replace('_', ' ')
-    return render(request, 'universearch/search_form.html', {'spec': spec})
+        if spec[0] != '_':
+            field = spec.replace('_', ' ')
+            spec = ''
+        else:
+            field, spec = spec.split('__')
+            field = field[1:].replace('_', ' ')
+            spec = spec.replace('_', ' ')
+    return render(request, 'universearch/search_form.html', {'field': field, 'spec': spec})
 
 
 def get_universities(request):

@@ -28,6 +28,20 @@ def get_parameters(question_type):
     return average_result, categories_desc, study_fields, divider, severity, part_desc, max_res
 
 
+def get_fields_links(study_fields, item, question_type):
+    fields = [["Посилання на пошук:", '']]
+    if question_type != 3:
+        for study_field in study_fields.filter(category_id=item):
+            name = study_field.field_id.name
+            fields.append([name, name.replace(' ', '_')])
+        return fields
+    for study_field in study_fields.filter(category_id=item):
+        field = study_field.spec_id.study_field
+        name = study_field.spec_id.name
+        fields.append([name, f"_{field}__{name.replace(' ', '_')}"])
+    return fields
+
+
 def gen_result(results, question_type):
     average_result, categories_desc, study_fields, divider, severity, part_desc, max_res = get_parameters(question_type)
     top_categories = get_top_categories(results, average_result)
@@ -35,10 +49,7 @@ def gen_result(results, question_type):
     categories = []
     for item in top_categories:
         numerator = item - 1 if question_type != 3 else item
-        fields = [["Посилання на пошук:", '']]
-        for study_field in study_fields.filter(category_id=item):
-            name = study_field.field_id.name if question_type != 3 else study_field.spec_id.name
-            fields.append([name, name.replace(' ', '_')])
+        fields = get_fields_links(study_fields, item, question_type)
         result = results[item]
         severity_id = result // divider
         name = f"{part_desc}{categories_desc[numerator]['name']}»"
@@ -75,16 +86,14 @@ def gen_results(answers):
             categories = []
             for item in get_top_categories(result):
                 item = item - 1
-                field_name = [study_field.field_id.name for study_field in study_fields.filter(category_id=item)]
-                fields = [[item, item.replace(' ', '_')] for item in field_name]
+                fields = get_fields_links(study_fields, item, question_type)
                 categories.append({'name': f"Людина - {categories_desc[item]['name']}",
                                    'prof': categories_desc[item]['professions'].replace('.', '').split(','),
                                    'study_fields': fields, 'id': f"cat_{item}_{len(context)}"})
         else:
             categories = []
             for item in get_top_categories(result, 0):
-                field_name = [study_field.spec_id.name for study_field in specialities.filter(category_id=item)]
-                fields = [[item, item.replace(' ', '_')] for item in field_name]
+                fields = get_fields_links(specialities, item, question_type)
                 categories.append({'name': interests_desc[item]['name'],
                                    'prof': interests_desc[item]['professions'].replace('.', '').split(','),
                                    'study_fields': fields, 'id': f"cat_{item}_{len(context)}"})
