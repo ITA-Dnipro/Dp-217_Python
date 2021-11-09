@@ -186,5 +186,4 @@ def sort_result(result, question_type):
                     answer[index] += val
                 else:
                     answer[index] = val
-        print(answer)
         return answer

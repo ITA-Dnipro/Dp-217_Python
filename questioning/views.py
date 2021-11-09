@@ -25,7 +25,7 @@ def questioning_results(request, link=''):
         sorted_result = sort_result(results[1], results[0])
         if request.user.is_authenticated:
             save_questions_results(request.user.id, sorted_result, results[0])
-        resulted_text = gen_result(sorted_result)
+        resulted_text = gen_result(sorted_result, results[0])
     elif link == '':
         resulted_text = {'title': "Ви не авторизовані", }
         if request.user.is_authenticated:
@@ -53,7 +53,7 @@ def delete_result(request, id):
 
 def get_questions(request, questions_type):
     question_base = []
-    questions = list(QuestionsBaseNew.objects.filter(type=questions_type).values())
+    questions = list(QuestionsBase.objects.filter(type=questions_type).values())
     for item in questions:
         question_base.append({'question': item['question'], 'answers': [{
             'text': text, 'result': result} for text, result in
