@@ -42,6 +42,10 @@ class KlimovCategory(models.Model):
     desc = models.TextField("Опис категорії", blank=True)
     professions = models.TextField("Професії", blank=True)
 
+    @property
+    def json(self):
+        return {'name': f"Людина - {self.name}", 'examples': self.professions, 'description': self.desc}
+
     class Meta:
         verbose_name = "Категорія професії"
         verbose_name_plural = "Категорії професій"

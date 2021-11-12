@@ -3,7 +3,7 @@
     {% for answer in answers %}
     <div class="q__btn-bar">
         <button type="button" onClick="ajaxRequest({{ values }},{{ answer.result }})"
-                class="btn btn-secondary">{{ answer.text }}
+                class="{{answer.btn}}">{{ answer.text }}
         </button>
     </div>
     {% endfor %}

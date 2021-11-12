@@ -16,8 +16,8 @@ $(document).ready(function() {
         const resultID = $(this).attr("data-resultid");
 
         $.ajax({
-            method: "POST",
-            url: "/questioning/results/delete/" + resultID,
+            method: "DELETE",
+            url: "/questioning/results/" + resultID+"/delete",
             data: {
                 taskID: resultID,
             },

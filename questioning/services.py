@@ -1,5 +1,7 @@
+import json
+from django.shortcuts import get_object_or_404
 from questioning.models import TestResult, KlimovCategory, ConnectionKlimovCatStudyField, InterestCategory, \
-    ConnectionInterestCatSpec
+    ConnectionInterestCatSpec, QuestionsBase
 from users.models import CustomUser
 
 
@@ -42,21 +44,21 @@ def get_fields_links(study_fields, item, question_type):
     return fields
 
 
-def gen_result(results, question_type):
+def gen_result(results, question_type=1):
     average_result, categories_desc, study_fields, divider, severity, part_desc, max_res = get_parameters(question_type)
     top_categories = get_top_categories(results, average_result)
     title = "Ваші результати:"
     categories = []
     for item in top_categories:
-        numerator = item - 1 if question_type != 3 else item
         fields = get_fields_links(study_fields, item, question_type)
         result = results[item]
         severity_id = result // divider
-        name = f"{part_desc}{categories_desc[numerator]['name']}»"
+        desc = categories_desc.filter(id=item).first()
+        name = f"{part_desc}{desc['name']}»"
         categories.append(
             {'name': f"{name} - {severity[severity_id]} ({result} з {max_res} балів).",
-             'desc': categories_desc[numerator]['desc'],
-             'prof': [categories_desc[numerator]['professions']],
+             'desc': desc['desc'],
+             'prof': [desc['professions']],
              'study_fields': fields, 'id': f"cat_{len(categories)}"})
     resulted_text = {'title': title, 'data': [{'categories': categories}]}
     return resulted_text
@@ -82,51 +84,44 @@ def gen_results(answers):
     for answer in answers:
         result, date, url, result_id, question_type = eval(answer['results']), answer['created_date'], answer['url'], \
                                                       answer['id'], answer['type']
+        categories = []
         if question_type != 3:
-            categories = []
             for item in get_top_categories(result):
-                item = item - 1
                 fields = get_fields_links(study_fields, item, question_type)
-                categories.append({'name': f"Людина - {categories_desc[item]['name']}",
-                                   'prof': categories_desc[item]['professions'].replace('.', '').split(','),
+                desc = categories_desc.filter(id=item).first()
+                categories.append({'name': f"Людина - {desc['name']}",
+                                   'prof': desc['professions'].replace('.', '').split(','),
                                    'study_fields': fields, 'id': f"cat_{item}_{len(context)}"})
         else:
-            categories = []
             for item in get_top_categories(result, 0):
                 fields = get_fields_links(specialities, item, question_type)
-                categories.append({'name': interests_desc[item]['name'],
-                                   'prof': interests_desc[item]['professions'].replace('.', '').split(','),
+                desc = interests_desc.filter(id=item).first()
+                categories.append({'name': desc['name'],
+                                   'prof': desc['professions'].replace('.', '').split(','),
                                    'study_fields': fields, 'id': f"cat_{item}_{len(context)}"})
         context.append({'date': date.strftime("%d/%m/%Y"), 'categories': categories, 'id': result_id, 'url': url,
-                        'type': get_question_type_name(question_type), 'short': 1})
+                        'type': get_question_type(question_type), 'short': 1})
     context.reverse()
     return context
 
 
-def get_results(user_id):
-    user = CustomUser.objects.get(id=user_id)
-    items = [user_result for user_result in
-             user.testresult_set.all().values('created_date', 'results', 'url', 'id', 'type')]
+def get_results(user):
+    if not user.is_authenticated:
+        return {'title': "Ви не авторизовані", }
+    items = [user_result for user_result in CustomUser.objects.get(id=user.id).testresult_set.all().values()]
     if len(items) == 0:
         return {'title': 'Ви не пройшли опитування', }
     return {'title': 'Ваші результати', 'data': gen_results(items)}
 
 
-def get_question_type_name(question_type_index):
-    desc_question_types = ["Тест на визначення профорієнтації", "Тест на визначення типу майбутньої професії",
+def get_question_type(question_type_index):
+    desc_question_types = ["Тест на визначення профорієнтації", "Тест на визначення профорієнтації",
                            "Тест на визначення типу майбутньої професії"]
     return desc_question_types[question_type_index - 1]
 
 
 def gen_prof_categories():
-    prof_categories = {}
-    klimov_category_list = list(KlimovCategory.objects.all().values('name', 'professions', 'desc'))
-    for data in klimov_category_list:
-        index = klimov_category_list.index(data)
-        categories = {'name': f"Людина - {data['name']}", 'examples': data.pop('professions'),
-                      'description': data.pop('desc')}
-        prof_categories[index] = categories
-    return prof_categories
+    return {index: category.json for index, category in enumerate(KlimovCategory.objects.all())}
 
 
 def decode_result(result):
@@ -148,42 +143,83 @@ def decode_result(result):
 
 
 def get_decoded_user_results(user):
-    raw_results = [user_result for user_result in user.testresult_set.all()]
-    decoded_results = [decode_result(result) for result in raw_results]
-    return decoded_results
+    return [decode_result(result) for result in user.testresult_set.all()]
 
 
 def make_top_n_results(results, n=3):
     for result in results:
         categories = result['categories']
         categories.sort(key=lambda x: x['points'], reverse=True)
-        del categories[-(len(categories) - n):]
+        result['categories'] = categories[:n]
     return
 
 
 def sort_result(result, question_type):
     if question_type == 1:
         return {i: result.count(i) for i in set(result)}
-    if question_type == 2:
+    else:
         answer = {}
-        for item in result:
-            if item != 0:
-                item = str(item)
-                if answer.get(int(item[0])):
-                    answer[int(item[0])] += int(item[1]) if item[2] == '0' else -int(item[1])
-                else:
-                    answer[int(item[0])] = int(item[1]) if item[2] == '0' else -int(item[1])
+        if question_type == 2:
+            for item in result:
+                if item != 0:
+                    item = str(item)
+                    if answer.get(int(item[0])):
+                        answer[int(item[0])] += int(item[1]) if item[2] == '0' else -int(item[1])
+                    else:
+                        answer[int(item[0])] = int(item[1]) if item[2] == '0' else -int(item[1])
+        elif question_type == 3:
+            for item in result:
+                if item != 0:
+                    index_val = item % 10
+                    index = item // 10
+                    val = 2 if index_val == 2 or index_val == 3 else 1
+                    val = val if index_val == 0 or index_val == 1 else -val
+                    if answer.get(index):
+                        answer[index] += val
+                    else:
+                        answer[index] = val
         return answer
-    if question_type == 3:
-        answer = {}
-        for item in result:
-            if item != 0:
-                index_val = item % 10
-                index = item // 10
-                val = 2 if index_val == 2 or index_val == 3 else 1
-                val = val if index_val == 0 or index_val == 1 else -val
-                if answer.get(index):
-                    answer[index] += val
-                else:
-                    answer[index] = val
-        return answer
+
+
+def get_button_styles(questions_type):
+    if questions_type == 1:
+        return ['btn btn-primary', 'btn btn-info']
+    elif questions_type == 2:
+        return ['btn btn-primary', 'btn btn-secondary', 'btn btn-danger']
+    else:
+        return ['btn btn-primary', 'btn btn-info', 'btn btn-secondary', 'btn btn-warning', 'btn btn-danger']
+
+
+def get_result(link):
+    query = TestResult.objects.filter(url=link)
+    if query:
+        return gen_result(eval(query.first().results), query.first().type)
+    else:
+        return {'title': 'Результат опитування не знайдено', }
+
+
+def generate_result(result, user):
+    result = json.loads(result)
+    sorted_result = sort_result(result[1], result[0])
+    if user.is_authenticated:
+        save_questions_results(user.id, sorted_result, result[0])
+    return gen_result(sorted_result, result[0])
+
+
+def delete_result(result_id, user):
+    result = get_object_or_404(TestResult, id=result_id)
+    if user != result.user_id:
+        return False
+    result.delete()
+    return True
+
+
+def get_questions(questions_type):
+    question_base = []
+    questions = list(QuestionsBase.objects.filter(type=questions_type).values())
+    for item in questions:
+        question_base.append({'question': item['question'], 'answers': [{
+            'text': text, 'result': result, 'btn': btn} for text, result, btn in
+            zip(item['answer'].split('__'), item['result'].split('__'), get_button_styles(questions_type))]})
+
+    return json.dumps({'questions': question_base, 'results': [], 'type': questions_type, 'size': len(questions)})

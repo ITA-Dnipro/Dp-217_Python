@@ -1,5 +1,5 @@
 async function getQuestions(val) {
-    let url = '/questioning/get_questions/' + val;
+    let url = '/questioning/questions/' + val;
     try {
         let res = await fetch(url);
         return await res.json();
@@ -25,7 +25,7 @@ async function ajaxRequest(values, answer_id) {
         };
         $.ajax({
             type: "POST",
-            url: '/questioning/ajax/',
+            url: '/questioning/questions/',
             data: JSON.stringify(SendInfo),
             dataType: 'text',
             success: function (res) {
