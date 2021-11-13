@@ -5,7 +5,7 @@ from questioning.cron import remove_obsolete_records
 from questioning.models import TestResult, KlimovCategory, ConnectionKlimovCatStudyField, ConnectionInterestCatSpec
 from questioning.services import save_questions_results, gen_result, gen_results, get_results, get_top_categories, \
     decode_result, get_decoded_user_results, make_top_n_results, gen_prof_categories, get_parameters, get_fields_links, \
-    get_question_type, get_button_styles, sort_result, delete_result
+    get_question_type, get_button_styles, delete_result
 from users.models import CustomUser
 
 RESULTS = "{1: 4, 2: 4, 3: 4, 4: 4, 5: 4}"
@@ -73,23 +73,6 @@ class GetButtonStylesTest(TestCase):
         self.assertEqual(test_fields, fields)
 
 
-class SortResultTest(TestCase):
-    def test_sort_result_1(self):
-        result = sort_result([1, 2, 3, 4, 5], 1)
-        test_fields = {1: 1, 2: 1, 3: 1, 4: 1, 5: 1}
-        self.assertEqual(test_fields, result)
-
-    def test_sort_result_2(self):
-        result = sort_result([110, 210, 320, 421, 520], 2)
-        test_fields = {1: 1, 2: 1, 3: 2, 4: -2, 5: 2}
-        self.assertEqual(test_fields, result)
-
-    def test_sort_result_3(self):
-        result = sort_result([10, 20, 31, 42, 53], 3)
-        test_fields = {1: 1, 2: 1, 3: 1, 4: -2, 5: -2}
-        self.assertEqual(test_fields, result)
-
-
 class CronTestCase(TestCase):
     created_date = timezone.now() - timezone.timedelta(days=367)
 
@@ -135,27 +118,22 @@ class SaveTestCase(TestCase):
 
 
 class DeleteResultTestCase(TestCase):
-    result_id = 0
-    user_id = 0
-
-    def setUp(self):
-        CustomUser.objects.create(email='admin')
-        self.user_id = CustomUser.objects.all().last().id
-        self.result_id, created_date, self.user_id, url = create_test_result()
-
     def test_delete_result_1(self):
+        result_id, created_date, user_id, url = create_test_result()
         self.assertEqual(len(TestResult.objects.all()), 1)
-        delete_result(self.result_id - 1, self.user_id)
+        delete_result(result_id + 1, user_id)
         self.assertEqual(len(TestResult.objects.all()), 1)
 
     def test_delete_result_2(self):
+        result_id, created_date, user_id, url = create_test_result()
         self.assertEqual(len(TestResult.objects.all()), 1)
-        delete_result(self.result_id, self.user_id-1)
+        delete_result(result_id, user_id.id - 1)
         self.assertEqual(len(TestResult.objects.all()), 1)
 
     def test_delete_result_3(self):
+        result_id, created_date, user_id, url = create_test_result()
         self.assertEqual(len(TestResult.objects.all()), 1)
-        delete_result(self.result_id, self.user_id)
+        delete_result(result_id, user_id)
         self.assertEqual(len(TestResult.objects.all()), 0)
 
 
@@ -321,7 +299,7 @@ class GetResultsTestCase(TestCase):
     fixtures = ['klimovcategory.json', 'studyfields.json', 'specialities.json', 'connection.json']
 
     def test_get_results1(self):
-        user_id = CustomUser.objects.create(email='admin').id
+        user_id = CustomUser.objects.create(email='admin')
         test_answer = {'title': 'Ви не пройшли опитування', }
         answer = get_results(user_id)
         self.assertEqual(answer, test_answer)
@@ -334,7 +312,7 @@ class GetResultsTestCase(TestCase):
         items = gen_results(
             [{'results': RESULTS, 'created_date': timezone.now(), 'url': url, 'id': result_id, 'type': q_type}])
         test_answer = {'title': 'Ваші результати', 'data': items}
-        answer = get_results(user_id.id)
+        answer = get_results(user_id)
         self.assertEqual(answer, test_answer)
 
 

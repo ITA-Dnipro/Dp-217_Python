@@ -121,7 +121,7 @@ def get_question_type(question_type_index):
 
 
 def gen_prof_categories():
-    return {index: category.json for index, category in enumerate(KlimovCategory.objects.all())}
+    return {index: category.generate_element for index, category in enumerate(KlimovCategory.objects.all())}
 
 
 def decode_result(result):
@@ -132,13 +132,14 @@ def decode_result(result):
         'url': result.url
     }
     answers_list = eval(result.results)
-    for index, data in gen_prof_categories().items():
-        decoded_result['categories'].append(
-            {
-                'info': data,
-                'points': answers_list[index + 1],
-            }
-        )
+    if result.type != 3:
+        for index, data in gen_prof_categories().items():
+            decoded_result['categories'].append(
+                {
+                    'info': data,
+                    'points': answers_list[index + 1],
+                }
+            )
     return decoded_result
 
 
@@ -152,34 +153,6 @@ def make_top_n_results(results, n=3):
         categories.sort(key=lambda x: x['points'], reverse=True)
         result['categories'] = categories[:n]
     return
-
-
-def sort_result(result, question_type):
-    if question_type == 1:
-        return result
-    else:
-        return result
-        # answer = {}
-        # if question_type == 2:
-        #     for item in result:
-        #         if item != 0:
-        #             item = str(item)
-        #             if answer.get(int(item[0])):
-        #                 answer[int(item[0])] += int(item[1]) if item[2] == '0' else -int(item[1])
-        #             else:
-        #                 answer[int(item[0])] = int(item[1]) if item[2] == '0' else -int(item[1])
-        # elif question_type == 3:
-        #     for item in result:
-        #         if item != 0:
-        #             index_val = item % 10
-        #             index = item // 10
-        #             val = 2 if index_val == 2 or index_val == 3 else 1
-        #             val = val if index_val == 0 or index_val == 1 else -val
-        #             if answer.get(index):
-        #                 answer[index] += val
-        #             else:
-        #                 answer[index] = val
-        # return answer
 
 
 def get_button_styles(questions_type):
@@ -201,28 +174,22 @@ def get_result(link):
 
 def generate_result(result, user):
     result = json.loads(result)
-    sorted_result = sort_result(result[1], result[0])
     if user.is_authenticated:
-        save_questions_results(user.id, sorted_result, result[0])
-    return gen_result(sorted_result, result[0])
+        save_questions_results(user.id, result[1], result[0])
+    return gen_result(result[1], result[0])
 
 
 def delete_result(result_id, user):
-    result = get_object_or_404(TestResult, id=result_id)
-    if user != result.user_id:
+    result = TestResult.objects.filter(id=result_id).first()
+    if (result is None) or (user != result.user_id):
         return False
     result.delete()
     return True
 
 
 def get_questions(questions_type):
-    question_base = []
-    questions = list(QuestionsBase.objects.filter(type=questions_type).values())
-    for item in questions:
-        question_base.append({'question': item['question'], 'answers': [{
-            'text': text, 'result': [result, 1], 'btn': btn} for text, result, btn in
-            zip(item['answer'].split('__'), item['result'].split('__'), get_button_styles(questions_type))]})
-        print(question_base[-1])
+    question_base = [item.generate_element for item in list(QuestionsBase.objects.filter(type=questions_type))]
+    buttons = get_button_styles(questions_type)
     return json.dumps(
         {'questions': question_base, 'results': {i: 0 for i in range(1, 20 if questions_type == 3 else 6)},
-         'type': questions_type, 'size': len(questions)})
+         'type': questions_type, 'buttons': buttons})

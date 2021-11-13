@@ -78,4 +78,4 @@ class HousingService:
 
     @staticmethod
     def all_json():
-        return [housing.json for housing in HousingService.all()]
+        return [housing.generate_element for housing in HousingService.all()]

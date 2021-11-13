@@ -32,7 +32,7 @@ class TestGetRegions(TestCase):
     def test_data(self):
         response = self.client.get('/search/region-data/')
         self.assertEqual(response.status_code, 200)
-        self.assertEqual(response.json(),
+        self.assertEqual(response.generate_element(),
                          {'data': [{'id': self.region1.id, 'name': 'Киiвська область'},
                                    {'id': self.region2.id, 'name': 'Львiвська область'}]})
 
@@ -46,7 +46,7 @@ class TestGetCities(TestCase):
     def test_city_data(self):
         response = self.client.get('/search/cities-data/Одеська область/')
         self.assertEqual(response.status_code, 200)
-        self.assertEqual(response.json(),
+        self.assertEqual(response.generate_element(),
                          {'data': [{'id': self.city1.id, 'name': 'Iзмаiл', 'region_id': self.region.id},
                                    {'id': self.city2.id, 'name': 'Білгород-Дністровський', 'region_id': self.region.id}]})
 
@@ -59,7 +59,7 @@ class TestGetStudyfields(TestCase):
     def test_data(self):
         response = self.client.get('/search/fields-data/')
         self.assertEqual(response.status_code, 200)
-        self.assertEqual(response.json(),
+        self.assertEqual(response.generate_element(),
                          {'data': [{'id': self.studyfield1.id, 'name': 'Освіта'},
                                    {'id': self.studyfield2.id, 'name': 'Право'}]})
 
@@ -73,7 +73,7 @@ class TestGetSpecialities(TestCase):
     def test_city_data(self):
         response = self.client.get('/search/specialities-data/Соціальні науки/')
         self.assertEqual(response.status_code, 200)
-        self.assertEqual(response.json(),
+        self.assertEqual(response.generate_element(),
                          {'data': [{'id': self.speciality1.id, 'name': 'Економіка', 'study_field_id': self.studyfield.id},
                                    {'id': self.speciality2.id, 'name': 'Соціологія', 'study_field_id': self.studyfield.id}]})
 

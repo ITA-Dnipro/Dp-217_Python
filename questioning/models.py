@@ -32,6 +32,22 @@ class QuestionsBase(models.Model):
     result = models.TextField("Результат відповідей", null=True)
     type = models.PositiveSmallIntegerField(default=1)
 
+    @property
+    def generate_element(self) -> dict:
+        results = self.generate_result
+        return {'question': self.question,
+                'answers': [{'text': text, 'result': result} for text, result in
+                            zip(self.answer.split('__'), results)]}
+
+    @property
+    def generate_result(self) -> list:
+        if self.type == 1:
+            return [[result, 1] for result in self.result.split('__')]
+        elif self.type == 2:
+            return [[self.result, item] for item in range(1, -2, -1)]
+        else:
+            return [[self.result, item] for item in range(2, -3, -1)]
+
     class Meta:
         verbose_name = "Запитання"
         verbose_name_plural = "Запитання"
@@ -43,7 +59,7 @@ class KlimovCategory(models.Model):
     professions = models.TextField("Професії", blank=True)
 
     @property
-    def json(self):
+    def generate_element(self) -> dict:
         return {'name': f"Людина - {self.name}", 'examples': self.professions, 'description': self.desc}
 
     class Meta:
