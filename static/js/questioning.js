@@ -14,9 +14,9 @@ async function ajaxRequest(values, answer_id) {
         let questions = await getQuestions(values);
         values = JSON.parse(questions);
     } else {
-        values['results'].push(answer_id);
+        values['results'][answer_id[0]] += answer_id[1];
     }
-    if (values['results'].length < values['size']) {
+    if (values['questions'].length > 1) {
         let val = values['questions'].pop();
         let SendInfo = {
             question: val['question'],
@@ -39,7 +39,7 @@ async function ajaxRequest(values, answer_id) {
         $.ajax({
             type: "POST",
             url: '/questioning/results/',
-            data: JSON.stringify([values['type'],values['results']]),
+            data: JSON.stringify([values['type'], values['results']]),
             dataType: 'text',
             success: function (res) {
                 let start_index = res.indexOf('<div id="results">', 0);

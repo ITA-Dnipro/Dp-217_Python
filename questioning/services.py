@@ -156,29 +156,30 @@ def make_top_n_results(results, n=3):
 
 def sort_result(result, question_type):
     if question_type == 1:
-        return {i: result.count(i) for i in set(result)}
+        return result
     else:
-        answer = {}
-        if question_type == 2:
-            for item in result:
-                if item != 0:
-                    item = str(item)
-                    if answer.get(int(item[0])):
-                        answer[int(item[0])] += int(item[1]) if item[2] == '0' else -int(item[1])
-                    else:
-                        answer[int(item[0])] = int(item[1]) if item[2] == '0' else -int(item[1])
-        elif question_type == 3:
-            for item in result:
-                if item != 0:
-                    index_val = item % 10
-                    index = item // 10
-                    val = 2 if index_val == 2 or index_val == 3 else 1
-                    val = val if index_val == 0 or index_val == 1 else -val
-                    if answer.get(index):
-                        answer[index] += val
-                    else:
-                        answer[index] = val
-        return answer
+        return result
+        # answer = {}
+        # if question_type == 2:
+        #     for item in result:
+        #         if item != 0:
+        #             item = str(item)
+        #             if answer.get(int(item[0])):
+        #                 answer[int(item[0])] += int(item[1]) if item[2] == '0' else -int(item[1])
+        #             else:
+        #                 answer[int(item[0])] = int(item[1]) if item[2] == '0' else -int(item[1])
+        # elif question_type == 3:
+        #     for item in result:
+        #         if item != 0:
+        #             index_val = item % 10
+        #             index = item // 10
+        #             val = 2 if index_val == 2 or index_val == 3 else 1
+        #             val = val if index_val == 0 or index_val == 1 else -val
+        #             if answer.get(index):
+        #                 answer[index] += val
+        #             else:
+        #                 answer[index] = val
+        # return answer
 
 
 def get_button_styles(questions_type):
@@ -219,7 +220,9 @@ def get_questions(questions_type):
     questions = list(QuestionsBase.objects.filter(type=questions_type).values())
     for item in questions:
         question_base.append({'question': item['question'], 'answers': [{
-            'text': text, 'result': result, 'btn': btn} for text, result, btn in
+            'text': text, 'result': [result, 1], 'btn': btn} for text, result, btn in
             zip(item['answer'].split('__'), item['result'].split('__'), get_button_styles(questions_type))]})
-
-    return json.dumps({'questions': question_base, 'results': [], 'type': questions_type, 'size': len(questions)})
+        print(question_base[-1])
+    return json.dumps(
+        {'questions': question_base, 'results': {i: 0 for i in range(1, 20 if questions_type == 3 else 6)},
+         'type': questions_type, 'size': len(questions)})
