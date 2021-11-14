@@ -3,17 +3,17 @@ $(document).ready(function() {
     const filters = [
         {
             htmlName: 'region-select',
-            dataName: 'region_name',
+            dataName: 'region',
             stateName: 'region'
         },
         {
             htmlName: 'city-select',
-            dataName: 'city_name',
+            dataName: 'city',
             stateName: 'city'
         },
         {
             htmlName: 'university-select',
-            dataName: 'university_name',
+            dataName: 'university',
             stateName: 'university'
         }
     ];
@@ -48,7 +48,7 @@ $(document).ready(function() {
     function updateResultsTable() {
         $('#results-table > tbody').empty();
         housingsState.forEach(housing => {
-            let columnsMarkup = "";
+            let columnsMarkup = `<td>${housing.name}</td>`;
             filters.forEach(filter => {
                 columnsMarkup += `<td>${housing[filter.dataName]}</td>`
             });
@@ -63,13 +63,13 @@ $(document).ready(function() {
         let regions = [defaultFiltersValue];
         let cities = [defaultFiltersValue];
         let universities = [defaultFiltersValue];
-        let housing_names = [];
+        let names = [];
 
         housings.forEach(housing => {
-            regions.push(housing.region_name);
-            cities.push(housing.city_name);
-            universities.push(housing.university_name);
-            housing_names.push(housing.housing_name);
+            regions.push(housing.region);
+            cities.push(housing.city);
+            universities.push(housing.university);
+            names.push(housing.name);
         });
 
         regions = [...new Set(regions)];
@@ -185,7 +185,6 @@ $(document).ready(function() {
             setInitialHousingsState(housings);
             setHousingsState(initialHousingsState);
             init_filters();
-            // update_filters();
             updateResultsTable();
         },
         error: function (response) {

@@ -1,5 +1,6 @@
-from .models import Housing, University, City, Region
+import json
 from django.db.models import Q
+from .models import Housing, University, City, Region
 
 
 class RegionService:
@@ -78,4 +79,4 @@ class HousingService:
 
     @staticmethod
     def all_json():
-        return [housing.generate_element for housing in HousingService.all()]
+        return json.dumps([h.json for h in HousingService.all()])

@@ -27,8 +27,8 @@ class Housing(models.Model):
     def json(self):
         return {
             'id': self.id,
-            'housing': self.name,
-            'university': self.university.name or 'none',
+            'name': self.name,
+            'university': self.university.name if self.university else '-',
             'city': self.city.name,
             'region': self.city.region.name
             }
