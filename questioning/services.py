@@ -1,5 +1,4 @@
 import json
-from django.shortcuts import get_object_or_404
 from questioning.models import TestResult, KlimovCategory, ConnectionKlimovCatStudyField, InterestCategory, \
     ConnectionInterestCatSpec, QuestionsBase
 from users.models import CustomUser
@@ -49,30 +48,27 @@ def gen_result(results, question_type=1):
     top_categories = get_top_categories(results, average_result)
     title = "Ваші результати:"
     categories = []
-    for item in top_categories:
+    for item, result in top_categories.items():
         fields = get_fields_links(study_fields, item, question_type)
-        result = results[item]
-        severity_id = result // divider
         desc = categories_desc.filter(id=item).first()
         name = f"{part_desc}{desc['name']}»"
-        categories.append(
-            {'name': f"{name} - {severity[severity_id]} ({result} з {max_res} балів).",
-             'desc': desc['desc'],
-             'prof': [desc['professions']],
-             'study_fields': fields, 'id': f"cat_{len(categories)}"})
+        categories.append({'name': f"{name} - {severity[result // divider]} ({result} з {max_res} балів).",
+                           'desc': desc['desc'],
+                           'prof': [desc['professions']],
+                           'study_fields': fields, 'id': f"cat_{len(categories)}"})
     resulted_text = {'title': title, 'data': [{'categories': categories}]}
     return resulted_text
 
 
 def get_top_categories(resulted_categories, average_result=4):
-    cat = resulted_categories.copy()
-    max_key = []
-    max_key_current = max(cat, key=cat.get)
-    while len(max_key) < 3 or cat.get(max_key_current) > average_result:
-        max_key.append(max_key_current)
-        cat[max_key[-1]] = 0
-        max_key_current = max(cat, key=cat.get)
-    return max_key
+    cat = {k: v for k, v in sorted(resulted_categories.items(), key=lambda item: item[1], reverse=True)}
+    cat_dict = {}
+    for key, value in cat.items():
+        if value > average_result or len(cat_dict) < 3:
+            cat_dict[key] = value
+        else:
+            break
+    return cat_dict
 
 
 def gen_results(answers):
@@ -86,14 +82,14 @@ def gen_results(answers):
                                                       answer['id'], answer['type']
         categories = []
         if question_type != 3:
-            for item in get_top_categories(result):
+            for item, _ in get_top_categories(result).items():
                 fields = get_fields_links(study_fields, item, question_type)
                 desc = categories_desc.filter(id=item).first()
                 categories.append({'name': f"Людина - {desc['name']}",
                                    'prof': desc['professions'].replace('.', '').split(','),
                                    'study_fields': fields, 'id': f"cat_{item}_{len(context)}"})
         else:
-            for item in get_top_categories(result, 0):
+            for item, _ in get_top_categories(result, 0).items():
                 fields = get_fields_links(specialities, item, question_type)
                 desc = interests_desc.filter(id=item).first()
                 categories.append({'name': desc['name'],
@@ -108,7 +104,7 @@ def gen_results(answers):
 def get_results(user):
     if not user.is_authenticated:
         return {'title': "Ви не авторизовані", }
-    items = [user_result for user_result in CustomUser.objects.get(id=user.id).testresult_set.all().values()]
+    items = list(CustomUser.objects.get(id=user.id).testresult_set.all().values())
     if len(items) == 0:
         return {'title': 'Ви не пройшли опитування', }
     return {'title': 'Ваші результати', 'data': gen_results(items)}

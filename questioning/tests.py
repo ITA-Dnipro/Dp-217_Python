@@ -317,8 +317,8 @@ class GetResultsTestCase(TestCase):
 
 
 class GetTopCategoriesTestCase(TestCase):
-    def test_gen_results1(self):
-        test_answer = [1, 2, 3]
+    def test_get_top_categories(self):
+        test_answer = {1: 4, 2: 4, 3: 4}
         answer = get_top_categories(eval(RESULTS))
         self.assertEqual(answer, test_answer)
 
