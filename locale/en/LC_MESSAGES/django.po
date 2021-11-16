@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-11-16 14:16+0200\n"
+"POT-Creation-Date: 2021-11-16 15:03+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,11 +18,413 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
+#: .\questioning\templates\questioning.html:15
+#: .\questioning\templates\questioning.html:108
+#, fuzzy
+#| msgid "Тест з профорієнтації"
+msgid "Тест на визначення профорієнтації"
+msgstr "Career guidance test"
+
+#: .\questioning\templates\questioning.html:19
+#: .\questioning\templates\questioning.html:112
+#: .\questioning\templates\questioning.html:146
+msgid "Почати тест"
+msgstr ""
+
+#: .\questioning\templates\questioning.html:29
+msgid "Вибір професії один з найважливіших етапів в життя"
+msgstr ""
+
+#: .\questioning\templates\questioning.html:30
+#, python-format
+msgid ""
+"людини, адже велика частина часу неспання (близько 60%%) йде на роботу, "
+"підготовку і дорогу до неї"
+msgstr ""
+
+#: .\questioning\templates\questioning.html:31
+msgid ""
+"Від спеціальності залежить, в яких колах відбувається спілкування і чи "
+"будуть колеги сприяти"
+msgstr ""
+
+#: .\questioning\templates\questioning.html:32
+msgid "розвитку особистості"
+msgstr ""
+
+#: .\questioning\templates\questioning.html:35
+#, python-format
+msgid "Всього 22%% робочого населення задоволені своєю професією. Тому"
+msgstr ""
+
+#: .\questioning\templates\questioning.html:36
+msgid ""
+"важливо вибирати улюблений напрямок діяльності для отримання задоволення від "
+"роботи і досягнення"
+msgstr ""
+
+#: .\questioning\templates\questioning.html:37
+msgid "найвищих результатів, наприклад, за допомогою тесту на профорієнтацію"
+msgstr ""
+
+#: .\questioning\templates\questioning.html:40
+msgid ""
+"Часто складно знайти улюблену професію, особливо старшокласникам - без "
+"реальної робочої практики"
+msgstr ""
+
+#: .\questioning\templates\questioning.html:42
+msgid "не зрозуміти"
+msgstr ""
+
+#: .\questioning\templates\questioning.html:44
+msgid ""
+"істинний інтерес до сфери. Але гірше закінчити вуз і після усвідомити \"це "
+"не моє\". Рекомендуємо"
+msgstr ""
+
+#: .\questioning\templates\questioning.html:46
+msgid "заздалегідь"
+msgstr ""
+
+#: .\questioning\templates\questioning.html:48
+msgid ""
+"спробувати попрацювати стажистом і подивитися, як в реальності відбувається "
+"процес і чи"
+msgstr ""
+
+#: .\questioning\templates\questioning.html:50
+msgid "подобається він"
+msgstr ""
+
+#: .\questioning\templates\questioning.html:53
+msgid ""
+"Неправильно обрану професійну діяльність з часом буде складно змінити через "
+"появу"
+msgstr ""
+
+#: .\questioning\templates\questioning.html:54
+msgid ""
+"зобов'язань і складності почати з нуля. Буде потрібно витратити багато часу "
+"на перекваліфікацію"
+msgstr ""
+
+#: .\questioning\templates\questioning.html:55
+msgid "роботу на початкових позиціях"
+msgstr ""
+
+#: .\questioning\templates\questioning.html:58
+msgid ""
+"Важливо пам'ятати: «Мир прискорюється». І якщо раніше професія частіше була "
+"одна і на"
+msgstr ""
+
+#: .\questioning\templates\questioning.html:59
+msgid "все життя, то зараз, швидше"
+msgstr ""
+
+#: .\questioning\templates\questioning.html:60
+msgid ""
+"за все, доведеться змінити кілька. Тому важливо вміти адаптуватися і бути "
+"відкритим до нового"
+msgstr ""
+
+#: .\questioning\templates\questioning.html:61
+msgid ""
+"на досягнення високого професіоналізму потрібно багато часу. Андерс Еріксон "
+"з Університету штату"
+msgstr ""
+
+#: .\questioning\templates\questioning.html:62
+msgid ""
+"Флорида, довів теорію \"для досягнення майстерності в будь-якій справі "
+"необхідно 10 000 годин наполегливої практики"
+msgstr ""
+
+#: .\questioning\templates\questioning.html:65
+msgid ""
+"Кількість різних спеціальностей на даний момент - кілька тисяч, у кожної є "
+"своя"
+msgstr ""
+
+#: .\questioning\templates\questioning.html:66
+msgid ""
+"специфіка, особливості. Щоб не заплутатися у всьому цьому різноманітті і "
+"якось звузити пошуки ідеального"
+msgstr ""
+
+#: .\questioning\templates\questioning.html:67
+msgid "напрямки, можна пройти тест на профорієнтацію і тест Голланда"
+msgstr ""
+
+#: .\questioning\templates\questioning.html:70
+msgid "Всі професії можна розділити на кілька категорій"
+msgstr ""
+
+#: .\questioning\templates\questioning.html:74
+msgid "людина (лікарі, викладачі, органи правопорядку, психологи, юристи)"
+msgstr ""
+
+#: .\questioning\templates\questioning.html:77
+msgid "природа (ветеринар, еколог, агроном, біолог, геолог)"
+msgstr ""
+
+#: .\questioning\templates\questioning.html:84
+msgid ""
+"знакова система (програміст, бухгалтер, економіст, перекладач, математик)"
+msgstr ""
+
+#: .\questioning\templates\questioning.html:87
+msgid "художні образи (дизайнер, художник, архітектор, актор, режисер)"
+msgstr ""
+
+#: .\questioning\templates\questioning.html:91
+msgid "Щоб скоротити сферу пошуку майбутньої професії можна ще пройти"
+msgstr ""
+
+#: .\questioning\templates\questioning.html:93
+#, fuzzy
+#| msgid "Тест з профорієнтації"
+msgid "тест на професійні інтереси"
+msgstr "Career guidance test"
+
+#: .\questioning\templates\questioning.html:123
+msgid "Інший варіант тесту Клімова"
+msgstr ""
+
+#: .\questioning\templates\questioning.html:126
+msgid ""
+"Методика ґрунтується на класифікації професійних інтересів. Дозволяє "
+"встановити в якій"
+msgstr ""
+
+#: .\questioning\templates\questioning.html:127
+msgid ""
+"галузі старшокласнику найкраще вибрати спеціальність, за якою він "
+"проходитиме професійне"
+msgstr ""
+
+#: .\questioning\templates\questioning.html:128
+msgid "навчання після школи"
+msgstr ""
+
+#: .\questioning\templates\questioning.html:142
+msgid "Тест на визначення типу майбутньої професії"
+msgstr ""
+
+#: .\questioning\templates\questioning.html:156
+msgid "«Карта інтересів» є модифікованим варіантом методики,"
+msgstr ""
+
+#: .\questioning\templates\questioning.html:157
+msgid ""
+"опублікований А.Е.Голомштоком у збірнику «Профорієнтаційна робота у школі»"
+msgstr ""
+
+#: .\questioning\templates\questioning.html:158
+msgid "Модифікація зроблена співробітниками ВНДІ профтехосвіти"
+msgstr ""
+
+#: .\questioning\templates\questioning.html:161
+msgid "Дані, отримані за допомогою цієї методики, виявити не лише коло"
+msgstr ""
+
+#: .\questioning\templates\questioning.html:162
+msgid ""
+"інтересів учня, а й ступінь їхньої виразності, що має особливе значення у "
+"формуванні"
+msgstr ""
+
+#: .\questioning\templates\questioning.html:163
+msgid "мотивації вибору майбутньої професії"
+msgstr ""
+
+#: .\questioning\templates\questioning.html:165
+msgid "Вивчення інтересів, способів учнів може здійснюватись методами"
+msgstr ""
+
+#: .\questioning\templates\questioning.html:166
+msgid ""
+"- від простих спостережень за їх успіхами у освоєнні навчальних дисциплін до "
+"використання"
+msgstr ""
+
+#: .\questioning\templates\questioning.html:167
+msgid ""
+"різних анкет, опитувальників. Використання цієї методики дозволяє вперше"
+msgstr ""
+
+#: .\questioning\templates\questioning.html:168
+msgid "проаналізувати інтереси, близькі до того чи іншого виду діяльності"
+msgstr ""
+
+#: .\questioning\templates\questioning.html:170
+msgid "Заповнення банку у відповідь може працювати індивідуально або в групі"
+msgstr ""
+
+#: .\questioning\templates\questioning.html:171
+msgid ""
+"Методика \"Карта інтересів\" - опитувальник включає 174 питання, що "
+"відображають"
+msgstr ""
+
+#: .\questioning\templates\questioning.html:172
+msgid "спрямованість інтересів у 19 сферах діяльності"
+msgstr ""
+
+#: .\questioning\templates\questioning.html:174
+msgid "Бланк відповідей є матрицею з шести рядків і двадцяти колонок"
+msgstr ""
+
+#: .\questioning\templates\questioning.html:175
+msgid "Кожна колонка відповідає одній з таких сфер інтересів"
+msgstr ""
+
+#: .\questioning\templates\questioning.html:179
+msgid "Біологія, хімія"
+msgstr ""
+
+#: .\questioning\templates\questioning.html:182
+msgid "Туризм"
+msgstr ""
+
+#: .\questioning\templates\questioning.html:185
+msgid "Інформаційні технології"
+msgstr ""
+
+#: .\questioning\templates\questioning.html:188
+msgid "Медицина"
+msgstr ""
+
+#: .\questioning\templates\questioning.html:191
+msgid "Фізика, математика"
+msgstr ""
+
+#: .\questioning\templates\questioning.html:194
+msgid "Інженерно-технічна сфера"
+msgstr ""
+
+#: .\questioning\templates\questioning.html:197
+msgid "Будівництво"
+msgstr ""
+
+#: .\questioning\templates\questioning.html:200
+msgid "Транспорт"
+msgstr ""
+
+#: .\questioning\templates\questioning.html:203
+msgid "Силові структури"
+msgstr ""
+
+#: .\questioning\templates\questioning.html:206
+msgid "Журналістика"
+msgstr ""
+
+#: .\questioning\templates\questioning.html:209
+msgid "Суспільна діяльність"
+msgstr ""
+
+#: .\questioning\templates\questioning.html:212
+msgid "Педагогіка"
+msgstr ""
+
+#: .\questioning\templates\questioning.html:215
+msgid "Право, юриспруденція"
+msgstr ""
+
+#: .\questioning\templates\questioning.html:218
+msgid "Сфера обслуговування, торгівля"
+msgstr ""
+
+#: .\questioning\templates\questioning.html:221
+msgid "Економіка та фінанси"
+msgstr ""
+
+#: .\questioning\templates\questioning.html:224
+msgid "Іноземні мови"
+msgstr ""
+
+#: .\questioning\templates\questioning.html:227
+msgid "Образотворче мистецтво, дизайн"
+msgstr ""
+
+#: .\questioning\templates\questioning.html:230
+msgid "Музичне та сценічне мистецтво"
+msgstr ""
+
+#: .\questioning\templates\questioning.html:233
+msgid "Фізкультура та спорт"
+msgstr ""
+
+#: .\questioning\templates\result_card.html:44
+msgid "Cтислі результати тесту"
+msgstr ""
+
+#: .\questioning\templates\result_card.html:74
+msgid "Галузі знань"
+msgstr ""
+
+#: .\relocation\templates\relocation\main.html:16
+msgid "Фільтрувати"
+msgstr ""
+
+#: .\relocation\templates\relocation\main.html:17
+msgid "Для результату оберіть університет"
+msgstr ""
+
+#: .\relocation\templates\relocation\main.html:24
+#: .\relocation\templates\relocation\main2.html:39
+msgid "Назва"
+msgstr ""
+
+#: .\relocation\templates\relocation\main.html:25
+msgid "Тип"
+msgstr ""
+
+#: .\relocation\templates\relocation\main.html:26
+#: .\universearch\templates\universearch\results.html:28
+msgid "Адреса"
+msgstr ""
+
+#: .\relocation\templates\relocation\main.html:27
+msgid "Телефон"
+msgstr ""
+
+#: .\relocation\templates\relocation\main.html:28
+msgid "Належить ВУЗу"
+msgstr ""
+
+#: .\relocation\templates\relocation\main2.html:15
+msgid "Регіон"
+msgstr ""
+
+#: .\relocation\templates\relocation\main2.html:19
+#: .\relocation\templates\relocation\main2.html:41
+msgid "Місто"
+msgstr ""
+
+#: .\relocation\templates\relocation\main2.html:23
+msgid "Університет"
+msgstr ""
+
+#: .\relocation\templates\relocation\main2.html:31
+msgid "Очистити"
+msgstr ""
+
+#: .\relocation\templates\relocation\main2.html:40
+msgid "Область"
+msgstr ""
+
+#: .\relocation\templates\relocation\main2.html:42
+msgid "ВНЗ"
+msgstr ""
+
 #: .\templates\base_header.html:12 .\templates\base_header.html:26
 msgid "Опитування"
 msgstr "Questioning"
 
 #: .\templates\base_header.html:15 .\templates\index.html:20
+#: .\universearch\templates\universearch\search_form.html:46
 msgid "Пошук"
 msgstr "Search"
 
@@ -43,10 +445,11 @@ msgid "Вийти"
 msgstr "log out"
 
 #: .\templates\base_header.html:33
+#: .\users\templates\registration\registration.html:8
 msgid "Реєстрація"
 msgstr "Registration"
 
-#: .\templates\base_header.html:36
+#: .\templates\base_header.html:36 .\users\templates\registration\login.html:8
 msgid "Вхід"
 msgstr "log in"
 
@@ -65,3 +468,161 @@ msgstr "Search for universities by selected parameters"
 #: .\templates\index.html:39
 msgid "Підбір житла на період навчання"
 msgstr "Selection of housing for the period of study"
+
+#: .\universearch\templates\universearch\results.html:6
+msgid "Результати пошуку"
+msgstr ""
+
+#: .\universearch\templates\universearch\results.html:22
+msgid "Форма власностi"
+msgstr ""
+
+#: .\universearch\templates\universearch\results.html:23
+msgid "Електронна пошта"
+msgstr ""
+
+#: .\universearch\templates\universearch\results.html:24
+msgid "Сайт"
+msgstr ""
+
+#: .\universearch\templates\universearch\results.html:30
+msgid "Iндекс"
+msgstr ""
+
+#: .\universearch\templates\universearch\results.html:31
+msgid "Тел"
+msgstr ""
+
+#: .\universearch\templates\universearch\results.html:42
+msgid "Спецiальнiсть"
+msgstr ""
+
+#: .\universearch\templates\universearch\results.html:43
+msgid "Рiвень"
+msgstr ""
+
+#: .\universearch\templates\universearch\results.html:46
+msgid "Кiлькiсть бюджетних мiсць"
+msgstr ""
+
+#: .\universearch\templates\universearch\search_form.html:15
+msgid "Пошук по регiонах"
+msgstr ""
+
+#: .\universearch\templates\universearch\search_form.html:19
+msgid "Усі регiони"
+msgstr ""
+
+#: .\universearch\templates\universearch\search_form.html:26
+msgid "Усі мiста"
+msgstr ""
+
+#: .\universearch\templates\universearch\search_form.html:30
+#, fuzzy
+#| msgid "Пошук ВНЗ за обраними параметрами"
+msgid "Пошук за галузями знань"
+msgstr "Search for universities by selected parameters"
+
+#: .\universearch\templates\universearch\search_form.html:34
+msgid "Усі галузi знань"
+msgstr ""
+
+#: .\universearch\templates\universearch\search_form.html:41
+msgid "Усі спецiальностi"
+msgstr ""
+
+#: .\users\templates\registration\logged_out.html:5
+msgid "Виконано вихід з акаунту"
+msgstr ""
+
+#: .\users\templates\registration\logged_out.html:6
+msgid "Увійти знов"
+msgstr ""
+
+#: .\users\templates\registration\login.html:15
+msgid "Ім"
+msgstr ""
+
+#: .\users\templates\registration\login.html:26
+msgid "Пароль"
+msgstr ""
+
+#: .\users\templates\registration\login.html:41
+msgid "Невірні дані для входу"
+msgstr ""
+
+#: .\users\templates\registration\login.html:47
+#: .\users\templates\registration\password_reset_complete.html:8
+#: .\users\templates\registration\registration.html:49
+msgid "Увійти"
+msgstr ""
+
+#: .\users\templates\registration\login.html:52
+msgid "Відновити пароль"
+msgstr ""
+
+#: .\users\templates\registration\login.html:54
+#, fuzzy
+#| msgid "Реєстрація"
+msgid "Зареєструватись"
+msgstr "Registration"
+
+#: .\users\templates\registration\password_reset_complete.html:5
+msgid "Пароль змінено"
+msgstr ""
+
+#: .\users\templates\registration\password_reset_confirm.html:9
+msgid "Будь ласка, введіть новий пароль"
+msgstr ""
+
+#: .\users\templates\registration\password_reset_confirm.html:16
+msgid "Новий пароль"
+msgstr ""
+
+#: .\users\templates\registration\password_reset_confirm.html:28
+msgid "Підтвердження пароля"
+msgstr ""
+
+#: .\users\templates\registration\password_reset_confirm.html:40
+#: .\users\templates\registration\password_reset_form.html:23
+msgid "Змінити пароль"
+msgstr ""
+
+#: .\users\templates\registration\password_reset_confirm.html:49
+msgid "Невдала зміна пароля"
+msgstr ""
+
+#: .\users\templates\registration\password_reset_confirm.html:52
+msgid "Неправильне посилання на зміну пароля"
+msgstr ""
+
+#: .\users\templates\registration\password_reset_confirm.html:52
+msgid "Можливо, воно вже було використано"
+msgstr ""
+
+#: .\users\templates\registration\password_reset_done.html:5
+msgid "Інструкції зі зміни пароля були надіслані на електронну пошту"
+msgstr ""
+
+#: .\users\templates\registration\password_reset_email.html:1
+msgid "Хтось попросив скинути пароль для електронної пошти"
+msgstr ""
+
+#: .\users\templates\registration\password_reset_email.html:2
+msgid "Перейдіть за посиланням нижче"
+msgstr ""
+
+#: .\users\templates\registration\password_reset_form.html:13
+msgid ""
+"Введіть електронну пошту, на яку буде надіслано посилання для зміни пароля"
+msgstr ""
+
+#: .\users\templates\registration\password_reset_form.html:16
+msgid "Пошта"
+msgstr ""
+
+#: .\users\templates\registration\registration.html:43
+#, fuzzy
+#| msgid "Реєстрація"
+msgid "Зареєструвати"
+msgstr "Registration"

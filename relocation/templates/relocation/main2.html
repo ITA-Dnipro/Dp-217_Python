@@ -1,5 +1,5 @@
 {% extends 'base.html' %}
-
+{% load i18n i18n %}
 {% load static %}
 
 {% block scripts %}
@@ -12,15 +12,15 @@
         <form method="post">{% csrf_token %}
             <div class="d-flex my-4">
                 <div class="col-4 col-lg-2 p-2">
-                    <label class="h3 d-block" for="region-select">Регіон</label>
+                    <label class="h3 d-block" for="region-select">{% trans 'Регіон' %}</label>
                     <select id="region-select" class="w-100"></select>
                 </div>
                 <div class="col-4 col-lg-2 p-2">
-                    <label class="h3 d-block" for="city-select">Місто</label>
+                    <label class="h3 d-block" for="city-select">{% trans 'Місто' %}</label>
                     <select id="city-select" class="w-100"></select>
                 </div>
                 <div class="col-4 col-lg-2 p-2">
-                    <label class="h3 d-block" for="university-select">Університет</label>
+                    <label class="h3 d-block" for="university-select">{% trans 'Університет' %}</label>
                     <select id="university-select" class="w-100"></select>
 
                 </div>
@@ -28,7 +28,7 @@
         </form>
 
         <div class="m-2">
-            <button id="clear-filters-button" class="btn btn-warning">Очистити</button>
+            <button id="clear-filters-button" class="btn btn-warning">{% trans 'Очистити' %}</button>
         </div>
     </div>
 
@@ -36,10 +36,10 @@
         <table class="table table-striped" id="results-table">
             <thead>
                 <tr>
-                    <th scope="col">Назва</th>
-                    <th scope="col">Область</th>
-                    <th scope="col">Місто</th>
-                    <th scope="col">ВНЗ</th>
+                    <th scope="col">{% trans 'Назва' %}</th>
+                    <th scope="col">{% trans 'Область' %}</th>
+                    <th scope="col">{% trans 'Місто' %}</th>
+                    <th scope="col">{% trans 'ВНЗ' %}</th>
                 </tr>
             </thead>
             <tbody>
