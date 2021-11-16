@@ -2,7 +2,7 @@
 
 {% block content %}
 <div id="logout-wrapper" class="text-center mt-4">
-    <p>Виконано вихід з акаунту</p>
-    <a href="{% url 'login'%}">Увійти знов</a>
+    <p>{% trans 'Виконано вихід з акаунту' %}</p>
+    <a href="{% url 'login'%}">{% trans 'Увійти знов' %}</a>
 </div>
 {% endblock %}
