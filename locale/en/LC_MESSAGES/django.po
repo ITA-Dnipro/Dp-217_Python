@@ -604,40 +604,40 @@ msgstr "Confirm password"
 #: .\users\templates\registration\password_reset_confirm.html:40
 #: .\users\templates\registration\password_reset_form.html:23
 msgid "Змінити пароль"
-msgstr ""
+msgstr "Change password"
 
 #: .\users\templates\registration\password_reset_confirm.html:49
 msgid "Невдала зміна пароля"
-msgstr "Change password"
+msgstr "Unsuccessful password change"
 
 #: .\users\templates\registration\password_reset_confirm.html:52
 msgid "Неправильне посилання на зміну пароля"
-msgstr ""
+msgstr "Incorrect password change link"
 
 #: .\users\templates\registration\password_reset_confirm.html:52
 msgid "Можливо, воно вже було використано"
-msgstr ""
+msgstr "Perhaps it has already been used"
 
 #: .\users\templates\registration\password_reset_done.html:5
 msgid "Інструкції зі зміни пароля були надіслані на електронну пошту"
-msgstr ""
+msgstr "Instructions for changing the password were sent by e-mail "
 
 #: .\users\templates\registration\password_reset_email.html:1
 msgid "Хтось попросив скинути пароль для електронної пошти"
-msgstr ""
+msgstr "Someone asked to reset the password for email"
 
 #: .\users\templates\registration\password_reset_email.html:2
 msgid "Перейдіть за посиланням нижче"
-msgstr ""
+msgstr "Follow the link below"
 
 #: .\users\templates\registration\password_reset_form.html:13
 msgid ""
 "Введіть електронну пошту, на яку буде надіслано посилання для зміни пароля"
-msgstr ""
+msgstr "Enter the email to which the password change link will be sent"
 
 #: .\users\templates\registration\password_reset_form.html:16
 msgid "Пошта"
-msgstr ""
+msgstr "E-mail"
 
 #: .\users\templates\registration\registration.html:43
 #, fuzzy
@@ -647,7 +647,7 @@ msgstr "Registration"
 
 #: .\users\templates\users\profile.html:11
 msgid "Профіль"
-msgstr ""
+msgstr "Profile"
 
 #: .\users\templates\users\profile.html:17
 #, fuzzy
@@ -663,7 +663,7 @@ msgstr "Questioning"
 
 #: .\users\templates\users\profile.html:44
 msgid "Результати відсутні"
-msgstr ""
+msgstr "Results missing"
 
 #: .\users\templates\users\profile.html:48
 #, fuzzy
@@ -673,11 +673,11 @@ msgstr "Questioning"
 
 #: .\users\templates\users\result_card.html:73
 msgid "Опис"
-msgstr ""
+msgstr "Description"
 
 #: .\users\templates\users\result_card.html:78
 msgid "Приклади"
-msgstr ""
+msgstr "Examples"
 
 #, fuzzy
 #~| msgid "Тест з профорієнтації"
