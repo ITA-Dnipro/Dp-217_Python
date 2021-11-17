@@ -314,433 +314,441 @@ msgstr ""
 
 #: .\questioning\templates\questioning.html:153
 msgid "Модифікація зроблена співробітниками ВНДІ профтехосвіти"
-msgstr ""
+msgstr "Модификация сделана сотрудниками ВНИИ профтехобразования"
 
 #: .\questioning\templates\questioning.html:156
 msgid "Дані, отримані за допомогою цієї методики, виявити не лише коло"
-msgstr ""
+msgstr "Данные, полученные с помощью этой методики, выявить не только круг"
 
 #: .\questioning\templates\questioning.html:157
 msgid ""
 "інтересів учня, а й ступінь їхньої виразності, що має особливе значення у "
 "формуванні"
 msgstr ""
+"интересов ученика, но и степень их выразительности, что имеет особое "
+"значение в формировании"
 
 #: .\questioning\templates\questioning.html:158
 msgid "мотивації вибору майбутньої професії"
-msgstr ""
+msgstr "мотивации выбора будущей профессии"
 
 #: .\questioning\templates\questioning.html:160
 msgid "Вивчення інтересів, способів учнів може здійснюватись методами"
-msgstr ""
+msgstr "Изучение интересов, способов учащихся может осуществляться методами"
 
 #: .\questioning\templates\questioning.html:161
 msgid ""
 "- від простих спостережень за їх успіхами у освоєнні навчальних дисциплін до "
 "використання"
 msgstr ""
+"- от простых наблюдений за их успехами в освоении учебных дисциплин "
+"доиспользования"
 
 #: .\questioning\templates\questioning.html:162
 msgid ""
 "різних анкет, опитувальників. Використання цієї методики дозволяє вперше"
 msgstr ""
+"различных анкет, опросников. Использование этой методики позволяет впервые"
 
 #: .\questioning\templates\questioning.html:163
 msgid "проаналізувати інтереси, близькі до того чи іншого виду діяльності"
-msgstr ""
+msgstr "проанализировать интересы, близкие к тому или иному виду деятельности"
 
 #: .\questioning\templates\questioning.html:165
 msgid "Заповнення банку у відповідь може працювати індивідуально або в групі"
-msgstr ""
+msgstr "Заполнение банка в ответ может работать индивидуально или в группе"
 
 #: .\questioning\templates\questioning.html:166
 msgid ""
 "Методика \"Карта інтересів\" - опитувальник включає 174 питання, що "
 "відображають"
 msgstr ""
+"Методика \"Карта интересов\" - опросник включает больше 100 вопросов, "
+"которыепоказывают"
 
 #: .\questioning\templates\questioning.html:167
 msgid "спрямованість інтересів у 19 сферах діяльності"
-msgstr ""
+msgstr "направленность интересов в 19 сферах деятельности"
 
 #: .\questioning\templates\questioning.html:169
 msgid "Бланк відповідей є матрицею з шести рядків і двадцяти колонок"
-msgstr ""
+msgstr "Бланк ответов является матрицей из шести строк и двадцати колонок"
 
 #: .\questioning\templates\questioning.html:170
 msgid "Кожна колонка відповідає одній з таких сфер інтересів"
-msgstr ""
+msgstr "Каждая колонка отвечает одной из таких сфер интересов"
 
 #: .\questioning\templates\questioning.html:174
 msgid "Біологія, хімія"
-msgstr ""
+msgstr "Биология, химия"
 
 #: .\questioning\templates\questioning.html:177
 msgid "Туризм"
-msgstr ""
+msgstr "Туризм"
 
 #: .\questioning\templates\questioning.html:180
 msgid "Інформаційні технології"
-msgstr ""
+msgstr "Информационные технологии"
 
 #: .\questioning\templates\questioning.html:183
 msgid "Медицина"
-msgstr ""
+msgstr "Медицина"
 
 #: .\questioning\templates\questioning.html:186
 msgid "Фізика, математика"
-msgstr ""
+msgstr "Физика, математика"
 
 #: .\questioning\templates\questioning.html:189
 msgid "Інженерно-технічна сфера"
-msgstr ""
+msgstr "Инженерно-техническая сфера"
 
 #: .\questioning\templates\questioning.html:192
 msgid "Будівництво"
-msgstr ""
+msgstr "Строительство"
 
 #: .\questioning\templates\questioning.html:195
 msgid "Транспорт"
-msgstr ""
+msgstr "Транспорт"
 
 #: .\questioning\templates\questioning.html:198
 msgid "Силові структури"
-msgstr ""
+msgstr "Силовые структуры"
 
 #: .\questioning\templates\questioning.html:201
 msgid "Журналістика"
-msgstr ""
+msgstr "Журналистика"
 
 #: .\questioning\templates\questioning.html:204
 msgid "Суспільна діяльність"
-msgstr ""
+msgstr "Общественная деятельность"
 
 #: .\questioning\templates\questioning.html:207
 msgid "Педагогіка"
-msgstr ""
+msgstr "Педагогика"
 
 #: .\questioning\templates\questioning.html:210
 msgid "Право, юриспруденція"
-msgstr ""
+msgstr "Право, юриспруденция"
 
 #: .\questioning\templates\questioning.html:213
 msgid "Сфера обслуговування, торгівля"
-msgstr ""
+msgstr "Сфера обслуживания, торговля"
 
 #: .\questioning\templates\questioning.html:216
 msgid "Економіка та фінанси"
-msgstr ""
+msgstr "Экономика и финансы"
 
 #: .\questioning\templates\questioning.html:219
 msgid "Іноземні мови"
-msgstr ""
+msgstr "Иностранные языки"
 
 #: .\questioning\templates\questioning.html:222
 msgid "Образотворче мистецтво, дизайн"
-msgstr ""
+msgstr "Изобразительное искусство, дизайн"
 
 #: .\questioning\templates\questioning.html:225
 msgid "Музичне та сценічне мистецтво"
-msgstr ""
+msgstr "Музыкальное и сценическое искусство"
 
 #: .\questioning\templates\questioning.html:228
 msgid "Фізкультура та спорт"
-msgstr ""
+msgstr "Физкультура и спорт"
 
 #: .\questioning\templates\result_card.html:45
 msgid "Cтислі результати тесту"
-msgstr ""
+msgstr "Короткие результаты теста"
 
 #: .\questioning\templates\result_card.html:69
 msgid "Професії"
-msgstr ""
+msgstr "Профессии"
 
 #: .\questioning\templates\result_card.html:75
 msgid "Галузі знань"
-msgstr ""
+msgstr "Области знаний"
 
 #: .\relocation\templates\relocation\main.html:16
 msgid "Фільтрувати"
-msgstr ""
+msgstr "Фильтровать"
 
 #: .\relocation\templates\relocation\main.html:17
 msgid "Для результату оберіть університет"
-msgstr ""
+msgstr "Для результата выберите университет"
 
 #: .\relocation\templates\relocation\main.html:24
 #: .\relocation\templates\relocation\main2.html:39
 msgid "Назва"
-msgstr ""
+msgstr "Название"
 
 #: .\relocation\templates\relocation\main.html:25
 msgid "Тип"
-msgstr ""
+msgstr "Тип"
 
 #: .\relocation\templates\relocation\main.html:26
 #: .\universearch\templates\universearch\results.html:29
 msgid "Адреса"
-msgstr ""
+msgstr "Адрес"
 
 #: .\relocation\templates\relocation\main.html:27
 msgid "Телефон"
-msgstr ""
+msgstr "Телефон"
 
 #: .\relocation\templates\relocation\main.html:28
 msgid "Належить ВУЗу"
-msgstr ""
+msgstr "Принадлежит ВУЗу"
 
 #: .\relocation\templates\relocation\main2.html:15
 msgid "Регіон"
-msgstr ""
+msgstr "Регион"
 
 #: .\relocation\templates\relocation\main2.html:19
 #: .\relocation\templates\relocation\main2.html:41
 msgid "Місто"
-msgstr ""
+msgstr "Город"
 
 #: .\relocation\templates\relocation\main2.html:23
 msgid "Університет"
-msgstr ""
+msgstr "Университет"
 
 #: .\relocation\templates\relocation\main2.html:31
 msgid "Очистити"
-msgstr ""
+msgstr "Очистить"
 
 #: .\relocation\templates\relocation\main2.html:40
 msgid "Область"
-msgstr ""
+msgstr "Область"
 
 #: .\relocation\templates\relocation\main2.html:42
 msgid "ВНЗ"
-msgstr ""
+msgstr "ВУЗ"
 
 #: .\templates\base_header.html:12 .\templates\base_header.html:26
 #: .\users\templates\users\profile.html:22
 msgid "Опитування"
-msgstr ""
+msgstr "Опрос"
 
 #: .\templates\base_header.html:15 .\templates\index.html:20
 #: .\universearch\templates\universearch\search_form.html:47
 msgid "Пошук"
-msgstr ""
+msgstr "Поиск"
 
 #: .\templates\base_header.html:18 .\templates\index.html:31
 msgid "Релокація"
-msgstr ""
+msgstr "Релокация"
 
 #: .\templates\base_header.html:22 .\templates\base_header.html:23
 msgid "ПРОФІЛЬ"
-msgstr ""
+msgstr "Профиль"
 
 #: .\templates\base_header.html:25
 msgid "Особисті дані"
-msgstr ""
+msgstr "Персональные данные"
 
 #: .\templates\base_header.html:28
 msgid "Вийти"
-msgstr ""
+msgstr "Выйти"
 
 #: .\templates\base_header.html:33
 #: .\users\templates\registration\registration.html:8
 msgid "Реєстрація"
-msgstr ""
+msgstr "Регистрация"
 
 #: .\templates\base_header.html:36 .\users\templates\registration\login.html:8
 msgid "Вхід"
-msgstr ""
+msgstr "Вход"
 
 #: .\templates\index.html:8
 msgid "Тест з профорієнтації"
-msgstr ""
+msgstr "Тест по профориентации"
 
 #: .\templates\index.html:15
 msgid "Опитування для вибору напрямків і спеціальностей відповідних для вас"
-msgstr ""
+msgstr "Опрос для выбора направлений и специальностей подходящих для вас"
 
 #: .\templates\index.html:26
 msgid "Пошук ВНЗ за обраними параметрами"
-msgstr ""
+msgstr "Поиск вузов по выбранным параметрам"
 
 #: .\templates\index.html:39
 msgid "Підбір житла на період навчання"
-msgstr ""
+msgstr "Подбор жилья на период обучения"
 
 #: .\universearch\templates\universearch\results.html:7
 msgid "Результати пошуку"
-msgstr ""
+msgstr "Результат поиска"
 
 #: .\universearch\templates\universearch\results.html:23
 msgid "Форма власностi"
-msgstr ""
+msgstr "Форма собственности"
 
 #: .\universearch\templates\universearch\results.html:24
 msgid "Електронна пошта"
-msgstr ""
+msgstr "Электронная почта"
 
 #: .\universearch\templates\universearch\results.html:25
 msgid "Сайт"
-msgstr ""
+msgstr "Сайт"
 
 #: .\universearch\templates\universearch\results.html:31
 msgid "Iндекс"
-msgstr ""
+msgstr "Индекс"
 
 #: .\universearch\templates\universearch\results.html:32
 msgid "Тел"
-msgstr ""
+msgstr "Тел"
 
 #: .\universearch\templates\universearch\results.html:43
 msgid "Спецiальнiсть"
-msgstr ""
+msgstr "Специальность"
 
 #: .\universearch\templates\universearch\results.html:44
 msgid "Рiвень"
-msgstr ""
+msgstr "Уровень"
 
 #: .\universearch\templates\universearch\results.html:47
 msgid "Кiлькiсть бюджетних мiсць"
-msgstr ""
+msgstr "Количество бюджетных мест"
 
 #: .\universearch\templates\universearch\search_form.html:16
 msgid "Пошук по регiонах"
-msgstr ""
+msgstr "Поиск по регионам"
 
 #: .\universearch\templates\universearch\search_form.html:20
 msgid "Усі регiони"
-msgstr ""
+msgstr "Все регионы"
 
 #: .\universearch\templates\universearch\search_form.html:27
 msgid "Усі мiста"
-msgstr ""
+msgstr "Все города"
 
 #: .\universearch\templates\universearch\search_form.html:31
 msgid "Пошук за галузями знань"
-msgstr ""
+msgstr "Поиск по областям знаний"
 
 #: .\universearch\templates\universearch\search_form.html:35
 msgid "Усі галузi знань"
-msgstr ""
+msgstr "Все области знаний"
 
 #: .\universearch\templates\universearch\search_form.html:42
 msgid "Усі спецiальностi"
-msgstr ""
+msgstr "Все специальности"
 
 #: .\users\templates\registration\logged_out.html:5
 msgid "Виконано вихід з акаунту"
-msgstr ""
+msgstr "Выполнен выход из аккаунта"
 
 #: .\users\templates\registration\logged_out.html:6
 msgid "Увійти знов"
-msgstr ""
+msgstr "Войти снова"
 
 #: .\users\templates\registration\login.html:15
-msgid "Ім"
-msgstr ""
+msgid "Ім'я користувача або пошта"
+msgstr "Имя пользователя или почта"
 
 #: .\users\templates\registration\login.html:26
 msgid "Пароль"
-msgstr ""
+msgstr "Пароль"
 
 #: .\users\templates\registration\login.html:41
 msgid "Невірні дані для входу"
-msgstr ""
+msgstr "Неверные данные для входа"
 
 #: .\users\templates\registration\login.html:47
 #: .\users\templates\registration\password_reset_complete.html:8
 #: .\users\templates\registration\registration.html:49
 msgid "Увійти"
-msgstr ""
+msgstr "Войти"
 
 #: .\users\templates\registration\login.html:52
 msgid "Відновити пароль"
-msgstr ""
+msgstr "Восстановить пароль"
 
 #: .\users\templates\registration\login.html:54
 msgid "Зареєструватись"
-msgstr ""
+msgstr "Регистрация"
 
 #: .\users\templates\registration\password_reset_complete.html:5
 msgid "Пароль змінено"
-msgstr ""
+msgstr "Пароль изменен"
 
 #: .\users\templates\registration\password_reset_confirm.html:9
 msgid "Будь ласка, введіть новий пароль"
-msgstr ""
+msgstr "Пожалуйста, введите новый пароль"
 
 #: .\users\templates\registration\password_reset_confirm.html:16
 msgid "Новий пароль"
-msgstr ""
+msgstr "Новый пароль"
 
 #: .\users\templates\registration\password_reset_confirm.html:28
 msgid "Підтвердження пароля"
-msgstr ""
+msgstr "Подтверждение пароля"
 
 #: .\users\templates\registration\password_reset_confirm.html:40
 #: .\users\templates\registration\password_reset_form.html:23
 msgid "Змінити пароль"
-msgstr ""
+msgstr "Изменить пароль"
 
 #: .\users\templates\registration\password_reset_confirm.html:49
 msgid "Невдала зміна пароля"
-msgstr ""
+msgstr "Неудачная смена пароля"
 
 #: .\users\templates\registration\password_reset_confirm.html:52
 msgid "Неправильне посилання на зміну пароля"
-msgstr ""
+msgstr "Неверная ссылка на изменение пароля"
 
 #: .\users\templates\registration\password_reset_confirm.html:52
 msgid "Можливо, воно вже було використано"
-msgstr ""
+msgstr "Возможно, оно уже было использовано"
 
 #: .\users\templates\registration\password_reset_done.html:5
 msgid "Інструкції зі зміни пароля були надіслані на електронну пошту"
-msgstr ""
+msgstr "Инструкции по изменению пароля были отправлены на электронную почту"
 
 #: .\users\templates\registration\password_reset_email.html:1
 msgid "Хтось попросив скинути пароль для електронної пошти"
-msgstr ""
+msgstr "Кто-то запросил сброс пароля для электронной почты"
 
 #: .\users\templates\registration\password_reset_email.html:2
 msgid "Перейдіть за посиланням нижче"
-msgstr ""
+msgstr "Перейдите по ссылке ниже"
 
 #: .\users\templates\registration\password_reset_form.html:13
 msgid ""
 "Введіть електронну пошту, на яку буде надіслано посилання для зміни пароля"
-msgstr ""
+msgstr "Введите электронную почту, на которую будет отправлена ссылка для изменения "
+"пароля."
 
 #: .\users\templates\registration\password_reset_form.html:16
 msgid "Пошта"
-msgstr ""
+msgstr "Почта"
 
 #: .\users\templates\registration\registration.html:43
 msgid "Зареєструвати"
-msgstr ""
+msgstr "Зарегестрировать"
 
 #: .\users\templates\users\profile.html:11
 msgid "Профіль"
-msgstr ""
+msgstr "Профиль"
 
 #: .\users\templates\users\profile.html:17
 msgid "Персональні дані"
-msgstr ""
+msgstr "Личные данные"
 
 #: .\users\templates\users\profile.html:38
 msgid "Історія опитувань"
-msgstr ""
+msgstr "История опросов"
 
 #: .\users\templates\users\profile.html:44
 msgid "Результати відсутні"
-msgstr ""
+msgstr "Результаты отсутствуют"
 
 #: .\users\templates\users\profile.html:48
 msgid "Пройти опитування"
-msgstr ""
+msgstr "Пройти опрос"
 
 #: .\users\templates\users\result_card.html:73
 msgid "Опис"
-msgstr ""
+msgstr "Описание"
 
 #: .\users\templates\users\result_card.html:78
 msgid "Приклади"
-msgstr ""
+msgstr "Примеры"

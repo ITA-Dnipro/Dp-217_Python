@@ -12,7 +12,7 @@
                     {% csrf_token %}
                     <div class="form-group">
                         <label for="login-username">
-                            {% trans 'Ім'я користувача або пошта' %}
+                            {% trans "Ім'я користувача або пошта" %}
                         </label>
                         <input type="text" class="form-control" id="login-username"
                                placeholder="" name="{{ form.username.html_name }}"
