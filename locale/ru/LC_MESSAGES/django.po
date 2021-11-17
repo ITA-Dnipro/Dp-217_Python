@@ -752,3 +752,7 @@ msgstr "Описание"
 #: .\users\templates\users\result_card.html:78
 msgid "Приклади"
 msgstr "Примеры"
+
+#: .\questioning\services.py:85
+msgid "Людина"
+msgstr "Человек"
