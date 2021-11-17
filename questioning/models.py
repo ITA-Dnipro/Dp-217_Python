@@ -73,7 +73,7 @@ class ConnectionKlimovCatStudyField(models.Model):
 
 
 class InterestCategory(models.Model):
-    name = models.CharField("Категорія", max_length=30)
+    name = models.CharField("Категорія", max_length=50)
     desc = models.TextField("Опис категорії", blank=True)
     professions = models.TextField("Професії", blank=True)
 
