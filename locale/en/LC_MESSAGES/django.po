@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-11-17 17:08+0200\n"
+"POT-Creation-Date: 2021-11-17 18:22+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -31,26 +31,20 @@ msgid "Ukrainian"
 msgstr ""
 
 #: .\questioning\services.py:14
-#, fuzzy
-#| msgid "Електронна пошта"
 msgid "Посилання на пошук:"
-msgstr "E-mail"
+msgstr "Search link:"
 
 #: .\questioning\services.py:28
-#, fuzzy
-#| msgid "Cтислі результати тесту"
 msgid "Ваші результати"
-msgstr "Short results"
+msgstr "Your results"
 
 #: .\questioning\services.py:61
 msgid "схильність не виражена"
 msgstr "the tendency is not expressed"
 
 #: .\questioning\services.py:61
-#, fuzzy
-#| msgid "Суспільна діяльність"
 msgid "середньо виражена схильність"
-msgstr "Social activities"
+msgstr "moderate predisposition"
 
 #: .\questioning\services.py:61
 msgid "вкрай виражену схильність"
@@ -69,34 +63,32 @@ msgid "виражений інтерес"
 msgstr "expressed interest"
 
 #: .\questioning\services.py:66
-#, fuzzy
-#| msgid "Тест з профорієнтації"
 msgid "яскраво виражений інтерес"
-msgstr "Career guidance test"
+msgstr "highly expressed interest"
 
-#: .\questioning\services.py:116
+#: .\questioning\services.py:85
+msgid "Людина"
+msgstr "Human"
+
+#: .\questioning\services.py:121
 msgid "Ви не авторизовані"
 msgstr "You are not authorized"
 
-#: .\questioning\services.py:119
-#, fuzzy
-#| msgid "Опитування"
+#: .\questioning\services.py:124
 msgid "Ви не пройшли опитування"
-msgstr "Questioning"
+msgstr "You haven't passed questioning"
 
-#: .\questioning\services.py:124 .\questioning\services.py:125
+#: .\questioning\services.py:129 .\questioning\services.py:130
 #: .\questioning\templates\questioning.html:15
 #: .\questioning\templates\questioning.html:103
-#, fuzzy
-#| msgid "Тест з профорієнтації"
 msgid "Тест на визначення профорієнтації"
 msgstr "Career guidance test"
 
-#: .\questioning\services.py:126 .\questioning\templates\questioning.html:137
+#: .\questioning\services.py:131 .\questioning\templates\questioning.html:137
 msgid "Тест на визначення типу майбутньої професії"
 msgstr "Test for determining the type of future profession"
 
-#: .\questioning\services.py:181
+#: .\questioning\services.py:186
 msgid "Результат опитування не знайдено"
 msgstr "Poll result not found"
 
@@ -154,8 +146,7 @@ msgstr "highest results, e.g. using a career guidance test"
 msgid ""
 "Часто складно знайти улюблену професію, особливо старшокласникам - без "
 "реальної робочої практики"
-msgstr ""
-"It is often difficult to find your favorite profession - especially high "
+msgstr "It is often difficult to find your favorite profession - especially high "
 "school students - without real working practice"
 
 #: .\questioning\templates\questioning.html:42
@@ -166,8 +157,7 @@ msgstr "do not understand"
 msgid ""
 "істинний інтерес до сфери. Але гірше закінчити вуз і після усвідомити \"це "
 "не моє\". Рекомендуємо"
-msgstr ""
-"true interest in the sphere. But it is worse to finish the university and "
+msgstr "true interest in the sphere. But it is worse to finish the university and "
 "after realizing \"it's not mine\". We recommend"
 
 #: .\questioning\templates\questioning.html:46
@@ -252,8 +242,7 @@ msgstr ""
 msgid ""
 "специфіка, особливості. Щоб не заплутатися у всьому цьому різноманітті і "
 "якось звузити пошуки ідеального"
-msgstr ""
-"specificity, features. In order not to get confused in all this diversity "
+msgstr "specificity, features. In order not to get confused in all this diversity "
 "and somehow narrow the search for the perfect"
 
 #: .\questioning\templates\questioning.html:67
@@ -631,10 +620,8 @@ msgid "Усі мiста"
 msgstr "All cities"
 
 #: .\universearch\templates\universearch\search_form.html:31
-#, fuzzy
-#| msgid "Пошук ВНЗ за обраними параметрами"
 msgid "Пошук за галузями знань"
-msgstr "Search for universities by selected parameters"
+msgstr "Search by areas of knowledge"
 
 #: .\universearch\templates\universearch\search_form.html:35
 msgid "Усі галузi знань"
@@ -653,8 +640,8 @@ msgid "Увійти знов"
 msgstr "Sign in again"
 
 #: .\users\templates\registration\login.html:15
-msgid "Ім"
-msgstr "Im"
+msgid "Ім'я користувача або пошта"
+msgstr "e-mail"
 
 #: .\users\templates\registration\login.html:26
 msgid "Пароль"
@@ -675,8 +662,6 @@ msgid "Відновити пароль"
 msgstr "Recover password"
 
 #: .\users\templates\registration\login.html:54
-#, fuzzy
-#| msgid "Реєстрація"
 msgid "Зареєструватись"
 msgstr "Registration"
 
@@ -735,8 +720,6 @@ msgid "Пошта"
 msgstr "E-mail"
 
 #: .\users\templates\registration\registration.html:43
-#, fuzzy
-#| msgid "Реєстрація"
 msgid "Зареєструвати"
 msgstr "Registration"
 
@@ -745,26 +728,20 @@ msgid "Профіль"
 msgstr "Profile"
 
 #: .\users\templates\users\profile.html:17
-#, fuzzy
-#| msgid "Особисті дані"
 msgid "Персональні дані"
 msgstr "Personal data"
 
 #: .\users\templates\users\profile.html:38
-#, fuzzy
-#| msgid "Опитування"
 msgid "Історія опитувань"
-msgstr "Questioning"
+msgstr "Questioning history"
 
 #: .\users\templates\users\profile.html:44
 msgid "Результати відсутні"
 msgstr "Results missing"
 
 #: .\users\templates\users\profile.html:48
-#, fuzzy
-#| msgid "Опитування"
 msgid "Пройти опитування"
-msgstr "Questioning"
+msgstr "Pass Questioning"
 
 #: .\users\templates\users\result_card.html:73
 msgid "Опис"
