@@ -81,6 +81,11 @@ def get_top_categories(resulted_categories, average_result=4):
     return cat_dict
 
 
+def get_short_name(name):
+    part_name = _('Людина')
+    return f"{part_name} - {name}"
+
+
 def gen_results(answers):
     context = []
     categories_desc = KlimovCategory.objects.all().values()
@@ -95,7 +100,7 @@ def gen_results(answers):
             for item, _ in get_top_categories(result).items():
                 fields = get_fields_links(study_fields, item, question_type)
                 desc = categories_desc.filter(id=item).first()
-                categories.append({'name': f"{_('Людина')} - {desc['name']}",
+                categories.append({'name': get_short_name(desc['name']),
                                    'prof': desc['professions'].replace('.', '').split(','),
                                    'study_fields': fields, 'id': f"cat_{item}_{len(context)}"})
         else:
