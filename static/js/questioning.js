@@ -19,6 +19,7 @@ async function ajaxRequest(values, answer_id) {
     if (values['questions'].length > 1) {
         let val = values['questions'].pop();
         for (let index = 0; index < values['buttons'].length; index++) {
+        console.log(val['answers'][index]);
             val['answers'][index]['btn'] = values['buttons'][index]
         }
         let SendInfo = {

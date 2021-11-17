@@ -4,7 +4,7 @@ from django.utils import timezone
 from questioning.cron import remove_obsolete_records
 from questioning.models import TestResult, KlimovCategory, ConnectionKlimovCatStudyField, ConnectionInterestCatSpec
 from questioning.services import save_questions_results, gen_result, gen_results, get_results, get_top_categories, \
-    decode_result, get_decoded_user_results, make_top_n_results, gen_prof_categories, get_parameters, get_fields_links, \
+    decode_result, get_decoded_user_results, make_top_n_results, gen_prof_categories, get_fields_links, \
     get_question_type, get_button_styles, delete_result
 from users.models import CustomUser
 
@@ -135,26 +135,6 @@ class DeleteResultTestCase(TestCase):
         self.assertEqual(len(TestResult.objects.all()), 1)
         delete_result(result_id, user_id)
         self.assertEqual(len(TestResult.objects.all()), 0)
-
-
-class GetParametersTestCase(TestCase):
-    def test_get_parameters1(self):
-        average_result, categories_desc, study_fields, divider, severity, part_desc, max_res = get_parameters(1)
-        params_test = (4, 3, ['схильність не виражена', 'середньо виражена схильність', 'вкрай виражену схильність'],
-                       'Професії типу «Людина - ', 8)
-        self.assertEqual((average_result, divider, severity, part_desc, max_res), params_test)
-
-    def test_get_parameters2(self):
-        average_result, categories_desc, study_fields, divider, severity, part_desc, max_res = get_parameters(2)
-        params_test = (4, 3, ['схильність не виражена', 'середньо виражена схильність', 'вкрай виражену схильність'],
-                       'Професії типу «Людина - ', 8)
-        self.assertEqual((average_result, divider, severity, part_desc, max_res), params_test)
-
-    def test_get_parameters3(self):
-        average_result, categories_desc, study_fields, divider, severity, part_desc, max_res = get_parameters(3)
-        params_test = (0, 4, ["інтерес виражений слабо", "виражений інтерес", "яскраво виражений інтерес"],
-                       '«', 12)
-        self.assertEqual((average_result, divider, severity, part_desc, max_res), params_test)
 
 
 class GenResultTestCase(TestCase):

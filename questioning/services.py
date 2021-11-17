@@ -10,28 +10,8 @@ def save_questions_results(user_id, results, test_type):
     TestResult.objects.create(results=results, user_id=user_id, type=test_type)
 
 
-def get_parameters(question_type):
-    if question_type != 3:
-        average_result = 4
-        categories_desc = KlimovCategory.objects.all().values()
-        study_fields = ConnectionKlimovCatStudyField.objects.select_related('field_id').all()
-        severity = ["схильність не виражена", "середньо виражена схильність", "вкрай виражену схильність"]
-        divider = 3
-        part_desc = "Професії типу «Людина - "
-        max_res = 8
-    else:
-        average_result = 0
-        categories_desc = InterestCategory.objects.all().values()
-        study_fields = ConnectionInterestCatSpec.objects.select_related('spec_id').all()
-        severity = ["інтерес виражений слабо", "виражений інтерес", "яскраво виражений інтерес"]
-        divider = 4
-        part_desc = "«"
-        max_res = 12
-    return average_result, categories_desc, study_fields, divider, severity, part_desc, max_res
-
-
 def get_fields_links(study_fields, item, question_type):
-    fields = [["Посилання на пошук:", '']]
+    fields = [[_("Посилання на пошук:"), '']]
     if question_type != 3:
         for study_field in study_fields.filter(category_id=item):
             name = study_field.field_id.name
@@ -48,20 +28,46 @@ def get_title():
     return _("Ваші результати")
 
 
+def get_average_result(question_type):
+    return 4 if question_type != 3 else 0
+
+
+def get_description_info(question_type):
+    if question_type != 3:
+        categories_desc = KlimovCategory.objects.all().values()
+        study_fields = ConnectionKlimovCatStudyField.objects.select_related('field_id').all()
+    else:
+        categories_desc = InterestCategory.objects.all().values()
+        study_fields = ConnectionInterestCatSpec.objects.select_related('spec_id').all()
+    return categories_desc, study_fields
+
+
 def gen_result(results, question_type=1):
-    average_result, categories_desc, study_fields, divider, severity, part_desc, max_res = get_parameters(question_type)
-    top_categories = get_top_categories(results, average_result)
     categories = []
-    for item, result in top_categories.items():
+    categories_desc, study_fields = get_description_info(question_type)
+    for item, result in get_top_categories(results, get_average_result(question_type)).items():
         fields = get_fields_links(study_fields, item, question_type)
         desc = categories_desc.filter(id=item).first()
-        name = f"{part_desc}{desc['name']}»"
-        categories.append({'name': f"{name} - {severity[result // divider]} ({result} з {max_res} балів).",
+        categories.append({'name': get_category_name(question_type, result, desc['name']),
                            'desc': desc['desc'],
                            'prof': [desc['professions']],
                            'study_fields': fields, 'id': f"cat_{len(categories)}"})
-    resulted_text = {'title': get_title()+":", 'data': [{'categories': categories}]}
+    resulted_text = {'title': get_title() + ":", 'data': [{'categories': categories}]}
     return resulted_text
+
+
+def get_category_name(question_type, result, name):
+    if question_type != 3:
+        severity = [_("схильність не виражена"), _("середньо виражена схильність"), _("вкрай виражену схильність")]
+        divider = 3
+        part_desc = _("Професії типу «Людина - ")
+        max_res = 8
+    else:
+        severity = [_("інтерес виражений слабо"), _("виражений інтерес"), _("яскраво виражений інтерес")]
+        divider = 4
+        part_desc = "«"
+        max_res = 12
+    return f"{part_desc}{name}» - {severity[result // divider]} ({result} {_('з')} {max_res} {_('балів')})."
 
 
 def get_top_categories(resulted_categories, average_result=4):
@@ -89,7 +95,7 @@ def gen_results(answers):
             for item, _ in get_top_categories(result).items():
                 fields = get_fields_links(study_fields, item, question_type)
                 desc = categories_desc.filter(id=item).first()
-                categories.append({'name': f"Людина - {desc['name']}",
+                categories.append({'name': f"{_('Людина')} - {desc['name']}",
                                    'prof': desc['professions'].replace('.', '').split(','),
                                    'study_fields': fields, 'id': f"cat_{item}_{len(context)}"})
         else:

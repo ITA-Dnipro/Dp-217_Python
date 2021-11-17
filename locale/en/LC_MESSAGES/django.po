@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-11-16 16:07+0200\n"
+"POT-Creation-Date: 2021-11-17 17:08+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,12 +18,87 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
+#: .\enrollment_assistant\settings.py:127
+msgid "Russia"
+msgstr ""
+
+#: .\enrollment_assistant\settings.py:128
+msgid "English"
+msgstr ""
+
+#: .\enrollment_assistant\settings.py:129
+msgid "Ukrainian"
+msgstr ""
+
+#: .\questioning\services.py:14
+#, fuzzy
+#| msgid "Електронна пошта"
+msgid "Посилання на пошук:"
+msgstr "E-mail"
+
+#: .\questioning\services.py:28
+#, fuzzy
+#| msgid "Cтислі результати тесту"
+msgid "Ваші результати"
+msgstr "Short results"
+
+#: .\questioning\services.py:61
+msgid "схильність не виражена"
+msgstr "the tendency is not expressed"
+
+#: .\questioning\services.py:61
+#, fuzzy
+#| msgid "Суспільна діяльність"
+msgid "середньо виражена схильність"
+msgstr "Social activities"
+
+#: .\questioning\services.py:61
+msgid "вкрай виражену схильність"
+msgstr "extremely pronounced predisposition"
+
+#: .\questioning\services.py:63
+msgid "Професії типу «Людина - "
+msgstr "Professions such as «Human -"
+
+#: .\questioning\services.py:66
+msgid "інтерес виражений слабо"
+msgstr "interest is weak"
+
+#: .\questioning\services.py:66
+msgid "виражений інтерес"
+msgstr "expressed interest"
+
+#: .\questioning\services.py:66
+#, fuzzy
+#| msgid "Тест з профорієнтації"
+msgid "яскраво виражений інтерес"
+msgstr "Career guidance test"
+
+#: .\questioning\services.py:116
+msgid "Ви не авторизовані"
+msgstr "You are not authorized"
+
+#: .\questioning\services.py:119
+#, fuzzy
+#| msgid "Опитування"
+msgid "Ви не пройшли опитування"
+msgstr "Questioning"
+
+#: .\questioning\services.py:124 .\questioning\services.py:125
 #: .\questioning\templates\questioning.html:15
 #: .\questioning\templates\questioning.html:103
 #, fuzzy
 #| msgid "Тест з профорієнтації"
 msgid "Тест на визначення профорієнтації"
 msgstr "Career guidance test"
+
+#: .\questioning\services.py:126 .\questioning\templates\questioning.html:137
+msgid "Тест на визначення типу майбутньої професії"
+msgstr "Test for determining the type of future profession"
+
+#: .\questioning\services.py:181
+msgid "Результат опитування не знайдено"
+msgstr "Poll result not found"
 
 #: .\questioning\templates\questioning.html:19
 #: .\questioning\templates\questioning.html:107
@@ -40,15 +115,17 @@ msgstr "The choice of profession is one of the most important stages in life"
 msgid ""
 "людини, адже велика частина часу неспання (близько 60%%) йде на роботу, "
 "підготовку і дорогу до неї"
-msgstr "man, because most of the waking time (about 60%%) goes to work, "
-"preparation and the way to it"
+msgstr ""
+"man, because most of the waking time (about 60%%) goes to work, preparation "
+"and the way to it"
 
 #: .\questioning\templates\questioning.html:31
 msgid ""
 "Від спеціальності залежить, в яких колах відбувається спілкування і чи "
 "будуть колеги сприяти"
-msgstr "On the specialty depends in which circles the communication takes place and whether "
-"will colleagues contribute "
+msgstr ""
+"On the specialty depends in which circles the communication takes place and "
+"whether will colleagues contribute "
 
 #: .\questioning\templates\questioning.html:32
 msgid "розвитку особистості"
@@ -57,14 +134,17 @@ msgstr "development of special"
 #: .\questioning\templates\questioning.html:35
 #, python-format
 msgid "Всього 22%% робочого населення задоволені своєю професією. Тому"
-msgstr "Only 22%% of the working population are satisfied with their profession. That's why"
+msgstr ""
+"Only 22%% of the working population are satisfied with their profession. "
+"That's why"
 
 #: .\questioning\templates\questioning.html:36
 msgid ""
 "важливо вибирати улюблений напрямок діяльності для отримання задоволення від "
 "роботи і досягнення"
-msgstr "it is important to choose your favorite area of activity to enjoy "
-"works and achievements"
+msgstr ""
+"it is important to choose your favorite area of activity to enjoy works and "
+"achievements"
 
 #: .\questioning\templates\questioning.html:37
 msgid "найвищих результатів, наприклад, за допомогою тесту на профорієнтацію"
@@ -74,9 +154,9 @@ msgstr "highest results, e.g. using a career guidance test"
 msgid ""
 "Часто складно знайти улюблену професію, особливо старшокласникам - без "
 "реальної робочої практики"
-msgstr "It is often difficult to find your favorite profession - especially high school students - without "
-"real working practice"
-
+msgstr ""
+"It is often difficult to find your favorite profession - especially high "
+"school students - without real working practice"
 
 #: .\questioning\templates\questioning.html:42
 msgid "не зрозуміти"
@@ -86,8 +166,9 @@ msgstr "do not understand"
 msgid ""
 "істинний інтерес до сфери. Але гірше закінчити вуз і після усвідомити \"це "
 "не моє\". Рекомендуємо"
-msgstr "true interest in the sphere. But it is worse to finish the university and after realizing \"it's "
-"not mine\". We recommend"
+msgstr ""
+"true interest in the sphere. But it is worse to finish the university and "
+"after realizing \"it's not mine\". We recommend"
 
 #: .\questioning\templates\questioning.html:46
 msgid "заздалегідь"
@@ -107,15 +188,17 @@ msgstr "you like it"
 msgid ""
 "Неправильно обрану професійну діяльність з часом буде складно змінити через "
 "появу"
-msgstr "Improperly chosen professional activities over time will be difficult to change due to "
-"appearance"
-
+msgstr ""
+"Improperly chosen professional activities over time will be difficult to "
+"change due to appearance"
 
 #: .\questioning\templates\questioning.html:54
 msgid ""
 "зобов'язань і складності почати з нуля. Буде потрібно витратити багато часу "
 "на перекваліфікацію"
-msgstr "commitments and complexity  to start from scratch. It will take a lot of time for retraining"
+msgstr ""
+"commitments and complexity  to start from scratch. It will take a lot of "
+"time for retraining"
 
 #: .\questioning\templates\questioning.html:55
 msgid "роботу на початкових позиціях"
@@ -125,8 +208,9 @@ msgstr "work in the initial positions"
 msgid ""
 "Важливо пам'ятати: «Мир прискорюється». І якщо раніше професія частіше була "
 "одна і на"
-msgstr "It is important to rememberthat peace is accelerating. And if earlier the profession was more often "
-"one and for"
+msgstr ""
+"It is important to rememberthat peace is accelerating. And if earlier the "
+"profession was more often one and for"
 
 #: .\questioning\templates\questioning.html:59
 msgid "все життя, то зараз, швидше"
@@ -136,37 +220,41 @@ msgstr "lifetime, now, rather"
 msgid ""
 "за все, доведеться змінити кілька. Тому важливо вміти адаптуватися і бути "
 "відкритим до нового"
-msgstr "for everything, you have to change a few. It is therefore important to be able to adapt and be "
-"open to the new"
+msgstr ""
+"for everything, you have to change a few. It is therefore important to be "
+"able to adapt and be open to the new"
 
 #: .\questioning\templates\questioning.html:61
 msgid ""
 "на досягнення високого професіоналізму потрібно багато часу. Андерс Еріксон "
 "з Університету штату"
-msgstr "it takes a lot of time to achieve high professionalism. Anders Erickson "
-"from The State University"
+msgstr ""
+"it takes a lot of time to achieve high professionalism. Anders Erickson from "
+"The State University"
 
 #: .\questioning\templates\questioning.html:62
 msgid ""
 "Флорида, довів теорію \"для досягнення майстерності в будь-якій справі "
 "необхідно 10 000 годин наполегливої практики"
-msgstr "Florida, proved the theory \"to  achieve skill in any case "
-"'it's necessary 10,000 hours of hard practice'\""
-
+msgstr ""
+"Florida, proved the theory \"to  achieve skill in any case 'it's necessary "
+"10,000 hours of hard practice'\""
 
 #: .\questioning\templates\questioning.html:65
 msgid ""
 "Кількість різних спеціальностей на даний момент - кілька тисяч, у кожної є "
 "своя"
-msgstr "The number of different specialties at the moment is several thousand, each has "
-"own"
+msgstr ""
+"The number of different specialties at the moment is several thousand, each "
+"has own"
 
 #: .\questioning\templates\questioning.html:66
 msgid ""
 "специфіка, особливості. Щоб не заплутатися у всьому цьому різноманітті і "
 "якось звузити пошуки ідеального"
-msgstr "specificity, features. In order not to get confused in all this diversity and "
-"somehow narrow the search for the perfect"
+msgstr ""
+"specificity, features. In order not to get confused in all this diversity "
+"and somehow narrow the search for the perfect"
 
 #: .\questioning\templates\questioning.html:67
 msgid "напрямки, можна пройти тест на профорієнтацію і тест Голланда"
@@ -178,7 +266,8 @@ msgstr "All professions can be divided into several categories "
 
 #: .\questioning\templates\questioning.html:74
 msgid "людина (лікарі, викладачі, органи правопорядку, психологи, юристи)"
-msgstr "human (doctors, teachers, law enforcement agencies, psychologists, lawyers)"
+msgstr ""
+"human (doctors, teachers, law enforcement agencies, psychologists, lawyers)"
 
 #: .\questioning\templates\questioning.html:77
 msgid "природа (ветеринар, еколог, агроном, біолог, геолог)"
@@ -196,7 +285,9 @@ msgstr "electric engineer)"
 #: .\questioning\templates\questioning.html:84
 msgid ""
 "знакова система (програміст, бухгалтер, економіст, перекладач, математик)"
-msgstr "iconic system (programmer, accountant, economist , translator , mathematician)"
+msgstr ""
+"iconic system (programmer, accountant, economist , translator , "
+"mathematician)"
 
 #: .\questioning\templates\questioning.html:87
 msgid "художні образи (дизайнер, художник, архітектор, актор, режисер)"
@@ -210,8 +301,9 @@ msgstr "Another variant of the Klimov test"
 msgid ""
 "Методика ґрунтується на класифікації професійних інтересів. Дозволяє "
 "встановити в якій"
-msgstr "The methodology is based on the classification of professional interests. Allows you to "
-"set in which"
+msgstr ""
+"The methodology is based on the classification of professional interests. "
+"Allows you to set in which"
 
 #: .\questioning\templates\questioning.html:122
 msgid ""
@@ -223,10 +315,6 @@ msgstr "industry high school is best to choose the specialty by which he"
 msgid "навчання після школи"
 msgstr " will be professional"
 
-#: .\questioning\templates\questioning.html:137
-msgid "Тест на визначення типу майбутньої професії"
-msgstr "Test for determining the type of future profession"
-
 #: .\questioning\templates\questioning.html:151
 msgid "«Карта інтересів» є модифікованим варіантом методики,"
 msgstr "«Interest Map» is a modified variant of the methodology,"
@@ -234,7 +322,8 @@ msgstr "«Interest Map» is a modified variant of the methodology,"
 #: .\questioning\templates\questioning.html:152
 msgid ""
 "опублікований А.Е.Голомштоком у збірнику «Профорієнтаційна робота у школі»"
-msgstr "published by A.E.Golomstock in the collection Career guidance work at school"
+msgstr ""
+"published by A.E.Golomstock in the collection Career guidance work at school"
 
 #: .\questioning\templates\questioning.html:153
 msgid "Модифікація зроблена співробітниками ВНДІ профтехосвіти"
@@ -248,7 +337,9 @@ msgstr "The data obtained with this technique is not only a circle"
 msgid ""
 "інтересів учня, а й ступінь їхньої виразності, що має особливе значення у "
 "формуванні"
-msgstr "the student's interests, but also the degree of their expressiveness, which is of particular importance in formation"
+msgstr ""
+"the student's interests, but also the degree of their expressiveness, which "
+"is of particular importance in formation"
 
 #: .\questioning\templates\questioning.html:158
 msgid "мотивації вибору майбутньої професії"
@@ -256,20 +347,22 @@ msgstr "motivation to choose a future profession"
 
 #: .\questioning\templates\questioning.html:160
 msgid "Вивчення інтересів, способів учнів може здійснюватись методами"
-msgstr "The study of interests, methods of students can be carried out by methods"
+msgstr ""
+"The study of interests, methods of students can be carried out by methods"
 
 #: .\questioning\templates\questioning.html:161
 msgid ""
 "- від простих спостережень за їх успіхами у освоєнні навчальних дисциплін до "
 "використання"
-msgstr "- from simple observations of their successes in the development of academic disciplines  to "
-"use"
-
+msgstr ""
+"- from simple observations of their successes in the development of academic "
+"disciplines  to use"
 
 #: .\questioning\templates\questioning.html:162
 msgid ""
 "різних анкет, опитувальників. Використання цієї методики дозволяє вперше"
-msgstr "different questionnaires. The use of this technique allows for the first time"
+msgstr ""
+"different questionnaires. The use of this technique allows for the first time"
 
 #: .\questioning\templates\questioning.html:163
 msgid "проаналізувати інтереси, близькі до того чи іншого виду діяльності"
@@ -283,7 +376,9 @@ msgstr "Filling the bank in response can work individually or in a group"
 msgid ""
 "Методика \"Карта інтересів\" - опитувальник включає 174 питання, що "
 "відображають"
-msgstr "Methodology \"Interest Map\" - the questionnaire includes more than 100 questions that display"
+msgstr ""
+"Methodology \"Interest Map\" - the questionnaire includes more than 100 "
+"questions that display"
 
 #: .\questioning\templates\questioning.html:167
 msgid "спрямованість інтересів у 19 сферах діяльності"
@@ -678,8 +773,3 @@ msgstr "Description"
 #: .\users\templates\users\result_card.html:78
 msgid "Приклади"
 msgstr "Examples"
-
-#, fuzzy
-#~| msgid "Тест з профорієнтації"
-#~ msgid "тест на професійні інтереси"
-#~ msgstr "Career guidance test"
