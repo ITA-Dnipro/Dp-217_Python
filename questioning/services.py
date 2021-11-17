@@ -1,4 +1,5 @@
 import json
+from django.utils.translation import gettext as _
 from questioning.models import TestResult, KlimovCategory, ConnectionKlimovCatStudyField, InterestCategory, \
     ConnectionInterestCatSpec, QuestionsBase
 from users.models import CustomUser
@@ -43,10 +44,13 @@ def get_fields_links(study_fields, item, question_type):
     return fields
 
 
+def get_title():
+    return _("Ваші результати")
+
+
 def gen_result(results, question_type=1):
     average_result, categories_desc, study_fields, divider, severity, part_desc, max_res = get_parameters(question_type)
     top_categories = get_top_categories(results, average_result)
-    title = "Ваші результати:"
     categories = []
     for item, result in top_categories.items():
         fields = get_fields_links(study_fields, item, question_type)
@@ -56,7 +60,7 @@ def gen_result(results, question_type=1):
                            'desc': desc['desc'],
                            'prof': [desc['professions']],
                            'study_fields': fields, 'id': f"cat_{len(categories)}"})
-    resulted_text = {'title': title, 'data': [{'categories': categories}]}
+    resulted_text = {'title': get_title()+":", 'data': [{'categories': categories}]}
     return resulted_text
 
 
@@ -103,16 +107,17 @@ def gen_results(answers):
 
 def get_results(user):
     if not user.is_authenticated:
-        return {'title': "Ви не авторизовані", }
+        return {'title': _("Ви не авторизовані"), }
     items = list(CustomUser.objects.get(id=user.id).testresult_set.all().values())
     if len(items) == 0:
-        return {'title': 'Ви не пройшли опитування', }
-    return {'title': 'Ваші результати', 'data': gen_results(items)}
+        return {'title': _('Ви не пройшли опитування'), }
+    return {'title': get_title(), 'data': gen_results(items)}
 
 
 def get_question_type(question_type_index):
-    desc_question_types = ["Тест на визначення профорієнтації", "Тест на визначення профорієнтації",
-                           "Тест на визначення типу майбутньої професії"]
+    desc_question_types = [_("Тест на визначення профорієнтації"),
+                           _("Тест на визначення профорієнтації"),
+                           _("Тест на визначення типу майбутньої професії")]
     return desc_question_types[question_type_index - 1]
 
 
@@ -163,16 +168,25 @@ def get_button_styles(questions_type):
 def get_result(link):
     query = TestResult.objects.filter(url=link)
     if query:
-        return gen_result(eval(query.first().results), query.first().type)
+        results = eval(query.first().results)
+        questioning_type = query.first().type
+        return gen_result(results, questioning_type)
     else:
-        return {'title': 'Результат опитування не знайдено', }
+        return {'title': _('Результат опитування не знайдено'), }
+
+
+def send_result():
+    pass
 
 
 def generate_result(result, user):
     result = json.loads(result)
     if user.is_authenticated:
         save_questions_results(user.id, result[1], result[0])
-    return gen_result(result[1], result[0])
+        send_result()
+    results = result[1]
+    questioning_type = result[0]
+    return gen_result(results, questioning_type)
 
 
 def delete_result(result_id, user):
