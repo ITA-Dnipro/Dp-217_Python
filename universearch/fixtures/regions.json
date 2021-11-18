@@ -3,168 +3,240 @@
     "model": "universearch.region",
     "pk": 1,
     "fields": {
-      "name": "Івано-Франківська область"
+      "name": "Івано-Франківська область",
+      "name_ru": "Ивано-Франковская область",
+      "name_en": "Ivano-Frankivsk Region",
+      "name_uk": "Івано-Франківська область"
     }
   },
   {
     "model": "universearch.region",
     "pk": 2,
     "fields": {
-      "name": "Вінницька область"
+      "name": "Вінницька область",
+      "name_ru": "Винницкая область",
+      "name_en": "Vinnytsia Region",
+      "name_uk": "Вінницька область"
     }
   },
   {
     "model": "universearch.region",
     "pk": 3,
     "fields": {
-      "name": "Волинська область"
+      "name": "Волинська область",
+      "name_ru": "Волынская область ",
+      "name_en": "Volyn Region ",
+      "name_uk": "Волинська область"
     }
   },
   {
     "model": "universearch.region",
     "pk": 4,
     "fields": {
-      "name": "Дніпропетровська область"
+      "name": "Дніпропетровська область",
+      "name_ru": "Днепропетровская область",
+      "name_en": " Dnipropetrovsk Region ",
+      "name_uk": "Дніпропетровська область"
     }
   },
   {
     "model": "universearch.region",
     "pk": 5,
     "fields": {
-      "name": "Донецька область"
+      "name": "Донецька область",
+      "name_ru": "Донецкая область",
+      "name_en": " Donetsk Region ",
+      "name_uk": "Донецька область"
     }
   },
   {
     "model": "universearch.region",
     "pk": 6,
     "fields": {
-      "name": "Житомирська область"
+      "name": "Житомирська область",
+      "name_ru": "Житомирская область",
+      "name_en": " Zhytomyr  Region ",
+      "name_uk": "Житомирська область"
     }
   },
   {
     "model": "universearch.region",
     "pk": 7,
     "fields": {
-      "name": "Закарпатська область"
+      "name": "Закарпатська область",
+      "name_ru": "Закарпатская область",
+      "name_en": " Transcarpathian Region ",
+      "name_uk": "Закарпатська область"
     }
   },
   {
     "model": "universearch.region",
     "pk": 8,
     "fields": {
-      "name": "Запорізька область"
+      "name": "Запорізька область",
+      "name_ru": "Запорожская область",
+      "name_en": " Zaporizhia Region ",
+      "name_uk": "Запорізька область"
     }
   },
   {
     "model": "universearch.region",
     "pk": 9,
     "fields": {
-      "name": "Кіровоградська область"
+      "name": "Кіровоградська область",
+      "name_ru": " Кировоградская область",
+      "name_en": " Kirovohrad Region ",
+      "name_uk": "Кіровоградська область"
     }
   },
   {
     "model": "universearch.region",
     "pk": 10,
     "fields": {
-      "name": "Київська область"
+      "name": "Київська область",
+      "name_ru": "Киевская область",
+      "name_en": " Kyiv Region ",
+      "name_uk": "Київська область"
     }
   },
   {
     "model": "universearch.region",
     "pk": 11,
     "fields": {
-      "name": "Луганська область"
+      "name": "Луганська область",
+      "name_ru": "Луганская область",
+      "name_en": " Luhansk Region ",
+      "name_uk": "Луганська область"
     }
   },
   {
     "model": "universearch.region",
     "pk": 12,
     "fields": {
-      "name": "Львівська область"
+      "name": "Львівська область",
+      "name_ru": "Львовская область",
+      "name_en": "Lviv Region",
+      "name_uk": "Львівська область"
     }
   },
   {
     "model": "universearch.region",
     "pk": 13,
     "fields": {
-      "name": "Миколаївська область"
+      "name": "Миколаївська область",
+      "name_ru": "Николаевская область",
+      "name_en": "Mykolaiv Region",
+      "name_uk": "Миколаївська область"
     }
   },
   {
     "model": "universearch.region",
     "pk": 14,
     "fields": {
-      "name": "Одеська область"
+      "name": "Одеська область",
+      "name_ru": "Одесская область",
+      "name_en": "Odessa Region",
+      "name_uk": "Одеська область"
     }
   },
   {
     "model": "universearch.region",
     "pk": 15,
     "fields": {
-      "name": "Полтавська область"
+      "name": "Полтавська область",
+      "name_ru": "Полтавская область",
+      "name_en": "Poltava Region",
+      "name_uk": "Полтавська область"
     }
   },
   {
     "model": "universearch.region",
     "pk": 16,
     "fields": {
-      "name": "Рівненська область"
+      "name": "Рівненська область",
+      "name_ru": "Ровенская область",
+      "name_en": "Rivne Region",
+      "name_uk": "Рівненська область"
     }
   },
   {
     "model": "universearch.region",
     "pk": 17,
     "fields": {
-      "name": "Сумська область"
+      "name": "Сумська область",
+      "name_ru": "Сумская область",
+      "name_en": "Sumy Region",
+      "name_uk": "Сумська область"
     }
   },
   {
     "model": "universearch.region",
     "pk": 18,
     "fields": {
-      "name": "Тернопільська область"
+      "name": "Тернопільська область",
+      "name_ru": "Тернопольская область",
+      "name_en": " Ternopil Region ",
+      "name_uk": "Тернопільська область"
     }
   },
   {
     "model": "universearch.region",
     "pk": 19,
     "fields": {
-      "name": "Харківська область"
+      "name": "Харківська область",
+      "name_ru": "Харьковская область",
+      "name_en": " Kharkiv Region ",
+      "name_uk": "Харківська область"
     }
   },
   {
     "model": "universearch.region",
     "pk": 20,
     "fields": {
-      "name": "Херсонська область"
+      "name": "Херсонська область",
+      "name_ru": "Херсонская область",
+      "name_en": " Kherson Region ",
+      "name_uk": "Херсонська область"
     }
   },
   {
     "model": "universearch.region",
     "pk": 21,
     "fields": {
-      "name": "Хмельницька область"
+      "name": "Хмельницька область",
+      "name_ru": "Хмельницкая область",
+      "name_en": " Khmelnytsky Region ",
+      "name_uk": "Хмельницька область"
     }
   },
   {
     "model": "universearch.region",
     "pk": 22,
     "fields": {
-      "name": "Черкаська область"
+      "name": "Черкаська область",
+      "name_ru": "Черкасская область",
+      "name_en": " Cherkasy Region ",
+      "name_uk": "Черкаська область"
     }
   },
   {
     "model": "universearch.region",
     "pk": 23,
     "fields": {
-      "name": "Чернівецька область"
+      "name": "Чернівецька область",
+      "name_ru": "Черновицкая область",
+      "name_en": " Chernivtsi Region ",
+      "name_uk": "Чернівецька область"
     }
   },
   {
     "model": "universearch.region",
     "pk": 24,
     "fields": {
-      "name": "Чернігівська область"
+      "name": "Чернігівська область",
+      "name_ru": "Черниговская область",
+      "name_en": "Chernihiv Region",
+      "name_uk": "Чернігівська область"
     }
   }
 ]
