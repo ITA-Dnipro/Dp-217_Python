@@ -1,10 +1,11 @@
 from django.contrib.auth.forms import UserCreationForm, UserChangeForm
+from django.utils.translation import gettext as _
 from .models import CustomUser
 
 
 class CustomUserCreationForm(UserCreationForm):
     error_messages = {
-        'password_mismatch': 'Паролі не співпадають',
+        'password_mismatch': _('Паролі не співпадають'),
     }
 
     class Meta:
@@ -12,30 +13,30 @@ class CustomUserCreationForm(UserCreationForm):
         fields = ('username', 'email', 'password1', 'password2')
         error_messages = {
             'username': {
-                'unique': "Ім'я вже зайняте",
-                'required': "Заповнення обов'язкове"
+                'unique': _("Ім'я вже зайняте"),
+                'required': _("Заповнення обов'язкове")
             },
             'email': {
-                'unique': "Пошта вже зайнята",
-                'invalid': "Некоректна адреса",
-                'required': "Заповнення обов'язкове"
+                'unique': _("Пошта вже зайнята"),
+                'invalid': _("Некоректна адреса"),
+                'required': _("Заповнення обов'язкове")
             },
         }
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
 
-        self.fields['username'].label = "Ім'я користувача"
-        self.fields['username'].help_text = 'До 150 символів. Букви, цифри та @ . + - _'
+        self.fields['username'].label = _("Ім'я користувача")
+        self.fields['username'].help_text = _('До 150 символів. Букви, цифри та @ . + - _')
 
-        self.fields['email'].label = "Пошта"
-        self.fields['email'].help_text = 'Ваша електронна пошта'
+        self.fields['email'].label = _("Пошта")
+        self.fields['email'].help_text = _('Ваша електронна пошта')
 
-        self.fields['password1'].label = 'Пароль'
-        self.fields['password1'].help_text = 'Від 8 символів, не повністю з цифр'
+        self.fields['password1'].label = _('Пароль')
+        self.fields['password1'].help_text = _('Від 8 символів, не повністю з цифр')
 
-        self.fields['password2'].label = 'Підтвердження пароля'
-        self.fields['password2'].help_text = 'Введіть пароль ще раз'
+        self.fields['password2'].label = _('Підтвердження пароля')
+        self.fields['password2'].help_text = _('Введіть пароль ще раз')
 
 
 class CustomUserChangeForm(UserChangeForm):
@@ -56,13 +57,13 @@ class CustomUserChangeForm(UserChangeForm):
         super().__init__(*args, **kwargs)
         self.fields['username'].disabled = True
         self.fields['email'].disabled = True
-        self.fields['username'].label = "Ім'я користувача"
-        self.fields['email'].label = "Пошта"
-        self.fields['first_name'].label = "Ім'я"
-        self.fields['last_name'].label = "Прізвище"
-        self.fields['phone'].label = "Телефон"
-        self.fields['gender'].label = "Стать"
-        self.fields['city'].label = "Місто"
+        self.fields['username'].label = _("Ім'я користувача")
+        self.fields['email'].label = _("Пошта")
+        self.fields['first_name'].label = _("Ім'я")
+        self.fields['last_name'].label = _("Прізвище")
+        self.fields['phone'].label = _("Телефон")
+        self.fields['gender'].label = _("Стать")
+        self.fields['city'].label = _("Місто")
 
 
 class CustomUserAdminChangeForm(UserChangeForm):

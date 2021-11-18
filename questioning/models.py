@@ -1,5 +1,6 @@
 import hashlib
 import datetime
+from django.utils.translation import gettext as _
 from django.utils import timezone
 from django.db import models
 from django.core.validators import int_list_validator
@@ -60,7 +61,7 @@ class KlimovCategory(models.Model):
 
     @property
     def generate_element(self) -> dict:
-        return {'name': f"Людина - {self.name}", 'examples': self.professions, 'description': self.desc}
+        return {'name': f"{_('Людина')} - {self.name}", 'examples': self.professions, 'description': self.desc}
 
     class Meta:
         verbose_name = "Категорія професії"
@@ -76,6 +77,10 @@ class InterestCategory(models.Model):
     name = models.CharField("Категорія", max_length=50)
     desc = models.TextField("Опис категорії", blank=True)
     professions = models.TextField("Професії", blank=True)
+
+    @property
+    def generate_element(self) -> dict:
+        return {'name': f"{self.name}", 'examples': self.professions, 'description': self.desc}
 
     class Meta:
         verbose_name = "Категорія професії"

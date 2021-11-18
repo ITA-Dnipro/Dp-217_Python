@@ -28,7 +28,7 @@
 
     {% for category in result.categories %}
 
-        {% widthratio category.points 8 100 as percent %}
+        {% widthratio category.points category.max_points 100 as percent %}
 
         <div class="row">
             <div class="col-4">

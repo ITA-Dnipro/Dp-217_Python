@@ -67,7 +67,8 @@ def get_category_name(question_type, result, name):
         divider = 4
         part_desc = "«"
         max_res = 12
-    return f"{part_desc}{name}» - {severity[result // divider]} ({result} {_('з')} {max_res} {_('балів')})."
+    severity = severity[result // divider] if result < max_res else severity[-1]
+    return f"{part_desc}{name}» - {severity} ({result} {_('з')} {max_res} {_('балів')})."
 
 
 def get_top_categories(resulted_categories, average_result=4):
@@ -132,8 +133,11 @@ def get_question_type(question_type_index):
     return desc_question_types[question_type_index - 1]
 
 
-def gen_prof_categories():
-    return {index: category.generate_element for index, category in enumerate(KlimovCategory.objects.all())}
+def gen_prof_categories(question_type):
+    if question_type != 3:
+        return {category.id: category.generate_element for category in list(KlimovCategory.objects.all())}
+    else:
+        return {category.id: category.generate_element for category in list(InterestCategory.objects.all())}
 
 
 def decode_result(result):
@@ -144,14 +148,14 @@ def decode_result(result):
         'url': result.url
     }
     answers_list = eval(result.results)
-    if result.type != 3:
-        for index, data in gen_prof_categories().items():
-            decoded_result['categories'].append(
-                {
-                    'info': data,
-                    'points': answers_list[index + 1],
-                }
-            )
+    for index, data in gen_prof_categories(result.type).items():
+        decoded_result['categories'].append(
+            {
+                'info': data,
+                'points': answers_list[str(index)],
+                'max_points': 8 if result.type != 3 else 12,
+            }
+        )
     return decoded_result
 
 
