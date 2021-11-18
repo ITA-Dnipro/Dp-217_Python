@@ -14,9 +14,3 @@ stop:
 # This command deletes existing docker container.
 delete:
 	docker rm enrollment_assistant
-
-test:
-	coverage run --source='.' manage.py test questioning
-
-report:
-	coverage report
