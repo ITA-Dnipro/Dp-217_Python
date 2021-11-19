@@ -1,11 +1,11 @@
 {% extends 'base.html' %}
-
+{% load i18n i18n %}
 {% block content %}
 <div id="registration-content">
     <div id="registration-wrapper" class="col-sm-6 col-md-5 col-lg-4 col-xl-3 mx-auto my-5">
         <div class="card text-white bg-primary mb-3">
             <div class="card-header">
-                    <h4>Реєстрація</h4>
+                    <h4>{% trans 'Реєстрація' %}</h4>
                 </div>
             <div class="card-body">
                 <form method="POST">
@@ -40,13 +40,13 @@
 
                     <div class="d-grid gap-2 my-3">
                         <button type="submit" id="registration-submit" class="btn btn-primary" >
-                            Зареєструвати
+                            {% trans 'Зареєструвати' %}
                         </button>
                     </div>
 
                 </form>
                 <div class="text-center small mt-2">
-                    <a class="text-white" href="{% url 'login' %}">Увійти</a>
+                    <a class="text-white" href="{% url 'login' %}">{% trans 'Увійти' %}</a>
                 </div>
             </div>
         </div>

@@ -1,4 +1,5 @@
 import json
+from django.utils.translation import gettext as _
 from questioning.models import TestResult, KlimovCategory, ConnectionKlimovCatStudyField, InterestCategory, \
     ConnectionInterestCatSpec, QuestionsBase
 from users.models import CustomUser
@@ -9,28 +10,8 @@ def save_questions_results(user_id, results, test_type):
     TestResult.objects.create(results=results, user_id=user_id, type=test_type)
 
 
-def get_parameters(question_type):
-    if question_type != 3:
-        average_result = 4
-        categories_desc = KlimovCategory.objects.all().values()
-        study_fields = ConnectionKlimovCatStudyField.objects.select_related('field_id').all()
-        severity = ["схильність не виражена", "середньо виражена схильність", "вкрай виражену схильність"]
-        divider = 3
-        part_desc = "Професії типу «Людина - "
-        max_res = 8
-    else:
-        average_result = 0
-        categories_desc = InterestCategory.objects.all().values()
-        study_fields = ConnectionInterestCatSpec.objects.select_related('spec_id').all()
-        severity = ["інтерес виражений слабо", "виражений інтерес", "яскраво виражений інтерес"]
-        divider = 4
-        part_desc = "«"
-        max_res = 12
-    return average_result, categories_desc, study_fields, divider, severity, part_desc, max_res
-
-
 def get_fields_links(study_fields, item, question_type):
-    fields = [["Посилання на пошук:", '']]
+    fields = [[_("Посилання на пошук:"), '']]
     if question_type != 3:
         for study_field in study_fields.filter(category_id=item):
             name = study_field.field_id.name
@@ -43,21 +24,51 @@ def get_fields_links(study_fields, item, question_type):
     return fields
 
 
+def get_title():
+    return _("Ваші результати")
+
+
+def get_average_result(question_type):
+    return 4 if question_type != 3 else 0
+
+
+def get_description_info(question_type):
+    if question_type != 3:
+        categories_desc = KlimovCategory.objects.all().values()
+        study_fields = ConnectionKlimovCatStudyField.objects.select_related('field_id').all()
+    else:
+        categories_desc = InterestCategory.objects.all().values()
+        study_fields = ConnectionInterestCatSpec.objects.select_related('spec_id').all()
+    return categories_desc, study_fields
+
+
 def gen_result(results, question_type=1):
-    average_result, categories_desc, study_fields, divider, severity, part_desc, max_res = get_parameters(question_type)
-    top_categories = get_top_categories(results, average_result)
-    title = "Ваші результати:"
     categories = []
-    for item, result in top_categories.items():
+    categories_desc, study_fields = get_description_info(question_type)
+    for item, result in get_top_categories(results, get_average_result(question_type)).items():
         fields = get_fields_links(study_fields, item, question_type)
         desc = categories_desc.filter(id=item).first()
-        name = f"{part_desc}{desc['name']}»"
-        categories.append({'name': f"{name} - {severity[result // divider]} ({result} з {max_res} балів).",
+        categories.append({'name': get_category_name(question_type, result, desc['name']),
                            'desc': desc['desc'],
                            'prof': [desc['professions']],
                            'study_fields': fields, 'id': f"cat_{len(categories)}"})
-    resulted_text = {'title': title, 'data': [{'categories': categories}]}
+    resulted_text = {'title': get_title() + ":", 'data': [{'categories': categories}]}
     return resulted_text
+
+
+def get_category_name(question_type, result, name):
+    if question_type != 3:
+        severity = [_("схильність не виражена"), _("середньо виражена схильність"), _("вкрай виражену схильність")]
+        divider = 3
+        part_desc = _("Професії типу «Людина - ")
+        max_res = 8
+    else:
+        severity = [_("інтерес виражений слабо"), _("виражений інтерес"), _("яскраво виражений інтерес")]
+        divider = 4
+        part_desc = "«"
+        max_res = 12
+    severity = severity[result // divider] if result < max_res else severity[-1]
+    return f"{part_desc}{name}» - {severity} ({result} {_('з')} {max_res} {_('балів')})."
 
 
 def get_top_categories(resulted_categories, average_result=4):
@@ -69,6 +80,11 @@ def get_top_categories(resulted_categories, average_result=4):
         else:
             break
     return cat_dict
+
+
+def get_short_name(name):
+    part_name = _('Людина')
+    return f"{part_name} - {name}"
 
 
 def gen_results(answers):
@@ -85,7 +101,7 @@ def gen_results(answers):
             for item, _ in get_top_categories(result).items():
                 fields = get_fields_links(study_fields, item, question_type)
                 desc = categories_desc.filter(id=item).first()
-                categories.append({'name': f"Людина - {desc['name']}",
+                categories.append({'name': get_short_name(desc['name']),
                                    'prof': desc['professions'].replace('.', '').split(','),
                                    'study_fields': fields, 'id': f"cat_{item}_{len(context)}"})
         else:
@@ -103,21 +119,25 @@ def gen_results(answers):
 
 def get_results(user):
     if not user.is_authenticated:
-        return {'title': "Ви не авторизовані", }
+        return {'title': _("Ви не авторизовані"), }
     items = list(CustomUser.objects.get(id=user.id).testresult_set.all().values())
     if len(items) == 0:
-        return {'title': 'Ви не пройшли опитування', }
-    return {'title': 'Ваші результати', 'data': gen_results(items)}
+        return {'title': _('Ви не пройшли опитування'), }
+    return {'title': get_title(), 'data': gen_results(items)}
 
 
 def get_question_type(question_type_index):
-    desc_question_types = ["Тест на визначення профорієнтації", "Тест на визначення профорієнтації",
-                           "Тест на визначення типу майбутньої професії"]
+    desc_question_types = [_("Тест на визначення профорієнтації"),
+                           _("Тест на визначення профорієнтації"),
+                           _("Тест на визначення типу майбутньої професії")]
     return desc_question_types[question_type_index - 1]
 
 
-def gen_prof_categories():
-    return {index: category.generate_element for index, category in enumerate(KlimovCategory.objects.all())}
+def gen_prof_categories(question_type):
+    if question_type != 3:
+        return {category.id: category.generate_element for category in list(KlimovCategory.objects.all())}
+    else:
+        return {category.id: category.generate_element for category in list(InterestCategory.objects.all())}
 
 
 def decode_result(result):
@@ -128,14 +148,14 @@ def decode_result(result):
         'url': result.url
     }
     answers_list = eval(result.results)
-    if result.type != 3:
-        for index, data in gen_prof_categories().items():
-            decoded_result['categories'].append(
-                {
-                    'info': data,
-                    'points': answers_list[index + 1],
-                }
-            )
+    for index, data in gen_prof_categories(result.type).items():
+        decoded_result['categories'].append(
+            {
+                'info': data,
+                'points': answers_list[str(index)],
+                'max_points': 8 if result.type != 3 else 12,
+            }
+        )
     return decoded_result
 
 
@@ -163,16 +183,25 @@ def get_button_styles(questions_type):
 def get_result(link):
     query = TestResult.objects.filter(url=link)
     if query:
-        return gen_result(eval(query.first().results), query.first().type)
+        results = eval(query.first().results)
+        questioning_type = query.first().type
+        return gen_result(results, questioning_type)
     else:
-        return {'title': 'Результат опитування не знайдено', }
+        return {'title': _('Результат опитування не знайдено'), }
+
+
+def send_result():
+    pass
 
 
 def generate_result(result, user):
     result = json.loads(result)
     if user.is_authenticated:
         save_questions_results(user.id, result[1], result[0])
-    return gen_result(result[1], result[0])
+        send_result()
+    results = result[1]
+    questioning_type = result[0]
+    return gen_result(results, questioning_type)
 
 
 def delete_result(result_id, user):

@@ -1,3 +1,4 @@
+{% load i18n i18n %}
 {% if result.date%}
 <div class="my-4 pb-2 bg-light border rounded result-block result-card"
      data-resultid="{{ result.id }}">
@@ -41,7 +42,7 @@
                 <button class="accordion-button" type="button" data-bs-toggle="collapse"
                         data-bs-target="#padding{{result.id}}"
                         aria-expanded="true" aria-controls="collapseOne">
-                    Cтислі результати тесту
+                    {% trans 'Cтислі результати тесту' %}
                 </button>
             </h2>
             {%endif%}
@@ -65,13 +66,13 @@
                                 <div>{{category.desc}}</div>
                                 {%endif%}
                                 {% if category.prof %}
-                                <strong>Професії:</strong>
+                                <strong>{% trans 'Професії' %}:</strong>
                                 {%for prof in category.prof%}
                                 <div>{{prof}}</div>
                                 {% endfor %}
                                 {%endif%}
                                 {% if category.study_fields %}
-                                <div class="fw-bold mt-2">Галузі знань:</div>
+                                <div class="fw-bold mt-2">{% trans 'Галузі знань' %}:</div>
                                 {%for study_field in category.study_fields%}
                                 <div><a href="/search/{{study_field.1}}">{{ study_field.0 }}</a></div>
                                 {% endfor %}

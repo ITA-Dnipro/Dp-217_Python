@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
 
+{% load i18n i18n %}
 {% block content %}
 
 <div id="profile-content">
@@ -7,18 +8,18 @@
     <div id="profile-wrapper" class="col-md-10 col-lg-8 col-xl-6 my-2 mx-auto">
 
         <div id="profile-header">
-            <h5>Профіль</h5>
+            <h5>{% trans 'Профіль' %}</h5>
         </div>
 
         <ul class="nav nav-tabs">
             <li class="nav-item">
                 <a class="nav-link active" data-bs-toggle="tab" href="#info">
-                    Персональні дані
+                    {% trans 'Персональні дані' %}
                 </a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" data-bs-toggle="tab" href="#surveys">
-                    Опитування
+                    {% trans 'Опитування' %}
                 </a>
             </li>
         </ul>
@@ -34,17 +35,17 @@
             <div class="tab-pane fade" id="surveys">
                 <div class="text-center my-3">
                     <h5>
-                        Історія опитувань
+                       {% trans 'Історія опитувань' %}
                     </h5>
                 </div>
 
                 <div id="empty-history-message" class="text-center {% if results %}d-none{% endif %}">
                     <div>
-                        Результати відсутні
+                        {% trans 'Результати відсутні' %}
                     </div>
                     <div>
                         <a href="/questioning">
-                            Пройти опитування
+                            {% trans 'Пройти опитування' %}
                         </a>
                     </div>
                 </div>

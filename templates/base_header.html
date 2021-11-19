@@ -1,3 +1,4 @@
+{% load i18n i18n %}
 <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
     <div class="container-fluid">
         <a class="navbar-brand" href="/">Enrollment Assistant</a>
@@ -8,34 +9,51 @@
         <div class="collapse navbar-collapse" id="navbarColor01">
             <div class="navbar-nav d-flex" style="width: 100%">
                 <div class="nav-item">
-                    <a class="nav-link" href="/questioning">Опитування</a>
+                    <a class="nav-link" href="/questioning">{% trans 'Опитування' %}</a>
                 </div>
                 <div class="nav-item">
-                    <a class="nav-link" href="/search">Пошук</a>
+                    <a class="nav-link" href="/search">{% trans 'Пошук' %}</a>
                 </div>
                 <div class="nav-item me-auto">
-                    <a class="nav-link" href="/relocation">Релокація</a>
+                    <a class="nav-link" href="/relocation">{% trans 'Релокація' %}</a>
                 </div>
                 {% if user.is_authenticated %}
                 <div class="nav-item dropdown">
-                    <a class="nav-link  dropdown-toggle d-lg-none" href="#" data-bs-toggle="dropdown"> ПРОФІЛЬ </a>
-                    <a class="nav-link dropdown-toggle d-none d-lg-block" href="/profile"> ПРОФІЛЬ </a>
+                    <a class="nav-link  dropdown-toggle d-lg-none" href="#" data-bs-toggle="dropdown"> {% trans 'ПРОФІЛЬ' %} </a>
+                    <a class="nav-link dropdown-toggle d-none d-lg-block" href="/profile"> {% trans 'ПРОФІЛЬ' %} </a>
                     <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="/profile/#info"> Особисті дані </a></li>
-                        <li><a class="dropdown-item" href="/profile/#surveys"> Опитування </a></li>
+                        <li><a class="dropdown-item" href="/profile/#info"> {% trans 'Особисті дані' %} </a></li>
+                        <li><a class="dropdown-item" href="/profile/#surveys"> {% trans 'Опитування' %} </a></li>
                         <li class="dropdown-divider"></li>
-                        <li><a class="dropdown-item" href="/profile/logout"> Вийти </a></li>
+                        <li><a class="dropdown-item" href="/profile/logout"> {% trans 'Вийти' %} </a></li>
                     </ul>
                 </div>
                 {% else %}
                 <div class="nav-item">
-                    <a class="nav-link" href="/profile/registration"> Реєстрація </a>
+                    <a class="nav-link" href="/profile/registration"> {% trans 'Реєстрація' %} </a>
                 </div>
                 <div class="nav-item">
-                    <a class="nav-link" href="/profile/login"> Вхід </a>
+                    <a class="nav-link" href="/profile/login"> {% trans 'Вхід' %} </a>
                 </div>
                 {% endif %}
             </div>
         </div>
+        <li>
+            <form action="{% url 'set_language' %}" method="post">{% csrf_token %}
+                <input name="next" type="hidden" value="{{ redirect_to }}">
+                <select name="language">
+                    {% get_current_language as LANGUAGE_CODE %}
+                    {% get_available_languages as LANGUAGES %}
+                    {% get_language_info_list for LANGUAGES as languages %}
+                    {% for language in languages %}
+                    <option value="{{ language.code }}" {% if language.code == LANGUAGE_CODE %}
+                            selected{% endif %}>
+                        {{ language.name_local }} ({{ language.code }})
+                    </option>
+                    {% endfor %}
+                </select>
+                <input type="submit" value="Go">
+            </form>
+        </li>
     </div>
 </nav>

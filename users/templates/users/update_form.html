@@ -1,3 +1,4 @@
+{% load i18n i18n %}
 <form method="POST" action="/profile/update" id="profile-update-form"
       class="col-10 col-lg-6 d-flex flex-column m-2 p-2 bg-light border rounded">
 
@@ -27,13 +28,13 @@
 
     <div class="m-2 d-flex justify-content-start">
             <label class="col-4 d-inline-flex justify-content-end me-2">
-                Пароль:
+                {% trans 'Пароль' %}:
             </label>
 
-            <a href="{% url 'password_reset' %}">Змінити</a>
+            <a href="{% url 'password_reset' %}">{% trans 'Змінити' %}</a>
     </div>
 
     <button type="submit" id="profile-update-submit-btn" class="btn px-5 mt-4 mb-2 disabled btn-secondary" >
-        ЗБЕРЕГТИ
+        {% trans 'ЗБЕРЕГТИ' %}
     </button>
 </form>
