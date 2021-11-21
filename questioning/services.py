@@ -1,7 +1,5 @@
 import json
-from django.http import HttpResponse
 from django.utils.translation import gettext as _
-from django.shortcuts import render
 from django.template import loader
 from questioning.models import TestResult, KlimovCategory, ConnectionKlimovCatStudyField, InterestCategory, \
     ConnectionInterestCatSpec, QuestionsBase
