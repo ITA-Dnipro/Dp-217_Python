@@ -8,14 +8,12 @@ def serializer(message):
     return json.dumps(message).encode('utf-8')
 
 
-# Kafka Producer
-producer = KafkaProducer(
-    bootstrap_servers=settings.KAFKA_SERVER,
-    value_serializer=serializer
-)
-
-
 def produce_message(topic, partition):
+    # Kafka Producer
+    producer = KafkaProducer(
+        bootstrap_servers=settings.KAFKA_SERVER,
+        value_serializer=serializer
+    )
     producer.send(topic, {
         'user_email': partition['user_email'],
         'subject': partition['subject'],
