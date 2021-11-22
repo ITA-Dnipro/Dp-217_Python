@@ -1,8 +1,10 @@
 import json
 from django.utils.translation import gettext as _
+from django.template import loader
 from questioning.models import TestResult, KlimovCategory, ConnectionKlimovCatStudyField, InterestCategory, \
     ConnectionInterestCatSpec, QuestionsBase
 from users.models import CustomUser
+from enrollment_assistant.services import produce_message
 
 
 def save_questions_results(user_id, results, test_type):
@@ -190,17 +192,19 @@ def get_result(link):
         return {'title': _('Результат опитування не знайдено'), }
 
 
-def send_result():
-    pass
+def send_result(partition):
+    topic = 'send_mail'
+    produce_message(topic, partition)
 
 
 def generate_result(result, user):
-    result = json.loads(result)
+    questioning_type, results = json.loads(result)
     if user.is_authenticated:
-        save_questions_results(user.id, result[1], result[0])
-        send_result()
-    results = result[1]
-    questioning_type = result[0]
+        save_questions_results(user.id, results, questioning_type)
+        send_result({'user_email': user.email,
+                     'subject': get_question_type(questioning_type),
+                     'message': loader.render_to_string('result_card.html',
+                                                        {'result': gen_result(results, questioning_type)['data'][0]})})
     return gen_result(results, questioning_type)
 
 

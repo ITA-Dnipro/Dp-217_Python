@@ -91,6 +91,8 @@ DATABASES = {
     }
 }
 
+KAFKA_SERVER = os.environ.get('KAFKA_SERVER', "'localhost:9092")
+
 # Password validation
 # https://docs.djangoproject.com/en/3.2/ref/settings/#auth-password-validators
 

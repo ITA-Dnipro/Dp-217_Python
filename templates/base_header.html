@@ -2,11 +2,27 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
     <div class="container-fluid">
         <a class="navbar-brand" href="/">Enrollment Assistant</a>
+        <span class="text-white me-auto">
+            <form action="{% url 'set_language' %}" method="post">{% csrf_token %}
+                <input name="next" type="hidden" value="{{ redirect_to }}">
+                <select name="language" class="bg-primary text-light rounded" onchange="this.form.submit()">
+                    {% get_current_language as LANGUAGE_CODE %}
+                    {% get_available_languages as LANGUAGES %}
+                    {% get_language_info_list for LANGUAGES as languages %}
+                    {% for language in languages %}
+                    <option value="{{ language.code }}" {% if language.code == LANGUAGE_CODE %}
+                            selected{% endif %} class="bg-primary">
+                        {{ language.code }}
+                    </option>
+                    {% endfor %}
+                </select>
+            </form>
+        </span>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor01"
                 aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
-        <div class="collapse navbar-collapse" id="navbarColor01">
+        <div class="collapse navbar-collapse ms-4" id="navbarColor01">
             <div class="navbar-nav d-flex" style="width: 100%">
                 <div class="nav-item">
                     <a class="nav-link" href="/questioning">{% trans 'Опитування' %}</a>
@@ -38,22 +54,5 @@
                 {% endif %}
             </div>
         </div>
-        <li>
-            <form action="{% url 'set_language' %}" method="post">{% csrf_token %}
-                <input name="next" type="hidden" value="{{ redirect_to }}">
-                <select name="language">
-                    {% get_current_language as LANGUAGE_CODE %}
-                    {% get_available_languages as LANGUAGES %}
-                    {% get_language_info_list for LANGUAGES as languages %}
-                    {% for language in languages %}
-                    <option value="{{ language.code }}" {% if language.code == LANGUAGE_CODE %}
-                            selected{% endif %}>
-                        {{ language.name_local }} ({{ language.code }})
-                    </option>
-                    {% endfor %}
-                </select>
-                <input type="submit" value="Go">
-            </form>
-        </li>
     </div>
 </nav>
