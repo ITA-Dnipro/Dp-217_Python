@@ -176,14 +176,14 @@ def get_question_type(question_type_index):
     return QUESTION_TYPES[question_type_index - 1]
 
 
-def gen_prof_categories(question_type):
+def get_prof_categories(question_type):
     if question_type != HOLAND_QUESTION_TYPE:
         return {category.id: category.generate_element for category in list(KlimovCategory.objects.all())}
     else:
         return {category.id: category.generate_element for category in list(InterestCategory.objects.all())}
 
 
-def decode_result(result):
+def _gen_result(result):
     decoded_result = {
         'categories': [],
         'date': result.created_date,
@@ -191,27 +191,29 @@ def decode_result(result):
         'url': result.url
     }
     answers_list = eval(result.results)
-    for index, data in gen_prof_categories(result.type).items():
+    for index, data in get_prof_categories(result.type).items():
         decoded_result['categories'].append(
             {
                 'info': data,
                 'points': answers_list[str(index)],
-                'max_points': 8 if result.type != 3 else 12,
+                'max_points': KLIMOVS_MAX_RESULT if result.type != HOLAND_QUESTION_TYPE else HOLAND_MAX_RESULT,
             }
         )
     return decoded_result
 
 
-def get_decoded_user_results(user):
-    return [decode_result(result) for result in user.testresult_set.all()]
+def get_generated_user_results(user):
+    return [_gen_result(result) for result in user.testresult_set.all()]
 
 
-def make_top_n_results(results, n=3):
+def get_top_n_results(results, n=3):
+    top_n_results = []
     for result in results:
-        categories = result['categories']
+        top_n_results.append(result)
+        categories = top_n_results[-1]['categories']
         categories.sort(key=lambda x: x['points'], reverse=True)
-        result['categories'] = categories[:n]
-    return
+        top_n_results[-1]['categories'] = categories[:n]
+    return top_n_results
 
 
 def get_button_styles(questions_type):
@@ -224,10 +226,11 @@ def get_button_styles(questions_type):
 
 
 def send_result(user_email, questioning_type, results):
+    result = generate_result(results, questioning_type)['data'][0]
+    message = loader.render_to_string('result_card.html', {'result': result})
     partition = {'user_email': user_email,
                  'subject': get_question_type(questioning_type),
-                 'message': loader.render_to_string('result_card.html',
-                                                    {'result': generate_result(results, questioning_type)['data'][0]})}
+                 'message': message}
     produce_message(TOPIC_SEND_MAIL, partition)
 
 
