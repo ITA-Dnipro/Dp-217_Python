@@ -1,9 +1,7 @@
 import json
-
 import requests
 from kafka import KafkaProducer
 from django.conf import settings
-import requests
 
 
 # Messages will be serialized as JSON
