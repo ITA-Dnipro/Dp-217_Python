@@ -1,5 +1,5 @@
 import json
-from django.utils.translation import gettext as _
+from django.utils.translation import gettext_lazy as _
 from django.template import loader
 from questioning.models import TestResult, KlimovCategory, ConnectionKlimovCatStudyField, InterestCategory, \
     ConnectionInterestCatSpec, QuestionsBase
