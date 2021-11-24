@@ -27,12 +27,19 @@
                 <div class="nav-item">
                     <a class="nav-link" href="/questioning">{% trans 'Опитування' %}</a>
                 </div>
+
                 <div class="nav-item">
-                    <a class="nav-link" href="/search">{% trans 'Пошук' %}</a>
+                    <a class="nav-link" href="/search">{% trans 'ВНЗ' %}</a>
                 </div>
+
+                <div class="nav-item">
+                    <a class="nav-link" href="/relocation">{% trans 'Житло' %}</a>
+                </div>
+
                 <div class="nav-item me-auto">
-                    <a class="nav-link" href="/relocation">{% trans 'Релокація' %}</a>
+                    <a class="nav-link" href="/relocation/tickets">{% trans 'Квитки' %}</a>
                 </div>
+
                 {% if user.is_authenticated %}
                 <div class="nav-item dropdown">
                     <a class="nav-link  dropdown-toggle d-lg-none" href="#" data-bs-toggle="dropdown"> {% trans 'ПРОФІЛЬ' %} </a>
