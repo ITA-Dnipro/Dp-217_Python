@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 from django.http import JsonResponse
-from .forms import HousingForm, Housings
+from .forms import HousingForm
+from .services import HousingService as Housings
 
 
 def get_housings_view(request):

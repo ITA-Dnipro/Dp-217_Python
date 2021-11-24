@@ -2,17 +2,21 @@
 {% load static %}
 
 {% load i18n i18n %}
+
 {% block scripts %}
-<link rel="stylesheet" type='text/css'
-      href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.14/semantic.min.css">
+<link rel="stylesheet" href="{% static 'css/univer_search_form.css' %}">
+<link rel="stylesheet" type='text/css' href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.14/semantic.min.css">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.js"></script>
 <script src="{% static 'js/univers_search_form.js' %}" defer></script>
 <script src="{% static 'js/semantic.js' %}" defer></script>
 {% endblock %}
 
 {% block content %}
-<div class="ui container mt-5">
-    <form class="mt-5" id="search-form" action="/search/universities/" method="get">
+<div class="preloader">
+    <div class="loader"></div>
+</div>
+<div class="ui container">
+    <form class="pt-5" id="search-form" action="/search/universities/" method="get">
         <h1>{% trans 'Пошук по регiонах' %}</h1>
         <div class="ui fluid selection dropdown mt-3" id="regions">
             <input type="hidden" name="region">
