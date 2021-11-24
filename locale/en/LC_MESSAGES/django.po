@@ -483,7 +483,8 @@ msgid "Тип"
 msgstr "Type"
 
 #: .\relocation\templates\relocation\main.html:26
-#: .\universearch\templates\universearch\results.html:29
+#: .\universearch\templates\universearch\results.html:34
+#: .\users\templates\users\profile.html:89
 msgid "Адреса"
 msgstr "Address"
 
@@ -542,16 +543,21 @@ msgstr "PROFILE"
 msgid "Особисті дані"
 msgstr "Personal data"
 
-#: .\templates\base_header.html:28
+#: .\templates\base_header.html:27
+#: .\users\templates\users\profile.html:27
+msgid "Збережене"
+msgstr "Favourites"
+
+#: .\templates\base_header.html:29
 msgid "Вийти"
 msgstr "log out"
 
-#: .\templates\base_header.html:33
+#: .\templates\base_header.html:34
 #: .\users\templates\registration\registration.html:8
 msgid "Реєстрація"
 msgstr "Registration"
 
-#: .\templates\base_header.html:36 .\users\templates\registration\login.html:8
+#: .\templates\base_header.html:37 .\users\templates\registration\login.html:8
 msgid "Вхід"
 msgstr "log in"
 
@@ -571,45 +577,94 @@ msgstr "Search for universities by selected parameters"
 msgid "Підбір житла на період навчання"
 msgstr "Selection of housing for the period of study"
 
-#: .\universearch\templates\universearch\results.html:7
-msgid "Результати пошуку"
-msgstr "Search results"
+#: .\universearch\templates\universearch\results.html:12
+msgid "Результати пошуку ВНЗ"
+msgstr "Universities search results"
 
-#: .\universearch\templates\universearch\results.html:23
+#: .\universearch\templates\universearch\results.html:21
+msgid "Зберiгти"
+msgstr "Save"
+
+#: .\universearch\templates\universearch\results.html:28
+#: .\users\templates\users\profile.html:83
 msgid "Форма власностi"
 msgstr "Form of ownership"
 
-#: .\universearch\templates\universearch\results.html:24
+#: .\universearch\templates\universearch\results.html:29
+#: .\users\templates\users\profile.html:84
 msgid "Електронна пошта"
 msgstr "E-mail"
 
-#: .\universearch\templates\universearch\results.html:25
+#: .\universearch\templates\universearch\results.html:30
+#: .\users\templates\users\profile.html:85
 msgid "Сайт"
 msgstr "Site"
 
-#: .\universearch\templates\universearch\results.html:31
+#: .\universearch\templates\universearch\results.html:37
+#: .\users\templates\users\profile.html:92
 msgid "Iндекс"
 msgstr "Index"
 
-#: .\universearch\templates\universearch\results.html:32
+#: .\universearch\templates\universearch\results.html:38
+#: .\users\templates\users\profile.html:93
 msgid "Тел"
 msgstr "Phone"
 
-#: .\universearch\templates\universearch\results.html:43
-msgid "Спецiальнiсть"
-msgstr "Speciality"
+#: .\universearch\templates\universearch\results.html:52
+msgid "Денна форма навчання"
+msgstr "Full-time studies"
 
-#: .\universearch\templates\universearch\results.html:44
+#: .\universearch\templates\universearch\results.html:60
+#: .\universearch\templates\universearch\results.html:96
 msgid "Рiвень"
 msgstr "Level"
 
-#: .\universearch\templates\universearch\results.html:47
+#: .\universearch\templates\universearch\results.html:61
+#: .\universearch\templates\universearch\results.html:97
+msgid "Спецiальнiсть"
+msgstr "Speciality"
+
+#: .\universearch\templates\universearch\results.html:62
+#: .\universearch\templates\universearch\results.html:98
+msgid "Факультет"
+msgstr "Faculty"
+
+#: .\universearch\templates\universearch\results.html:63
+#: .\universearch\templates\universearch\results.html:99
+msgid "Пропозицiя"
+msgstr "Offer"
+
+#: .\universearch\templates\universearch\results.html:67
+#: .\universearch\templates\universearch\results.html:103
 msgid "Кiлькiсть бюджетних мiсць"
 msgstr "Number of budget places"
 
+#: .\universearch\templates\universearch\results.html:68
+#: .\universearch\templates\universearch\results.html:72
+#: .\universearch\templates\universearch\results.html:104
+#: .\universearch\templates\universearch\results.html:108
+msgid "Кiлькiсть контрактних мiсць"
+msgstr "Number of contract places"
+
+#: .\universearch\templates\universearch\results.html:69
+#: .\universearch\templates\universearch\results.html:105
+msgid "Кiлькiсть балiв на бюджет"
+msgstr "Number of budget points"
+
+#: .\universearch\templates\universearch\results.html:70
+#: .\universearch\templates\universearch\results.html:73
+#: .\universearch\templates\universearch\results.html:106
+#: .\universearch\templates\universearch\results.html:109
+msgid "Кiлькiсть балiв на контракт"
+msgstr "Number of contract points"
+
+#: .\universearch\templates\universearch\results.html:88
+msgid "Заочна форма навчання"
+msgstr "Part-time studies"
+
 #: .\universearch\templates\universearch\search_form.html:16
 msgid "Пошук по регiонах"
-msgstr "Search by region "
+msgstr "Search by region"
 
 #: .\universearch\templates\universearch\search_form.html:20
 msgid "Усі регiони"
@@ -731,17 +786,25 @@ msgstr "Profile"
 msgid "Персональні дані"
 msgstr "Personal data"
 
-#: .\users\templates\users\profile.html:38
+#: .\users\templates\users\profile.html:43
 msgid "Історія опитувань"
 msgstr "Questioning history"
 
-#: .\users\templates\users\profile.html:44
+#: .\users\templates\users\profile.html:49
 msgid "Результати відсутні"
 msgstr "Results missing"
 
-#: .\users\templates\users\profile.html:48
+#: .\users\templates\users\profile.html:53
 msgid "Пройти опитування"
 msgstr "Pass Questioning"
+
+#: .\users\templates\users\profile.html:67
+msgid "Збереженi ВHЗ"
+msgstr "Saved universities"
+
+#: .\users\templates\users\profile.html:76
+msgid "Видалити"
+msgstr "Remove"
 
 #: .\users\templates\users\result_card.html:73
 msgid "Опис"
