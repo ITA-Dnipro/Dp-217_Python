@@ -3,9 +3,9 @@ from django.test import TestCase, Client
 from django.utils import timezone
 from questioning.cron import remove_obsolete_records
 from questioning.models import TestResult, KlimovCategory, ConnectionKlimovCatStudyField, ConnectionInterestCatSpec
-from questioning.services import save_questions_results, gen_result, gen_results, get_results, get_top_categories, \
-    decode_result, get_decoded_user_results, make_top_n_results, gen_prof_categories, get_fields_links, \
-    get_question_type, get_button_styles, delete_result
+from questioning.services import save_questioning_results, generate_result, gen_results, get_top_categories, \
+    _gen_result, get_generated_user_results, get_top_n_results, get_prof_categories, get_fields_links, \
+    get_question_type, get_button_styles, delete_result, get_result
 from users.models import CustomUser
 
 RESULTS = {'1': 4, '2': 4, '3': 4, '4': 4, '5': 4}
@@ -113,7 +113,7 @@ class SaveTestCase(TestCase):
 
     def test_save1(self):
         self.assertEqual(len(TestResult.objects.all()), 0)
-        save_questions_results(user_id=self.user_id, results=RESULTS, test_type=1)
+        save_questioning_results(user_id=self.user_id, results=RESULTS, test_type=1)
         self.assertEqual(len(TestResult.objects.all()), 1)
 
 
@@ -205,7 +205,7 @@ class GenResultTestCase(TestCase):
                                                  '28_Публічне_управління_і_адміністрування'],
                                                 ['29 Міжнародні відносини', '29_Міжнародні_відносини']], 'id': 'cat_2'}
                        ]}]}
-        answer = gen_result(RESULTS)
+        answer = generate_result(RESULTS)
         self.assertEqual(answer, test_answer)
 
 
@@ -275,16 +275,16 @@ class GenResultsTestCase(TestCase):
         self.assertEqual(answer, test_answer)
 
 
-class GetResultsTestCase(TestCase):
+class GetResultTestCase(TestCase):
     fixtures = ['klimovcategory.json', 'studyfields.json', 'specialities.json', 'connection.json']
 
-    def test_get_results1(self):
+    def test_get_result1(self):
         user_id = CustomUser.objects.create(email='admin')
         test_answer = {'title': 'Ви не пройшли опитування', }
-        answer = get_results(user_id)
+        answer = get_result(user=user_id)
         self.assertEqual(answer, test_answer)
 
-    def test_gen_results2(self):
+    def test_gen_result2(self):
         user_id = CustomUser.objects.create(email='admin')
         result_id = TestResult.objects.create(results=RESULTS, user_id=user_id).id
         url = TestResult.objects.get(id=result_id).url
@@ -292,7 +292,7 @@ class GetResultsTestCase(TestCase):
         items = gen_results(
             [{'results': str(RESULTS), 'created_date': timezone.now(), 'url': url, 'id': result_id, 'type': q_type}])
         test_answer = {'title': 'Ваші результати', 'data': items}
-        answer = get_results(user_id)
+        answer = get_result(user=user_id)
         self.assertEqual(answer, test_answer)
 
 
@@ -330,29 +330,29 @@ class DecodeResultTestCase(TestCase):
 
     def test_decode_result(self):
         result_id, created_date, user_id, url = create_test_result()
-        test_answer = [decode_result(result) for result in TestResult.objects.all()]
+        test_answer = [_gen_result(result) for result in TestResult.objects.all()]
         answer = get_answer(result_id, created_date, url)
         self.assertEqual(answer, test_answer)
 
 
-class GetDecodedUserResultsTestCase(TestCase):
+class GetGeneratedUserResultsTestCase(TestCase):
     fixtures = ['klimovcategory.json', 'studyfields.json', 'specialities.json', 'connection.json']
 
-    def test_get_decoded_user_results(self):
+    def test_get_generated_user_results(self):
         result_id, created_date, user_id, url = create_test_result()
-        test_answer = get_decoded_user_results(user_id)
+        test_answer = get_generated_user_results(user_id)
         answer = get_answer(result_id, created_date, url)
         self.assertEqual(answer, test_answer)
 
 
-class MakeTopNResultsTestCase(TestCase):
+class GetTopNResultsTestCase(TestCase):
     fixtures = ['klimovcategory.json', 'studyfields.json', 'specialities.json', 'connection.json', 'interests.json']
 
-    def test_make_top_n_results_1(self):
+    def test_get_top_n_results_1(self):
         cur_results = {'1': 4, '2': 6, '3': 6, '4': 2, '5': 3}
         result_id, created_date, user_id, url = create_test_result(cur_results)
-        test_answer = get_decoded_user_results(user_id)
-        make_top_n_results(test_answer)
+        test_answer = get_generated_user_results(user_id)
+        test_answer=get_top_n_results(test_answer)
         answer = [
             {'categories':
                  [{'info':
@@ -390,12 +390,12 @@ class MakeTopNResultsTestCase(TestCase):
                   ], 'date': created_date, 'id': result_id, 'url': url}]
         self.assertEqual(answer, test_answer)
 
-    def test_make_top_n_results_2(self):
+    def test_get_top_n_results_2(self):
         cur_results = {'1': 1, '2': 2, '3': 2, '4': 3, '5': 3, '6': 2, '7': 2, '8': 2, '9': 3, '10': 2, '11': 2,
                        '12': 3, '13': 30, '14': 20, '15': 10, '16': 3, '17': 5, '18': 2, '19': 0}
         result_id, created_date, user_id, url = create_test_result(cur_results, 3, 'sadasdsa')
-        test_answer = get_decoded_user_results(user_id)
-        make_top_n_results(test_answer)
+        test_answer = get_generated_user_results(user_id)
+        test_answer=get_top_n_results(test_answer)
         answer = [
             {'categories':
                  [{'info':
@@ -427,10 +427,10 @@ class MakeTopNResultsTestCase(TestCase):
         self.assertEqual(answer, test_answer)
 
 
-class GenProfCategoriesTestCase(TestCase):
+class GetProfCategoriesTestCase(TestCase):
     fixtures = ['klimovcategory.json', 'studyfields.json', 'specialities.json', 'connection.json']
 
-    def test_gen_prof_categories(self):
+    def test_get_prof_categories(self):
         answer = {
             1: {
                 'name': 'Людина - природа',
@@ -480,5 +480,5 @@ class GenProfCategoriesTestCase(TestCase):
                                " моделюванням, виготовленням різних творів мистецтва."
             },
         }
-        test_answer = gen_prof_categories(1)
+        test_answer = get_prof_categories(1)
         self.assertEqual(answer, test_answer)

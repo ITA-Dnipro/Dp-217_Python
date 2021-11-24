@@ -30,9 +30,13 @@ def get_universities_api(region: str, city: str, field: str, speciality: str) ->
 
 
 def get_universities(univers_ids):
-    base_url = os.environ.get("UNI_PARSE_URL")
-    url = os.path.join(base_url, 'favs/')
-    params = {'univers': univers_ids}
+    try:
+        base_url = os.environ.get("UNI_PARSE_URL")
+        url = os.path.join(base_url, 'favs/')
+        params = {'univers': univers_ids}
 
-    response = requests.post(url, json=params)
-    return response.json()
+        response = requests.post(url, json=params)
+        return response.json()
+    except Exception:
+        return
+

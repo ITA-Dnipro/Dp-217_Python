@@ -5,16 +5,16 @@ from django.contrib import messages
 from django.http import HttpResponse, HttpResponseRedirect
 from .forms import CustomUserCreationForm, CustomUserChangeForm
 from .models import CustomUser
-from questioning.services import get_decoded_user_results, make_top_n_results
+from questioning.services import get_generated_user_results, get_top_n_results
 from universearch.services import get_universities
 from enrollment_assistant.services import produce_message
 
 
 def profile_view(request, update_form=None):
     user = CustomUser.objects.get(id=request.user.id)
-    results = get_decoded_user_results(user)
+    results = get_generated_user_results(user)
     favourite_univers = get_universities(user.favourites)
-    make_top_n_results(results)
+    results = get_top_n_results(results)
     if not update_form:
         update_form = CustomUserChangeForm(instance=request.user)
     return render(

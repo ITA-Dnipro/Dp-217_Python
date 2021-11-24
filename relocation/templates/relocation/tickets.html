@@ -1,0 +1,253 @@
+{% extends 'base.html' %}
+{% load i18n i18n %}
+{% load static %}
+{% load string_extras %}
+{% load time_extras %}
+
+{% block scripts %}
+    <link rel="stylesheet" href="{% static 'relocation/css/jquery-ui.min.css' %}">
+    <link rel="stylesheet" href="{% static 'relocation/css/relocation.css' %}">
+    <script src="{% static 'relocation/js/jquery-ui.min.js' %}" defer></script>
+    <script src="{% static 'relocation/js/tickets.js' %}" defer></script>
+{% endblock %}
+
+{% block content %}
+
+    <div class="d-flex justify-content-center">
+        <h2 class="my-4">{% trans 'Пошук квитків' %}</h2>
+    </div>
+
+    <div class="d-flex justify-content-center">
+        <div class="border rounded p-4 col-8 col-md-6 col-lg-4 col-xl-3">
+            <form action="" method="post" autocomplete="off" class="">
+                {% csrf_token %}
+
+                <div class="form-group mb-4">
+                    <div class="row">
+
+                        {% for choice, label in form.type.field.choices %}
+
+                            <div class="col">
+                                <input type="radio" class="btn-check" value="{{ choice }}"
+                                           name="{{ form.type.html_name }}" id="{{ choice }}-id"
+                                           autocomplete="off" {% if form.type.value == choice %} checked {% endif %}>
+                                <label class="btn btn-outline-success w-100" for="{{ choice }}-id">
+                                    {{ label }}
+                                </label>
+                            </div>
+
+                        {% endfor %}
+
+                    </div>
+                </div>
+
+
+                <div class="form-group mb-4">
+                    <label for="departure-name">
+                        {{ form.departure_name.label_tag }}
+                    </label>
+                    <input type="text" class="form-control" id="departure-name"
+                           placeholder="" name="{{ form.departure_name.html_name }}"
+                           {% if form.departure_name.value %}
+                               value="{{ form.departure_name.value }}"
+                           {% endif %}
+                    />
+
+                    <div class="small" id="departure-id-block">
+                            <span class="text-muted small">ID: </span>
+                            <input readonly type="text" class="station-id border-0 text-muted bg-transparent small"
+                                   id="departure-id" placeholder="" name="{{ form.departure_id.html_name }}"
+                                   {% if form.departure_id.value %}
+                                       value="{{ form.departure_id.value }}"
+                                   {% endif %}
+                            />
+                    </div>
+                </div>
+
+                <div class="form-group mb-4">
+                    <label for="arrival-name">
+                        {{ form.arrival_name.label }}
+                    </label>
+                    <input type="text" class="form-control" id="arrival-name"
+                           placeholder="" name="{{ form.arrival_name.html_name }}"
+                           {% if form.arrival_name.value %}
+                               value="{{ form.arrival_name.value }}"
+                           {% endif %}
+                    />
+
+                <div class="small" id="arrival-id-block">
+                            <span class="text-muted small">ID: </span>
+                            <input readonly type="text" class="station-id border-0 text-muted bg-transparent small"
+                                   id="arrival-id" placeholder="" name="{{ form.arrival_id.html_name }}"
+                                   {% if form.arrival_id.value %}
+                                       value="{{ form.arrival_id.value }}"
+                                   {% endif %}
+                            />
+                    </div>
+                </div>
+
+                <div class="form-group mb-4">
+                    <label for="departure-date">
+                        {{ form.date.label }}
+                    </label>
+                    <div>
+                        <input type="date" id="departure-date" class="w-100 form-control"
+                               name="{{ form.date.html_name }}"
+                               {% if form.date.value %}
+                                   value="{{ form.date.value }}"
+                               {% endif %}
+                        />
+                    </div>
+                </div>
+
+                <div class="d-flex justify-content-center">
+                    <button type="submit" class="btn btn-primary mt-4 w-100">{% trans 'Знайти' %}</button>
+                </div>
+
+            </form>
+        </div>
+    </div>
+
+    {% if ui_messages %}
+
+        <div id="messages" class="d-flex justify-content-center my-4">
+            <div class="col-8 col-md-6 col-lg-4 col-xl-3 p-2">
+                <ul>
+
+                {% for message in ui_messages %}
+
+                    <li>{{ message }}</li>
+
+                {% endfor %}
+
+                </ul>
+            </div>
+        </div>
+
+    {% endif %}
+
+
+    <div id="trips" class="d-flex flex-column align-items-center">
+
+        {% if tickets.train %}
+
+        <div class="col-8">
+            <div class="h4 my-2">{% trans 'Залізничні квитки' %}</div>
+            {% for trip in tickets.train.trips %}
+
+                <div class="trip-card border rounded my-3 p-2 d-flex flex-row justify-content-between bg-light">
+
+                    <div class="m-1 text-center">
+
+                        <div>{% trans 'Номер поїзду' %}</div>
+                        <div>
+                            {{ trip.id|left_strip:'trip-' }}
+                        </div>
+
+                    </div>
+
+                    <div class="m-1 text-center">
+                        <div>{{ trip.legs.0.departureStation.name }}</div>
+                        <div>{{ trip.legs.0.departureStation.departureDate }}</div>
+                        <div>{{ trip.legs.0.departureStation.departureTime|to_hours_minutes }}</div>
+                    </div>
+
+                    <div class="m-1 text-center">
+                        <div>{% trans 'Тривалість' %}</div>
+                        <div>{{ trip.legs.0.duration|left_strip:'0' }}</div>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor"
+                             class="bi bi-arrow-right" viewBox="0 0 16 16">
+                            <path fill-rule="evenodd"
+                                  d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z"/>
+                        </svg>
+                    </div>
+
+                    <div class="m-1 text-center">
+                        <div>{{ trip.legs.0.arrivalStation.name }}</div>
+                        <div>{{ trip.legs.0.arrivalStation.arrivalDate }}</div>
+                        <div>{{ trip.legs.0.arrivalStation.arrivalTime|to_hours_minutes }}</div>
+                    </div>
+
+                    <div>
+                        <div class="mx-2 my-1">
+                            {% trans 'Типи вагонів' %}
+                        </div>
+
+                        <div>
+                            {% for type in trip.legs.0.wagonTypes %}
+                                <div class="m-2 p-1 border rounded">
+                                    <div>{{ type.name }}
+
+                                        {% if trip.legs.0.prices == 'AVAILABLE' %}
+
+                                         ({{ type.minPrice }} - {{ type.maxPrice }} {{ type.currencyCode }})
+
+                                        {% endif %}
+
+                                    </div>
+                                </div>
+                            {% endfor %}
+                        </div>
+                    
+                    </div>
+
+                </div>
+
+            {% endfor %}
+        </div>
+
+        {% endif %}
+
+        {% if tickets.bus %}
+
+        <div class="col-8">
+            <div class="h4 my-2">{% trans 'Автобусні квитки' %}</div>
+            {% for trip in tickets.bus.trips %}
+
+                <div class="trip-card border rounded my-3 p-2 d-flex flex-row justify-content-between bg-light">
+
+                    <div class="m-1 text-center">
+                        <div>{{ trip.legs.0.departureStation.name }}</div>
+                        <div>{{ trip.legs.0.departureStation.departureDate }}</div>
+                        <div>{{ trip.legs.0.departureStation.departureTime }}</div>
+                    </div>
+
+                    <div class="m-1 text-center">
+                        <div>{% trans 'Тривалість' %}</div>
+                        <div>{{ trip.legs.0.duration|left_strip:"0" }}</div>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor"
+                             class="bi bi-arrow-right" viewBox="0 0 16 16">
+                            <path fill-rule="evenodd"
+                                  d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z"/>
+                        </svg>
+                    </div>
+
+                    <div class="m-1 text-center">
+                        <div>{{ trip.legs.0.arrivalStation.name }}</div>
+                        <div>{{ trip.legs.0.arrivalStation.arrivalDate }}</div>
+                        <div>{{ trip.legs.0.arrivalStation.arrivalTime }}</div>
+                    </div>
+
+                    <div>
+                        <div class="mx-2 my-1">
+                            {% trans 'Типи вагонів' %}
+                        </div>
+                        <div>
+                            {% for type in trip.legs.0.wagonTypes %}
+                                <div class="m-2 p-1 border rounded">
+                                    <div>{{ type.name }}: {{ type.minPrice }}
+                                        - {{ type.maxPrice }} {{ type.currencyCode }}</div>
+                                </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+
+            {% endfor %}
+        </div>
+
+        {% endif %}
+
+    </div>
+
+{% endblock %}
