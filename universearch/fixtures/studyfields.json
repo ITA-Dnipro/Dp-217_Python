@@ -24,7 +24,7 @@
     "pk": 3,
     "fields": {
       "name": "03 Гуманітарні науки",
-      "name_en": "03 Humanities science ",
+      "name_en": "03 Humanities science",
       "name_uk": "03 Гуманітарні науки",
       "name_ru": "03 Гуманитарные науки"
     }
@@ -34,7 +34,7 @@
     "pk": 4,
     "fields": {
       "name": "04 Богослов’я",
-      "name_en": " 04 Theology ",
+      "name_en": "04 Theology",
       "name_uk": "04 Богослов’я",
       "name_ru": "04 Богословие"
     }
@@ -44,7 +44,7 @@
     "pk": 5,
     "fields": {
       "name": "05 Соціальні та поведінкові науки",
-      "name_en": " 05 Social and Behavioral Sciences ",
+      "name_en": "05 Social and Behavioral Sciences",
       "name_uk": "05 Соціальні та поведінкові науки",
       "name_ru": "05 Социальные и поведенческие науки"
     }
@@ -84,7 +84,7 @@
     "pk": 9,
     "fields": {
       "name": "09 Біологія",
-      "name_en": " 09 Biology ",
+      "name_en": "09 Biology",
       "name_uk": "09 Біологія",
       "name_ru": "09 Биология"
     }
@@ -94,7 +94,7 @@
     "pk": 10,
     "fields": {
       "name": "10 Природничі науки",
-      "name_en": " 10 Natural Sciences ",
+      "name_en": "10 Natural Sciences",
       "name_uk": "10 Природничі науки",
       "name_ru": "10 Естественные науки"
     }
@@ -104,7 +104,7 @@
     "pk": 11,
     "fields": {
       "name": "11 Математика та статистика",
-      "name_en": " 11 Mathematics and Statistics ",
+      "name_en": "11 Mathematics and Statistics",
       "name_uk": "11 Математика та статистика",
       "name_ru": "11 Математика и статистика"
     }
@@ -134,7 +134,7 @@
     "pk": 14,
     "fields": {
       "name": "14 Електрична інженерія",
-      "name_en": "14 Electrical engineering ",
+      "name_en": "14 Electrical engineering",
       "name_uk": "14 Електрична інженерія",
       "name_ru": "14 Электрическая инженерия"
     }
@@ -144,7 +144,7 @@
     "pk": 15,
     "fields": {
       "name": "15 Автоматизація та приладобудування",
-      "name_en": " 15 Automation and Instrumentation ",
+      "name_en": "15 Automation and Instrumentation",
       "name_uk": "15 Автоматизація та приладобудування",
       "name_ru": "15 Автоматизация и приборостроение"
     }
@@ -154,7 +154,7 @@
     "pk": 16,
     "fields": {
       "name": "16 Хімічна та біоінженерія",
-      "name_en": " 16 Chemical and Bioengineering ",
+      "name_en": "16 Chemical and Bioengineering",
       "name_uk": "16 Хімічна та біоінженерія",
       "name_ru": "16 Химическая и биоинженерия"
     }
@@ -164,7 +164,7 @@
     "pk": 17,
     "fields": {
       "name": "17 Електроніка та телекомунікації",
-      "name_en": " 17 Electronics and Telecommunications ",
+      "name_en": "17 Electronics and Telecommunications",
       "name_uk": "17 Електроніка та телекомунікації",
       "name_ru": "17 Электроника и телекоммуникации"
     }
@@ -174,7 +174,7 @@
     "pk": 18,
     "fields": {
       "name": "18 Виробництво та технології",
-      "name_en": " 18 Manufacturing and Technology ",
+      "name_en": "18 Manufacturing and Technology",
       "name_uk": "18 Виробництво та технології",
       "name_ru": "18 Производство и технологии"
     }
@@ -184,7 +184,7 @@
     "pk": 19,
     "fields": {
       "name": "19 Архітектура та будівництво",
-      "name_en": " 19 Architecture and Construction ",
+      "name_en": "19 Architecture and Construction",
       "name_uk": "19 Архітектура та будівництво",
       "name_ru": "19 Архитектура и строительство"
     }
@@ -214,7 +214,7 @@
     "pk": 22,
     "fields": {
       "name": "22 Охорона здоров’я",
-      "name_en": "22 Healthcare ",
+      "name_en": "22 Healthcare",
       "name_uk": "22 Охорона здоров’я",
       "name_ru": "22 Здравоохранение"
     }
@@ -274,7 +274,7 @@
     "pk": 28,
     "fields": {
       "name": "28 Публічне управління і адміністрування",
-      "name_en": "28 Public Administration and administration ",
+      "name_en": "28 Public Administration and administration",
       "name_uk": "28 Публічне управління і адміністрування",
       "name_ru": "28 Публичное управление и администрирование"
     }
@@ -284,7 +284,7 @@
     "pk": 29,
     "fields": {
       "name": "29 Міжнародні відносини",
-      "name_en": " 29 International Relations ",
+      "name_en": "29 International Relations",
       "name_uk": "29 Міжнародні відносини",
       "name_ru": "29 Международные отношения"
     }
