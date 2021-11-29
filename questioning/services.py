@@ -1,4 +1,5 @@
 import json
+from django.core.cache import cache
 from django.utils.translation import gettext_lazy as _
 from django.template import loader
 from questioning.models import TestResult, KlimovCategory, ConnectionKlimovCatStudyField, InterestCategory, \
@@ -44,11 +45,32 @@ QUESTION_TYPES = [_("Тест на визначення профорієнтац
 FROM = _('з')
 MARKS = _('балів')
 TOPIC_SEND_MAIL = 'send_mail'
+KLIMOV_DATABASE = 'KlimovCategory'
+HOLAND_DATABASE = 'InterestCategory'
+QUESTIONS_DATABASE = 'QuestionsBase'
+KLIMOVS_STUDY_FIELDS_DATABASE = 'ConnectionKlimovCatStudyField'
+HOLAND_STUDY_FIELDS_DATABASE = 'ConnectionInterestCatSpec'
+TEST_RESULT_DATABASE = 'TestResult'
+DATABASES = {
+    KLIMOV_DATABASE: KlimovCategory,
+    HOLAND_DATABASE: InterestCategory,
+    QUESTIONS_DATABASE: QuestionsBase,
+    KLIMOVS_STUDY_FIELDS_DATABASE: ConnectionKlimovCatStudyField,
+    HOLAND_STUDY_FIELDS_DATABASE: ConnectionInterestCatSpec,
+    TEST_RESULT_DATABASE: TestResult,
+}
+
+
+def get_cached_database(params):
+    if not cache.get(params):
+        cache.set(params, DATABASES[params].objects.all())
+    return cache.get(params)
 
 
 def save_questioning_results(user_id, results, test_type):
     user_id = CustomUser.objects.get(id=user_id)
     TestResult.objects.create(results=results, user_id=user_id, type=test_type)
+    get_cached_database(TEST_RESULT_DATABASE)
 
 
 def get_fields_links(study_fields, item, question_type):
@@ -71,11 +93,11 @@ def get_average_result(question_type):
 
 def get_description_info(question_type):
     if question_type != HOLAND_QUESTION_TYPE:
-        categories_desc = KlimovCategory.objects.all().values()
-        study_fields = ConnectionKlimovCatStudyField.objects.select_related('field_id').all()
+        categories_desc = get_cached_database(KLIMOV_DATABASE)
+        study_fields = get_cached_database(KLIMOVS_STUDY_FIELDS_DATABASE).select_related('field_id')
     else:
-        categories_desc = InterestCategory.objects.all().values()
-        study_fields = ConnectionInterestCatSpec.objects.select_related('spec_id').all()
+        categories_desc = get_cached_database(HOLAND_DATABASE)
+        study_fields = get_cached_database(HOLAND_STUDY_FIELDS_DATABASE).select_related('spec_id')
     return categories_desc, study_fields
 
 
@@ -86,9 +108,9 @@ def generate_result(results, question_type=KLIMOV_QUESTION_TYPE):
     for item, result in top_categories:
         fields = get_fields_links(study_fields, item, question_type)
         desc = categories_desc.filter(id=item).first()
-        categories.append({'name': get_category_name(question_type, result, desc['name']),
-                           'desc': desc['desc'],
-                           'prof': [desc['professions']],
+        categories.append({'name': get_category_name(question_type, result, desc.name),
+                           'desc': desc.desc,
+                           'prof': [desc.professions],
                            'study_fields': fields,
                            'id': f"cat_{len(categories)}"})
     resulted_text = {'title': TITLE + ":", 'data': [{'categories': categories}]}
@@ -122,10 +144,10 @@ def get_top_categories(resulted_categories, average_result=KLIMOVS_AVERAGE_RESUL
 
 def gen_results(answers):
     context = []
-    categories_desc = KlimovCategory.objects.all().values()
-    interests_desc = InterestCategory.objects.all().values()
-    study_fields = ConnectionKlimovCatStudyField.objects.select_related('field_id').all()
-    specialities = ConnectionInterestCatSpec.objects.select_related('spec_id').all()
+    categories_desc = get_cached_database(KLIMOV_DATABASE).values()
+    interests_desc = get_cached_database(HOLAND_DATABASE).values()
+    study_fields = get_cached_database(KLIMOVS_STUDY_FIELDS_DATABASE).select_related('field_id')
+    specialities = get_cached_database(HOLAND_STUDY_FIELDS_DATABASE).select_related('spec_id')
     for answer in answers:
         result, date, url, result_id, question_type = eval(answer['results']), answer['created_date'], answer['url'], \
                                                       answer['id'], answer['type']
@@ -158,7 +180,7 @@ def gen_results(answers):
 
 def get_result(user='', link=''):
     if link:
-        query = TestResult.objects.filter(url=link)
+        query = get_cached_database(TEST_RESULT_DATABASE).filter(url=link)
         if query:
             results = eval(query.first().results)
             questioning_type = query.first().type
@@ -178,9 +200,9 @@ def get_question_type(question_type_index):
 
 def get_prof_categories(question_type):
     if question_type != HOLAND_QUESTION_TYPE:
-        return {category.id: category.generate_element for category in list(KlimovCategory.objects.all())}
+        return {category.id: category.generate_element for category in list(get_cached_database(KLIMOV_DATABASE))}
     else:
-        return {category.id: category.generate_element for category in list(InterestCategory.objects.all())}
+        return {category.id: category.generate_element for category in list(get_cached_database(HOLAND_DATABASE))}
 
 
 def _gen_result(result):
@@ -235,15 +257,16 @@ def send_result(user_email, questioning_type, results):
 
 
 def delete_result(result_id, user):
-    result = TestResult.objects.filter(id=result_id).first()
+    result = get_cached_database(TEST_RESULT_DATABASE).filter(id=result_id).first()
     if result is None or user != result.user_id:
         return False
     result.delete()
+    get_cached_database(TEST_RESULT_DATABASE)
     return True
 
 
 def get_questions(questions_type):
-    query = QuestionsBase.objects.filter(type=questions_type)
+    query = get_cached_database(QUESTIONS_DATABASE).filter(type=questions_type)
     if query:
         question_base = [item.generate_element for item in list(query)]
     else:
