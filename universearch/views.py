@@ -1,6 +1,5 @@
 from django.shortcuts import render
 from django.http import JsonResponse
-from django.core.cache import cache
 from .models import Region, City, StudyField, Speciality
 from .services import get_universities_api
 
