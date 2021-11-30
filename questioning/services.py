@@ -62,9 +62,12 @@ DATABASES = {
 
 
 def get_cached_database(params):
-    if not cache.get(params):
-        cache.set(params, DATABASES[params].objects.all())
-    return cache.get(params)
+    try:
+        if not cache.get(params):
+            cache.set(params, DATABASES[params].objects.all())
+        return cache.get(params)
+    finally:
+        return DATABASES[params].objects.all()
 
 
 def save_questioning_results(user_id, results, test_type):
