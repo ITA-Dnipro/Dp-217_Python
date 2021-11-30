@@ -86,10 +86,12 @@ DATABASES = {
         'NAME': os.environ.get('DB_NAME'),
         'USER': os.environ.get('DB_USER'),
         'PASSWORD': os.environ.get('DB_PASS'),
-        'HOST': os.environ.get('DB_HOST', "localhost"),
-        'PORT': os.environ.get("DB_PORT", '5432'),
+        'HOST': os.environ.get('DB_HOST', 'localhost'),
+        'PORT': os.environ.get('DB_PORT', '5432'),
     }
 }
+
+KAFKA_SERVER = os.environ.get('KAFKA_SERVER', "'localhost:9092")
 
 # Password validation
 # https://docs.djangoproject.com/en/3.2/ref/settings/#auth-password-validators
@@ -170,3 +172,19 @@ LOGIN_REDIRECT_URL = '/'
 
 # Redirect emails to console
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+
+# Interaction with tickets microservice
+TICKETS_SERVICE_URL = os.environ.get('TICKETS_SERVICE_URL', 'http://127.0.0.1:5000')
+TICKETS_SEARCH_URL = TICKETS_SERVICE_URL + '/tickets'
+TICKETS_STATIONS_SEARCH_URL = TICKETS_SERVICE_URL + '/stations'
+
+# Caching
+CACHES = {
+    "default": {
+        "BACKEND": "django_redis.cache.RedisCache",
+        "LOCATION": "redis://127.0.0.1:6379/0",
+        "OPTIONS": {
+            "CLIENT_CLASS": "django_redis.client.DefaultClient",
+        }
+    }
+}

@@ -1,6 +1,7 @@
-from django.test import TestCase
+from django.test import TestCase, RequestFactory
 from relocation.models import Region, City, University, Housing
 from relocation.forms import HousingForm
+from relocation.services import parse_housings
 
 class RelocationTestCase(TestCase):
     @classmethod
@@ -86,3 +87,9 @@ class RelocationTestCase(TestCase):
             self.assertSequenceEqual(case['output']['cities'], form.fields['city'].queryset)
             self.assertSequenceEqual(case['output']['unies'], form.fields['uni'].queryset)
             self.assertSequenceEqual(case['output']['housings'], form.get_housings())
+
+    def test_housing_parsing(self):
+        before = Housing.objects.all().count()
+        parse_housings()
+        after = Housing.objects.all().count()
+        self.assertNotEqual(before, after)

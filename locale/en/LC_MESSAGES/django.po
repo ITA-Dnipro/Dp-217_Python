@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-11-17 18:22+0200\n"
+"POT-Creation-Date: 2021-11-24 22:47+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,79 +18,83 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: .\enrollment_assistant\settings.py:127
-msgid "Russia"
-msgstr ""
-
-#: .\enrollment_assistant\settings.py:128
-msgid "English"
-msgstr ""
-
 #: .\enrollment_assistant\settings.py:129
+msgid "Russia"
+msgstr""
+
+#: .\enrollment_assistant\settings.py:130
+msgid "English"
+msgstr""
+
+#: .\enrollment_assistant\settings.py:131
 msgid "Ukrainian"
-msgstr ""
+msgstr""
 
-#: .\questioning\services.py:14
-msgid "Посилання на пошук:"
-msgstr "Search link:"
-
-#: .\questioning\services.py:28
+#: .\questioning\services.py:16
 msgid "Ваші результати"
 msgstr "Your results"
 
-#: .\questioning\services.py:61
-msgid "схильність не виражена"
-msgstr "the tendency is not expressed"
-
-#: .\questioning\services.py:61
-msgid "середньо виражена схильність"
-msgstr "moderate predisposition"
-
-#: .\questioning\services.py:61
-msgid "вкрай виражену схильність"
-msgstr "extremely pronounced predisposition"
-
-#: .\questioning\services.py:63
-msgid "Професії типу «Людина - "
-msgstr "Professions such as «Human -"
-
-#: .\questioning\services.py:66
-msgid "інтерес виражений слабо"
-msgstr "interest is weak"
-
-#: .\questioning\services.py:66
-msgid "виражений інтерес"
-msgstr "expressed interest"
-
-#: .\questioning\services.py:66
-msgid "яскраво виражений інтерес"
-msgstr "highly expressed interest"
-
-#: .\questioning\services.py:85
-msgid "Людина"
-msgstr "Human"
-
-#: .\questioning\services.py:121
-msgid "Ви не авторизовані"
-msgstr "You are not authorized"
-
-#: .\questioning\services.py:124
+#: .\questioning\services.py:17
 msgid "Ви не пройшли опитування"
 msgstr "You haven't passed questioning"
 
-#: .\questioning\services.py:129 .\questioning\services.py:130
+#: .\questioning\services.py:18
+msgid "Результат опитування не знайдено"
+msgstr "Poll result not found"
+
+#: .\questioning\services.py:29
+msgid "Посилання на пошук:"
+msgstr "Search link:"
+
+#: .\questioning\services.py:30
+msgid "схильність не виражена"
+msgstr "the tendency is not expressed"
+
+#: .\questioning\services.py:31
+msgid "середньо виражена схильність"
+msgstr "moderate predisposition"
+
+#: .\questioning\services.py:32
+msgid "вкрай виражену схильність"
+msgstr "extremely pronounced predisposition"
+
+#: .\questioning\services.py:33
+msgid "інтерес виражений слабо"
+msgstr "interest is weak"
+
+#: .\questioning\services.py:34
+msgid "виражений інтерес"
+msgstr "expressed interest"
+
+#: .\questioning\services.py:35
+msgid "яскраво виражений інтерес"
+msgstr "highly expressed interest"
+
+#: .\questioning\services.py:36
+msgid "Професії типу «Людина - "
+msgstr "Professions such as «Human -"
+
+#: .\questioning\services.py:40
+msgid "Людина"
+msgstr "Human"
+
+#: .\questioning\services.py:41 .\questioning\services.py:42
 #: .\questioning\templates\questioning.html:15
 #: .\questioning\templates\questioning.html:103
 msgid "Тест на визначення профорієнтації"
 msgstr "Career guidance test"
 
-#: .\questioning\services.py:131 .\questioning\templates\questioning.html:137
+#: .\questioning\services.py:43 .\questioning\templates\questioning.html:137
 msgid "Тест на визначення типу майбутньої професії"
 msgstr "Test for determining the type of future profession"
 
-#: .\questioning\services.py:186
-msgid "Результат опитування не знайдено"
-msgstr "Poll result not found"
+#: .\questioning\services.py:44
+msgid "з"
+msgstr "out of"
+
+#: .\questioning\services.py:45
+msgid "балів"
+msgstr "points"
 
 #: .\questioning\templates\questioning.html:19
 #: .\questioning\templates\questioning.html:107
@@ -126,9 +130,7 @@ msgstr "development of special"
 #: .\questioning\templates\questioning.html:35
 #, python-format
 msgid "Всього 22%% робочого населення задоволені своєю професією. Тому"
-msgstr ""
-"Only 22%% of the working population are satisfied with their profession. "
-"That's why"
+msgstr "Only 22%% of the working population are satisfied with their profession. "
 
 #: .\questioning\templates\questioning.html:36
 msgid ""
@@ -187,7 +189,7 @@ msgid ""
 "зобов'язань і складності почати з нуля. Буде потрібно витратити багато часу "
 "на перекваліфікацію"
 msgstr ""
-"commitments and complexity  to start from scratch. It will take a lot of "
+"commitments and complexity to start from scratch. It will take a lot of "
 "time for retraining"
 
 #: .\questioning\templates\questioning.html:55
@@ -199,7 +201,7 @@ msgid ""
 "Важливо пам'ятати: «Мир прискорюється». І якщо раніше професія частіше була "
 "одна і на"
 msgstr ""
-"It is important to rememberthat peace is accelerating. And if earlier the "
+"It is important to remember that peace is accelerating. And if earlier the "
 "profession was more often one and for"
 
 #: .\questioning\templates\questioning.html:59
@@ -227,7 +229,7 @@ msgid ""
 "Флорида, довів теорію \"для досягнення майстерності в будь-якій справі "
 "необхідно 10 000 годин наполегливої практики"
 msgstr ""
-"Florida, proved the theory \"to  achieve skill in any case 'it's necessary "
+"Florida, proved the theory \"to achieve skill in any case 'it's necessary "
 "10,000 hours of hard practice'\""
 
 #: .\questioning\templates\questioning.html:65
@@ -242,7 +244,8 @@ msgstr ""
 msgid ""
 "специфіка, особливості. Щоб не заплутатися у всьому цьому різноманітті і "
 "якось звузити пошуки ідеального"
-msgstr "specificity, features. In order not to get confused in all this diversity "
+msgstr ""
+"specificity, features. In order not to get confused in all this diversity "
 "and somehow narrow the search for the perfect"
 
 #: .\questioning\templates\questioning.html:67
@@ -255,8 +258,7 @@ msgstr "All professions can be divided into several categories "
 
 #: .\questioning\templates\questioning.html:74
 msgid "людина (лікарі, викладачі, органи правопорядку, психологи, юристи)"
-msgstr ""
-"human (doctors, teachers, law enforcement agencies, psychologists, lawyers)"
+msgstr "human (doctors, teachers, law enforcement agencies, psychologists, lawyers)"
 
 #: .\questioning\templates\questioning.html:77
 msgid "природа (ветеринар, еколог, агроном, біолог, геолог)"
@@ -298,7 +300,8 @@ msgstr ""
 msgid ""
 "галузі старшокласнику найкраще вибрати спеціальність, за якою він "
 "проходитиме професійне"
-msgstr "industry high school is best to choose the specialty by which he"
+msgstr ""
+"industry high school is best to choose the specialty by which he"
 
 #: .\questioning\templates\questioning.html:123
 msgid "навчання після школи"
@@ -336,8 +339,7 @@ msgstr "motivation to choose a future profession"
 
 #: .\questioning\templates\questioning.html:160
 msgid "Вивчення інтересів, способів учнів може здійснюватись методами"
-msgstr ""
-"The study of interests, methods of students can be carried out by methods"
+msgstr "The study of interests, methods of students can be carried out by methods"
 
 #: .\questioning\templates\questioning.html:161
 msgid ""
@@ -345,7 +347,7 @@ msgid ""
 "використання"
 msgstr ""
 "- from simple observations of their successes in the development of academic "
-"disciplines  to use"
+"disciplines to use"
 
 #: .\questioning\templates\questioning.html:162
 msgid ""
@@ -461,9 +463,37 @@ msgstr "Physical education and sports"
 msgid "Cтислі результати тесту"
 msgstr "Short results"
 
+#: .\questioning\templates\result_card.html:69
+msgid "Професії"
+msgstr "Professions"
+
 #: .\questioning\templates\result_card.html:75
 msgid "Галузі знань"
 msgstr "Areas of Knowledge"
+
+#: .\questioning\views.py:19
+msgid "Ви не авторизовані"
+msgstr "You are not authorized"
+
+#: .\relocation\forms.py:14
+msgid "Залізничні"
+msgstr "Train"
+
+#: .\relocation\forms.py:15
+msgid "Автобусні"
+msgstr "Bus"
+
+#: .\relocation\forms.py:17
+msgid "Звідки"
+msgstr "From"
+
+#: .\relocation\forms.py:19
+msgid "Куди"
+msgstr "To"
+
+#: .\relocation\forms.py:21
+msgid "Дата"
+msgstr "Date"
 
 #: .\relocation\templates\relocation\main.html:16
 msgid "Фільтрувати"
@@ -474,7 +504,7 @@ msgid "Для результату оберіть університет"
 msgstr "For the result, select a university"
 
 #: .\relocation\templates\relocation\main.html:24
-#: .\relocation\templates\relocation\main2.html:39
+#: .\relocation\templates\relocation\main2.html:43
 msgid "Назва"
 msgstr "Name"
 
@@ -483,11 +513,12 @@ msgid "Тип"
 msgstr "Type"
 
 #: .\relocation\templates\relocation\main.html:26
-#: .\universearch\templates\universearch\results.html:29
+#: .\universearch\templates\universearch\results.html:34
+#: .\users\templates\users\profile.html:89
 msgid "Адреса"
 msgstr "Address"
 
-#: .\relocation\templates\relocation\main.html:27
+#: .\relocation\templates\relocation\main.html:27 .\users\forms.py:64
 msgid "Телефон"
 msgstr "Phone"
 
@@ -495,63 +526,101 @@ msgstr "Phone"
 msgid "Належить ВУЗу"
 msgstr "Belongs to the university"
 
-#: .\relocation\templates\relocation\main2.html:15
+#: .\relocation\templates\relocation\main2.html:12
+msgid "Пошук житла"
+msgstr "Housing search"
+
+#: .\relocation\templates\relocation\main2.html:19
 msgid "Регіон"
 msgstr "Region"
 
-#: .\relocation\templates\relocation\main2.html:19
-#: .\relocation\templates\relocation\main2.html:41
+#: .\relocation\templates\relocation\main2.html:23
+#: .\relocation\templates\relocation\main2.html:45 .\users\forms.py:66
 msgid "Місто"
 msgstr "City"
 
-#: .\relocation\templates\relocation\main2.html:23
+#: .\relocation\templates\relocation\main2.html:27
 msgid "Університет"
 msgstr "University"
 
-#: .\relocation\templates\relocation\main2.html:31
+#: .\relocation\templates\relocation\main2.html:35
 msgid "Очистити"
 msgstr "Clear"
 
-#: .\relocation\templates\relocation\main2.html:40
+#: .\relocation\templates\relocation\main2.html:44
 msgid "Область"
 msgstr "State"
 
-#: .\relocation\templates\relocation\main2.html:42
+#: .\relocation\templates\relocation\main2.html:46
+#: .\templates\base_header.html:32 .\templates\index.html:20
 msgid "ВНЗ"
 msgstr "University"
 
-#: .\templates\base_header.html:12 .\templates\base_header.html:26
+#: .\relocation\templates\relocation\tickets.html:17
+msgid "Пошук квитків"
+msgstr "Tickets search"
+
+#: .\relocation\templates\relocation\tickets.html:104
+msgid "Знайти"
+msgstr "Find"
+
+#: .\relocation\templates\relocation\tickets.html:135
+msgid "Залізничні квитки"
+msgstr "Train tickets"
+
+#: .\relocation\templates\relocation\tickets.html:142
+msgid "Номер поїзду"
+msgstr "Train number"
+
+#: .\relocation\templates\relocation\tickets.html:156
+#: .\relocation\templates\relocation\tickets.html:216
+msgid "Тривалість"
+msgstr "Duration"
+
+#: .\relocation\templates\relocation\tickets.html:173
+#: .\relocation\templates\relocation\tickets.html:233
+msgid "Типи вагонів"
+msgstr "Wagon types"
+
+#: .\relocation\templates\relocation\tickets.html:204
+msgid "Автобусні квитки"
+msgstr "Bus tickets"
+
+#: .\templates\base_header.html:28 .\templates\base_header.html:49
 #: .\users\templates\users\profile.html:22
 msgid "Опитування"
 msgstr "Questioning"
 
-#: .\templates\base_header.html:15 .\templates\index.html:20
-#: .\universearch\templates\universearch\search_form.html:47
-msgid "Пошук"
-msgstr "Search"
+#: .\templates\base_header.html:36 .\templates\index.html:31
+msgid "Житло"
+msgstr "Housings"
 
-#: .\templates\base_header.html:18 .\templates\index.html:31
-msgid "Релокація"
-msgstr "Relocation"
+#: .\templates\base_header.html:40 .\templates\index.html:44
+msgid "Квитки"
+msgstr "Tickets"
 
-#: .\templates\base_header.html:22 .\templates\base_header.html:23
+#: .\templates\base_header.html:45 .\templates\base_header.html:46
 msgid "ПРОФІЛЬ"
 msgstr "PROFILE"
 
-#: .\templates\base_header.html:25
+#: .\templates\base_header.html:48
 msgid "Особисті дані"
 msgstr "Personal data"
 
-#: .\templates\base_header.html:28
+#: .\templates\base_header.html:50 .\users\templates\users\profile.html:27
+msgid "Збережене"
+msgstr "Favourites"
+
+#: .\templates\base_header.html:52
 msgid "Вийти"
 msgstr "log out"
 
-#: .\templates\base_header.html:33
+#: .\templates\base_header.html:57
 #: .\users\templates\registration\registration.html:8
 msgid "Реєстрація"
 msgstr "Registration"
 
-#: .\templates\base_header.html:36 .\users\templates\registration\login.html:8
+#: .\templates\base_header.html:60 .\users\templates\registration\login.html:8
 msgid "Вхід"
 msgstr "log in"
 
@@ -571,65 +640,217 @@ msgstr "Search for universities by selected parameters"
 msgid "Підбір житла на період навчання"
 msgstr "Selection of housing for the period of study"
 
-#: .\universearch\templates\universearch\results.html:7
-msgid "Результати пошуку"
-msgstr "Search results"
+#: .\templates\index.html:49
+msgid "Пошук проїзних квитків"
+msgstr "Search for transport tickets"
 
-#: .\universearch\templates\universearch\results.html:23
+#: .\universearch\templates\universearch\results.html:12
+msgid "Результати пошуку ВНЗ"
+msgstr "Universities search results"
+
+#: .\universearch\templates\universearch\results.html:21
+msgid "Зберiгти"
+msgstr "Save"
+
+#: .\universearch\templates\universearch\results.html:28
+#: .\users\templates\users\profile.html:83
 msgid "Форма власностi"
 msgstr "Form of ownership"
 
-#: .\universearch\templates\universearch\results.html:24
+#: .\universearch\templates\universearch\results.html:29
+#: .\users\templates\users\profile.html:84
 msgid "Електронна пошта"
 msgstr "E-mail"
 
-#: .\universearch\templates\universearch\results.html:25
+#: .\universearch\templates\universearch\results.html:30
+#: .\users\templates\users\profile.html:85
 msgid "Сайт"
 msgstr "Site"
 
-#: .\universearch\templates\universearch\results.html:31
+#: .\universearch\templates\universearch\results.html:37
+#: .\users\templates\users\profile.html:92
 msgid "Iндекс"
 msgstr "Index"
 
-#: .\universearch\templates\universearch\results.html:32
+#: .\universearch\templates\universearch\results.html:38
+#: .\users\templates\users\profile.html:93
 msgid "Тел"
 msgstr "Phone"
 
-#: .\universearch\templates\universearch\results.html:43
-msgid "Спецiальнiсть"
-msgstr "Speciality"
+#: .\universearch\templates\universearch\results.html:52
+msgid "Денна форма навчання"
+msgstr "Full-time studies"
 
-#: .\universearch\templates\universearch\results.html:44
+#: .\universearch\templates\universearch\results.html:60
+#: .\universearch\templates\universearch\results.html:96
 msgid "Рiвень"
 msgstr "Level"
 
-#: .\universearch\templates\universearch\results.html:47
+#: .\universearch\templates\universearch\results.html:61
+#: .\universearch\templates\universearch\results.html:97
+msgid "Спецiальнiсть"
+msgstr "Speciality"
+
+#: .\universearch\templates\universearch\results.html:62
+#: .\universearch\templates\universearch\results.html:98
+msgid "Факультет"
+msgstr "Faculty"
+
+#: .\universearch\templates\universearch\results.html:63
+#: .\universearch\templates\universearch\results.html:99
+msgid "Пропозицiя"
+msgstr "Offer"
+
+#: .\universearch\templates\universearch\results.html:67
+#: .\universearch\templates\universearch\results.html:103
 msgid "Кiлькiсть бюджетних мiсць"
 msgstr "Number of budget places"
 
-#: .\universearch\templates\universearch\search_form.html:16
+#: .\universearch\templates\universearch\results.html:68
+#: .\universearch\templates\universearch\results.html:72
+#: .\universearch\templates\universearch\results.html:104
+#: .\universearch\templates\universearch\results.html:108
+msgid "Кiлькiсть контрактних мiсць"
+msgstr "Number of contract places"
+
+#: .\universearch\templates\universearch\results.html:69
+#: .\universearch\templates\universearch\results.html:105
+msgid "Кiлькiсть балiв на бюджет"
+msgstr "Number of budget points"
+
+#: .\universearch\templates\universearch\results.html:70
+#: .\universearch\templates\universearch\results.html:73
+#: .\universearch\templates\universearch\results.html:106
+#: .\universearch\templates\universearch\results.html:109
+msgid "Кiлькiсть балiв на контракт"
+msgstr "Number of contract points"
+
+#: .\universearch\templates\universearch\results.html:88
+msgid "Заочна форма навчання"
+msgstr "Part-time studies"
+
+#: .\universearch\templates\universearch\search_form.html:20
 msgid "Пошук по регiонах"
 msgstr "Search by region "
 
-#: .\universearch\templates\universearch\search_form.html:20
+#: .\universearch\templates\universearch\search_form.html:24
 msgid "Усі регiони"
 msgstr "All regions"
 
-#: .\universearch\templates\universearch\search_form.html:27
+#: .\universearch\templates\universearch\search_form.html:31
 msgid "Усі мiста"
 msgstr "All cities"
 
-#: .\universearch\templates\universearch\search_form.html:31
+#: .\universearch\templates\universearch\search_form.html:35
 msgid "Пошук за галузями знань"
 msgstr "Search by areas of knowledge"
 
-#: .\universearch\templates\universearch\search_form.html:35
+#: .\universearch\templates\universearch\search_form.html:39
 msgid "Усі галузi знань"
 msgstr "All areas of knowledge"
 
-#: .\universearch\templates\universearch\search_form.html:42
+#: .\universearch\templates\universearch\search_form.html:46
 msgid "Усі спецiальностi"
 msgstr "All specialities"
+
+#: .\universearch\templates\universearch\search_form.html:51
+msgid "Пошук"
+msgstr "Search"
+
+#: .\users\forms.py:8
+msgid "Паролі не співпадають"
+msgstr "Passwords doesn't match"
+
+#: .\users\forms.py:16
+msgid "Ім'я вже зайняте"
+msgstr  "Name is already in use"
+
+#: .\users\forms.py:17 .\users\forms.py:22
+msgid "Заповнення обов'язкове"
+msgstr "Required"
+
+#: .\users\forms.py:20
+msgid "Пошта вже зайнята"
+msgstr "Mail is already in use"
+
+#: .\users\forms.py:21
+msgid "Некоректна адреса"
+msgstr "Incorrect address"
+
+#: .\users\forms.py:29 .\users\forms.py:60
+msgid "Ім'я користувача"
+msgstr "Username"
+
+#: .\users\forms.py:30
+msgid "До 150 символів. Букви, цифри та @ . + - _"
+msgstr "Up to 150 symbols, letters, digits and @ . + - _"
+
+#: .\users\forms.py:32 .\users\forms.py:61
+#: .\users\templates\registration\password_reset_form.html:16
+msgid "Пошта"
+msgstr "E-mail"
+
+#: .\users\forms.py:33
+msgid "Ваша електронна пошта"
+msgstr "Your e-mail"
+
+#: .\users\forms.py:35 .\users\templates\registration\login.html:26
+#: .\users\templates\users\update_form.html:31
+msgid "Пароль"
+msgstr "Password"
+
+#: .\users\forms.py:36
+msgid "Від 8 символів, не повністю з цифр"
+msgstr "From 8 symbols, not fully digital"
+
+#: .\users\forms.py:38
+#: .\users\templates\registration\password_reset_confirm.html:28
+msgid "Підтвердження пароля"
+msgstr "Confirm password"
+
+#: .\users\forms.py:39
+msgid "Введіть пароль ще раз"
+msgstr "Enter password again"
+
+#: .\users\forms.py:62
+msgid "Ім'я"
+msgstr "First name"
+
+#: .\users\forms.py:63
+msgid "Прізвище"
+msgstr "Last name"
+
+#: .\users\forms.py:65
+msgid "Стать"
+msgstr "Gender"
+
+#: .\users\models.py:11
+msgid "чол"
+msgstr "m"
+
+#: .\users\models.py:11
+msgid "чоловіча"
+msgstr "male"
+
+#: .\users\models.py:12
+msgid "жін"
+msgstr "f"
+
+#: .\users\models.py:12
+msgid "жіноча"
+msgstr "female"
+
+#: .\users\models.py:13
+msgid "н.в."
+msgstr "n.c."
+
+#: .\users\models.py:13
+msgid "не визначено"
+msgstr "not chosen"
+
+#: .\users\models.py:18
+msgid "Введіть номер телефону в міжнародному форматі."
+msgstr "Enter the phone number in the international format."
 
 #: .\users\templates\registration\logged_out.html:5
 msgid "Виконано вихід з акаунту"
@@ -642,10 +863,6 @@ msgstr "Sign in again"
 #: .\users\templates\registration\login.html:15
 msgid "Ім'я користувача або пошта"
 msgstr "e-mail"
-
-#: .\users\templates\registration\login.html:26
-msgid "Пароль"
-msgstr "Password"
 
 #: .\users\templates\registration\login.html:41
 msgid "Невірні дані для входу"
@@ -677,10 +894,6 @@ msgstr "Please enter a new password"
 msgid "Новий пароль"
 msgstr "New password"
 
-#: .\users\templates\registration\password_reset_confirm.html:28
-msgid "Підтвердження пароля"
-msgstr "Confirm password"
-
 #: .\users\templates\registration\password_reset_confirm.html:40
 #: .\users\templates\registration\password_reset_form.html:23
 msgid "Змінити пароль"
@@ -702,22 +915,19 @@ msgstr "Perhaps it has already been used"
 msgid "Інструкції зі зміни пароля були надіслані на електронну пошту"
 msgstr "Instructions for changing the password were sent by e-mail "
 
-#: .\users\templates\registration\password_reset_email.html:1
+#: .\users\templates\registration\password_reset_email.html:2
 msgid "Хтось попросив скинути пароль для електронної пошти"
 msgstr "Someone asked to reset the password for email"
 
-#: .\users\templates\registration\password_reset_email.html:2
+#: .\users\templates\registration\password_reset_email.html:3
 msgid "Перейдіть за посиланням нижче"
 msgstr "Follow the link below"
 
 #: .\users\templates\registration\password_reset_form.html:13
 msgid ""
 "Введіть електронну пошту, на яку буде надіслано посилання для зміни пароля"
-msgstr "Enter the email to which the password change link will be sent"
-
-#: .\users\templates\registration\password_reset_form.html:16
-msgid "Пошта"
-msgstr "E-mail"
+msgstr ""
+"Enter the email to which the password change link will be sent"
 
 #: .\users\templates\registration\registration.html:43
 msgid "Зареєструвати"
@@ -731,17 +941,25 @@ msgstr "Profile"
 msgid "Персональні дані"
 msgstr "Personal data"
 
-#: .\users\templates\users\profile.html:38
+#: .\users\templates\users\profile.html:43
 msgid "Історія опитувань"
 msgstr "Questioning history"
 
-#: .\users\templates\users\profile.html:44
+#: .\users\templates\users\profile.html:49
 msgid "Результати відсутні"
 msgstr "Results missing"
 
-#: .\users\templates\users\profile.html:48
+#: .\users\templates\users\profile.html:53
 msgid "Пройти опитування"
 msgstr "Pass Questioning"
+
+#: .\users\templates\users\profile.html:67
+msgid "Збереженi ВHЗ"
+msgstr"Saved universities"
+
+#: .\users\templates\users\profile.html:76
+msgid "Видалити"
+msgstr "Delete"
 
 #: .\users\templates\users\result_card.html:73
 msgid "Опис"
@@ -750,3 +968,12 @@ msgstr "Description"
 #: .\users\templates\users\result_card.html:78
 msgid "Приклади"
 msgstr "Examples"
+
+#: .\users\templates\users\update_form.html:34
+msgid "Змінити"
+msgstr "Change"
+
+#: .\users\templates\users\update_form.html:38
+msgid "ЗБЕРЕГТИ"
+msgstr "SAVE"
+

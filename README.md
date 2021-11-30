@@ -6,17 +6,15 @@ The application can be downloaded through git:
 
     git clone https://github.com/ITA-Dnipro/Dp-217_Python.git
 
-And launched using docker-compose:
-
-    docker-compose -f ".github/docker/docker-compose.yml" up -d --build
-
 ## Description
 
 This is a multi-repo project, written (almost) entirely in python.
 Set of used technologies and dependencies is different for every module. This readme aims at describing the main module of the application - Django Module. You can find specifications for other modules in their repos.
 Other modules:
 - [Parsing University Service](https://github.com/ITA-Dnipro/Dp-217_Python-parsing_university_service);
-- [Parsing Relocation Service](https://github.com/ITA-Dnipro/Dp-217_Python-parsing_relocation_service).
+- [Parsing Relocation Service](https://github.com/ITA-Dnipro/Dp-217_Python-parsing_relocation_service);
+- [Seeking Tickets Service](https://github.com/ITA-Dnipro/Dp-217_Python-ticket_seeker);
+- [Mailing Service](https://github.com/ITA-Dnipro/Dp-217_Python-mailing).
 
 ### Structure & used technologies
 The Django Module consists of Django back-end&front-end, PostgreSQL database and Nginx webserver.
@@ -49,10 +47,17 @@ The app contents can be found in the Dp-217_Python/relocation directory.
 These are python libraries listed in requirements.txt:
 - Django==3.2.7
 - django-crontab==0.7.1
+- django-modeltranslation==0.17.3
+- django-ckeditor==6.1.0
+- djangorestframework==3.12.4
 - Jinja2==3.0.2
 - jinja2-time==0.2.0
+- make==0.1.6.post2
 - MarkupSafe==2.0.1
-- psycopg2==2.9.1
+- psycopg2-binary==2.9.1
+- requests==2.26.0
+- kafka-python==2.0.2
+- python-gettext==4.0
 
 ### Language
 The interface of the application is multilingual (ua/ru/en). The source code contains comments, written in english.

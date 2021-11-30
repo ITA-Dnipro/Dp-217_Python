@@ -1,1 +1,541 @@
-[{"model": "universearch.city", "pk": 1, "fields": {"name": "Івано-Франківськ", "name_ru": "Ивано-Франковск", "name_uk": "Івано-Франківськ", "name_en": "Ivano-Frankivsk", "region": 1}}, {"model": "universearch.city", "pk": 2, "fields": {"name": "Косів", "name_ru": "Косов", "name_uk": "Косів", "name_en": "Kosiv", "region": 1}}, {"model": "universearch.city", "pk": 3, "fields": {"name": "Вінниця", "name_ru": "Винница", "name_uk": "Вінниця", "name_en": "Vinnytsia", "region": 2}}, {"model": "universearch.city", "pk": 4, "fields": {"name": "Луцьк", "name_ru": "Луцк", "name_uk": "Луцьк", "name_en": "Lutsk", "region": 3}}, {"model": "universearch.city", "pk": 5, "fields": {"name": "Дніпро", "name_ru": "Днепр", "name_uk": "Дніпро", "name_en": "Dnipro", "region": 4}}, {"model": "universearch.city", "pk": 6, "fields": {"name": "Кам'янське", "name_ru": "Каменское", "name_uk": "Кам'янське", "name_en": "Kamyanske", "region": 4}}, {"model": "universearch.city", "pk": 7, "fields": {"name": "Кривий Ріг", "name_ru": "Кривой Рог", "name_uk": "Кривий Ріг", "name_en": "Kryvyi Rih", "region": 4}}, {"model": "universearch.city", "pk": 8, "fields": {"name": "Нікополь", "name_ru": "Никополь", "name_uk": "Нікополь", "name_en": "Nikopol", "region": 4}}, {"model": "universearch.city", "pk": 9, "fields": {"name": "Краматорськ", "name_ru": "Краматорск", "name_uk": "Краматорськ", "name_en": "Kramatorsk", "region": 5}}, {"model": "universearch.city", "pk": 10, "fields": {"name": "Маріуполь", "name_ru": "Мариуполь", "name_uk": "Маріуполь", "name_en": "Mariupol", "region": 5}}, {"model": "universearch.city", "pk": 11, "fields": {"name": "Покровськ", "name_ru": "Покровск", "name_uk": "Покровськ", "name_en": "Pokrovsk", "region": 5}}, {"model": "universearch.city", "pk": 12, "fields": {"name": "Слов'янськ", "name_ru": "Славянск", "name_uk": "Слов'янськ", "name_en": "Slavyansk", "region": 5}}, {"model": "universearch.city", "pk": 13, "fields": {"name": "Житомир", "name_ru": "Житомир", "name_uk": "Житомир", "name_en": "Zhytomyr", "region": 6}}, {"model": "universearch.city", "pk": 14, "fields": {"name": "Ужгород", "name_ru": "Ужгород", "name_uk": "Ужгород", "name_en": "Uzhhorod", "region": 7}}, {"model": "universearch.city", "pk": 15, "fields": {"name": "Бердянськ", "name_ru": "Бердянск", "name_uk": "Бердянськ", "name_en": "Berdyansk", "region": 8}}, {"model": "universearch.city", "pk": 16, "fields": {"name": "Запоріжжя", "name_ru": "Запорожье", "name_uk": "Запоріжжя", "name_en": " Запоріжжя ", "region": 8}}, {"model": "universearch.city", "pk": 17, "fields": {"name": "Мелітополь", "name_ru": "Мелитополь", "name_uk": "Мелітополь", "name_en": " Мелитополь ", "region": 8}}, {"model": "universearch.city", "pk": 18, "fields": {"name": "Кропивницький", "name_ru": "Кропивницкий", "name_uk": "Кропивницький", "name_en": " Кропивницький ", "region": 9}}, {"model": "universearch.city", "pk": 19, "fields": {"name": "Ірпінь", "name_ru": "Ирпень", "name_uk": "Ірпінь", "name_en": "Irpin", "region": 10}}, {"model": "universearch.city", "pk": 20, "fields": {"name": "Біла Церква", "name_ru": "Белая Церковь", "name_uk": "Біла Церква", "name_en": "Bila Tserkva", "region": 10}}, {"model": "universearch.city", "pk": 21, "fields": {"name": "Київ", "name_ru": "Киев", "name_uk": "Київ", "name_en": "Kyiv", "region": 10}}, {"model": "universearch.city", "pk": 22, "fields": {"name": "Переяслав-Хмельницький", "name_ru": "Переяслав-Хмельницкий", "name_uk": "Переяслав-Хмельницький", "name_en": "Pereyaslav-Khmelnytskyi", "region": 10}}, {"model": "universearch.city", "pk": 23, "fields": {"name": "Рубіжне", "name_ru": "Рубежное", "name_uk": "Рубіжне", "name_en": "Rubizhne", "region": 11}}, {"model": "universearch.city", "pk": 24, "fields": {"name": "Сєвєродонецьк", "name_ru": "Северодонецк", "name_uk": "Сєвєродонецьк", "name_en": "Severodonetsk", "region": 11}}, {"model": "universearch.city", "pk": 25, "fields": {"name": "Старобільск", "name_ru": "Старобельск", "name_uk": "Старобільск", "name_en": "Starobilsk", "region": 11}}, {"model": "universearch.city", "pk": 26, "fields": {"name": "Дрогобич", "name_ru": "Дрогобыч", "name_uk": "Дрогобич", "name_en": "Drohobych", "region": 12}}, {"model": "universearch.city", "pk": 27, "fields": {"name": "Дубляни", "name_ru": "Дубляне", "name_uk": "Дубляни", "name_en": "Dublyany", "region": 12}}, {"model": "universearch.city", "pk": 28, "fields": {"name": "Львів", "name_ru": "Львов", "name_uk": "Львів", "name_en": " Lviv ", "region": 12}}, {"model": "universearch.city", "pk": 29, "fields": {"name": "Миколаїв", "name_ru": "Николаев", "name_uk": "Миколаїв", "name_en": " Mykolaiv ", "region": 13}}, {"model": "universearch.city", "pk": 30, "fields": {"name": "Первомайськ", "name_ru": "Первомайск", "name_uk": "Первомайськ", "name_en": " Pervomaisk ", "region": 13}}, {"model": "universearch.city", "pk": 31, "fields": {"name": "Ізмаїл", "name_ru": "Измаил", "name_uk": "Ізмаїл", "name_en": "Izmail", "region": 14}}, {"model": "universearch.city", "pk": 32, "fields": {"name": "Одеса", "name_ru": "Одесса", "name_uk": "Одеса", "name_en": "Odessa", "region": 14}}, {"model": "universearch.city", "pk": 33, "fields": {"name": "Кременчук", "name_ru": "Кр еменчук", "name_uk": "Кременчук", "name_en": "Kr emenchuk ", "region": 15}}, {"model": "universearch.city", "pk": 34, "fields": {"name": "Рівне", "name_ru": "Ровно", "name_uk": "Рівне", "name_en": " Rivne ", "region": 16}}, {"model": "universearch.city", "pk": 35, "fields": {"name": "Глухів", "name_ru": "Глухов", "name_uk": "Глухів", "name_en": " Glukhiv ", "region": 17}}, {"model": "universearch.city", "pk": 36, "fields": {"name": "Суми", "name_ru": "Суммы", "name_uk": "Суми", "name_en": " Sumy ", "region": 17}}, {"model": "universearch.city", "pk": 37, "fields": {"name": "Бережани", "name_ru": "Бережане", "name_uk": "Бережани", "name_en": "Berezhany", "region": 18}}, {"model": "universearch.city", "pk": 38, "fields": {"name": "Кременець", "name_ru": "Кременец", "name_uk": "Кременець", "name_en": "Kremenets", "region": 18}}, {"model": "universearch.city", "pk": 39, "fields": {"name": "Тернопіль", "name_ru": "Тернополь", "name_uk": "Тернопіль", "name_en": "Ternopil", "region": 18}}, {"model": "universearch.city", "pk": 40, "fields": {"name": "Мала Данилівка", "name_ru": "Малая Даниловка", "name_uk": "Мала Данилівка", "name_en": "Mala Danylivka", "region": 19}}, {"model": "universearch.city", "pk": 41, "fields": {"name": "Харків", "name_ru": "Харьков", "name_uk": "Харків", "name_en": "Kharkiv", "region": 19}}, {"model": "universearch.city", "pk": 42, "fields": {"name": "Нова Каховка", "name_ru": "Новая Каховка", "name_uk": "Нова Каховка", "name_en": "Nova Kakhovka", "region": 20}}, {"model": "universearch.city", "pk": 43, "fields": {"name": "Херсон", "name_ru": "Херсон", "name_uk": "Херсон", "name_en": "Kherson", "region": 20}}, {"model": "universearch.city", "pk": 44, "fields": {"name": "Кам'янець-Подільський", "name_ru": "Каменец-Подольский", "name_uk": "Кам'янець-Подільський", "name_en": "Kamyanets-Podilsky", "region": 21}}, {"model": "universearch.city", "pk": 45, "fields": {"name": "Хмельницький", "name_ru": "Хмельницкий", "name_uk": "Хмельницький", "name_en": "Khmelnytsky", "region": 21}}, {"model": "universearch.city", "pk": 46, "fields": {"name": "Черкаси", "name_ru": "Черкассы", "name_uk": "Черкаси", "name_en": "Cherkasy", "region": 22}}, {"model": "universearch.city", "pk": 47, "fields": {"name": "Чернівці", "name_ru": "Черновцы", "name_uk": "Чернівці", "name_en": "Chernivtsi", "region": 23}}, {"model": "universearch.city", "pk": 48, "fields": {"name": "Ніжин", "name_ru": "Нежин", "name_uk": "Ніжин", "name_en": "Nizhyn", "region": 24}}, {"model": "universearch.city", "pk": 49, "fields": {"name": "Чернігів", "name_ru": "Чернигов", "name_uk": "Чернігів", "name_en": "Chernihiv", "region": 24}}]
+[
+  {
+    "model": "universearch.city",
+    "pk": 1,
+    "fields": {
+      "name": "Івано-Франківськ",
+      "name_ru": "Ивано-Франковск",
+      "name_uk": "Івано-Франківськ",
+      "name_en": "Ivano-Frankivsk",
+      "region": 1
+    }
+  },
+  {
+    "model": "universearch.city",
+    "pk": 2,
+    "fields": {
+      "name": "Косів",
+      "name_ru": "Косов",
+      "name_uk": "Косів",
+      "name_en": "Kosiv",
+      "region": 1
+    }
+  },
+  {
+    "model": "universearch.city",
+    "pk": 3,
+    "fields": {
+      "name": "Вінниця",
+      "name_ru": "Винница",
+      "name_uk": "Вінниця",
+      "name_en": "Vinnytsia",
+      "region": 2
+    }
+  },
+  {
+    "model": "universearch.city",
+    "pk": 4,
+    "fields": {
+      "name": "Луцьк",
+      "name_ru": "Луцк",
+      "name_uk": "Луцьк",
+      "name_en": "Lutsk",
+      "region": 3
+    }
+  },
+  {
+    "model": "universearch.city",
+    "pk": 5,
+    "fields": {
+      "name": "Дніпро",
+      "name_ru": "Днепр",
+      "name_uk": "Дніпро",
+      "name_en": "Dnipro",
+      "region": 4
+    }
+  },
+  {
+    "model": "universearch.city",
+    "pk": 6,
+    "fields": {
+      "name": "Кам'янське",
+      "name_ru": "Каменское",
+      "name_uk": "Кам'янське",
+      "name_en": "Kamyanske",
+      "region": 4
+    }
+  },
+  {
+    "model": "universearch.city",
+    "pk": 7,
+    "fields": {
+      "name": "Кривий Ріг",
+      "name_ru": "Кривой Рог",
+      "name_uk": "Кривий Ріг",
+      "name_en": "Kryvyi Rih",
+      "region": 4
+    }
+  },
+  {
+    "model": "universearch.city",
+    "pk": 8,
+    "fields": {
+      "name": "Нікополь",
+      "name_ru": "Никополь",
+      "name_uk": "Нікополь",
+      "name_en": "Nikopol",
+      "region": 4
+    }
+  },
+  {
+    "model": "universearch.city",
+    "pk": 9,
+    "fields": {
+      "name": "Краматорськ",
+      "name_ru": "Краматорск",
+      "name_uk": "Краматорськ",
+      "name_en": "Kramatorsk",
+      "region": 5
+    }
+  },
+  {
+    "model": "universearch.city",
+    "pk": 10,
+    "fields": {
+      "name": "Маріуполь",
+      "name_ru": "Мариуполь",
+      "name_uk": "Маріуполь",
+      "name_en": "Mariupol",
+      "region": 5
+    }
+  },
+  {
+    "model": "universearch.city",
+    "pk": 11,
+    "fields": {
+      "name": "Покровськ",
+      "name_ru": "Покровск",
+      "name_uk": "Покровськ",
+      "name_en": "Pokrovsk",
+      "region": 5
+    }
+  },
+  {
+    "model": "universearch.city",
+    "pk": 12,
+    "fields": {
+      "name": "Слов'янськ",
+      "name_ru": "Славянск",
+      "name_uk": "Слов'янськ",
+      "name_en": "Slavyansk",
+      "region": 5
+    }
+  },
+  {
+    "model": "universearch.city",
+    "pk": 13,
+    "fields": {
+      "name": "Житомир",
+      "name_ru": "Житомир",
+      "name_uk": "Житомир",
+      "name_en": "Zhytomyr",
+      "region": 6
+    }
+  },
+  {
+    "model": "universearch.city",
+    "pk": 14,
+    "fields": {
+      "name": "Ужгород",
+      "name_ru": "Ужгород",
+      "name_uk": "Ужгород",
+      "name_en": "Uzhhorod",
+      "region": 7
+    }
+  },
+  {
+    "model": "universearch.city",
+    "pk": 15,
+    "fields": {
+      "name": "Бердянськ",
+      "name_ru": "Бердянск",
+      "name_uk": "Бердянськ",
+      "name_en": "Berdyansk",
+      "region": 8
+    }
+  },
+  {
+    "model": "universearch.city",
+    "pk": 16,
+    "fields": {
+      "name": "Запоріжжя",
+      "name_ru": "Запорожье",
+      "name_uk": "Запоріжжя",
+      "name_en": "Zaporizhzhia",
+      "region": 8
+    }
+  },
+  {
+    "model": "universearch.city",
+    "pk": 17,
+    "fields": {
+      "name": "Мелітополь",
+      "name_ru": "Мелитополь",
+      "name_uk": "Мелітополь",
+      "name_en": "Melitopol",
+      "region": 8
+    }
+  },
+  {
+    "model": "universearch.city",
+    "pk": 18,
+    "fields": {
+      "name": "Кропивницький",
+      "name_ru": "Кропивницкий",
+      "name_uk": "Кропивницький",
+      "name_en": "Kropyvnytskyi",
+      "region": 9
+    }
+  },
+  {
+    "model": "universearch.city",
+    "pk": 19,
+    "fields": {
+      "name": "Ірпінь",
+      "name_ru": "Ирпень",
+      "name_uk": "Ірпінь",
+      "name_en": "Irpin",
+      "region": 10
+    }
+  },
+  {
+    "model": "universearch.city",
+    "pk": 20,
+    "fields": {
+      "name": "Біла Церква",
+      "name_ru": "Белая Церковь",
+      "name_uk": "Біла Церква",
+      "name_en": "Bila Tserkva",
+      "region": 10
+    }
+  },
+  {
+    "model": "universearch.city",
+    "pk": 21,
+    "fields": {
+      "name": "Київ",
+      "name_ru": "Киев",
+      "name_uk": "Київ",
+      "name_en": "Kyiv",
+      "region": 10
+    }
+  },
+  {
+    "model": "universearch.city",
+    "pk": 22,
+    "fields": {
+      "name": "Переяслав-Хмельницький",
+      "name_ru": "Переяслав-Хмельницкий",
+      "name_uk": "Переяслав-Хмельницький",
+      "name_en": "Pereyaslav-Khmelnytskyi",
+      "region": 10
+    }
+  },
+  {
+    "model": "universearch.city",
+    "pk": 23,
+    "fields": {
+      "name": "Рубіжне",
+      "name_ru": "Рубежное",
+      "name_uk": "Рубіжне",
+      "name_en": "Rubizhne",
+      "region": 11
+    }
+  },
+  {
+    "model": "universearch.city",
+    "pk": 24,
+    "fields": {
+      "name": "Сєвєродонецьк",
+      "name_ru": "Северодонецк",
+      "name_uk": "Сєвєродонецьк",
+      "name_en": "Severodonetsk",
+      "region": 11
+    }
+  },
+  {
+    "model": "universearch.city",
+    "pk": 25,
+    "fields": {
+      "name": "Старобільск",
+      "name_ru": "Старобельск",
+      "name_uk": "Старобільск",
+      "name_en": "Starobilsk",
+      "region": 11
+    }
+  },
+  {
+    "model": "universearch.city",
+    "pk": 26,
+    "fields": {
+      "name": "Дрогобич",
+      "name_ru": "Дрогобыч",
+      "name_uk": "Дрогобич",
+      "name_en": "Drohobych",
+      "region": 12
+    }
+  },
+  {
+    "model": "universearch.city",
+    "pk": 27,
+    "fields": {
+      "name": "Дубляни",
+      "name_ru": "Дубляне",
+      "name_uk": "Дубляни",
+      "name_en": "Dublyany",
+      "region": 12
+    }
+  },
+  {
+    "model": "universearch.city",
+    "pk": 28,
+    "fields": {
+      "name": "Львів",
+      "name_ru": "Львов",
+      "name_uk": "Львів",
+      "name_en": "Lviv",
+      "region": 12
+    }
+  },
+  {
+    "model": "universearch.city",
+    "pk": 29,
+    "fields": {
+      "name": "Миколаїв",
+      "name_ru": "Николаев",
+      "name_uk": "Миколаїв",
+      "name_en": "Mykolaiv",
+      "region": 13
+    }
+  },
+  {
+    "model": "universearch.city",
+    "pk": 30,
+    "fields": {
+      "name": "Первомайськ",
+      "name_ru": "Первомайск",
+      "name_uk": "Первомайськ",
+      "name_en": "Pervomaisk",
+      "region": 13
+    }
+  },
+  {
+    "model": "universearch.city",
+    "pk": 31,
+    "fields": {
+      "name": "Ізмаїл",
+      "name_ru": "Измаил",
+      "name_uk": "Ізмаїл",
+      "name_en": "Izmail",
+      "region": 14
+    }
+  },
+  {
+    "model": "universearch.city",
+    "pk": 32,
+    "fields": {
+      "name": "Одеса",
+      "name_ru": "Одесса",
+      "name_uk": "Одеса",
+      "name_en": "Odessa",
+      "region": 14
+    }
+  },
+  {
+    "model": "universearch.city",
+    "pk": 33,
+    "fields": {
+      "name": "Кременчук",
+      "name_ru": "Кр еменчук",
+      "name_uk": "Кременчук",
+      "name_en": "Kr emenchuk",
+      "region": 15
+    }
+  },
+  {
+    "model": "universearch.city",
+    "pk": 34,
+    "fields": {
+      "name": "Рівне",
+      "name_ru": "Ровно",
+      "name_uk": "Рівне",
+      "name_en": "Rivne",
+      "region": 16
+    }
+  },
+  {
+    "model": "universearch.city",
+    "pk": 35,
+    "fields": {
+      "name": "Глухів",
+      "name_ru": "Глухов",
+      "name_uk": "Глухів",
+      "name_en": "Glukhiv",
+      "region": 17
+    }
+  },
+  {
+    "model": "universearch.city",
+    "pk": 36,
+    "fields": {
+      "name": "Суми",
+      "name_ru": "Суммы",
+      "name_uk": "Суми",
+      "name_en": "Sumy",
+      "region": 17
+    }
+  },
+  {
+    "model": "universearch.city",
+    "pk": 37,
+    "fields": {
+      "name": "Бережани",
+      "name_ru": "Бережане",
+      "name_uk": "Бережани",
+      "name_en": "Berezhany",
+      "region": 18
+    }
+  },
+  {
+    "model": "universearch.city",
+    "pk": 38,
+    "fields": {
+      "name": "Кременець",
+      "name_ru": "Кременец",
+      "name_uk": "Кременець",
+      "name_en": "Kremenets",
+      "region": 18
+    }
+  },
+  {
+    "model": "universearch.city",
+    "pk": 39,
+    "fields": {
+      "name": "Тернопіль",
+      "name_ru": "Тернополь",
+      "name_uk": "Тернопіль",
+      "name_en": "Ternopil",
+      "region": 18
+    }
+  },
+  {
+    "model": "universearch.city",
+    "pk": 40,
+    "fields": {
+      "name": "Мала Данилівка",
+      "name_ru": "Малая Даниловка",
+      "name_uk": "Мала Данилівка",
+      "name_en": "Mala Danylivka",
+      "region": 19
+    }
+  },
+  {
+    "model": "universearch.city",
+    "pk": 41,
+    "fields": {
+      "name": "Харків",
+      "name_ru": "Харьков",
+      "name_uk": "Харків",
+      "name_en": "Kharkiv",
+      "region": 19
+    }
+  },
+  {
+    "model": "universearch.city",
+    "pk": 42,
+    "fields": {
+      "name": "Нова Каховка",
+      "name_ru": "Новая Каховка",
+      "name_uk": "Нова Каховка",
+      "name_en": "Nova Kakhovka",
+      "region": 20
+    }
+  },
+  {
+    "model": "universearch.city",
+    "pk": 43,
+    "fields": {
+      "name": "Херсон",
+      "name_ru": "Херсон",
+      "name_uk": "Херсон",
+      "name_en": "Kherson",
+      "region": 20
+    }
+  },
+  {
+    "model": "universearch.city",
+    "pk": 44,
+    "fields": {
+      "name": "Кам'янець-Подільський",
+      "name_ru": "Каменец-Подольский",
+      "name_uk": "Кам'янець-Подільський",
+      "name_en": "Kamyanets-Podilsky",
+      "region": 21
+    }
+  },
+  {
+    "model": "universearch.city",
+    "pk": 45,
+    "fields": {
+      "name": "Хмельницький",
+      "name_ru": "Хмельницкий",
+      "name_uk": "Хмельницький",
+      "name_en": "Khmelnytsky",
+      "region": 21
+    }
+  },
+  {
+    "model": "universearch.city",
+    "pk": 46,
+    "fields": {
+      "name": "Черкаси",
+      "name_ru": "Черкассы",
+      "name_uk": "Черкаси",
+      "name_en": "Cherkasy",
+      "region": 22
+    }
+  },
+  {
+    "model": "universearch.city",
+    "pk": 47,
+    "fields": {
+      "name": "Чернівці",
+      "name_ru": "Черновцы",
+      "name_uk": "Чернівці",
+      "name_en": "Chernivtsi",
+      "region": 23
+    }
+  },
+  {
+    "model": "universearch.city",
+    "pk": 48,
+    "fields": {
+      "name": "Ніжин",
+      "name_ru": "Нежин",
+      "name_uk": "Ніжин",
+      "name_en": "Nizhyn",
+      "region": 24
+    }
+  },
+  {
+    "model": "universearch.city",
+    "pk": 49,
+    "fields": {
+      "name": "Чернігів",
+      "name_ru": "Чернигов",
+      "name_uk": "Чернігів",
+      "name_en": "Chernihiv",
+      "region": 24
+    }
+  }
+]

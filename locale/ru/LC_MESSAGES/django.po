@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-11-18 16:35+0200\n"
+"POT-Creation-Date: 2021-11-24 19:57+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -20,79 +20,83 @@ msgstr ""
 "%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || (n"
 "%100>=11 && n%100<=14)? 2 : 3);\n"
 
-#: .\enrollment_assistant\settings.py:127
+#: .\enrollment_assistant\settings.py:129
 msgid "Russia"
 msgstr ""
 
-#: .\enrollment_assistant\settings.py:128
+#: .\enrollment_assistant\settings.py:130
 msgid "English"
 msgstr ""
 
-#: .\enrollment_assistant\settings.py:129
+#: .\enrollment_assistant\settings.py:131
 msgid "Ukrainian"
 msgstr ""
 
-#: .\questioning\services.py:14
-msgid "Посилання на пошук:"
-msgstr "Поиск:"
-
-#: .\questioning\services.py:28
+#: .\questioning\services.py:16
 msgid "Ваші результати"
 msgstr "Ваши результаты"
 
-#: .\questioning\services.py:61
-msgid "схильність не виражена"
-msgstr "склонность не выражена"
-
-#: .\questioning\services.py:61
-msgid "середньо виражена схильність"
-msgstr "средне выраженная склонность"
-
-#: .\questioning\services.py:61
-msgid "вкрай виражену схильність"
-msgstr "крайне выраженная склонность"
-
-#: .\questioning\services.py:63
-msgid "Професії типу «Людина - "
-msgstr "Профессии типа «Человек -"
-
-#: .\questioning\services.py:66
-msgid "інтерес виражений слабо"
-msgstr "интерес выражен слабо"
-
-#: .\questioning\services.py:66
-msgid "виражений інтерес"
-msgstr "выраженный интерес"
-
-#: .\questioning\services.py:66
-msgid "яскраво виражений інтерес"
-msgstr "ярко выраженный интерес"
-
-#: .\questioning\services.py:85
-msgid "Людина"
-msgstr "Человек"
-
-#: .\questioning\services.py:121
-msgid "Ви не авторизовані"
-msgstr "Вы не авторизованы"
-
-#: .\questioning\services.py:124
+#: .\questioning\services.py:17
 msgid "Ви не пройшли опитування"
 msgstr "Нет результатов опросов"
 
-#: .\questioning\services.py:129 .\questioning\services.py:130
+#: .\questioning\services.py:18
+msgid "Результат опитування не знайдено"
+msgstr "Результат опроса не найден"
+
+#: .\questioning\services.py:29
+msgid "Посилання на пошук:"
+msgstr "Поиск:"
+
+#: .\questioning\services.py:30
+msgid "схильність не виражена"
+msgstr "склонность не выражена"
+
+#: .\questioning\services.py:31
+msgid "середньо виражена схильність"
+msgstr "средне выраженная склонность"
+
+#: .\questioning\services.py:32
+msgid "вкрай виражену схильність"
+msgstr "крайне выраженная склонность"
+
+#: .\questioning\services.py:33
+msgid "інтерес виражений слабо"
+msgstr "интерес выражен слабо"
+
+#: .\questioning\services.py:34
+msgid "виражений інтерес"
+msgstr "выраженный интерес"
+
+#: .\questioning\services.py:35
+msgid "яскраво виражений інтерес"
+msgstr "ярко выраженный интерес"
+
+#: .\questioning\services.py:36
+msgid "Професії типу «Людина - "
+msgstr "Профессии типа «Человек -"
+
+#: .\questioning\services.py:40
+msgid "Людина"
+msgstr "Человек"
+
+#: .\questioning\services.py:41 .\questioning\services.py:42
 #: .\questioning\templates\questioning.html:15
 #: .\questioning\templates\questioning.html:103
 msgid "Тест на визначення профорієнтації"
 msgstr "Тест на определение профориаентации"
 
-#: .\questioning\services.py:131 .\questioning\templates\questioning.html:137
+#: .\questioning\services.py:43 .\questioning\templates\questioning.html:137
 msgid "Тест на визначення типу майбутньої професії"
 msgstr "Тест на определение типа будущей профессии"
 
-#: .\questioning\services.py:186
-msgid "Результат опитування не знайдено"
-msgstr "Результат опроса не найден"
+#: .\questioning\services.py:44
+msgid "з"
+msgstr "из"
+
+#: .\questioning\services.py:45
+msgid "балів"
+msgstr "балов"
 
 #: .\questioning\templates\questioning.html:19
 #: .\questioning\templates\questioning.html:107
@@ -246,8 +250,8 @@ msgid ""
 "специфіка, особливості. Щоб не заплутатися у всьому цьому різноманітті і "
 "якось звузити пошуки ідеального"
 msgstr ""
-"специфика, особенности. Чтобы не запутаться во всем этом разнообразии и как-"
-"то сузить поиски идеального"
+"Количество различных специальностей на данный момент - несколько тысяч, у "
+"каждой есть свое"
 
 #: .\questioning\templates\questioning.html:67
 msgid "напрямки, можна пройти тест на профорієнтацію і тест Голланда"
@@ -283,8 +287,7 @@ msgstr ""
 
 #: .\questioning\templates\questioning.html:87
 msgid "художні образи (дизайнер, художник, архітектор, актор, режисер)"
-msgstr ""
-"художественные образы (дизайнер, художник, архитектор, актер, режиссер)"
+msgstr "художественные образы (дизайнер, художник, архитектор, актер, режиссер)"
 
 #: .\questioning\templates\questioning.html:118
 msgid "Інший варіант тесту Клімова"
@@ -474,6 +477,30 @@ msgstr "Профессии"
 msgid "Галузі знань"
 msgstr "Области знаний"
 
+#: .\questioning\views.py:19
+msgid "Ви не авторизовані"
+msgstr "Вы не авторизованы"
+
+#: .\relocation\forms.py:14
+msgid "Залізничні"
+msgstr "ЖД"
+
+#: .\relocation\forms.py:15
+msgid "Автобусні"
+msgstr "Автобусные"
+
+#: .\relocation\forms.py:17
+msgid "Звідки"
+msgstr "Откуда"
+
+#: .\relocation\forms.py:19
+msgid "Куди"
+msgstr "Куда"
+
+#: .\relocation\forms.py:21
+msgid "Дата"
+msgstr "Дата"
+
 #: .\relocation\templates\relocation\main.html:16
 msgid "Фільтрувати"
 msgstr "Фильтровать"
@@ -483,7 +510,7 @@ msgid "Для результату оберіть університет"
 msgstr "Для результата выберите университет"
 
 #: .\relocation\templates\relocation\main.html:24
-#: .\relocation\templates\relocation\main2.html:39
+#: .\relocation\templates\relocation\main2.html:43
 msgid "Назва"
 msgstr "Название"
 
@@ -492,7 +519,8 @@ msgid "Тип"
 msgstr "Тип"
 
 #: .\relocation\templates\relocation\main.html:26
-#: .\universearch\templates\universearch\results.html:29
+#: .\universearch\templates\universearch\results.html:34
+#: .\users\templates\users\profile.html:89
 msgid "Адреса"
 msgstr "Адрес"
 
@@ -504,63 +532,102 @@ msgstr "Телефон"
 msgid "Належить ВУЗу"
 msgstr "Принадлежит ВУЗу"
 
-#: .\relocation\templates\relocation\main2.html:15
+#: .\relocation\templates\relocation\main2.html:12
+msgid "Пошук житла"
+msgstr "Поиск жилья"
+
+#: .\relocation\templates\relocation\main2.html:19
 msgid "Регіон"
 msgstr "Регион"
 
-#: .\relocation\templates\relocation\main2.html:19
-#: .\relocation\templates\relocation\main2.html:41 .\users\forms.py:66
+#: .\relocation\templates\relocation\main2.html:23
+#: .\relocation\templates\relocation\main2.html:45 .\users\forms.py:66
 msgid "Місто"
 msgstr "Город"
 
-#: .\relocation\templates\relocation\main2.html:23
+#: .\relocation\templates\relocation\main2.html:27
 msgid "Університет"
 msgstr "Университет"
 
-#: .\relocation\templates\relocation\main2.html:31
+#: .\relocation\templates\relocation\main2.html:35
 msgid "Очистити"
 msgstr "Очистить"
 
-#: .\relocation\templates\relocation\main2.html:40
+#: .\relocation\templates\relocation\main2.html:44
 msgid "Область"
 msgstr "Область"
 
-#: .\relocation\templates\relocation\main2.html:42
+#: .\relocation\templates\relocation\main2.html:46
+#: .\templates\base_header.html:32
+#: .\templates\index.html:20
 msgid "ВНЗ"
 msgstr "ВУЗ"
 
-#: .\templates\base_header.html:12 .\templates\base_header.html:26
+#: .\relocation\templates\relocation\tickets.html:17
+msgid "Пошук квитків"
+msgstr "Поиск билетов"
+
+#: .\relocation\templates\relocation\tickets.html:104
+msgid "Знайти"
+msgstr "Найти"
+
+#: .\relocation\templates\relocation\tickets.html:135
+msgid "Залізничні квитки"
+msgstr "Железнодорожные билеты"
+
+#: .\relocation\templates\relocation\tickets.html:142
+msgid "Номер поїзду"
+msgstr "Номер поезда"
+
+#: .\relocation\templates\relocation\tickets.html:156
+#: .\relocation\templates\relocation\tickets.html:216
+msgid "Тривалість"
+msgstr "Длительность"
+
+#: .\relocation\templates\relocation\tickets.html:173
+#: .\relocation\templates\relocation\tickets.html:233
+msgid "Типи вагонів"
+msgstr "Типы вагонов"
+
+#: .\relocation\templates\relocation\tickets.html:204
+msgid "Автобусні квитки"
+msgstr "Автобусные билеты"
+
+#: .\templates\base_header.html:28 .\templates\base_header.html:49
 #: .\users\templates\users\profile.html:22
 msgid "Опитування"
 msgstr "Опрос"
 
-#: .\templates\base_header.html:15 .\templates\index.html:20
-#: .\universearch\templates\universearch\search_form.html:47
-msgid "Пошук"
-msgstr "Поиск"
+#: .\templates\base_header.html:36 .\templates\index.html:31
+msgid "Житло"
+msgstr "Жилье"
 
-#: .\templates\base_header.html:18 .\templates\index.html:31
-msgid "Релокація"
-msgstr "Релокация"
+#: .\templates\base_header.html:40 .\templates\index.html:44
+msgid "Квитки"
+msgstr "Билеты"
 
-#: .\templates\base_header.html:22 .\templates\base_header.html:23
+#: .\templates\base_header.html:45 .\templates\base_header.html:46
 msgid "ПРОФІЛЬ"
 msgstr "Профиль"
 
-#: .\templates\base_header.html:25
+#: .\templates\base_header.html:48
 msgid "Особисті дані"
 msgstr "Персональные данные"
 
-#: .\templates\base_header.html:28
+#: .\templates\base_header.html:50 .\users\templates\users\profile.html:27
+msgid "Збережене"
+msgstr "Избранное"
+
+#: .\templates\base_header.html:52
 msgid "Вийти"
 msgstr "Выйти"
 
-#: .\templates\base_header.html:33
+#: .\templates\base_header.html:57
 #: .\users\templates\registration\registration.html:8
 msgid "Реєстрація"
 msgstr "Регистрация"
 
-#: .\templates\base_header.html:36 .\users\templates\registration\login.html:8
+#: .\templates\base_header.html:60 .\users\templates\registration\login.html:8
 msgid "Вхід"
 msgstr "Вход"
 
@@ -580,65 +647,122 @@ msgstr "Поиск вузов по выбранным параметрам"
 msgid "Підбір житла на період навчання"
 msgstr "Подбор жилья на период обучения"
 
-#: .\universearch\templates\universearch\results.html:7
-msgid "Результати пошуку"
-msgstr "Результат поиска"
+#: .\templates\index.html:49
+msgid "Пошук проїзних квитків"
+msgstr "Поиск проездных билетов"
 
-#: .\universearch\templates\universearch\results.html:23
+#: .\universearch\templates\universearch\results.html:12
+msgid "Результати пошуку ВНЗ"
+msgstr "Результат поиска ВУЗов"
+
+#: .\universearch\templates\universearch\results.html:21
+msgid "Зберiгти"
+msgstr "Сохранить"
+
+#: .\universearch\templates\universearch\results.html:28
+#: .\users\templates\users\profile.html:83
 msgid "Форма власностi"
 msgstr "Форма собственности"
 
-#: .\universearch\templates\universearch\results.html:24
+#: .\universearch\templates\universearch\results.html:29
+#: .\users\templates\users\profile.html:84
 msgid "Електронна пошта"
 msgstr "Электронная почта"
 
-#: .\universearch\templates\universearch\results.html:25
+#: .\universearch\templates\universearch\results.html:30
+#: .\users\templates\users\profile.html:85
 msgid "Сайт"
 msgstr "Сайт"
 
-#: .\universearch\templates\universearch\results.html:31
+#: .\universearch\templates\universearch\results.html:37
+#: .\users\templates\users\profile.html:92
 msgid "Iндекс"
 msgstr "Индекс"
 
-#: .\universearch\templates\universearch\results.html:32
+#: .\universearch\templates\universearch\results.html:38
+#: .\users\templates\users\profile.html:93
 msgid "Тел"
 msgstr "Тел"
 
-#: .\universearch\templates\universearch\results.html:43
-msgid "Спецiальнiсть"
-msgstr "Специальность"
+#: .\universearch\templates\universearch\results.html:52
+msgid "Денна форма навчання"
+msgstr "Дневная форма обучения"
 
-#: .\universearch\templates\universearch\results.html:44
+#: .\universearch\templates\universearch\results.html:60
+#: .\universearch\templates\universearch\results.html:96
 msgid "Рiвень"
 msgstr "Уровень"
 
-#: .\universearch\templates\universearch\results.html:47
+#: .\universearch\templates\universearch\results.html:61
+#: .\universearch\templates\universearch\results.html:97
+msgid "Спецiальнiсть"
+msgstr "Специальность"
+
+#: .\universearch\templates\universearch\results.html:62
+#: .\universearch\templates\universearch\results.html:98
+msgid "Факультет"
+msgstr "Факультет"
+
+#: .\universearch\templates\universearch\results.html:63
+#: .\universearch\templates\universearch\results.html:99
+msgid "Пропозицiя"
+msgstr "Предложение"
+
+#: .\universearch\templates\universearch\results.html:67
+#: .\universearch\templates\universearch\results.html:103
 msgid "Кiлькiсть бюджетних мiсць"
 msgstr "Количество бюджетных мест"
 
-#: .\universearch\templates\universearch\search_form.html:16
+#: .\universearch\templates\universearch\results.html:68
+#: .\universearch\templates\universearch\results.html:72
+#: .\universearch\templates\universearch\results.html:104
+#: .\universearch\templates\universearch\results.html:108
+msgid "Кiлькiсть контрактних мiсць"
+msgstr "Количество контрактних мест"
+
+#: .\universearch\templates\universearch\results.html:69
+#: .\universearch\templates\universearch\results.html:105
+msgid "Кiлькiсть балiв на бюджет"
+msgstr "Количество баллов на бюджет"
+
+#: .\universearch\templates\universearch\results.html:70
+#: .\universearch\templates\universearch\results.html:73
+#: .\universearch\templates\universearch\results.html:106
+#: .\universearch\templates\universearch\results.html:109
+msgid "Кiлькiсть балiв на контракт"
+msgstr "Количество баллов на контракт"
+
+#: .\universearch\templates\universearch\results.html:88
+msgid "Заочна форма навчання"
+msgstr "Заочная форма обучения"
+
+#: .\universearch\templates\universearch\search_form.html:20
 msgid "Пошук по регiонах"
 msgstr "Поиск по регионам"
 
-#: .\universearch\templates\universearch\search_form.html:20
+#: .\universearch\templates\universearch\search_form.html:24
 msgid "Усі регiони"
 msgstr "Все регионы"
 
-#: .\universearch\templates\universearch\search_form.html:27
+#: .\universearch\templates\universearch\search_form.html:31
 msgid "Усі мiста"
 msgstr "Все города"
 
-#: .\universearch\templates\universearch\search_form.html:31
+#: .\universearch\templates\universearch\search_form.html:35
 msgid "Пошук за галузями знань"
 msgstr "Поиск по областям знаний"
 
-#: .\universearch\templates\universearch\search_form.html:35
+#: .\universearch\templates\universearch\search_form.html:39
 msgid "Усі галузi знань"
 msgstr "Все области знаний"
 
-#: .\universearch\templates\universearch\search_form.html:42
+#: .\universearch\templates\universearch\search_form.html:46
 msgid "Усі спецiальностi"
 msgstr "Все специальности"
+
+#: .\universearch\templates\universearch\search_form.html:51
+msgid "Пошук"
+msgstr "Поиск"
 
 #: .\users\forms.py:8
 msgid "Паролі не співпадають"
@@ -662,7 +786,7 @@ msgstr "Некорректный адрес"
 
 #: .\users\forms.py:29 .\users\forms.py:60
 msgid "Ім'я користувача"
-msgstr "Имя пользователя"
+msgstr "Пользователь"
 
 #: .\users\forms.py:30
 msgid "До 150 символів. Букви, цифри та @ . + - _"
@@ -675,7 +799,7 @@ msgstr "Почта"
 
 #: .\users\forms.py:33
 msgid "Ваша електронна пошта"
-msgstr "Ваша Электронная почта"
+msgstr "Ваша электронная почта"
 
 #: .\users\forms.py:35 .\users\templates\registration\login.html:26
 #: .\users\templates\users\update_form.html:31
@@ -706,6 +830,34 @@ msgstr "Фамилия"
 #: .\users\forms.py:65
 msgid "Стать"
 msgstr "Пол"
+
+#: .\users\models.py:11
+msgid "чол"
+msgstr "муж"
+
+#: .\users\models.py:11
+msgid "чоловіча"
+msgstr "мужской"
+
+#: .\users\models.py:12
+msgid "жін"
+msgstr "жен"
+
+#: .\users\models.py:12
+msgid "жіноча"
+msgstr "женский"
+
+#: .\users\models.py:13
+msgid "н.в."
+msgstr "н.о."
+
+#: .\users\models.py:13
+msgid "не визначено"
+msgstr "не определен"
+
+#: .\users\models.py:18
+msgid "Введіть номер телефону в міжнародному форматі."
+msgstr "Введите номер в международном формате."
 
 #: .\users\templates\registration\logged_out.html:5
 msgid "Виконано вихід з акаунту"
@@ -797,17 +949,25 @@ msgstr "Профиль"
 msgid "Персональні дані"
 msgstr "Личные данные"
 
-#: .\users\templates\users\profile.html:38
+#: .\users\templates\users\profile.html:43
 msgid "Історія опитувань"
 msgstr "История опросов"
 
-#: .\users\templates\users\profile.html:44
+#: .\users\templates\users\profile.html:49
 msgid "Результати відсутні"
 msgstr "Результаты отсутствуют"
 
-#: .\users\templates\users\profile.html:48
+#: .\users\templates\users\profile.html:53
 msgid "Пройти опитування"
 msgstr "Пройти опрос"
+
+#: .\users\templates\users\profile.html:67
+msgid "Збереженi ВHЗ"
+msgstr "Избранное"
+
+#: .\users\templates\users\profile.html:76
+msgid "Видалити"
+msgstr "Удалить"
 
 #: .\users\templates\users\result_card.html:73
 msgid "Опис"
@@ -824,3 +984,4 @@ msgstr "Изменить"
 #: .\users\templates\users\update_form.html:38
 msgid "ЗБЕРЕГТИ"
 msgstr "Сохранить"
+
