@@ -114,7 +114,7 @@ def get_top_categories(resulted_categories, average_result=KLIMOVS_AVERAGE_RESUL
     category = {k: v for k, v in sorted(resulted_categories.items(), key=lambda item: item[1], reverse=True)}
     category_dict = {}
     keys = [key for key in category.keys()]
-    while category[keys[0]] > average_result or len(category_dict) < 3:
+    while len(keys) > 0 and category[str(keys[0])] > average_result or len(category_dict) < 3:
         category_dict[keys[0]] = category[keys[0]]
         keys.pop(0)
     return category_dict
