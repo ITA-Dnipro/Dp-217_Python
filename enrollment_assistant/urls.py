@@ -30,7 +30,6 @@ urlpatterns = [
 
 urlpatterns += i18n_patterns(
     path('', views.index_view, name='index'),
-    path('admin/', admin.site.urls),
     path('questioning/', include('questioning.urls')),
     path('profile/', include('users.urls')),
     path('search/', include('universearch.urls')),
