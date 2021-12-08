@@ -192,3 +192,4 @@ CACHES = {
 }
 
 LOGGER = logging.getLogger()
+TOPIC_SEND_MAIL = 'send_mail'

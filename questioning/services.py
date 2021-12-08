@@ -6,6 +6,7 @@ from questioning.models import TestResult, KlimovCategory, ConnectionKlimovCatSt
     ConnectionInterestCatSpec, QuestionsBase
 from users.models import CustomUser
 from enrollment_assistant.services import produce_message
+from django.conf import settings
 
 KLIMOV_QUESTION_TYPE = 1
 ALTERNATIVE_KLIMOV_QUESTION_TYPE = 2
@@ -44,7 +45,6 @@ QUESTION_TYPES = [_("Тест на визначення профорієнтац
                   _("Тест на визначення типу майбутньої професії")]
 FROM = _('з')
 MARKS = _('балів')
-TOPIC_SEND_MAIL = 'send_mail'
 KLIMOV_DATABASE = 'KlimovCategory'
 HOLAND_DATABASE = 'InterestCategory'
 QUESTIONS_DATABASE = 'QuestionsBase'
@@ -158,7 +158,7 @@ def gen_results(answers):
     specialities = get_cached_database(HOLAND_STUDY_FIELDS_DATABASE).select_related('spec_id')
     for answer in answers:
         result, date, url, result_id, question_type = eval(answer['results']), answer['created_date'], answer['url'], \
-            answer['id'], answer['type']
+                                                      answer['id'], answer['type']
         average_result = get_average_result(question_type)
         top_categories = get_top_categories(result, average_result).items()
         categories = []
@@ -260,9 +260,9 @@ def send_result(user_email, questioning_type, results):
     result = generate_result(results, questioning_type)['data'][0]
     message = loader.render_to_string('result_card.html', {'result': result})
     partition = {'items': [{'mail': user_email,
-                 'subject': get_question_type(questioning_type),
-                            'text': message}]}
-    produce_message(TOPIC_SEND_MAIL, partition)
+                            'subject': str(get_question_type(questioning_type)),
+                            'text': str(message)}]}
+    produce_message(settings.TOPIC_SEND_MAIL, partition)
 
 
 def delete_result(result_id, user):
