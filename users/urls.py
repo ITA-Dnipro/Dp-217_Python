@@ -7,5 +7,6 @@ urlpatterns = [
     path('', include('django.contrib.auth.urls')),
     path('registration', users_views.registration_view, name='registration'),
     path('update', users_views.update_view, name='update'),
-    path('favourite/<str:id>/', users_views.favourites, name='add_favourite'),
+    path('add_favourite/<str:id>/', users_views.add_favourite, name='add_favourite'),
+    path('remove_favourite/<str:id>/', users_views.remove_favourite, name='remove_favourite'),
 ]

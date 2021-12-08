@@ -51,7 +51,8 @@ class CustomUserChangeForm(UserChangeForm):
                   'last_name',
                   'city',
                   'phone',
-                  'gender')
+                  'gender',
+                  'is_relocating')
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
@@ -64,6 +65,7 @@ class CustomUserChangeForm(UserChangeForm):
         self.fields['phone'].label = _("Телефон")
         self.fields['gender'].label = _("Стать")
         self.fields['city'].label = _("Місто")
+        self.fields['is_relocating'].label = _("Отримувати нагадування щодо релокації")
 
 
 class CustomUserAdminChangeForm(UserChangeForm):

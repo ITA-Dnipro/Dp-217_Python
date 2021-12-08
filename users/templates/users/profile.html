@@ -67,13 +67,16 @@
                        {% trans 'Збереженi ВHЗ' %}
                     </h5>
                 </div>
+                {% if 'error' in favourite_univers %}
+                <div>{{ favourite_univers.error }}</div>
+                {% else %}
                 <div id="fav">
                     {% for university in favourite_univers %}
                     <div class="card">
                       <div class="card-header">
                           <div class="container d-flex justify-content-between">
                               {{ university.name }}
-                              <a href="{% url 'add_favourite' university.id %}" class="btn btn-outline-primary">{% trans 'Видалити' %}</a>
+                              <a href="{% url 'remove_favourite' university.id %}" class="btn btn-outline-primary">{% trans 'Видалити' %}</a>
                           </div>
                       </div>
                       <div class="card-body">
@@ -100,6 +103,7 @@
                     <br>
                     {% endfor %}
                 </div>
+                {% endif %}
             </div>
         </div>
 

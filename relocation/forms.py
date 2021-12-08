@@ -6,7 +6,7 @@ from .services import (
     CityService as Cities,
     UniversityService as Unies,
     HousingService as Housings,
-    )
+)
 
 
 class TicketsSearchForm(forms.Form):
@@ -14,12 +14,16 @@ class TicketsSearchForm(forms.Form):
     TYPE_CHOICES = [('train', _('Залізничні')),
                     ('bus', _('Автобусні'))]
 
-    departure_name = forms.CharField(label=_('Звідки'), max_length=50, required=False)
+    departure_name = forms.CharField(
+        label=_('Звідки'), max_length=50, required=False)
     departure_id = forms.CharField(max_length=50)
-    arrival_name = forms.CharField(label=_('Куди'), max_length=50, required=False)
+    arrival_name = forms.CharField(
+        label=_('Куди'), max_length=50, required=False)
     arrival_id = forms.CharField(max_length=50)
-    date = forms.DateField(label=_('Дата'), widget=forms.SelectDateWidget(), required=True)
-    type = forms.ChoiceField(choices=TYPE_CHOICES, initial='train', widget=forms.RadioSelect)
+    date = forms.DateField(
+        label=_('Дата'), widget=forms.SelectDateWidget(), required=True)
+    type = forms.ChoiceField(choices=TYPE_CHOICES,
+                             initial='train', widget=forms.RadioSelect)
 
     def to_json(self):
         return json.dumps({
@@ -37,45 +41,45 @@ class HousingForm(forms.Form):
         required=False,
         empty_label='Будь-яка область',
         widget=forms.Select(attrs={'class': 'form-control mb-3'}),
-        )
+    )
     region_filter = forms.CharField(
         max_length=50,
         required=False,
         widget=forms.TextInput(attrs={
             'class': 'form-control mb-3',
             'placeholder': 'Шукати області...',
-            }),
-        )
+        }),
+    )
     city = forms.ModelChoiceField(
         queryset=Cities.all(),
         label='Місто',
         required=False,
         empty_label='Будь-яке місто',
         widget=forms.Select(attrs={'class': 'form-control mb-3'}),
-        )
+    )
     city_filter = forms.CharField(
         max_length=50,
         required=False,
         widget=forms.TextInput(attrs={
             'class': 'form-control mb-3',
             'placeholder': 'Шукати міста...',
-            }),
-        )
+        }),
+    )
     uni = forms.ModelChoiceField(
         queryset=Unies.all(),
         label='Університет',
         required=False,
         empty_label='Будь-який ВУЗ',
         widget=forms.Select(attrs={'class': 'form-control mb-3'}),
-        )
+    )
     uni_filter = forms.CharField(
         max_length=50,
         required=False,
         widget=forms.TextInput(attrs={
             'class': 'form-control mb-3',
             'placeholder': 'Шукати ВУЗи...',
-            }),
-        )
+        }),
+    )
 
     def __init__(self, form_data, *args, **kwargs):
         self.qs = {'regions': None, 'cities': None, 'unies': None}

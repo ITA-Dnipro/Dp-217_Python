@@ -977,3 +977,14 @@ msgstr "Change"
 msgid "ЗБЕРЕГТИ"
 msgstr "SAVE"
 
+#: .\templates\404.html:14
+msgid "Сторінку не знайдено"
+msgstr "Page not found"
+
+#: .\templates\404.html:20
+msgid "Перейти до головної"
+msgstr "Go to index"
+
+#: .\templates\base.html:38
+msgid "uk"
+msgstr "en"

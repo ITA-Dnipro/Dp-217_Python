@@ -8,11 +8,11 @@ $(document).ready(function() {
 
     const stationsSettings = {
         bus:{
-            url: "https://de-prod-lb.cashalot.in.ua/rest/stations/bus",
+            url: "/relocation/stations",
             supplier: "ubus_busfor"
         },
         train:{
-            url: "https://de-prod-lb.cashalot.in.ua/rest/stations/express",
+            url: "/relocation/stations",
             supplier: "uz_train"
         },
     };
@@ -28,25 +28,26 @@ $(document).ready(function() {
             const type = $("input[name='type']:checked").val();
             const url = stationsSettings[type].url;
             const supplier = stationsSettings[type].supplier;
+            const language = $('html').prop('lang') || 'uk';
 
             if (search_string.length > 0) {
                 $.ajax({
-                    method: "POST",
+                    type: "POST",
                     url: url,
                     headers: {
-                        'language': 'uk',
+                        'language': language,
                         'supplier': supplier,
                         'content-type': 'application/json'
                     },
 
                     data: JSON.stringify({
-                        "language": "uk",
+                        "language": language,
                         "supplier": supplier,
-                        "query": search_string
+                        "query": search_string,
+                        "type": type
                     }),
 
                     success: function (response) {
-
                         function identify_id(stations, station_name) {
                             let chosen_station = stations.find(station => {
                                 return station.name.toLowerCase() === station_name.toLowerCase()

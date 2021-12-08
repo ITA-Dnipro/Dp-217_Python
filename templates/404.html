@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% load i18n i18n %}
+{% block content %}
+<div id="404-content" class="d-flex justify-content-center">
+    <div id="404-message" class="text-center my-4">
+
+        <div id="404-header">
+            <h1>
+                404
+            </h1>
+        </div>
+
+        <div id="404-text">
+            {% trans 'Сторінку не знайдено' %}
+        </div>
+
+        <div class="my-4">
+            <a href={% url 'index' %}>
+                <button class="btn btn-dark">
+                    {% trans 'Перейти до головної' %}
+                </button>
+            </a>
+
+        </div>
+
+    </div>
+</div>
+{% endblock %}

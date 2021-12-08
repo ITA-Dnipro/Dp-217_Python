@@ -47,16 +47,6 @@ def get_universities(request):
 
     universities = get_universities_api(region, city, field, speciality)
 
-    if not universities:
-        context = {"error": "Жодного ВНЗ не знайдено"}
-    elif universities[0].get("error") == 'connection error':
-        context = {"error": "Помилка з'єднання. Спробуйте пізніше."}
-    elif isinstance(universities[0].get("error"), int):
-        context = {"error": f'Помилка номер {universities[0]["error"]}.'}
-    else:
-        context = {"universities": universities}
-
-    if "error" in context.keys():
-        return render(request, 'universearch/error_handler.html', context=context)
+    context = {"universities": universities}
 
     return render(request, 'universearch/results.html', context=context)
