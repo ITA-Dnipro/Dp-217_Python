@@ -92,10 +92,11 @@ DATABASES = {
         'PORT': os.environ.get('DB_PORT', '5432'),
     }
 }
-os.environ.update('DATABASE_URL',
-                  'postgres://zhlzygyyoxnxue:94bceda56cc11afeebf45a0bc0aabca24937163116c80e8e91ba8edf6b383ca5@ec2-176-34-222-188.eu-west-1.compute.amazonaws.com:5432/db38pu1v3l7enh')
+os.environ.update({'DATABASE_URL':
+                       'postgres://zhlzygyyoxnxue:94bceda56cc11afeebf45a0bc0aabca24937163116c80e8e91ba8edf6b383ca5@ec2-176-34-222-188.eu-west-1.compute.amazonaws.com:5432/db38pu1v3l7enh'})
 if os.environ.get('DATABASE_URL'):
     import dj_database_url
+
     db_from_env = dj_database_url.config(conn_max_age=500)
     DATABASES['default'].update(db_from_env)
 
