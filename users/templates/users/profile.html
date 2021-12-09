@@ -1,0 +1,113 @@
+{% extends 'base.html' %}
+
+{% load i18n i18n %}
+{% block content %}
+
+<div id="profile-content">
+
+    <div id="profile-wrapper" class="col-md-10 col-lg-8 col-xl-6 my-2 mx-auto">
+
+        <div id="profile-header">
+            <h5>{% trans 'Профіль' %}</h5>
+        </div>
+
+        <ul class="nav nav-tabs">
+            <li class="nav-item">
+                <a class="nav-link active" data-bs-toggle="tab" href="#info">
+                    {% trans 'Персональні дані' %}
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" data-bs-toggle="tab" href="#surveys">
+                    {% trans 'Опитування' %}
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" data-bs-toggle="tab" href="#favourites">
+                    {% trans 'Збережене' %}
+                </a>
+            </li>
+        </ul>
+
+        <div id="myTabContent" class="tab-content">
+            <div class="tab-pane fade show active" id="info">
+                <div id="personal-info-wrapper" class="d-flex justify-content-center m-2 pt-2">
+
+                    {% include "users/update_form.html" with update_form=update_form %}
+
+                </div>
+            </div>
+            <div class="tab-pane fade" id="surveys">
+                <div class="text-center my-3">
+                    <h5>
+                       {% trans 'Історія опитувань' %}
+                    </h5>
+                </div>
+
+                <div id="empty-history-message" class="text-center {% if results %}d-none{% endif %}">
+                    <div>
+                        {% trans 'Результати відсутні' %}
+                    </div>
+                    <div>
+                        <a href="/questioning">
+                            {% trans 'Пройти опитування' %}
+                        </a>
+                    </div>
+                </div>
+
+                {% for result in results %}
+
+                    {% include "users/result_card.html" with result=result %}
+
+                {% endfor %}
+            </div>
+            <div class="tab-pane fade" id="favourites">
+                <div class="text-center my-3">
+                    <h5>
+                       {% trans 'Збереженi ВHЗ' %}
+                    </h5>
+                </div>
+                {% if 'error' in favourite_univers %}
+                <div>{{ favourite_univers.error }}</div>
+                {% else %}
+                <div id="fav">
+                    {% for university in favourite_univers %}
+                    <div class="card">
+                      <div class="card-header">
+                          <div class="container d-flex justify-content-between">
+                              {{ university.name }}
+                              <a href="{% url 'remove_favourite' university.id %}" class="btn btn-outline-primary">{% trans 'Видалити' %}</a>
+                          </div>
+                      </div>
+                      <div class="card-body">
+                          <div class="container">
+                            <div class="row">
+                                <div class="col align-self-start">
+                                    {% trans 'Форма власностi' %}: {{university.financing_type}}<br>
+                                    {% trans 'Електронна пошта' %}: {{university.mail}}<br>
+                                    {% trans 'Сайт' %}: {{university.site}}<br>
+                                </div>
+                                <div class="col align-self-end">
+                                    <address>
+                                        <strong>{% trans 'Адреса' %}</strong><br>
+                                        {{ university.city }}, {{ university.region }}<br>
+                                        {{ university.address }}<br>
+                                        {% trans 'Iндекс' %}: {{ university.index }}<br>
+                                        {% trans 'Тел' %}.: {{ university.phone }}<br>
+                                    </address>
+                                </div>
+                            </div>
+                          </div>
+                      </div>
+                    </div>
+                    <br>
+                    {% endfor %}
+                </div>
+                {% endif %}
+            </div>
+        </div>
+
+    </div>
+
+</div>
+{% endblock %}

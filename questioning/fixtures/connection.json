@@ -1,0 +1,234 @@
+[
+  {
+    "model": "questioning.connectionklimovcatstudyfield",
+    "pk": 1,
+    "fields": {
+      "category_id": 3,
+      "field_id": 1
+    }
+  },
+  {
+    "model": "questioning.connectionklimovcatstudyfield",
+    "pk": 2,
+    "fields": {
+      "category_id": 5,
+      "field_id": 2
+    }
+  },
+  {
+    "model": "questioning.connectionklimovcatstudyfield",
+    "pk": 3,
+    "fields": {
+      "category_id": 3,
+      "field_id": 3
+    }
+  },
+  {
+    "model": "questioning.connectionklimovcatstudyfield",
+    "pk": 4,
+    "fields": {
+      "category_id": 3,
+      "field_id": 4
+    }
+  },
+  {
+    "model": "questioning.connectionklimovcatstudyfield",
+    "pk": 5,
+    "fields": {
+      "category_id": 3,
+      "field_id": 5
+    }
+  },
+  {
+    "model": "questioning.connectionklimovcatstudyfield",
+    "pk": 6,
+    "fields": {
+      "category_id": 3,
+      "field_id": 6
+    }
+  },
+  {
+    "model": "questioning.connectionklimovcatstudyfield",
+    "pk": 7,
+    "fields": {
+      "category_id": 3,
+      "field_id": 7
+    }
+  },
+  {
+    "model": "questioning.connectionklimovcatstudyfield",
+    "pk": 8,
+    "fields": {
+      "category_id": 3,
+      "field_id": 8
+    }
+  },
+  {
+    "model": "questioning.connectionklimovcatstudyfield",
+    "pk": 9,
+    "fields": {
+      "category_id": 1,
+      "field_id": 9
+    }
+  },
+  {
+    "model": "questioning.connectionklimovcatstudyfield",
+    "pk": 10,
+    "fields": {
+      "category_id": 1,
+      "field_id": 10
+    }
+  },
+  {
+    "model": "questioning.connectionklimovcatstudyfield",
+    "pk": 11,
+    "fields": {
+      "category_id": 4,
+      "field_id": 11
+    }
+  },
+  {
+    "model": "questioning.connectionklimovcatstudyfield",
+    "pk": 12,
+    "fields": {
+      "category_id": 4,
+      "field_id": 12
+    }
+  },
+  {
+    "model": "questioning.connectionklimovcatstudyfield",
+    "pk": 13,
+    "fields": {
+      "category_id": 2,
+      "field_id": 13
+    }
+  },
+  {
+    "model": "questioning.connectionklimovcatstudyfield",
+    "pk": 14,
+    "fields": {
+      "category_id": 2,
+      "field_id": 14
+    }
+  },
+  {
+    "model": "questioning.connectionklimovcatstudyfield",
+    "pk": 15,
+    "fields": {
+      "category_id": 2,
+      "field_id": 15
+    }
+  },
+  {
+    "model": "questioning.connectionklimovcatstudyfield",
+    "pk": 16,
+    "fields": {
+      "category_id": 1,
+      "field_id": 16
+    }
+  },
+  {
+    "model": "questioning.connectionklimovcatstudyfield",
+    "pk": 17,
+    "fields": {
+      "category_id": 2,
+      "field_id": 17
+    }
+  },
+  {
+    "model": "questioning.connectionklimovcatstudyfield",
+    "pk": 18,
+    "fields": {
+      "category_id": 2,
+      "field_id": 18
+    }
+  },
+  {
+    "model": "questioning.connectionklimovcatstudyfield",
+    "pk": 19,
+    "fields": {
+      "category_id": 5,
+      "field_id": 19
+    }
+  },
+  {
+    "model": "questioning.connectionklimovcatstudyfield",
+    "pk": 20,
+    "fields": {
+      "category_id": 1,
+      "field_id": 20
+    }
+  },
+  {
+    "model": "questioning.connectionklimovcatstudyfield",
+    "pk": 21,
+    "fields": {
+      "category_id": 1,
+      "field_id": 21
+    }
+  },
+  {
+    "model": "questioning.connectionklimovcatstudyfield",
+    "pk": 22,
+    "fields": {
+      "category_id": 1,
+      "field_id": 22
+    }
+  },
+  {
+    "model": "questioning.connectionklimovcatstudyfield",
+    "pk": 23,
+    "fields": {
+      "category_id": 3,
+      "field_id": 23
+    }
+  },
+  {
+    "model": "questioning.connectionklimovcatstudyfield",
+    "pk": 24,
+    "fields": {
+      "category_id": 3,
+      "field_id": 24
+    }
+  },
+  {
+    "model": "questioning.connectionklimovcatstudyfield",
+    "pk": 25,
+    "fields": {
+      "category_id": 3,
+      "field_id": 25
+    }
+  },
+  {
+    "model": "questioning.connectionklimovcatstudyfield",
+    "pk": 26,
+    "fields": {
+      "category_id": 3,
+      "field_id": 26
+    }
+  },
+  {
+    "model": "questioning.connectionklimovcatstudyfield",
+    "pk": 27,
+    "fields": {
+      "category_id": 2,
+      "field_id": 27
+    }
+  },
+  {
+    "model": "questioning.connectionklimovcatstudyfield",
+    "pk": 28,
+    "fields": {
+      "category_id": 3,
+      "field_id": 28
+    }
+  },
+  {
+    "model": "questioning.connectionklimovcatstudyfield",
+    "pk": 29,
+    "fields": {
+      "category_id": 3,
+      "field_id": 29
+    }
+  }
+]

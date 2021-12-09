@@ -1,0 +1,129 @@
+{% extends 'base.html' %}
+
+{% load i18n i18n %}
+
+{% block content %}
+<div class="container mt-5">
+    {% if messages %}
+        {% for message in messages %}
+            <div class="alert alert-{{ message.tags }}">{{ message }}</div>
+        {% endfor %}
+    {% endif %}
+    <h3>{% trans 'Результати пошуку ВНЗ' %}</h3>
+</div>
+
+{% for university in universities %}
+<div class="container mt-5">
+    <div class="card">
+        <div class="card-header">
+            <div class="container d-flex justify-content-between">
+                <strong>{{ university.name }}</strong>
+                {% if university.id in user.favourites %}
+                <a href="{% url 'remove_favourite' university.id %}" class="btn btn-outline-primary">{% trans 'Видалити' %}</a>
+                {% else %}
+                <a href="{% url 'add_favourite' university.id %}" class="btn btn-outline-primary">{% trans 'Зберiгти' %}</a>
+                {% endif %}
+            </div>
+        </div>
+        <div class="card-body">
+            <div class="container">
+                <div class="row">
+                    <div class="col align-self-start">
+                        {% trans 'Форма власностi' %}: {{university.financing_type}}<br>
+                        {% trans 'Електронна пошта' %}: {{university.mail}}<br>
+                        {% trans 'Сайт' %}: {{university.site}}<br>
+                    </div>
+                    <div class="col align-self-end">
+                        <address>
+                            <strong>{% trans 'Адреса' %}</strong><br>
+                            {{ university.city }}, {{ university.region }}<br>
+                            {{ university.address }}<br>
+                            {% trans 'Iндекс' %}: {{ university.index }}<br>
+                            {% trans 'Тел' %}.: {{ university.phone }}<br>
+                        </address>
+                    </div>
+                </div>
+            </div>
+            <hr/>
+            <p class="card-text">
+            <div class="container mb-3">
+            <div class="accordion" id="accordionExample">
+
+                {% if university.specialities.full_time %}
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id=headingOne{{university.id}}>
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target=#collapseOne{{university.id}} aria-expanded="false" aria-controls=collapseOne{{university.id}}>
+                            {% trans 'Денна форма навчання' %}
+                        </button>
+                    </h2>
+                    <div id=collapseOne{{university.id}} class="accordion-collapse collapse" aria-labelledby=headingOne{{university.id}} data-bs-parent="#accordionExample">
+                        <div class="accordion-body">
+                            {% for speciality in university.specialities.full_time %}
+                            <div class="row">
+                                <div class="col align-self-start">
+                                    {% trans 'Рiвень' %}: {{ speciality.degree }}<br>
+                                    {% trans 'Спецiальнiсть' %}: {{ speciality.name }}<br>
+                                    {% trans 'Факультет' %}: {{ speciality.faculty }}<br>
+                                    {% trans 'Пропозицiя' %}: {{ speciality.offer }}<br>
+                                </div>
+                                <div class="col align-self-end">
+                                    {% if "Відкрита" in speciality.offer or "Фіксована" in speciality.offer %}
+                                    {% trans 'Кiлькiсть бюджетних мiсць' %}: {{ speciality.budget_places }}<br>
+                                    {% trans 'Кiлькiсть контрактних мiсць' %}: {{ speciality.contract_places }}<br>
+                                    {% trans 'Кiлькiсть балiв на бюджет' %}: {{ speciality.budget_points }}<br>
+                                    {% trans 'Кiлькiсть балiв на контракт' %}: {{ speciality.contract_points }}<br>
+                                    {% else %}
+                                    {% trans 'Кiлькiсть контрактних мiсць' %}: {{ speciality.contract_places }}<br>
+                                    {% trans 'Кiлькiсть балiв на контракт' %}: {{ speciality.contract_points }}<br>
+                                    {% endif %}
+                                </div>
+                            </div>
+                            <br>
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+                {% endif %}
+
+                {% if university.specialities.part_time %}
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id=headingTwo{{university.id}}>
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target=#collapseTwo{{university.id}} aria-expanded="false" aria-controls=collapseTwo{{university.id}}>
+                            {% trans 'Заочна форма навчання' %}
+                        </button>
+                    </h2>
+                    <div id=collapseTwo{{university.id}} class="accordion-collapse collapse" aria-labelledby=headingTwo{{university.id}} data-bs-parent="#accordionExample">
+                        <div class="accordion-body">
+                            {% for speciality in university.specialities.part_time %}
+                            <div class="row">
+                                <div class="col align-self-start">
+                                    {% trans 'Рiвень' %}: {{ speciality.degree }}<br>
+                                    {% trans 'Спецiальнiсть' %}: {{ speciality.name }}<br>
+                                    {% trans 'Факультет' %}: {{ speciality.faculty }}<br>
+                                    {% trans 'Пропозицiя' %}: {{ speciality.offer }}<br>
+                                </div>
+                                <div class="col align-self-end">
+                                    {% if "Відкрита" in speciality.offer %}
+                                    {% trans 'Кiлькiсть бюджетних мiсць' %}: {{ speciality.budget_places }}<br>
+                                    {% trans 'Кiлькiсть контрактних мiсць' %}: {{ speciality.contract_places }}<br>
+                                    {% trans 'Кiлькiсть балiв на бюджет' %}: {{ speciality.budget_points }}<br>
+                                    {% trans 'Кiлькiсть балiв на контракт' %}: {{ speciality.contract_points }}<br>
+                                    {% else %}
+                                    {% trans 'Кiлькiсть контрактних мiсць' %}: {{ speciality.contract_places }}<br>
+                                    {% trans 'Кiлькiсть балiв на контракт' %}: {{ speciality.contract_points }}<br>
+                                    {% endif %}
+                                </div>
+                            </div>
+                            <br>
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+                {% endif %}
+            </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endfor %}
+{% endblock %}

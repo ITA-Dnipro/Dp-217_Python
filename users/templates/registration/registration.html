@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+{% load i18n i18n %}
+{% block content %}
+<div id="registration-content">
+    <div id="registration-wrapper" class="col-sm-6 col-md-5 col-lg-4 col-xl-3 mx-auto my-5">
+        <div class="card text-white bg-primary mb-3">
+            <div class="card-header">
+                    <h4>{% trans 'Реєстрація' %}</h4>
+                </div>
+            <div class="card-body">
+                <form method="POST">
+                    {% csrf_token %}
+                    {% for field in form.visible_fields %}
+                        <div class="form-group  mb-2">
+                            <div>{{ field.label_tag }}</div>
+                            <input class="form-control"
+                                   placeholder=""
+                                   name="{{ field.html_name }}"
+
+                                   {% if field.value %}
+                                       value="{{ field.value }}"
+                                   {% endif %}
+
+                                   {% if field.html_name in 'password1,password2' %}
+                                       type="password"
+                                   {% else %}
+                                       type="text"
+                                   {% endif %}
+                            />
+                            <div class="small">
+                                {{ field.help_text }}
+                            </div>
+                            {% if field.errors %}
+                               <div class="text-danger">
+                                   {{ field.errors }}
+                               </div>
+                            {% endif %}
+                        </div>
+                    {% endfor %}
+
+                    <div class="d-grid gap-2 my-3">
+                        <button type="submit" id="registration-submit" class="btn btn-primary" >
+                            {% trans 'Зареєструвати' %}
+                        </button>
+                    </div>
+
+                </form>
+                <div class="text-center small mt-2">
+                    <a class="text-white" href="{% url 'login' %}">{% trans 'Увійти' %}</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

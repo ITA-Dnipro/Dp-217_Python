@@ -1,0 +1,60 @@
+{% extends 'base.html' %}
+{% load i18n i18n %}
+{% block content %}
+<div id="login-content">
+    <div id="login-wrapper" class="col-sm-6 col-md-5 col-lg-4 col-xl-3 mx-auto my-5">
+        <div id="login-card" class="card text-white bg-primary mb-3">
+            <div class="card-header">
+                <h4>{% trans 'Вхід' %}</h4>
+            </div>
+            <div class="card-body">
+                <form method="post" action="{% url 'login' %}">
+                    {% csrf_token %}
+                    <div class="form-group">
+                        <label for="login-username">
+                            {% trans "Ім'я користувача або пошта" %}
+                        </label>
+                        <input type="text" class="form-control" id="login-username"
+                               placeholder="" name="{{ form.username.html_name }}"
+                               {% if form.username.value %}
+                               value="{{ form.username.value }}"
+                               {% endif %}
+                        />
+                    </div>
+                    <div class="form-group">
+                        <label for="login-password">
+                            {% trans 'Пароль' %}
+                        </label>
+                        <input type="password" class="form-control" id="login-password"
+                               placeholder="" name="{{ form.password.html_name }}"
+                               {% if form.password.value %}
+                               value="{{ form.password.value }}"
+                               {% endif %}
+                        />
+                    </div>
+
+                    {% if form.errors %}
+                    {# {% for key, value in form.errors.items %}#}
+                    {# <p>{{ key }}: {{ value }}</p>#}
+                    {# {% endfor %}#}
+                    <div class="text-danger my-3">
+                        <p>{% trans 'Невірні дані для входу' %}.</p>
+                    </div>
+
+                    {% endif %}
+                    <div class="d-grid gap-2 my-3">
+                        <button type="submit" class="btn btn-primary" id="login-submit">
+                            {% trans 'Увійти' %}
+                        </button>
+                    </div>
+                </form>
+                <div class="text-center small mt-2">
+                    <div><a class="text-white" href="{% url 'password_reset' %}">{% trans 'Відновити пароль' %}</a>
+                    </div>
+                    <div><a class="text-white" href="{% url 'registration' %}">{% trans 'Зареєструватись' %}</a></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

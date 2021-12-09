@@ -1,0 +1,87 @@
+{% load i18n i18n %}
+<div class="my-4 pb-2 bg-light border rounded result-block result-card"
+     data-resultid="{{ result.id }}">
+    <div class="d-flex justify-content-between my-1 mx-2">
+        <a href="/questioning/results/{{ result.url }}">
+            <div class="small p-1 ">
+                {{ result.date|date:"d.m.Y" }}
+            </div>
+        </a>
+
+        <div>
+            <button type="button" class="result-delete-button btn btn-outline-light p-0"
+                    data-resultid="{{ result.id }}">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                     fill="currentColor" class="bi bi-x-lg" viewBox="0 0 16 16">
+                    <path fill-rule="evenodd" clip-rule="evenodd"
+                          d="M13.854 2.146a.5.5 0 0 1 0 .708l-11 11a.5.5 0 0 1-.708-.708l11-11a.5.5 0 0 1 .708 0Z"
+                          fill="#000"/>
+                    <path fill-rule="evenodd" clip-rule="evenodd"
+                          d="M2.146 2.146a.5.5 0 0 0 0 .708l11 11a.5.5 0 0 0 .708-.708l-11-11a.5.5 0 0 0-.708 0Z"
+                          fill="#000"/>
+                </svg>
+            </button>
+        </div>
+    </div>
+
+    <div class="border-bottom"></div>
+
+    {% for category in result.categories %}
+
+        {% widthratio category.points category.max_points 100 as percent %}
+
+        <div class="row">
+            <div class="col-4">
+                <div class="progress mx-4 mt-3">
+
+                    <div class="progress-bar progress-bar-striped text-white
+
+                    {% if percent|add:"0" > 70 %}
+                         bg-success
+                    {% elif  percent|add:"0" < 50 %}
+                        bg-warning
+                    {% endif %}
+
+                        "
+                         role="progressbar"
+                         style="width: {{ percent }}%;"
+                         aria-valuenow="{{ percent }}"
+                         aria-valuemin="0" aria-valuemax="100">
+                        {{ percent }}%
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="col-7">
+                <div class="pt-1">
+                    <button class="btn btn-light text-dark shadow-none" type="button"
+                            data-bs-toggle="collapse" aria-expanded="false"
+                            data-bs-target="#category-details-{{ forloop.parentloop.counter }}-{{ forloop.counter }}"
+                            aria-controls="category-details-{{ forloop.parentloop.counter }}-{{ forloop.counter }}">
+                        {{ category.info.name }}
+                        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="currentColor"
+                             class="bi bi-caret-down-fill ms-1 pb-1" viewBox="0 0 16 16">
+                            <path d="M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z"/>
+                        </svg>
+                    </button>
+                </div>
+
+                <div id="category-details-{{ forloop.parentloop.counter }}-{{ forloop.counter }}"
+                     class="collapse px-4 my-2">
+                    <div>
+                        <div class="fw-bold">{% trans 'Опис' %}:</div>
+                        <div>{{ category.info.description }}</div>
+                    </div>
+
+                    <div>
+                        <div class="fw-bold mt-2">{% trans 'Приклади' %}:</div>
+                        <div>{{ category.info.examples }}</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    {% endfor %}
+
+</div>

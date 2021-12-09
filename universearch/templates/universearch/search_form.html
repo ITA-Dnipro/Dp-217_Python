@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% load i18n i18n %}
+
+{% block scripts %}
+<link rel="stylesheet" href="{% static 'css/univer_search_form.css' %}">
+<link rel="stylesheet" type='text/css' href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.14/semantic.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.js"></script>
+<script src="{% static 'js/univers_search_form.js' %}" defer></script>
+<script src="{% static 'js/semantic.js' %}" defer></script>
+{% endblock %}
+
+{% block content %}
+<div class="preloader">
+    <div class="loader"></div>
+</div>
+<div class="ui container">
+    <form class="pt-5" id="search-form" action="/search/universities/" method="get">
+        <h1>{% trans 'Пошук по регiонах' %}</h1>
+        <div class="ui fluid selection dropdown mt-3" id="regions">
+            <input type="hidden" name="region">
+            <i class="dropdown2 icon"></i>
+            <div class="default text">{% trans 'Усі регiони' %}</div>
+            <div class="menu" id="region-box">
+            </div>
+        </div>
+        <div class="ui fluid selection dropdown mt-3" id="cities">
+            <input type="hidden" name="city">
+            <i class="dropdown2 icon"></i>
+            <div class="default text" id="city-text">{% trans 'Усі мiста' %}</div>
+            <div class="menu" id="cities-box">
+            </div>
+        </div>
+        <h1 id="field_questioning" data="{{field}}">{% trans 'Пошук за галузями знань' %}</h1>
+        <div class="ui fluid selection dropdown mt-3" data-toggle="modal" id="fields">
+            <input type="hidden" name="field">
+            <i class="dropdown2 icon"></i>
+            <div class="default text">{% trans 'Усі галузi знань' %}</div>
+            <div class="menu" id="field-box">
+            </div>
+        </div>
+        <div class="ui fluid selection dropdown mt-3" id="specialities" data="{{spec}}">
+            <input type="hidden" name="speciality">
+            <i class="dropdown2 icon"></i>
+            <div class="default text" id="speciality-text">{% trans 'Усі спецiальностi' %}</div>
+            <div class="menu" id="specialities-box">
+            </div>
+        </div>
+        <div id="btn-box" class="mt-5">
+            <button type="submit" class="ui primary button">{% trans 'Пошук' %}</button>
+        </div>
+    </form>
+</div>
+{% endblock %}

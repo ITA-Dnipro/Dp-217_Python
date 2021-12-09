@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% load i18n i18n %}
+{% load static %}
+{% block content %}
+<div id="results">
+    <h1 class="q__h2">{{ title }}</h1>
+    <div>
+        {% for result in data %}
+        {% include "result_card.html" with result=result %}
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

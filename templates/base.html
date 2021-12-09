@@ -1,0 +1,39 @@
+{% load static %}
+{% load i18n i18n %}
+
+<!DOCTYPE html>
+<html lang={% trans 'uk' %}>
+<head>
+    <meta charset="UTF-8">
+    <title>Enrollment Assistant</title>
+    <link rel="icon" type="image/x-icon" href="{% static 'img/favicon.ico' %}">
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/base.css' %}">
+    <link rel="stylesheet" href="{% static 'css/questioning.css' %}">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'js/questioning.js' %}"></script>
+    <script src="{% static 'js/profile.js' %}"></script>
+    {% block scripts %}{% endblock %}
+</head>
+<body>
+<div id="base-container">
+    <header>
+        {% include "base_header.html" %}
+    </header>
+
+    <main>
+        <div id="content">
+            {{ content }}
+            {% block content %}{% endblock %}
+        </div>
+    </main>
+
+    <footer>
+        {% include "base_footer.html" %}
+    </footer>
+
+</div>
+
+</body>
+</html>

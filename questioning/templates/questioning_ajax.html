@@ -1,0 +1,10 @@
+<div id="main_container">
+    <div class="q__h1">{{ question }}</div>
+    {% for answer in answers %}
+    <div class="q__btn-bar">
+        <button type="button" onClick="ajaxRequest({{ values }},{{ answer.result }})"
+                class="{{answer.btn}}">{{ answer.text }}
+        </button>
+    </div>
+    {% endfor %}
+</div>

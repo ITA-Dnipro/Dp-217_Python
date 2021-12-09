@@ -1,0 +1,442 @@
+[
+  {
+    "model": "questioning.connectioninterestcatspec",
+    "pk": 1,
+    "fields": {
+      "category_id": 1,
+      "spec_id": 62
+    }
+  },
+  {
+    "model": "questioning.connectioninterestcatspec",
+    "pk": 2,
+    "fields": {
+      "category_id": 1,
+      "spec_id": 63
+    }
+  },
+  {
+    "model": "questioning.connectioninterestcatspec",
+    "pk": 3,
+    "fields": {
+      "category_id": 1,
+      "spec_id": 64
+    }
+  },
+  {
+    "model": "questioning.connectioninterestcatspec",
+    "pk": 4,
+    "fields": {
+      "category_id": 2,
+      "spec_id": 99
+    }
+  },
+  {
+    "model": "questioning.connectioninterestcatspec",
+    "pk": 5,
+    "fields": {
+      "category_id": 2,
+      "spec_id": 98
+    }
+  },
+  {
+    "model": "questioning.connectioninterestcatspec",
+    "pk": 6,
+    "fields": {
+      "category_id": 3,
+      "spec_id": 44
+    }
+  },
+  {
+    "model": "questioning.connectioninterestcatspec",
+    "pk": 7,
+    "fields": {
+      "category_id": 4,
+      "spec_id": 88
+    }
+  },
+  {
+    "model": "questioning.connectioninterestcatspec",
+    "pk": 8,
+    "fields": {
+      "category_id": 4,
+      "spec_id": 89
+    }
+  },
+  {
+    "model": "questioning.connectioninterestcatspec",
+    "pk": 9,
+    "fields": {
+      "category_id": 4,
+      "spec_id": 90
+    }
+  },
+  {
+    "model": "questioning.connectioninterestcatspec",
+    "pk": 10,
+    "fields": {
+      "category_id": 4,
+      "spec_id": 91
+    }
+  },
+  {
+    "model": "questioning.connectioninterestcatspec",
+    "pk": 11,
+    "fields": {
+      "category_id": 4,
+      "spec_id": 92
+    }
+  },
+  {
+    "model": "questioning.connectioninterestcatspec",
+    "pk": 12,
+    "fields": {
+      "category_id": 4,
+      "spec_id": 93
+    }
+  },
+  {
+    "model": "questioning.connectioninterestcatspec",
+    "pk": 13,
+    "fields": {
+      "category_id": 4,
+      "spec_id": 94
+    }
+  },
+  {
+    "model": "questioning.connectioninterestcatspec",
+    "pk": 14,
+    "fields": {
+      "category_id": 4,
+      "spec_id": 95
+    }
+  },
+  {
+    "model": "questioning.connectioninterestcatspec",
+    "pk": 15,
+    "fields": {
+      "category_id": 5,
+      "spec_id": 41
+    }
+  },
+  {
+    "model": "questioning.connectioninterestcatspec",
+    "pk": 16,
+    "fields": {
+      "category_id": 5,
+      "spec_id": 42
+    }
+  },
+  {
+    "model": "questioning.connectioninterestcatspec",
+    "pk": 17,
+    "fields": {
+      "category_id": 5,
+      "spec_id": 43
+    }
+  },
+  {
+    "model": "questioning.connectioninterestcatspec",
+    "pk": 18,
+    "fields": {
+      "category_id": 6,
+      "spec_id": 65
+    }
+  },
+  {
+    "model": "questioning.connectioninterestcatspec",
+    "pk": 19,
+    "fields": {
+      "category_id": 6,
+      "spec_id": 66
+    }
+  },
+  {
+    "model": "questioning.connectioninterestcatspec",
+    "pk": 20,
+    "fields": {
+      "category_id": 6,
+      "spec_id": 67
+    }
+  },
+  {
+    "model": "questioning.connectioninterestcatspec",
+    "pk": 21,
+    "fields": {
+      "category_id": 6,
+      "spec_id": 68
+    }
+  },
+  {
+    "model": "questioning.connectioninterestcatspec",
+    "pk": 22,
+    "fields": {
+      "category_id": 7,
+      "spec_id": 74
+    }
+  },
+  {
+    "model": "questioning.connectioninterestcatspec",
+    "pk": 23,
+    "fields": {
+      "category_id": 7,
+      "spec_id": 75
+    }
+  },
+  {
+    "model": "questioning.connectioninterestcatspec",
+    "pk": 24,
+    "fields": {
+      "category_id": 7,
+      "spec_id": 76
+    }
+  },
+  {
+    "model": "questioning.connectioninterestcatspec",
+    "pk": 25,
+    "fields": {
+      "category_id": 7,
+      "spec_id": 77
+    }
+  },
+  {
+    "model": "questioning.connectioninterestcatspec",
+    "pk": 26,
+    "fields": {
+      "category_id": 8,
+      "spec_id": 108
+    }
+  },
+  {
+    "model": "questioning.connectioninterestcatspec",
+    "pk": 27,
+    "fields": {
+      "category_id": 8,
+      "spec_id": 109
+    }
+  },
+  {
+    "model": "questioning.connectioninterestcatspec",
+    "pk": 28,
+    "fields": {
+      "category_id": 8,
+      "spec_id": 110
+    }
+  },
+  {
+    "model": "questioning.connectioninterestcatspec",
+    "pk": 29,
+    "fields": {
+      "category_id": 8,
+      "spec_id": 111
+    }
+  },
+  {
+    "model": "questioning.connectioninterestcatspec",
+    "pk": 30,
+    "fields": {
+      "category_id": 8,
+      "spec_id": 112
+    }
+  },
+  {
+    "model": "questioning.connectioninterestcatspec",
+    "pk": 31,
+    "fields": {
+      "category_id": 9,
+      "spec_id": 100
+    }
+  },
+  {
+    "model": "questioning.connectioninterestcatspec",
+    "pk": 32,
+    "fields": {
+      "category_id": 9,
+      "spec_id": 101
+    }
+  },
+  {
+    "model": "questioning.connectioninterestcatspec",
+    "pk": 33,
+    "fields": {
+      "category_id": 9,
+      "spec_id": 102
+    }
+  },
+  {
+    "model": "questioning.connectioninterestcatspec",
+    "pk": 34,
+    "fields": {
+      "category_id": 9,
+      "spec_id": 103
+    }
+  },
+  {
+    "model": "questioning.connectioninterestcatspec",
+    "pk": 35,
+    "fields": {
+      "category_id": 9,
+      "spec_id": 104
+    }
+  },
+  {
+    "model": "questioning.connectioninterestcatspec",
+    "pk": 36,
+    "fields": {
+      "category_id": 9,
+      "spec_id": 105
+    }
+  },
+  {
+    "model": "questioning.connectioninterestcatspec",
+    "pk": 37,
+    "fields": {
+      "category_id": 9,
+      "spec_id": 106
+    }
+  },
+  {
+    "model": "questioning.connectioninterestcatspec",
+    "pk": 38,
+    "fields": {
+      "category_id": 9,
+      "spec_id": 107
+    }
+  },
+  {
+    "model": "questioning.connectioninterestcatspec",
+    "pk": 39,
+    "fields": {
+      "category_id": 10,
+      "spec_id": 27
+    }
+  },
+  {
+    "model": "questioning.connectioninterestcatspec",
+    "pk": 40,
+    "fields": {
+      "category_id": 11,
+      "spec_id": 96
+    }
+  },
+  {
+    "model": "questioning.connectioninterestcatspec",
+    "pk": 41,
+    "fields": {
+      "category_id": 11,
+      "spec_id": 97
+    }
+  },
+  {
+    "model": "questioning.connectioninterestcatspec",
+    "pk": 42,
+    "fields": {
+      "category_id": 12,
+      "spec_id": 1
+    }
+  },
+  {
+    "model": "questioning.connectioninterestcatspec",
+    "pk": 43,
+    "fields": {
+      "category_id": 12,
+      "spec_id": 2
+    }
+  },
+  {
+    "model": "questioning.connectioninterestcatspec",
+    "pk": 44,
+    "fields": {
+      "category_id": 12,
+      "spec_id": 3
+    }
+  },
+  {
+    "model": "questioning.connectioninterestcatspec",
+    "pk": 45,
+    "fields": {
+      "category_id": 12,
+      "spec_id": 4
+    }
+  },
+  {
+    "model": "questioning.connectioninterestcatspec",
+    "pk": 46,
+    "fields": {
+      "category_id": 12,
+      "spec_id": 5
+    }
+  },
+  {
+    "model": "questioning.connectioninterestcatspec",
+    "pk": 47,
+    "fields": {
+      "category_id": 12,
+      "spec_id": 6
+    }
+  },
+  {
+    "model": "questioning.connectioninterestcatspec",
+    "pk": 48,
+    "fields": {
+      "category_id": 13,
+      "spec_id": 33
+    }
+  },
+  {
+    "model": "questioning.connectioninterestcatspec",
+    "pk": 49,
+    "fields": {
+      "category_id": 15,
+      "spec_id": 29
+    }
+  },
+  {
+    "model": "questioning.connectioninterestcatspec",
+    "pk": 50,
+    "fields": {
+      "category_id": 14,
+      "spec_id": 98
+    }
+  },
+  {
+    "model": "questioning.connectioninterestcatspec",
+    "pk": 51,
+    "fields": {
+      "category_id": 14,
+      "spec_id": 99
+    }
+  },
+  {
+    "model": "questioning.connectioninterestcatspec",
+    "pk": 52,
+    "fields": {
+      "category_id": 16,
+      "spec_id": 114
+    }
+  },
+  {
+    "model": "questioning.connectioninterestcatspec",
+    "pk": 53,
+    "fields": {
+      "category_id": 17,
+      "spec_id": 9
+    }
+  },
+  {
+    "model": "questioning.connectioninterestcatspec",
+    "pk": 54,
+    "fields": {
+      "category_id": 18,
+      "spec_id": 12
+    }
+  },
+  {
+    "model": "questioning.connectioninterestcatspec",
+    "pk": 55,
+    "fields": {
+      "category_id": 19,
+      "spec_id": 7
+    }
+  }
+]

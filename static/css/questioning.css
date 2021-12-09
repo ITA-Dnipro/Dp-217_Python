@@ -1,0 +1,58 @@
+.q__h1 {
+    text-align: center;
+    color: #000;
+    font-weight: 400;
+    font-size: 36px;
+    line-height: 1.2;
+}
+
+.q__h2 {
+    color: #000;
+    font-weight: 400;
+    font-size: 36px;
+    line-height: 1.2;
+}
+
+.q__h3 {
+    text-align: center;
+    color: #000;
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 1.2;
+}
+
+.q__description {
+    padding: 70px;
+    font-size: 18px;
+    color: #000;
+    text-align: left;
+    margin: 50px 0 40px;
+}
+
+
+.q__btn-bar {
+    border-color: #c36330;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    align-content: space-between;
+    flex-wrap: wrap;
+    margin: 10px auto 10px -5px;
+}
+
+.c-button {
+    -webkit-writing-mode: horizontal-tb !important;
+    -webkit-appearance: button;
+    border-color: rgb(216, 216, 216) rgb(209, 209, 209) rgb(186, 186, 186);
+    border-style: solid;
+    border-width: 1px;
+    padding: 1px 7px 2px;
+    text-rendering: auto;
+    color: initial;
+    display: inline-block;
+    text-align: start;
+    margin: 0em;
+    font: 400 11px system-ui;
+    font-size: 1.4vw;
+}
