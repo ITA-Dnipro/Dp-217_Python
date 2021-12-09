@@ -26,3 +26,4 @@ six==1.16.0
 sqlparse==0.4.2
 urllib3==1.26.7
 wrapt==1.13.3
+dj_database_url==0.5.0
