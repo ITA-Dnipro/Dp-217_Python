@@ -25,7 +25,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'django-insecure-3ocig*9(+84i-05^=s9aate*&1*8m@1p476!!&cs)jdb=&o89e'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = os.environ.get('DEBUG', True)
 
 ALLOWED_HOSTS = []
 
@@ -85,15 +85,14 @@ WSGI_APPLICATION = 'enrollment_assistant.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': os.environ.get('DB_NAME','db38pu1v3l7enh'),
-        'USER': os.environ.get('DB_USER','zhlzygyyoxnxue'),
-        'PASSWORD': os.environ.get('DB_PASS','94bceda56cc11afeebf45a0bc0aabca24937163116c80e8e91ba8edf6b383ca5'),
-        'HOST': os.environ.get('DB_HOST', 'ec2-176-34-222-188.eu-west-1.compute.amazonaws.com'),
-        'PORT': os.environ.get('DB_PORT', '5432'),
+        'NAME': os.environ.get('DB_NAME1', 'defaultdb'),
+        'USER': os.environ.get('DB_USER1', 'doadmin'),
+        'PASSWORD': os.environ.get('DB_PASS1', 'FFGCBPpDg7ToDr2h'),
+        'HOST': os.environ.get('DB_HOST1', 'db-postgresql-fra1-83848-do-user-10341772-0.b.db.ondigitalocean.com'),
+        'PORT': os.environ.get('DB_PORT1', '25060'),
     }
 }
-if os.environ.get('DATABASE_URL'):
-    pass
+if os.environ.get('DATABASE_URL') and not DEBUG:
     import dj_database_url
 
     db_from_env = dj_database_url.config(conn_max_age=500)
