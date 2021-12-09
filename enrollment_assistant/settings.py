@@ -85,16 +85,15 @@ WSGI_APPLICATION = 'enrollment_assistant.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': os.environ.get('DB_NAME'),
-        'USER': os.environ.get('DB_USER'),
-        'PASSWORD': os.environ.get('DB_PASS'),
-        'HOST': os.environ.get('DB_HOST', 'localhost'),
+        'NAME': os.environ.get('DB_NAME','db38pu1v3l7enh'),
+        'USER': os.environ.get('DB_USER','zhlzygyyoxnxue'),
+        'PASSWORD': os.environ.get('DB_PASS','94bceda56cc11afeebf45a0bc0aabca24937163116c80e8e91ba8edf6b383ca5'),
+        'HOST': os.environ.get('DB_HOST', 'ec2-176-34-222-188.eu-west-1.compute.amazonaws.com'),
         'PORT': os.environ.get('DB_PORT', '5432'),
     }
 }
-os.environ.update({'DATABASE_URL':
-                       'postgres://zhlzygyyoxnxue:94bceda56cc11afeebf45a0bc0aabca24937163116c80e8e91ba8edf6b383ca5@ec2-176-34-222-188.eu-west-1.compute.amazonaws.com:5432/db38pu1v3l7enh'})
 if os.environ.get('DATABASE_URL'):
+    pass
     import dj_database_url
 
     db_from_env = dj_database_url.config(conn_max_age=500)
