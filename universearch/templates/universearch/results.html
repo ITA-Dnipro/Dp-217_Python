@@ -18,10 +18,12 @@
         <div class="card-header">
             <div class="container d-flex justify-content-between">
                 <strong>{{ university.name }}</strong>
-                {% if university.id in user.favourites %}
-                <a href="{% url 'remove_favourite' university.id %}" class="btn btn-outline-primary">{% trans 'Видалити' %}</a>
-                {% else %}
-                <a href="{% url 'add_favourite' university.id %}" class="btn btn-outline-primary">{% trans 'Зберiгти' %}</a>
+                {% if user.is_authenticated %}
+                    {% if university.id in user.favourites %}
+                        <a href="{% url 'remove_favourite' university.id %}" class="btn btn-outline-primary">{% trans 'Видалити' %}</a>
+                    {% else %}
+                        <a href="{% url 'add_favourite' university.id %}" class="btn btn-outline-primary">{% trans 'Зберiгти' %}</a>
+                    {% endif %}
                 {% endif %}
             </div>
         </div>
