@@ -96,7 +96,7 @@ WSGI_APPLICATION = 'enrollment_assistant.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': os.environ.get('DB_NAME', 'defaultdb'),
+        'NAME': os.environ.get('DB_NAME', 'postgres'),
         'USER': os.environ.get('DB_USER', 'doadmin'),
         'PASSWORD': os.environ.get('DB_PASS', 'FFGCBPpDg7ToDr2h'),
         'HOST': os.environ.get('DB_HOST', 'db-postgresql-fra1-83848-do-user-10341772-0.b.db.ondigitalocean.com'),
