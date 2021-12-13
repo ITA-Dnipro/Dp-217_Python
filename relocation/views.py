@@ -1,13 +1,12 @@
-import requests
 import json
 
 from django.shortcuts import render, redirect
 from django.http import JsonResponse, HttpResponse
-from django.conf import settings
 from django.views.decorators.csrf import csrf_exempt
 
 from .forms import HousingForm, TicketsSearchForm
 from .services import HousingService as Housings
+from .services import get_tickets, get_stations
 
 
 def get_housings_view(request):
@@ -33,10 +32,8 @@ def tickets_view(request):
     if request.method == 'POST':
         form = TicketsSearchForm(request.POST)
         if form.is_valid():
-            url = settings.TICKETS_SEARCH_URL
-            loaded_tickets = requests.request(
-                "POST", url, data=form.to_json()).json()
-            if loaded_tickets['trips']:
+            loaded_tickets = get_tickets(form.to_json())
+            if loaded_tickets and loaded_tickets['trips']:
                 tickets[form.data['type']] = loaded_tickets
             else:
                 ui_messages.append("Квитки не знайдені")
@@ -50,15 +47,15 @@ def tickets_view(request):
 def stations_view(request):
     if request.method == 'POST':
         request_data = json.loads(request.body)
-
-        url = settings.TICKETS_STATIONS_SEARCH_URL
-        payload = {
+        stations_data = {
             'type': request_data['type'],
             'search_string': request_data['query']
         }
 
-        loaded_stations = requests.request("POST", url, data=json.dumps(payload)).json()
-        return JsonResponse(loaded_stations)
+        loaded_stations = get_stations(stations_data)
+        if loaded_stations:
+            return JsonResponse(loaded_stations)
+        return HttpResponse(400)
 
     else:
         return HttpResponse(405)

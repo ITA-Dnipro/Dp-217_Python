@@ -3,11 +3,12 @@ from django.contrib.auth import login
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 from django.http import HttpResponse, HttpResponseRedirect
-from .forms import CustomUserCreationForm, CustomUserChangeForm
-from .models import CustomUser
+
 from questioning.services import get_generated_user_results, get_top_n_results
 from universearch.services import get_universities
-from enrollment_assistant.services import produce_message
+from .forms import CustomUserCreationForm, CustomUserChangeForm
+from .models import CustomUser
+from .services import send_result
 
 
 def profile_view(request, update_form=None):
@@ -54,31 +55,12 @@ def update_view(request):
 
 
 @login_required
-def favourites(request, id):
-    user = CustomUser.objects.get(id=request.user.id)
-    if id in user.favourites:
-        user.favourites.remove(id)
-        produce_message(topic='send_email',
-                        partition={'user_email': user.email,
-                                   'subject': 'Enrollment assistant - Favourites',
-                                   'message': f'Унiверситет {id} видалено зi списку збережених унiверситетiв'})
-    else:
-        user.favourites.append(id)
-        produce_message(topic='send_email',
-                        partition={'user_email': user.email,
-                                   'subject': 'Enrollment assistant - Favourites',
-                                   'message': f'Унiверситет {id} додано до списку збережених унiверситетiв'})
-        messages.success(request, 'Унiверситет збережено')
-    user.save()
-    return HttpResponseRedirect(request.META['HTTP_REFERER'])
-
-
-@login_required
 def add_favourite(request, id):
     user = CustomUser.objects.get(id=request.user.id)
     user.favourites.append(id)
     messages.success(request, 'Унiверситет збережено')
     user.save()
+    send_result(user_email=user.email, text=f'Унiверситет {id} додано до списку збережених унiверситетiв')
     return HttpResponseRedirect(request.META['HTTP_REFERER'])
 
 
@@ -88,4 +70,5 @@ def remove_favourite(request, id):
     user.favourites.remove(id)
     messages.success(request, 'Унiверситет видалено')
     user.save()
+    send_result(user_email=user.email, text=f'Унiверситет {id} видалено зi списку збережених унiверситетiв')
     return HttpResponseRedirect(request.META['HTTP_REFERER'])

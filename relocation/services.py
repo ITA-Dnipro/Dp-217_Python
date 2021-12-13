@@ -1,6 +1,34 @@
 import json
 import os
 import requests
+from django.conf import settings
+from django.db.models import Q
+from .models import Housing, University, City, Region
+
+
+def get_tickets(tickets_data):
+    url = settings.TICKETS_SEARCH_URL
+    try:
+        response = requests.request("POST", url, data=tickets_data)
+        response.raise_for_status()
+    except requests.exceptions.RequestException:
+        return False
+
+    tickets = response.json()
+    return tickets
+
+
+def get_stations(stations_data):
+    url = settings.TICKETS_STATIONS_SEARCH_URL
+    data = json.dumps(stations_data)
+    try:
+        response = requests.request("POST", url, data=data)
+        response.raise_for_status()
+    except requests.exceptions.RequestException:
+        return False
+
+    tickets = response.json()
+    return tickets
 
 from django.db.models import Q
 

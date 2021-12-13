@@ -2,7 +2,11 @@
 {% load i18n i18n %}
 {% block content %}
 <div id="index-content">
-
+    {% if messages %}
+        {% for message in messages %}
+            <div class="alert alert-{{ message.tags }}">{{ message }}</div>
+        {% endfor %}
+    {% endif %}
     <div class="my-5 mx-4">
         <h4>
             <a href="/questioning">{% trans 'Тест з профорієнтації' %}</a>

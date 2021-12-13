@@ -1,3 +1,5 @@
+import urllib.parse
+
 from django import template
 from django.template.defaultfilters import stringfilter
 
@@ -21,3 +23,24 @@ def right_strip(value, arg=' '):
 @stringfilter
 def erase(value, arg):
     return value.replace(arg, '')
+
+
+@register.filter
+@stringfilter
+def encode_to_url(value):
+    return urllib.parse.quote_plus(value)
+
+
+@register.filter
+@stringfilter
+def replace(value, arg):
+    """
+    Usage:
+    {{ "abc"|replace:"a|b" }}
+    """
+    args = arg.split('|')
+    if len(arg.split('|')) != 2:
+        return value
+
+    return value.replace(args[0], args[1])
+

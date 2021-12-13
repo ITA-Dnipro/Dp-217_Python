@@ -38,6 +38,7 @@ ALLOWED_HOSTS = ['dp-217.herokuapp.com', '127.0.0.1']
 # Application definition
 
 INSTALLED_APPS = [
+    'dbbackup',
     'modeltranslation',
     'django_crontab',
     'questioning',
@@ -66,6 +67,9 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = 'enrollment_assistant.urls'
+
+DBBACKUP_STORAGE = 'django.core.files.storage.FileSystemStorage'
+DBBACKUP_STORAGE_OPTIONS = {'location': BASE_DIR + '/db_backup/'}
 
 TEMPLATES = [
     {
