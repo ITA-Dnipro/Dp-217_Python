@@ -15,12 +15,6 @@ class QuestioningTest(TestCase):
     def setUp(self):
         self.client = Client()
 
-    def test_questioning(self):
-        response = self.client.get('/questioning/')
-        self.assertEqual(response.status_code, 200)
-        with self.assertTemplateUsed('questioning.html'):
-            render_to_string('questioning.html')
-
     def test_questioning_ajax(self):
         response = self.client.get('/questioning/')
         self.assertEqual(response.status_code, 200)
@@ -222,7 +216,8 @@ class GenResultsTestCase(TestCase):
                                             ['Ландшафтний дизайнер', ' Фотограф', ' Кінолог', ' Ветеринар', ' Агроном',
                                              ' Еколог', ' Технолог харчової промисловості'],
                                         'study_fields':
-                                            [['Посилання на пошук:', ''], ['09 Біологія', '09_Біологія'],
+                                            [['Посилання на пошук:', ''],
+                                             ['09 Біологія', '09_Біологія'],
                                              ['10 Природничі науки', '10_Природничі_науки'],
                                              ['16 Хімічна та біоінженерія', '16_Хімічна_та_біоінженерія'],
                                              ['20 Аграрні науки та продовольство', '20_Аграрні_науки_та_продовольство'],
@@ -258,20 +253,22 @@ class GenResultsTestCase(TestCase):
                                                          ['08 Право', '08_Право'],
                                                          ['23 Соціальна робота', '23_Соціальна_робота'],
                                                          ['24 Сфера обслуговування', '24_Сфера_обслуговування'], [
-                                                             '25 Воєнні науки, національна безпека, безпека державного кордону',
-                                                             '25_Воєнні_науки,_національна_безпека,_безпека_державного_кордону'],
+                                                             '25 Воєнні науки, національна безпека, '
+                                                             'безпека державного кордону',
+                                                             '25_Воєнні_науки,_національна_безпека,'
+                                                             '_безпека_державного_кордону'],
                                                          ['26 Цивільна безпека',
                                                           '26_Цивільна_безпека'], [
                                                              '28 Публічне управління і адміністрування',
                                                              '28_Публічне_управління_і_адміністрування'],
                                                          ['29 Міжнародні відносини',
                                                           '29_Міжнародні_відносини']],
-                                        'id': 'cat_3_0'}], 'id': 42,
+                                        'id': 'cat_3_0'}], 'id': result_id,
                         'url': '72f126da7df6798cd22c5bb5d6aab5d7', 'type': 'Тест на визначення профорієнтації',
                         'short': 1}]
-
+        results = {'1': 5, '2': 5, '3': 5, '4': 2, '5': 2}
         answer = gen_results(
-            [{'results': str(RESULTS), 'created_date': timezone.now(), 'url': url, 'id': result_id, 'type': q_type}])
+            [{'results': str(results), 'created_date': timezone.now(), 'url': url, 'id': result_id, 'type': q_type}])
         self.assertEqual(answer, test_answer)
 
 
@@ -312,7 +309,7 @@ def get_answer(result_id, created_date, url):
         data['name'] = f"Людина - {data['name']}"
         data['examples'] = data.pop('professions')
         data['description'] = data.pop('desc')
-        answer['categories'].append({'info': data, 'points': answers_list[str(index+1)],'max_points': 8 })
+        answer['categories'].append({'info': data, 'points': answers_list[str(index + 1)], 'max_points': 8})
     return [answer]
 
 
@@ -352,7 +349,7 @@ class GetTopNResultsTestCase(TestCase):
         cur_results = {'1': 4, '2': 6, '3': 6, '4': 2, '5': 3}
         result_id, created_date, user_id, url = create_test_result(cur_results)
         test_answer = get_generated_user_results(user_id)
-        test_answer=get_top_n_results(test_answer)
+        test_answer = get_top_n_results(test_answer)
         answer = [
             {'categories':
                  [{'info':
@@ -395,7 +392,7 @@ class GetTopNResultsTestCase(TestCase):
                        '12': 3, '13': 30, '14': 20, '15': 10, '16': 3, '17': 5, '18': 2, '19': 0}
         result_id, created_date, user_id, url = create_test_result(cur_results, 3, 'sadasdsa')
         test_answer = get_generated_user_results(user_id)
-        test_answer=get_top_n_results(test_answer)
+        test_answer = get_top_n_results(test_answer)
         answer = [
             {'categories':
                  [{'info':

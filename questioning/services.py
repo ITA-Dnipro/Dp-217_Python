@@ -78,7 +78,7 @@ def save_questioning_results(user_id, results, test_type):
 
 def get_fields_links(study_fields, item, question_type):
     fields = [SEARCH_LINK]
-    for study_field in study_fields.filter(category_id=item):
+    for study_field in study_fields.filter(category_id=item).order_by('id'):
         if question_type != HOLAND_QUESTION_TYPE:
             name = study_field.field_id.name
             link = name.replace(' ', '_')

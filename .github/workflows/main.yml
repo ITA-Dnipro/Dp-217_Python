@@ -28,8 +28,10 @@ jobs:
         - name: Test
           run: |
             python manage.py makemigrations
-            python manage.py migrate
-            python manage.py test --noinput
+
+            python manage.py test
+
+
         - name: Deploy to Heroku
           env:
             HEROKU_API_TOKEN: ${{ secrets.HEROKU_API_TOKEN }}
