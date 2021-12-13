@@ -11,11 +11,18 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 """
 import sys
 import os
+import logging
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 # BASE_DIR = Path(__file__).resolve().parent.parent
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+STATICFILES_DIRS = (
+    os.path.join(BASE_DIR, 'static'),
+    os.path.join(BASE_DIR, '/static/'),
+)
+STATIC_URL = '/static/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
@@ -24,9 +31,9 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'django-insecure-3ocig*9(+84i-05^=s9aate*&1*8m@1p476!!&cs)jdb=&o89e'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = os.environ.get('DEBUG', True)
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['dp-217.herokuapp.com', '127.0.0.1']
 
 # Application definition
 
@@ -56,6 +63,7 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'enrollment_assistant.middlewares.CustomMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
 ]
 
 ROOT_URLCONF = 'enrollment_assistant.urls'
@@ -88,15 +96,20 @@ WSGI_APPLICATION = 'enrollment_assistant.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': os.environ.get('DB_NAME'),
-        'USER': os.environ.get('DB_USER'),
-        'PASSWORD': os.environ.get('DB_PASS'),
-        'HOST': os.environ.get('DB_HOST', 'localhost'),
-        'PORT': os.environ.get('DB_PORT', '5432'),
+        'NAME': os.environ.get('DB_NAME', 'defaultdb'),
+        'USER': os.environ.get('DB_USER', 'doadmin'),
+        'PASSWORD': os.environ.get('DB_PASS', 'FFGCBPpDg7ToDr2h'),
+        'HOST': os.environ.get('DB_HOST', 'db-postgresql-fra1-83848-do-user-10341772-0.b.db.ondigitalocean.com'),
+        'PORT': os.environ.get('DB_PORT', '25060'),
     }
 }
+if os.environ.get('DATABASE_URL') and not DEBUG:
+    import dj_database_url
 
-KAFKA_SERVER = os.environ.get('KAFKA_SERVER', "'localhost:9092")
+    db_from_env = dj_database_url.config(conn_max_age=500)
+    DATABASES['default'].update(db_from_env)
+
+KAFKA_SERVER = os.environ.get('KAFKA_SERVER', "localhost:9092")
 
 # Password validation
 # https://docs.djangoproject.com/en/3.2/ref/settings/#auth-password-validators
@@ -143,12 +156,7 @@ LOCALE_PATHS = (
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
-STATICFILES_DIRS = (
-    os.path.join(BASE_DIR, 'static'),
-    os.path.join(BASE_DIR, '/static/'),
-)
-
-STATIC_URL = '/static/'
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
@@ -175,8 +183,12 @@ AUTHENTICATION_BACKENDS = ['users.backends.EmailUsernameBackend']
 # Redirect to home URL after login
 LOGIN_REDIRECT_URL = '/'
 
-# Redirect emails to console
-EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+# Redirect emails for changing password
+EMAIL_BACKEND = 'enrollment_assistant.mail_back.EmailBackend'
+
+# Interaction with mailing microservice
+MAILING_SERVICE_URL = os.environ.get('MAILING_SERVICE_URL', 'http://127.0.0.1:5000')
+MAILING_SEND_URL = MAILING_SERVICE_URL + '/mailing'
 
 # Interaction with tickets microservice
 TICKETS_SERVICE_URL = os.environ.get('TICKETS_SERVICE_URL', 'http://127.0.0.1:5000')
@@ -187,9 +199,12 @@ TICKETS_STATIONS_SEARCH_URL = TICKETS_SERVICE_URL + '/stations'
 CACHES = {
     "default": {
         "BACKEND": "django_redis.cache.RedisCache",
-        "LOCATION": "redis://127.0.0.1:6379/0",
+        "LOCATION": os.environ.get('REDIS_URL', "redis://127.0.0.1:6379/0"),
         "OPTIONS": {
             "CLIENT_CLASS": "django_redis.client.DefaultClient",
         }
     }
 }
+
+LOGGER = logging.getLogger()
+TOPIC_SEND_MAIL = 'send_mail'

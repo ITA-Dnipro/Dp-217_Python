@@ -24,3 +24,4 @@ class CustomUser(AbstractUser):
     email = models.EmailField(unique=True)
     deletion_request_date = models.DateTimeField(null=True)
     favourites = ArrayField(models.CharField(max_length=10, blank=True), default=list)
+    is_interested_in_relocation = models.BooleanField(default=False)
