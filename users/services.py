@@ -7,4 +7,3 @@ def send_result(user_email, text):
                             'subject': 'Enrollment assistant - Favourites',
                             'text': text}]}
     produce_message(settings.TOPIC_SEND_MAIL, partition)
-    
